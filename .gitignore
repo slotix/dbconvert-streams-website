@@ -2,3 +2,4 @@ node_modules
 .temp
 .cache
 lunr_index.js
+dist
