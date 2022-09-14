@@ -31,7 +31,7 @@ export default defineConfig({
   lastUpdatedText: 'Updated Date',
   themeConfig: {
     siteTitle: 'DBConvert Stream',
-    logo: '/dbconvert-stream-logo.svg',
+    logo: '/images/dbconvert-stream-logo.svg',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Usage', link: '/usage' },

@@ -9,7 +9,7 @@ hero:
   text: Event driven replication for databases
   tagline: Powerful and performant. Meet data integration and streaming distributed platform to replicate data between databases. 
   image:
-    src: /dbconvert-stream-logo.svg
+    src: /images/dbconvert-stream-logo.svg
     alt: DBConvert Stream
   actions:
     - theme: brand
