@@ -64,11 +64,11 @@ export default defineConfig({
       }
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'github', link: 'https://github.com/slotix/dbconvert-stream-docs' },
       { icon: 'twitter', link: '...' },
     ],
     editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+      pattern: 'https://github.com/slotix/dbconvert-stream-docs/edit/main/docs/:path',
       text: 'Edit this page on GitHub'
     },
     footer: {

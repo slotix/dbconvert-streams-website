@@ -17,7 +17,7 @@ hero:
       link: /guide/what-is-dbconvert-stream
     - theme: alt
       text: View on GitHub
-      link: https://github.com/vuejs/vitepress
+      link: https://github.com/slotix/dbconvert-stream-docs
 features:
   - icon: ♾️
     title: Continuous processing
