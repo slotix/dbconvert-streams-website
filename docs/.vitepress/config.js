@@ -10,12 +10,12 @@ export default defineConfig({
   head: [
     [
       'script', //id: 'G-0VERWKD2YW'
-      { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX' }
+      { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-0VERWKD2YW' }
     ],
     [
       'script',
       {},
-      "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-XXXXXXXXXX');"
+      "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-0VERWKD2YW');"
     ],
     ['link', { rel: "apple-touch-icon", sizes: "180x180", href: "/assets/favicons/apple-touch-icon.png"}],
     ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "/assets/favicons/favicon-32x32.png"}],
