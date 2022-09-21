@@ -28,14 +28,18 @@ features:
   - icon: ☁️
     title: Fully Scalable
     details: Cloud-first distributed platform.
+  # - icon: 
+  #   title: Smooth Schema Mapping
+  #   details: Fully-managed Automated Schema Management for incoming data with the desired destination.
   - icon: 📈
     title: Monitoring
     details: Real-time data monitoring.
+  
 ---
 
 
 <!-- <script setup>
 import Counter from './components/Counter.vue'
-</script> -->
-<!-- <Counter/> -->
+</script>
+<Counter/> -->
 

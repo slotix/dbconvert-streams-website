@@ -50,15 +50,17 @@ export default defineConfig({
         collapsible: true,
         items: [
           { text: 'What is DBConvert Stream?', link: '/guide/what-is-dbconvert-stream' },
-          { text: 'Getting Started', link: '/guide/getting-started' }
+          { text: 'Getting Started', link: '/guide/getting-started' },
+          { text: 'API', link: '/guide/api' }
         ]
       },
       {
         text: 'Sources',
         collapsible: true,
         items: [
-          { text: 'MySQL CDC', link: '/sources/mysql/' },
-          { text: 'PostgreSQL CDC', link: '/sources/postgresql/' },
+          { text: 'What is Change Data Capture?', link: '/sources/what-is-cdc' },
+          { text: 'MySQL/ MariaDB CDC Reader', link: '/sources/mysql/' },
+          { text: 'PostgreSQL CDC Reader', link: '/sources/postgresql/' },
           
         ]
       }
