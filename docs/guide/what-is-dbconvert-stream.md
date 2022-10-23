@@ -7,6 +7,9 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+
+This section of documentation provides an introduction to the DBConvert Stream for new and prospective users.
+
 ![high-level diagram of DBConvert Stream architecture](/images/dbconvert-stream-high-level-diagram.png)
 
 DBConvert Stream is a data integration and streaming distributed platform to replicate data between databases. 
@@ -20,7 +23,7 @@ DBConvert Stream platform outputs its internal metrics in Prometheus format to e
 
 DBConvert Stream's *Database Readers* don't have to wait for a database to completely ingest and index new data before reading it.
 
-DBConvert Stream uses technology known as Change Data Capture (CDC) to capture row-level stream of **Insert, Update, and Delete Events** from the database transaction log and publishes it to the **Event Bus subsystem**.
+DBConvert Stream uses technology known as Change Data Capture (CDC) to capture row-level stream of **Insert, Update, and Delete Events** from the database transaction log and publishes it to the **Event Hub**.
 
 
 ![Transaction Log Change Data Capture](/images/log-cdc.png)
@@ -54,7 +57,7 @@ Replicating INSERT statements for One Million rows takes about 12 seconds.
 
 ## Delivering data
 
-Along with getting new events from the sources, Event Bus delivers a data stream to all consumers (destinations) simultaneously, subscribed to the current job.
+Along with getting new events from the sources, Event Hub delivers a data stream to all consumers (destinations) simultaneously, subscribed to the current job.
 DBConvert Stream can write continuously to either MySQL or Postgres target databases.
 
 ### Horizontal Scaling of services.
@@ -63,5 +66,8 @@ Running multiple instances of "destination processing service", improves overall
 Destinations are defined and configured via a simple set of properties in `JSON` format. 
 
 
-
 DBConvert Stream has been architected from the ground up to scale.
+
+
+
+Follow the instructions in [Install DBConvert Stream Platform.](/guide/install)

@@ -12,7 +12,9 @@
     "docs:serve": "vitepress serve docs"
   },
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.13",
-    "vue": "^3.2.38"
+    "vitepress": "^1.0.0-alpha.20",
+    "vue": "^3.2.40",
+    "vitepress-plugin-search": "^1.0.4-alpha.11",
+    "markdown-it": "^13.0.1"
   }
 }

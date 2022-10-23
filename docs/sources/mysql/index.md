@@ -1,6 +1,6 @@
 ---
 title: DBConvert-stream - Usage
-description: Counter
+description: MySQL
 layout: doc
 lastUpdated: true
 ---

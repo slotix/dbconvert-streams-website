@@ -1,4 +1,4 @@
-// import { SearchPlugin } from 'vitepress-plugin-search';
+import { SearchPlugin } from 'vitepress-plugin-search';
 import { defineConfig } from "vite";
 
 
@@ -49,9 +49,12 @@ export default defineConfig({
         text: 'Guide',
         collapsible: true,
         items: [
+          { text: 'Introduction', link: '/guide/introduction' },
           { text: 'What is DBConvert Stream?', link: '/guide/what-is-dbconvert-stream' },
+          { text: 'Install', link: '/guide/install' },
           { text: 'Getting Started', link: '/guide/getting-started' },
-          { text: 'API', link: '/guide/api' }
+          { text: 'API Reference', link: '/guide/api' },
+          { text: 'Statuses', link: '/guide/status' }
         ]
       },
       {
@@ -59,11 +62,20 @@ export default defineConfig({
         collapsible: true,
         items: [
           { text: 'What is Change Data Capture?', link: '/sources/what-is-cdc' },
-          { text: 'MySQL/ MariaDB CDC Reader', link: '/sources/mysql/' },
-          { text: 'PostgreSQL CDC Reader', link: '/sources/postgresql/' },
-          
+          { text: 'Source configuration.', link: '/sources/source-config' },
+          { text: 'Generic MySQL/ MariaDB CDC Reader', link: '/sources/mysql/' },
+          { text: 'Generic PostgreSQL CDC Reader', link: '/sources/postgresql/' }
         ]
-      }
+      },
+      {
+        text: '',
+        collapsible: false,
+        items: [
+          { text: 'Glossary', link: '/glossary' }
+        ]
+      },
+      
+      
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/slotix/dbconvert-stream-docs' },
@@ -77,7 +89,7 @@ export default defineConfig({
       message: 'DBConvert Stream - event driven replication for databases',
       copyright: 'Copyright © 2022 Slotix s.r.o.'
     },
-    // plugins: [SearchPlugin()],
+    plugins: [SearchPlugin()],
     // algolia: {}
   }
 });
