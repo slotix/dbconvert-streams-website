@@ -3,9 +3,4 @@ node_modules
 .cache
 lunr_index.js
 dist
-yarn-error.log
-package-lock.json
-yarn-error.log
-yarn.lock
-yarn-error.log
-yarn.lock
+
