@@ -24,6 +24,9 @@ Refer to the API Reference to find information about the different endpoints tha
 
 Read more at https://app.swaggerhub.com/apis-docs/slotix/db-convert_stream_api_server/1.0
 
+or 
+
+https://redocly.github.io/redoc/?url=https://stream.dbconvert.com/assets/api/swagger-api.yaml
 
 <!-- <script setup>
     import SwaggerUI from '../components/SwaggerUI.vue'

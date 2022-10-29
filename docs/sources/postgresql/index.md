@@ -19,6 +19,13 @@ Incoming INSERT, UPDATE and DELETE events from WAL transaction logs are decoded 
 
 Data change Events consumed from [logical decoding stream](https://www.postgresql.org/docs/current/protocol-replication.html) are then sent to the DBConvert Event Hub.
 
+Read article [PostgreSQL Change data capture (CDC)](https://dbconvert.com/blog/postgresql-change-data-capture-cdc/) in our blog for deeper understanding of Postgres CDC.
+
+### Supported Databases.
+PostgreSQL Reader supports the following databases:
+- PostgreSQL 10 and higher. 
+- CockroachDB
+
 
 ## PostgreSQL server configuration.
 
@@ -125,7 +132,7 @@ General config options like *type* and *filter/tables* are described in [Source 
 
 Specify source table names as `<schema>.<table>` to return changed data from a table located in other than _Public_ schema.
 
-## PostgreSQL related configuration options.
+## PostgreSQL specific options.
 
 
 ### Connection parameter.
@@ -170,7 +177,7 @@ See http://www.postgresql.org/docs/11/static/libpq-envars.html for details on th
 
 See https://www.postgresql.org/docs/11/libpq-connect.html#LIBPQ-PARAMKEYWORDS for parameter key word names. They are usually but not always the environment variable name downcased and without the "PG" prefix.
 
-### SSL Connection settings.
+### TLS/SSL Connection settings.
 
 To enable SSL encrypted connection specify SSL parameters in the connection string like so:
 
@@ -186,9 +193,9 @@ postgres://postgres:passw0rd@postgres.host.com:5432/mydb?sslmode=verify-ca&sslro
 
 ### Other PostgreSQL params. (optional)
 
-By default you don't need to specify `replicationSlotName` and `publicationName` parameters expicitely. They are created automatically when the Postgres reader starts. However if you want to customize names of [Replication Slot](https://www.postgresql.org/docs/14/warm-standby.html#STREAMING-REPLICATION-SLOTS-MANIPULATION) name and [Publication Name](https://www.postgresql.org/docs/14/sql-createpublication.html) add corresponded parameters to the source configuration. 
+By default you don't need to specify `replicationSlotName` and `publicationName` parameters explicitely. They are created automatically when the Postgres reader starts. However if you want to customize names of [Replication Slot](https://www.postgresql.org/docs/14/warm-standby.html#STREAMING-REPLICATION-SLOTS-MANIPULATION) name and [Publication Name](https://www.postgresql.org/docs/14/sql-createpublication.html) add corresponded parameters to the source configuration. 
 
 | property       | type | default value| description                                                                                            |
 |------|----------|------|------|
 |replicationSlotName| string | `dbconvert_replication_slot`|The name of the replication slot to create. Replication slot make PostgreSQL CDC available.|
-|publicationName |string |`dbconvert-publication` |A publication is a set of changes generated from a table or a group of tables.
+|publicationName |string |`dbconvert-publication` |A publication is essentially a group of tables whose data changes are intended to be replicated through logical replication. 

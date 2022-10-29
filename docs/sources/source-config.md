@@ -6,7 +6,9 @@ lastUpdated: true
 ---
 # {{ $frontmatter.title }}
 
-In this section general information about source configuration options will be provided. Some specific configuration options for different sources types will be described in corresponding sections.
+DBConvert Stream readers collects data from external sources such as MySQL, PostgreSQL and writes collected events to a Target system of your choice.
+
+In this section general information about source configuration options is provided. Some specific configuration options for different sources types are described in corresponding sections.
 
 Here is an example JSON configuration object.
 
@@ -32,7 +34,9 @@ Here is an example JSON configuration object.
 | connection     | string | Connection parameters.                                                                                 |
 | settings       | - | Settings are unique for each source type. More information about settings can be found in corresponded documentation sections. |
 | filter/ tables | object | The table(s) for which to return change data. Tables must have primary keys (required for logical replication).       |
-| operations | enum | Set of Change Data Capture types of events to track. |
+| operations | enum | Set of Change Data Capture types ("insert", "update", "delete") of events to track. |
+
+
 
 
 

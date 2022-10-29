@@ -41,7 +41,7 @@ Sources are defined and configured via a simple set of properties in `JSON` form
 
 ### "CREATE Table" Translation between SQL dialects
 
-DBConvert Stream can automatically convert the `CREATE Table` DDL statements between MySQL and PostgreSQL. Thus, there is no need to worry about manual type conversion of MySQL and Postgres databases. If the destination does not have a corresponded table, the original script will be translated into the appropriate dialect and the new table will be created on the target.
+DBConvert Stream can automatically convert the `CREATE Table` DDL statements between MySQL and PostgreSQL. Thus, there is no need to worry about manual type conversion of MySQL and Postgres databases. If the target does not have a corresponded table, the original structure will be translated into the appropriate dialect and the new table will be created on the target.
 
 
 ### Consistency and Concurrency

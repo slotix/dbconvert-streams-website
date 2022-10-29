@@ -1,6 +1,6 @@
 ---
 title: What is change data capture (CDC)?
-description: CDC- whats is change data capture?
+description: CDC - whats is change data capture?
 layout: doc
 lastUpdated: true
 ---
@@ -18,3 +18,6 @@ DBConvert Stream extracts data changes from transaction logs in real-time in ord
 All of the database readers discussed in this Change Data Capture Guide capture change data by reading logs.
 
 See the [Change data capture article](https://dbconvert.com/blog/change-data-capture-cdc-what-it-is-and-how-it-works/#transaction-log-cdc) in our blog for an overview.
+
+
+Change Data Capture (CDC) technology is used in Source readers described in the next sections.

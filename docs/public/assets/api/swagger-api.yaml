@@ -58,7 +58,7 @@ components:
               type: string
               example: dbconvert_replication_slot
             publicationName: 
-              description: "*PostgreSQL only.* A publication is a set of changes generated from a table or a group of tables."
+              description: "*PostgreSQL only.* A publication is essentially a group of tables whose data changes are intended to be replicated through logical replication."
               type: string
               example: dbconvert-publication
             flavor:

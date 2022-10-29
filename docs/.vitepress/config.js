@@ -63,8 +63,18 @@ export default defineConfig({
         items: [
           { text: 'What is Change Data Capture?', link: '/sources/what-is-cdc' },
           { text: 'Source configuration.', link: '/sources/source-config' },
-          { text: 'Generic MySQL/ MariaDB CDC Reader', link: '/sources/mysql/' },
-          { text: 'Generic PostgreSQL CDC Reader', link: '/sources/postgresql/' }
+          { text: 'MySQL/ MariaDB CDC Reader', link: '/sources/mysql/' },
+          { text: 'PostgreSQL CDC Reader', link: '/sources/postgresql/' }
+        ]
+      },
+      {
+        text: 'Targets',
+        collapsible: true,
+        items: [
+          { text: 'Conversion of tables structures.', link: '/targets/translate-ddl' },
+          { text: 'Target configuration.', link: '/targets/target-config' },
+          { text: 'MySQL/ MariaDB Writer', link: '/targets/mysql/' },
+          { text: 'PostgreSQL Writer', link: '/targets/postgresql/' }
         ]
       },
       {
