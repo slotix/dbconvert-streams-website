@@ -4,13 +4,14 @@ description: Configure sources for DBConvert Stream.
 layout: doc
 lastUpdated: true
 ---
+
 # {{ $frontmatter.title }}
 
-DBConvert Stream readers collects data from external sources such as MySQL, PostgreSQL and writes collected events to a Target system of your choice.
+DBS readers collect data from external sources such as MySQL and PostgreSQL and write the collected events to the target system of your choice.
 
-In this section general information about source configuration options is provided. Some specific configuration options for different sources types are described in corresponding sections.
+This section provides general information about source configuration options. Some specific configuration options for different source types are described in the relevant sections.
 
-Here is an example JSON configuration object.
+Here is an example of a JSON source config object.
 
 ```JSON
 "source": {
@@ -28,15 +29,10 @@ Here is an example JSON configuration object.
   }
 ```
 
-| property       | type | description                                                                                            |
-|----------------|-------------------------|-------------------------------------------------------------------------------------------------------|
-| type           | string | Source type. It can be either mysql or postgresql.                                                                  |
-| connection     | string | Connection parameters.                                                                                 |
-| settings       | - | Settings are unique for each source type. More information about settings can be found in corresponded documentation sections. |
-| filter/ tables | object | The table(s) for which to return change data. Tables must have primary keys (required for logical replication).       |
-| operations | enum | Set of Change Data Capture types ("insert", "update", "delete") of events to track. |
-
-
-
-
-
+| property       | type   | description                                                                                                                       |
+| -------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| type           | string | Source type. It can be either `mysql` or `postgresql`.                                                                            |
+| connection     | string | Connection settings. See the relevant sections for specific data sources.                                                         |
+| settings       | -      | The settings are unique for each source type. Find more details about the settings in the relevant sections of the documentation. |
+| filter/ tables | object | Tables for which change data is returned. Tables must have primary keys (required for logical replication).                       |
+| operations     | enum   | A set of Change Data Capture types (insert, update, delete) of events to track.                                                   |

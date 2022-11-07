@@ -4,40 +4,48 @@ description: How to get started with DBConvert Stream.
 layout: doc
 lastUpdated: true
 ---
+
 # {{ $frontmatter.title }}
 
+Once you have installed DBConvert Stream, you can explore other documentation sections to understand the general concepts or try DBS yourself.
 
-Once you installed DBConvert Stream, you may explore other Documentation sections on your own to understand general concepts, or try DBConvert Stream yourself.
+### What is a data stream?
 
-### What is data stream?
-A _Data Stream_ is a sequence of actions that continuously collects data from sources and transfers it to targets. Stream processing enables the Real-time movement of data.
+A _Data Stream_ is a sequence of actions that continuously collects data from sources and transmits it to targets. Stream
+processing allows you to move data in real-time.
 
-_Data Stream configuration_ describes how data streams are set up to collect, flow and delivery of data. 
+_Data Stream configuration_ is a set of source and target connection parameters and other options for collecting, transmitting, and delivering data.
 
-## DBConvert Stream Architecture.
+## DBConvert Stream (DBS) Architecture.
 
-DBConvert Stream consists of several components running on your hardware or deployed in a multi-server cluster on one or more virtual machines.
+DBConvert Stream consists of several components running on your hardware or deployed in one
+or multiple virtual machines in a cloud.
 
-### DBConvert Stream services
-- **API Server** is used to create new streams (pipelines), manage and get statistics about existing streams.
-- **Source Reader** continuously collects data  from your repository of data. Ingested data is passed to Event Hub to be consumed by Target Writers. 
-- **Target Writer** subscribes to events in Event Hub. Target Writer writes consumed Events (database records) continuously to either MySQL or Postgres target databases. 
+### DBS components
 
-### Other services:
-- **NATS** is the core component of Event Hub service thas is used to connect Source Readers with Target Writer. 
-- **Prometheus** is responsible for monitoring statistics about streams.
+- **API Server** is used to create new streams (pipelines), manage them, and get their statistics.
+- **Source Reader** continuously collects events from the specified data source. The received data is then passed to the DBS Event Hub for consumption by target writers.
+- **Target Writer** subscribes to the specified data stream in the event hub. The Target Writer writes received events (database records) to the target as soon as they arrive.
 
+### Other components
+
+- **NATS** is the core component of the Event Hub service that connects Source Readers with Target Writer.
+- **Prometheus** is responsible for monitoring streams' statistics.
 
 ## Using API
 
-API Server is used to automate all tasks that you perform with streams like create a new stream, get stream configuration, statistics, stop stream.
+API Server is used to perform the following _data stream_ tasks:
 
-DBConvert Stream API is organized around REST. It uses HTTP requests to access and use data, accepts JSON request bodies, returns JSON responses.
+- creating a new stream,
+- getting stream configuration,
+- getting statistics,
+- stopping streams.
 
+DBConvert Stream API is based on REST. It uses HTTP requests to access and use data, accepts JSON request bodies, and returns JSON responses.
 
 ### Stream Configuration.
 
-Typical stream configuration is a JSON object looks like this:
+A typical stream configuration is a JSON object that looks like this:
 
 ```json
 {
@@ -62,53 +70,50 @@ Typical stream configuration is a JSON object looks like this:
     "connection": "postgres://postgres:postgres@localhost:5432/destination?sslmode=verify-ca&sslrootcert=../../config/postgresql/certs/ca.crt&sslkey=../../config/postgresql/certs/client.key&sslcert=../../config/postgresql/certs/client.crt"
   },
   "limits": {
-    "events": 10000,
-    "time": 600
+    "numberOfEvents": 10000,
+    "elapsedTime": 600
   }
 }
 ```
 
 ### Source.
-In DBConvert Stream readers collect data from external sources such as MySQL/ MariaDB binary log (binlog), PostgreSQL/ CockroachDB logical replication slot.
+
+In DBConvert Stream, readers collect data from external sources such as MySQL/MariaDB binary log (binlog), PostgreSQL/CockroachDB logical replication slot.
 
 Source adapter configuration consists of the following properties:
 
-| property       | description                                                                                                                    |
-|----------------|--------------------------------------------------------------------------------------------------------------------------------|
-| type           | represents source type. It can be either mysql or postgresql.                                                                  |
-| connection     | string representing the connection parameters.                                                                                 |
-| settings       | settings are unique for each source type. More information about settings can be found in corresponded documentation sections. |
-| filter/ tables | restricts capture of source data to specific tables.                                                                           |                                                  
-
-
+| property       | description                                                                                                                                  |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| type           | represents the source type. It can be MySQL or PostgreSQL.                                                                                   |
+| connection     | a string representing the connection parameters.                                                                                             |
+| settings       | settings are unique for each source type. Find information about the settings for each source type in the documentation's relevant sections. |
+| filter/ tables | specified source data tables to capture.                                                                                                     |
 
 ### Target.
-In DBConvert Stream writers send data to external targets such as MySQL and PostgreSQL databases.
-| property   | description                                                   |
-|------------|---------------------------------------------------------------|
-| type       | represents target type. It can be either mysql or postgresql. |
-| connection | string representing the connection parameters.                |
 
+In DBConvert Stream, writers send data to external targets such as MySQL and PostgreSQL databases.
+| property | description |
+|------------|---------------------------------------------------------------|
+| type | represents the target type. It can be MySQL or PostgreSQL. |
+| connection | string representing the connection parameters. |
 
 ### Limits.
 
-By default, a new stream will work endlessly until it is stopped. 
+If no _limits_ are specified in a configuration, a started stream continues running until it is manually stopped from API.
 
-If limits parameters are specified, the stream will be stopped immediately after reaching on of them: 
+Otherwise, a stream stops immediately after reaching one of the following limits, whichever limit is reached first:
 
-| property | description                                                                         |
-|----------|-------------------------------------------------------------------------------------|
-| events   | specified number of events captured from the source.  |
-| time     | the time elapsed since starting is reached.|
-
+| property       | description                                                    |
+| -------------- | -------------------------------------------------------------- |
+| numberOfEvents | the specified number of events captured from the source.       |
+| elapsedTime    | (in seconds). the elapsed time since startup has been reached. |
 
 ## Create a new Stream.
 
-First, let's create a new Stream from the configuration above. We are going to read incoming events from MySQL and stream them to Postgres database. Limits' parameters equal to zero or omitted limits section means no limits. 
+First, let's create a new Stream from the configuration below. We will read incoming events from MySQL and stream them to the Postgres database. Limit parameters equal to zero or omitted limit section means no limits.
 
-Theres are two ways available.
-
-First, you can send new stream configuration in a request body such as:
+There are two ways to create a new stream:
+First, you can send a new stream configuration in the request body like so:
 
 ```bash
 curl --request POST --url http://0.0.0.0:8020/api/v1/streams -H 'Content-Type:application/json' -d'{
@@ -133,20 +138,21 @@ curl --request POST --url http://0.0.0.0:8020/api/v1/streams -H 'Content-Type:ap
     "connection": "postgres://postgres:postgres@localhost:5432/destination?sslmode=verify-ca&sslrootcert=../../config/postgresql/certs/ca.crt&sslkey=../../config/postgresql/certs/client.key&sslcert=../../config/postgresql/certs/client.crt"
   },
   "limits": {
-    "events": 0,
-    "time": 0
+    "numberOfEvents": 0,
+    "elapsedTime": 0
   }
 }'
 ```
-or load a stream configuration directly from the file on the local disk.
 
+The second way is to load a stream configuration directly from a file on the local drive.
 
 ```bash
 curl --request POST --url http://127.0.0.1:8020/api/v1/streams?file=stream-config.json '
 ```
 
 ### Response.
-As a result status and configuration of the newly created stream, including the new stream ID are returned. 
+
+The response returns the status and configuration of the newly created thread, including the new thread ID.
 
 ```json
 {
@@ -161,38 +167,38 @@ As a result status and configuration of the newly created stream, including the 
 ```
 
 ## Stream status.
+
 Let's check the status of the current stream.
 
 ```bash
 curl --request GET --url http://127.0.0.1:8020/api/v1/streams/stat'
 ```
 
-as a result you can see something like this:
+As a result, you may see something like this:
+
 ```json
 {
-   "streamID":"2Fdj6JALDAm53S7Q4NxzH3sffzM",
-   "source":{
-      "counter":0,
-      "elapsed":"0s",
-      "started":"0001-01-01T00:00:00Z",
-      "status":"READY"
-   },
-   "target":{
-      "counter":0,
-      "elapsed":"0s",
-      "started":"0001-01-01T00:00:00Z",
-      "status":"READY"
-   }
+  "streamID": "2Fdj6JALDAm53S7Q4NxzH3sffzM",
+  "source": {
+    "counter": 0,
+    "elapsed": "0s",
+    "started": "0001-01-01T00:00:00Z",
+    "status": "READY"
+  },
+  "target": {
+    "counter": 0,
+    "elapsed": "0s",
+    "started": "0001-01-01T00:00:00Z",
+    "status": "READY"
+  }
 }
 ```
 
-`READY` state means that the stream is ready to capture changes in the source database and publish them to the event hub.
+The `READY` state indicates that the stream is ready to capture changes from the source database and publish them to the event hub.
 
+After registering the first event, such as an INSERT, UPDATE, or DELETE record in the source database, the source and target statuses will change to `RUNNING.`
 
-Since registering the first event like INSERT, UPDATE or DELETE record in the source database, statuses of source and target will be changed to `RUNNING`.
-
-
-If you check the status right now you will see something like this:
+If you [check the status](#stream-status) right now, you will see something like this:
 
 ```JSON
 {
@@ -215,27 +221,28 @@ If you check the status right now you will see something like this:
 Find more information about all available [Statuses](/guide/status).
 
 ## Stop stream
-In order to stop the current stream you have to send DELETE request to the `streams` endpoint. 
+
+You must send a `DELETE` request to the `streams` endpoint to stop the current stream from executing.
 
 ```sh
 curl --request DELETE  --url http://0.0.0.0:8020/api/v1/streams
 ```
 
-API server returns the following response:
+The API server returns the following response:
 
 ```json
 {
-   "streamID":"2Fdj6JALDAm53S7Q4NxzH3sffzM",
-   "Source":{
-      "status":"STOPPED"
-   },
-   "Target":{
-      "status":"STOPPED"
-   }
+  "streamID": "2Fdj6JALDAm53S7Q4NxzH3sffzM",
+  "Source": {
+    "status": "STOPPED"
+  },
+  "Target": {
+    "status": "STOPPED"
+  }
 }
 ```
 
-Check stats once again.
+Recheck the stats.
 
 ```bash
 curl --request GET --url http://127.0.0.1:8020/api/v1/streams/stat'
@@ -259,4 +266,4 @@ curl --request GET --url http://127.0.0.1:8020/api/v1/streams/stat'
 }
 ```
 
-Elapsed time shows how much time it took since starting of the stream. Statuses of source and target changed to `STOPPED`.
+Elapsed time shows how much time has passed since starting of the stream. Source and target statuses changed to `STOPPED.`
