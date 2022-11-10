@@ -15,6 +15,7 @@
     "markdown-it": "^13.0.1",
     "vitepress": "^1.0.0-alpha.27",
     "vitepress-plugin-search": "^1.0.4-alpha.9",
-    "vue": "^3.2.40"
+    "vue": "^3.2.40",
+    "sitemap": "^7.1.1"
   }
 }
