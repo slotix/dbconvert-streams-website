@@ -8,7 +8,7 @@ const links = [];
 
 export default defineConfig({
   lang: "en-US",
-  title: "DBConvert Stream",
+  title: "DBConvert Stream Beta",
   description:
     "data integration and streaming distributed platform to replicate data between databases",
   cleanUrls: "with-subfolders",
@@ -61,19 +61,19 @@ export default defineConfig({
   lastUpdated: true,
   lastUpdatedText: "Updated Date",
   themeConfig: {
-    siteTitle: "DBConvert Stream",
+    siteTitle: "DBConvert Stream Beta",
     logo: "/images/dbconvert-stream-logo.svg",
     nav: [
-      { text: "Home", link: "/" },
-      { text: "Usage", link: "/usage" },
-      {
-        text: "Dropdown Menu",
-        items: [
-          { text: "Item A", link: "/item-1" },
-          { text: "Item B", link: "/item-2" },
-          { text: "Item C", link: "/item-3" },
-        ],
-      },
+      { text: "Blog", link: "https://dbconvert.com/blog/" },
+      //   { text: "Usage", link: "/usage" },
+      //   {
+      //     text: "Dropdown Menu",
+      //     items: [
+      //       { text: "Item A", link: "/item-1" },
+      //       { text: "Item B", link: "/item-2" },
+      //       { text: "Item C", link: "/item-3" },
+      //     ],
+      //   },
     ],
     sidebar: [
       {
@@ -124,11 +124,12 @@ export default defineConfig({
       },
     ],
     socialLinks: [
-      {
-        icon: "github",
-        link: "https://github.com/slotix/dbconvert-stream-docs",
-      },
-      { icon: "twitter", link: "..." },
+      // {
+      //   icon: "github",
+      //   link: "https://github.com/slotix/dbconvert-stream-docs",
+      // },
+      { icon: "facebook", link: "https://twitter.com/dbconvert" },
+      { icon: "twitter", link: "https://twitter.com/dbconvert" },
     ],
     editLink: {
       pattern:
