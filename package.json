@@ -7,15 +7,13 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "docs:dev": "vitepress dev docs",
+    "docs:dev": "./node_modules/.bin/vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
   },
   "devDependencies": {
-    "markdown-it": "^13.0.1",
-    "vitepress": "^1.0.0-alpha.27",
-    "vitepress-plugin-search": "^1.0.4-alpha.9",
-    "vue": "^3.2.40",
+    "vitepress": "^1.0.0-alpha.29",
+    "vue": "^3.2.45",
     "sitemap": "^7.1.1"
   }
 }

@@ -7,6 +7,8 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+
+
 The glossary contains an alphabetical list of terms you may encounter in the DBConvert Stream documentation. Click on a letter to jump to the corresponding section of the alphabet.
 
 ## A

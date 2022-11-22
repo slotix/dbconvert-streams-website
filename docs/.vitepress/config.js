@@ -1,8 +1,10 @@
-import { SearchPlugin } from "vitepress-plugin-search";
+// import { SearchPlugin } from "vitepress-plugin-search";
 import { createWriteStream } from "node:fs";
 import { resolve } from "node:path";
 import { SitemapStream } from "sitemap";
 import { defineConfig } from "vitepress";
+// import Components from "unplugin-vue-components/vite"
+// import { ArcoResolver } from "unplugin-vue-components/resolvers"
 
 const links = [];
 
@@ -120,7 +122,10 @@ export default defineConfig({
       {
         text: "",
         collapsible: false,
-        items: [{ text: "Glossary", link: "/glossary" }],
+        items: [
+          { text: "Glossary", link: "/glossary" },
+          { text: "DBS Releases", link: "/dbs-releases" },
+        ],
       },
     ],
     socialLinks: [
@@ -140,8 +145,18 @@ export default defineConfig({
       message: "DBConvert Stream - event driven replication for databases",
       copyright: "Copyright © 2022 Slotix s.r.o.",
     },
-    plugins: [SearchPlugin()],
-    // algolia: {}
+    plugins: [
+      // SearchPlugin({
+      // encode: false,
+      // tokenize: 'full'
+      // }),
+      // Components({
+      //   dirs: ['.vitepress/theme/Components'],
+      //   include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      //   resolvers: [ArcoResolver({ sideEffect: true, resolveIcons: true })]
+      // })
+    ],
+    // ssr: { noExternal: ['@arco-design/web-vue'] }
   },
   transformHtml: (_, id, { pageData }) => {
     if (!/[\\/]404\.html$/.test(id))
