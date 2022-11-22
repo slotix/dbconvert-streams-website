@@ -8,15 +8,16 @@ lastUpdated: true
 
 ## Version 0.5.0 
 November 22, 2022
+  
 We are excited to announce the release of DBConvert Stream 0.5.0! 
 This if the first public release of DBS that replicates data between MySQL and PostgreSQL.
 
 Choose the right release archive from the download  links below.
 
-[Linux AMD64](https://dbconvert.com/downloads/dbs/v0.5.0/dbs-v0.5.0-linux-amd64.zip)
+|  Operating System |  Architecture| Size  |Link|
+|-------------- | -------------- | -------------- | -------------- |
+| Linux | AMD64| 15.1 MB| [Download](https://dbconvert.com/downloads/dbs/v0.5.0/dbs-v0.5.0-linux-amd64.zip)|
+| Mac OS X | AMD64|15.8 MB| [Download](https://dbconvert.com/downloads/dbs/v0.5.0/dbs-v0.5.0-darwin-amd64.zip)|
+| Windows| AMD64|15.3 MB| [Download](https://dbconvert.com/downloads/dbs/v0.5.0/dbs-v0.5.0-windows-amd64.zip)|
+| Linux | ARM64|13.7 MB| [Download](https://dbconvert.com/downloads/dbs/v0.5.0/dbs-v0.5.0-linux-arm64.zip)|
 
-[Windows AMD64](https://dbconvert.com/downloads/dbs/v0.5.0/dbs-v0.5.0-windows-amd64.zip)
-
-[MacOS AMD64](https://dbconvert.com/downloads/dbs/v0.5.0/dbs-v0.5.0-darwin-amd64.zip)
-
-[Linux ARM64](https://dbconvert.com/downloads/dbs/v0.5.0/dbs-v0.5.0-linux-arm64.zip)

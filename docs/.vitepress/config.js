@@ -66,6 +66,7 @@ export default defineConfig({
     siteTitle: "DBConvert Stream Beta",
     logo: "/images/dbconvert-stream-logo.svg",
     nav: [
+      { text: "Download", link: "dbs-releases" },
       { text: "Blog", link: "https://dbconvert.com/blog/" },
       //   { text: "Usage", link: "/usage" },
       //   {
@@ -87,7 +88,7 @@ export default defineConfig({
             text: "What is DBConvert Stream?",
             link: "/guide/what-is-dbconvert-stream",
           },
-          { text: "Install", link: "/guide/install" },
+          { text: "Install DBS", link: "/guide/install" },
           { text: "Getting Started", link: "/guide/getting-started" },
           { text: "API Reference", link: "/guide/api" },
           { text: "Statuses", link: "/guide/status" },
