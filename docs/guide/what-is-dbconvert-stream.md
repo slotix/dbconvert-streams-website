@@ -1,6 +1,6 @@
 ---
-title: What is DBConvert Stream?
-description: What is DBConvert Stream data replication platform?
+title: What is DBConvert Streams?
+description: What is DBConvert Streams data replication platform?
 layout: doc
 lastUpdated: true
 ---
@@ -11,11 +11,11 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
-This documentation section introduces **DBConvert Stream**, also known as **DBS**, to new and prospective users.
+This documentation section introduces **DBConvert Streams**, also known as **DBS**, to new and prospective users.
 
-![high-level diagram of DBConvert Stream architecture](/images/dbconvert-stream-high-level-diagram.png)
+![high-level diagram of DBConvert Streams architecture](/images/dbconvert-stream-high-level-diagram.png)
 
-DBConvert Stream is a distributed data integration and streaming platform for data replication between databases.
+DBConvert Streams is a distributed data integration and streaming platform for data replication between databases.
 
 Database connection adapters collect data from and deliver data **continuously** to SQL and no-SQL databases, data warehouses, and files on your premises or in the clrud.
 
@@ -25,11 +25,11 @@ The DBS platform displays its internal metrics in Prometheus format to explore a
 
 *DBS Database Readers* don't have to wait for a database to entirely ingest and index new data before reading it.
 
-DBConvert Stream uses a technology known as *Change Data Capture (CDC)* to capture a row-level stream of **Insert, Update, and Delete events** from a database's transaction log and publish it to an **Event Hub**.
+DBConvert Streams uses a technology known as *Change Data Capture (CDC)* to capture a row-level stream of **Insert, Update, and Delete events** from a database's transaction log and publish it to an **Event Hub**.
 
 ![Transaction Log Change Data Capture](/images/log-cdc.png)
 
-DBConvert Stream currently supports the following sources:
+DBConvert Streams currently supports the following sources:
 
 - MySQL Binlog or MariaDB Binlog
 - PostgreSQL WAL or CockroachDB WAL
@@ -40,7 +40,7 @@ Sources are defined and configured using a simple set of properties in `JSON` fo
 
 ### Translation of "CREATE Table" DDL between SQL dialects
 
-DBConvert Stream can automatically convert DDL `CREATE Table` statements between MySQL and PostgreSQL. Thus, there is no need to worry about manual type conversion of MySQL and Postgres databases.
+DBConvert Streams can automatically convert DDL `CREATE Table` statements between MySQL and PostgreSQL. Thus, there is no need to worry about manual type conversion of MySQL and Postgres databases.
 
 If there is no corresponding table in the target, the source structure will be translated into the appropriate dialect, and then a new table will be created in the target.
 
@@ -67,6 +67,6 @@ Running multiple DBS Writers at the same time improves overall performance by se
 
 Destinations are defined and configured using a simple set of properties in `JSON` format.
 
-DBConvert Stream has been architected from the ground up to scale.
+DBConvert Streams has been architected from the ground up to scale.
 
-The very first step is to deploy/install DBS. Follow the instructions in [Installing DBConvert Stream.](/guide/install)
+The very first step is to deploy/install DBS. Follow the instructions in [Installing DBConvert Streams.](/guide/install)

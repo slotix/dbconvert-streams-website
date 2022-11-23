@@ -9,7 +9,7 @@ lastUpdated: true
 
 ![Transaction Log Change Data Capture](/images/postgresql/postgresql-cdc.png)
 
-DBConvert Stream ingests data from a PostgreSQL database via Write Ahead Logs (WALs) that collect data about changes made to a PostgreSQL server.
+DBConvert Streams platform ingests data from a PostgreSQL database via Write Ahead Logs (WALs) that collect data about changes made to a PostgreSQL server.
 
 DBS PostgreSQL Reader uses [Logical Replication](https://www.postgresql.org/docs/10/logical-replication.html) that was introduced in PostgreSQL 10 to capture changes in a Postgres database.
 
@@ -48,9 +48,9 @@ wal_sender_timeout=0
 | max_wal_senders       | 10      | `max_wal_senders` parameter specifies the maximum number of concurrent connections to the WAL, which is at least twice the number of logical replication slots. For example, if your database uses 5 replication slots, the `max_wal_senders` value must be 10 or greater. |
 | wal_sender_timeout    | 0       | Time in seconds, after which PostgreSQL terminates replication connections due to inactivity. Default value: 60 seconds. You should set the value to 0, so connections are never dropped, and a stream runs indefinitely.                                                  |
 
-You must whitelist the IP address of the _DBS source server_ to allow connection to the Postgres server from DBConvert Stream.
+You must whitelist the IP address of the _DBS source server_ to allow connection to the Postgres server from DBConvert Streams.
 
-In the `postgresql.conf` file, add _DBConvert Stream IP addresses_ or `*` for the `listen_addresses` parameter to allow connections from all IP addresses.
+In the `postgresql.conf` file, add _DBConvert Streams IP addresses_ or `*` for the `listen_addresses` parameter to allow connections from all IP addresses.
 
 ### PostgreSQL database configuration file.
 
@@ -73,7 +73,7 @@ Example:
 host    replication     all             127.0.0.1/0            trust
 ```
 
-Make sure you have _DBConvert Stream IPs_ or 0.0.0.0 to allow all IPs to connect.
+Make sure you have _DBConvert Streams IPs_ or 0.0.0.0 to allow all IPs to connect.
 
 ```
 host         all      <user>              0.0.0.0/0            md5

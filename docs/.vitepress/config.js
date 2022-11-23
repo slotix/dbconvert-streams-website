@@ -10,7 +10,7 @@ const links = [];
 
 export default defineConfig({
   lang: "en-US",
-  title: "DBConvert Stream Beta",
+  title: "DBConvert Streams Beta",
   description:
     "data integration and streaming distributed platform to replicate data between databases",
   cleanUrls: "with-subfolders",
@@ -63,7 +63,7 @@ export default defineConfig({
   lastUpdated: true,
   lastUpdatedText: "Updated Date",
   themeConfig: {
-    siteTitle: "DBConvert Stream Beta",
+    siteTitle: "DBConvert Streams Beta",
     logo: "/images/dbconvert-stream-logo.svg",
     nav: [
       { text: "Download", link: "dbs-releases" },
@@ -85,7 +85,7 @@ export default defineConfig({
         items: [
           { text: "Introduction", link: "/guide/introduction" },
           {
-            text: "What is DBConvert Stream?",
+            text: "What is DBConvert Streams?",
             link: "/guide/what-is-dbconvert-stream",
           },
           { text: "Install DBS", link: "/guide/install" },
@@ -126,6 +126,8 @@ export default defineConfig({
         items: [
           { text: "Glossary", link: "/glossary" },
           { text: "DBS Releases", link: "/dbs-releases" },
+          { text: "DBS EULA", link: "/eula" },
+          { text: "Contact us", link: "/contact-us" },
         ],
       },
     ],
@@ -134,7 +136,7 @@ export default defineConfig({
       //   icon: "github",
       //   link: "https://github.com/slotix/dbconvert-stream-docs",
       // },
-      { icon: "facebook", link: "https://twitter.com/dbconvert" },
+      { icon: "facebook", link: "https://facebook.com/DBConvert" },
       { icon: "twitter", link: "https://twitter.com/dbconvert" },
     ],
     editLink: {
@@ -143,7 +145,7 @@ export default defineConfig({
       text: "Edit this page on GitHub",
     },
     footer: {
-      message: "DBConvert Stream - event driven replication for databases",
+      message: "DBConvert Streams - event driven replication for databases",
       copyright: "Copyright © 2022 Slotix s.r.o.",
     },
     plugins: [

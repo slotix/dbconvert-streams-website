@@ -7,7 +7,7 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
-DBConvert Stream supports ingesting data from MySQL/MariaDB via MySQL Binary Logs.
+DBConvert Streams platform supports ingesting data from MySQL/MariaDB via MySQL Binary Logs.
 
 MySQL Binlogs stores information about data change events made on the MySQL server. Incoming `INSERT,` `UPDATE,` and `DELETE` events from binary logs are captured by MySQL Reader as soon as they occur. MySQL Reader then sends the consumed events to the DBS Event Hub.
 
@@ -59,9 +59,9 @@ Verify that the return value is 1, indicating that Binlog replication is active.
 
 For more information on all available replication options and binary logs, see the [Replication Reference Guide](https://dev.mysql.com/doc/refman/8.0/en/replication-options.html) on the MySQL Documentation Portal.
 
-### Whitelist DBConvert Stream's IP Addresses
+### Whitelist DBConvert Streams' IP Addresses
 
-You must whitelist the IP address of the _DBS source server_ to allow connection to the MySQL server from DBConvert Stream.
+You must whitelist the IP address of the _DBS source server_ to allow connection to the MySQL server from DBConvert Streams.
 
 In MySQL configuration file in the `[mysqld]` section add
 
@@ -75,7 +75,7 @@ Or add the following string, replacing `<IP address>` with an actual `IP address
 bind-address = <IP address>
 ```
 
-If you have a multi-node cluster, add an entry for each DBConvert Stream source server that will run MySQL CDC Reader.
+If you have a multi-node cluster, add an entry for each DBConvert Streams source server that will run MySQL CDC Reader.
 
 ### Grant privileges to the user.
 

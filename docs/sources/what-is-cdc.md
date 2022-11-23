@@ -13,7 +13,7 @@ lastUpdated: true
 
 Traditionally, RDBMS systems use transaction logs for backup and recovery purposes. But transaction logs are also useful for replicating changes to target databases.
 
-DBConvert Stream retrieves data changes from transaction logs in real-time to make the information available at the target before the DBMS has finished processing transactions at the source. At the same time, this approach minimizes the impact on the source production database since no additional queries are required for each transaction.
+DBConvert Streams platform retrieves data changes from transaction logs in real-time to make the information available at the target before the DBMS has finished processing transactions at the source. At the same time, this approach minimizes the impact on the source production database since no additional queries are required for each transaction.
 
 All database readers described in this section collect changed data by reading transaction logs.
 

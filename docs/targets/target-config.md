@@ -1,6 +1,6 @@
 ---
 title: Target configuration.
-description: Configure targets for DBConvert Stream.
+description: Configure targets for DBConvert Streams.
 layout: doc
 lastUpdated: true
 ---

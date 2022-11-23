@@ -16,8 +16,8 @@ hero:
       text: Get Started
       link: /guide/what-is-dbconvert-stream
     - theme: alt
-      text: View on GitHub
-      link: https://github.com/slotix/dbconvert-stream-docs
+      text: Contact us
+      link: mailto:streams@dbconvert.com
 features:
   - icon: ♾️
     title: Continuous processing

@@ -1,13 +1,13 @@
 ---
 title: Getting Started.
-description: How to get started with DBConvert Stream.
+description: How to get started with DBConvert Streams.
 layout: doc
 lastUpdated: true
 ---
 
 # {{ $frontmatter.title }}
 
-Once you have installed DBConvert Stream, you can explore other documentation sections to understand the general concepts or try DBS yourself.
+Once you have installed DBConvert Streams, you can explore other documentation sections to understand the general concepts or try DBS yourself.
 
 ### What is a data stream?
 
@@ -16,9 +16,9 @@ processing allows you to move data in real-time.
 
 _Data Stream configuration_ is a set of source and target connection parameters and other options for collecting, transmitting, and delivering data.
 
-## DBConvert Stream (DBS) Architecture.
+## DBConvert Streams (DBS) Architecture.
 
-DBConvert Stream consists of several components running on your hardware or deployed in one
+DBConvert Streams consists of several components running on your hardware or deployed in one
 or multiple virtual machines in a cloud.
 
 ### DBS components
@@ -41,7 +41,7 @@ API Server is used to perform the following _data stream_ tasks:
 - getting statistics,
 - stopping streams.
 
-DBConvert Stream API is based on REST. It uses HTTP requests to access and use data, accepts JSON request bodies, and returns JSON responses.
+DBConvert Streams API is based on REST. It uses HTTP requests to access and use data, accepts JSON request bodies, and returns JSON responses.
 
 ### Stream Configuration.
 
@@ -78,7 +78,7 @@ A typical stream configuration is a JSON object that looks like this:
 
 ### Source.
 
-In DBConvert Stream, readers collect data from external sources such as MySQL/MariaDB binary log (binlog), PostgreSQL/CockroachDB logical replication slot.
+In DBConvert Streams, readers collect data from external sources such as MySQL/MariaDB binary log (binlog), PostgreSQL/CockroachDB logical replication slot.
 
 Source adapter configuration consists of the following properties:
 
@@ -91,7 +91,7 @@ Source adapter configuration consists of the following properties:
 
 ### Target.
 
-In DBConvert Stream, writers send data to external targets such as MySQL and PostgreSQL databases.
+In DBConvert Streams, writers send data to external targets such as MySQL and PostgreSQL databases.
 | property | description |
 |------------|---------------------------------------------------------------|
 | type | represents the target type. It can be MySQL or PostgreSQL. |

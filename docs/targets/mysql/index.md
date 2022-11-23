@@ -31,7 +31,7 @@ or
 bind-address = <IP address>
 ```
 
-Where `<IP address>` is the IP address of DBConvert Stream Writer instance.
+Where `<IP address>` is the IP address of DBConvert Streams Writer instance.
 
 ## Configuration
 

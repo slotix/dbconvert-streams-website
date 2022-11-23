@@ -1,6 +1,6 @@
 ---
-title: DBConvert Stream releases.
-description: DBConvert Stream latest releases page with download links.
+title: DBConvert Streams releases.
+description: DBConvert Streams latest releases page with download links.
 layout: doc
 lastUpdated: true
 ---
@@ -9,7 +9,7 @@ lastUpdated: true
 ## Version 0.5.0 
 November 22, 2022
   
-We are excited to announce the release of DBConvert Stream 0.5.0! 
+We are excited to announce the release of DBConvert Streams 0.5.0! 
 This if the first public release of DBS that replicates data between MySQL and PostgreSQL.
 
 Choose the right release archive from the download  links below.

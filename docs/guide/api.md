@@ -1,13 +1,13 @@
 ---
-title: DBConvert Stream API.
-description: DBConvert Stream API.
+title: DBConvert Streams API.
+description: DBConvert Streams API.
 layout: doc
 lastUpdated: true
 ---
 
 # {{ $frontmatter.title }}
 
-The DBConvert Stream REST API allows you to perform all stream control tasks:
+The DBConvert Streams REST API allows you to perform all stream control tasks:
 
 - creating new streams,
 - getting streams configuration,
@@ -24,7 +24,7 @@ In API terminology, _Endpoint_ is the URL used to make a request. _Resource_ mea
 
 Sending HTTP `GET` request to the same endpoint http://0.0.0.0:8020/api/v1/streams returns the current stream configuration.
 
-### DBConvert Stream OpenAPI Swagger API Reference.
+### DBConvert Streams OpenAPI Swagger API Reference.
 
 Refer to the API Reference to find information about the different endpoints available for each resource and how to use them.
 

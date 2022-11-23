@@ -1,12 +1,12 @@
 ---
-title: Install DBConvert Stream.
-description: How to DBConvert Stream Platform.
+title: Install DBConvert Streams.
+description: How to install DBConvert Streams.
 layout: doc
 lastUpdated: true
 ---
 # {{ $frontmatter.title }}
 
-There are different ways to install or run DBConvert Stream:
+There are different ways to install or run DBConvert Streams:
 - Zip archive.
 - Docker
 
@@ -22,10 +22,10 @@ The following table lists the current supported DBS build combinations for opera
 
 ## Installing pre-requisites.
 
-DBConvert Stream uses NATS and Prometheus pre-requisites internally.
+DBConvert Streams uses NATS and Prometheus pre-requisites internally.
 
 ### NATS Server.
-The DBS Event Hub is built on top of NATS, providing connectivity between other DBConvert Stream components. Install [NATS server](https://docs.nats.io/running-a-nats-service/introduction/installation) following instructions on the page. 
+The DBS Event Hub is built on top of NATS, providing connectivity between other DBConvert Streams components. Install [NATS server](https://docs.nats.io/running-a-nats-service/introduction/installation) following instructions on the page. 
 
 **NOTE:** `nats-server` have to be launched with `--jetstream` flag to enable [JetStream functionality](https://docs.nats.io/nats-concepts/jetstream). 
 
@@ -60,7 +60,7 @@ Starting NATS Server should output something like that:
 ```
 
 ### Prometheus. 
-DBConvert Stream components collect internal metrics and expose them to Prometheus. Follow the instructions on the appropriate page to [Install Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) 
+DBConvert Streams components collect internal metrics and expose them to Prometheus. Follow the instructions on the appropriate page to [Install Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) 
 
 This is a sample prometheus configuration file that periodically scrapes DBS statistics endpoints.
 
@@ -118,14 +118,14 @@ Installation of DBS services is just decompressing a zip file and copying binari
 
 You could manually download the zip file matching your systems architecture, and unzip it. You could also use curl to download a specific version. 
 
-The example below shows how to download version 1.0.0 of the DBConvert Stream for Linux AMD64:
+The example below shows how to download version 1.0.0 of the DBConvert Streams for Linux AMD64:
 
 ```bash
 curl -L https://dbconvert.com/downloads/dbs/v1.0.0/dbs-v1.0.0-linux-amd64.zip -o dbs.zip
 ```
 
 
-> Please refer to [DBS Releases](/dbs-releases) page to download the latest version of DBConvert Stream for your platform.  
+> Please refer to [DBS Releases](/dbs-releases) page to download the latest version of DBConvert Streams for your platform.  
 
 ### Unzip.
 
@@ -137,6 +137,8 @@ unzip dbs.zip -d dbs
 
 ```
 Archive:  dbs.zip
+  inflating: dbs/EULA.md
+  inflating: dbs/README.md
   inflating: dbs/dbs-api
   inflating: dbs/dbs-source-reader
   inflating: dbs/dbs-target-writer
@@ -144,9 +146,9 @@ Archive:  dbs.zip
 
 ### Run
 Finally you will have 3 unpacked DBS binaries:
-1. `dbs-api` - **DBConvert Stream API** server is used to get requests from clients to manage streams and provide communication between other DBS Services like source readers and target writers.
-2. `dbs-source-reader` - **DBConvert Stream Source Reader** is used for continuous data collection from specified source. 
-3. `dbs-target-writer` - **DBConvert Stream Target Writer** writes collected events from source to specified target. 
+1. `dbs-api` - **DBConvert Streams API** server is used to get requests from clients to manage streams and provide communication between other DBS Services like source readers and target writers.
+2. `dbs-source-reader` - **DBConvert Streams Source Reader** is used for continuous data collection from specified source. 
+3. `dbs-target-writer` - **DBConvert Streams Target Writer** writes collected events from source to specified target. 
 
 Launch DBS Services in separate terminals:
 
@@ -160,7 +162,7 @@ They will start on their default ports `8020` and `8021` accordingly.
 ./dbs-source-reader
 ```
 
-It is enough to have just one instance of DBS Target Writer running, if no heavy load on a source database. But for demonstration purposes we will start three instances of DBConvert Stream Target writers. The first one is started on its default port `8022`. You could customize IP address and port with `-host` flag. So let's start two other DBS Writers on custom ports `8023` and  `8024`
+It is enough to have just one instance of DBS Target Writer running, if no heavy load on a source database. But for demonstration purposes we will start three instances of DBConvert Streams Target writers. The first one is started on its default port `8022`. You could customize IP address and port with `-host` flag. So let's start two other DBS Writers on custom ports `8023` and  `8024`
 ```bash
 ./dbs-target-writer
 ```
@@ -185,4 +187,4 @@ If you check now [prometheus targets endpoint](http://0.0.0.0:9090/targets) in t
 
 ![prometheus running services](/images/prometheus-running-services.png)
 
-Refer to the next sections for more information about using DBConvert Stream API.
+Refer to the next sections for more information about using DBConvert Streams API.

@@ -1,6 +1,6 @@
 ---
 title: Source configuration.
-description: Configure sources for DBConvert Stream.
+description: Configure sources for DBConvert Streams.
 layout: doc
 lastUpdated: true
 ---
