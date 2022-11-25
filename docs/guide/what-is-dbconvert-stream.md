@@ -5,10 +5,6 @@ layout: doc
 lastUpdated: true
 ---
 
-
-
-
-
 # {{ $frontmatter.title }}
 
 This documentation section introduces **DBConvert Streams**, also known as **DBS**, to new and prospective users.
@@ -69,4 +65,11 @@ Destinations are defined and configured using a simple set of properties in `JSO
 
 DBConvert Streams has been architected from the ground up to scale.
 
-The very first step is to deploy/install DBS. Follow the instructions in [Installing DBConvert Streams.](/guide/install)
+## Install & Run.
+
+There are different ways to install and run DBConvert Streams:
+- [Run DBS Docker containers.](/guide/dbs-docker)
+- [Install from a Zip archive. Run DBS Binaries.](/guide/install).
+
+Follow the instructions in the following sections to get started using DBConvert Streams.
+
