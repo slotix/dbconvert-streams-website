@@ -126,8 +126,8 @@ export default defineConfig({
         collapsible: false,
         items: [
           { text: "Glossary", link: "/glossary" },
-          { text: "DBS Releases", link: "/dbs-releases" },
-          { text: "DBS EULA", link: "/eula" },
+          { text: "Releases", link: "/dbs-releases" },
+          { text: "EULA", link: "/eula" },
           { text: "Contact us", link: "/contact-us" },
         ],
       },

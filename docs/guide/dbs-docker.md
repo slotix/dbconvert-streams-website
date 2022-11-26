@@ -29,10 +29,10 @@ Since DBConvert Streams depends on multiple services, the best way to start dock
 Here is a simple example of docker-compose configuration for staring DBConvert Streams.
 
 ```yaml
-version: '3.9'
+version: "3.9"
 services:
   dbs-api:
-    container_name: api-container
+    container_name: api
     image: slotix/dbs-api
     entrypoint:
       - ./dbs-api
@@ -43,7 +43,7 @@ services:
       - nats
 
   dbs-source-reader:
-    container_name: source-reader-container
+    container_name: source-reader
     image: slotix/dbs-source-reader
     entrypoint:
       - ./dbs-source-reader
@@ -54,7 +54,7 @@ services:
       - nats
 
   dbs-target-writer:
-    container_name:target-writer-container
+    container_name: target-writer
     image: slotix/dbs-target-writer
     entrypoint:
       - ./dbs-target-writer
@@ -64,31 +64,30 @@ services:
     depends_on:
       - nats
 
-#  dbs-target-writer-2:
-#    container_name:target-writer-container
-#    image: slotix/dbs-target-writer
-#    entrypoint:
-#      - ./dbs-target-writer
-#      - --nats=nats:4222
-#    ports:
-#      - 8023:8023
-#    depends_on:
-#      - nats
-#
-#  dbs-target-writer-3:
-#    container_name:target-writer-container
-#    image: slotix/dbs-target-writer
-#    entrypoint:
-#      - ./dbs-target-writer
-#      - --nats=nats:4222
-#    ports:
-#      - 8024:8024
-#    depends_on:
-#      - nats
-
+  #  dbs-target-writer2:
+  #    container_name: target-writer2
+  #    image: slotix/dbs-target-writer
+  #    entrypoint:
+  #      - ./dbs-target-writer
+  #      - --nats=nats:4222
+  #    ports:
+  #      - 8023:8023
+  #    depends_on:
+  #      - nats
+  #
+  #  dbs-target-writer3:
+  #    container_name: target-writer3
+  #    image: slotix/dbs-target-writer
+  #    entrypoint:
+  #      - ./dbs-target-writer
+  #      - --nats=nats:4222
+  #    ports:
+  #      - 8024:8024
+  #    depends_on:
+  #      - nats
 
   nats:
-    container_name: nats_container
+    container_name: nats
     image: nats
     entrypoint: /nats-server
     command: "--jetstream -m 8222 --store_dir /data/nats-server"
@@ -99,23 +98,21 @@ services:
       - ./_storage/nats:/data/nats-server/jetstream
 
   prometheus:
-    image: prom/prometheus:latest
-    container_name: prometheus
+    image: slotix/dbs-prometheus:latest
+    container_name: prom
+    user: root
     ports:
       - 9090:9090
-    command:
-      - --config.file=/etc/prometheus/prometheus.yml
     volumes:
-      - ./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
-    network_mode: host
+      - ./data/prometheus:/prometheus
 ```
 
 You can run multiple instances of **Target writer** to improve overall performance. Just uncomment _dbs-target-writer-2_ and _dbs-target-writer-3_ services to distribute processing of multiple INSERT statements between several target writers, greatly speeding up the whole process.
 
-Please copy content of the docker-compose config above and save it as `dbs.yaml` file.
+Please copy content of the docker-compose config above and save it as `docker-compose.yml` file.
 
 # Run
 
 ```bash
-docker-compose -f dbs.yaml up
+docker-compose up
 ```
