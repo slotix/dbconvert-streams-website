@@ -1,27 +1,17 @@
 ---
-title: What is DBConvert Streams?
-description: What is DBConvert Streams data replication platform?
+title: How it works?
+description: How DBConvert Streams works?
 layout: doc
 lastUpdated: true
 ---
 
 # {{ $frontmatter.title }}
 
-This documentation section introduces **DBConvert Streams**, also known as **DBS**, to new and prospective users.
-
-![high-level diagram of DBConvert Streams architecture](/images/dbconvert-stream-high-level-diagram.png)
-
-DBConvert Streams is a distributed data integration and streaming platform for data replication between databases.
-
-Database connection adapters collect data from and deliver data **continuously** to SQL and no-SQL databases, data warehouses, and files on your premises or in the clrud.
-
-The DBS platform displays its internal metrics in Prometheus format to explore and visualize live data in dashboards.
-
 ## Collecting data
 
-*DBS Database Readers* don't have to wait for a database to entirely ingest and index new data before reading it.
+_DBS Database Readers_ don't have to wait for a database to entirely ingest and index new data before reading it.
 
-DBConvert Streams uses a technology known as *Change Data Capture (CDC)* to capture a row-level stream of **Insert, Update, and Delete events** from a database's transaction log and publish it to an **Event Hub**.
+DBConvert Streams uses a technology known as _Change Data Capture (CDC)_ to capture a row-level stream of **Insert, Update, and Delete events** from a database's transaction log and publish it to an **Event Hub**.
 
 ![Transaction Log Change Data Capture](/images/log-cdc.png)
 
@@ -53,9 +43,9 @@ Replicating One Million INSERT statements takes about 12 seconds.
 
 ## Delivering data
 
-In addition to receiving new events from sources, *Event Hub* simultaneously delivers a stream of data to all consumers (destinations) that have subscribed to the current job (stream).
+In addition to receiving new events from sources, _Event Hub_ simultaneously delivers a stream of data to all consumers (destinations) that have subscribed to the current job (stream).
 
-The *DBS Writer* can continuously deliver data to MySQL or Postgres target databases.
+The _DBS Writer_ can continuously deliver data to MySQL or Postgres target databases.
 
 ### Horizontal Scaling of services
 
@@ -68,8 +58,8 @@ DBConvert Streams has been architected from the ground up to scale.
 ## Install & Run.
 
 There are different ways to install and run DBConvert Streams:
+
 - [Run DBS Docker containers.](/guide/dbs-docker)
 - [Install from a Zip archive. Run DBS Binaries.](/guide/install).
 
 Follow the instructions in the following sections to get started using DBConvert Streams.
-

@@ -85,8 +85,8 @@ export default defineConfig({
         items: [
           { text: "Introduction", link: "/guide/introduction" },
           {
-            text: "What is DBConvert Streams?",
-            link: "/guide/what-is-dbconvert-stream",
+            text: "How it works?",
+            link: "/guide/how-it-works",
           },
           { text: "Run DBS Docker containers", link: "/guide/dbs-docker" },
           { text: "Install & Run DBS binaries", link: "/guide/install" },

@@ -104,7 +104,7 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - ./data/prometheus:/prometheus
+      - ./_storage/prometheus:/prometheus
 ```
 
 You can run multiple instances of **Target writer** to improve overall performance. Just uncomment _dbs-target-writer-2_ and _dbs-target-writer-3_ services to distribute processing of multiple INSERT statements between several target writers, greatly speeding up the whole process.

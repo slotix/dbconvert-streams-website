@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/what-is-dbconvert-stream
+      link: /guide/introduction
     - theme: alt
       text: Contact us
       link: mailto:streams@dbconvert.com
