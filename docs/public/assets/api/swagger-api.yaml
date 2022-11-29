@@ -1,6 +1,6 @@
 openapi: "3.0.2"
 info:
-  title: DBConvert Stream API Server
+  title: DBConvert Streams (DBS) API Server
   description:
     "\ Data integration and streaming distributed platform for data replication between databases \n\
     \ - ♾️ **Continuous processing.** Right data at the right time, all the time.\n\
@@ -10,7 +10,7 @@ info:
   contact:
     url: https://stream.dbconvert.com
 externalDocs:
-  description: OpenAPI documentation for DBConvert Stream API server.
+  description: OpenAPI documentation for DBConvert Streams API server.
   url: https://stream.dbconvert.com
 servers:
   - url: http://127.0.0.1:8020/api/v1
@@ -198,12 +198,12 @@ paths:
     delete:
       tags:
         - Stream management
-      summary: Stops event processing for the current stream on DBConvert Stream servers.
+      summary: Stops event processing for the current stream on DBS servers.
       description: "This endpoint causes the current stream to stop receiving new events from the source server. The target DBConvert server stops sending new events to its consumers."
       operationId: stream-source-cancel
       responses:
         "200":
-          description: Returns a response containing the current stream ID and status information about the source and target DBConvert Stream servers.
+          description: Returns a response containing the current stream ID and status information about the source and target DBS servers.
           content:
             application/json:
               example: |-
