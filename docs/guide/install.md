@@ -25,7 +25,7 @@ The following table lists the currently supported DBS build combinations for ope
 
 ### NATS Server.
 
-The DBS Event Hub is built on top of NATS, allowing communication between other DBConvert Streams components. Follow the instructions for [installing the NATS server] (https://docs.nats.io/running-a-nats-service/introduction/installation).
+The DBS Event Hub is built on top of NATS, allowing communication between other DBConvert Streams components. Follow the instructions for [installing the NATS server](https://docs.nats.io/running-a-nats-service/introduction/installation).
 
 > **IMPORTANT:** `nats-server` must be started with `--jetstream` flag to enable [JetStream functionality](https://docs.nats.io/nats-concepts/jetstream).
 
