@@ -6,8 +6,8 @@ head:
       content: data integration and streaming distributed platform to replicate data between databases.
 hero:
   name: DBConvert Streams.
-  text: Event driven replication for databases
-  tagline: Powerful and performant. Meet data integration and streaming distributed platform to replicate data between databases.
+  text: Stream changes from your database.
+  tagline: DBConvert Streams is a distributed platform for change data capture. Just set up a source database in DBS, and you'll never miss an event that other applications commit to your databases.
   image:
     src: /images/dbconvert-stream-logo.svg
     alt: DBConvert Stream
