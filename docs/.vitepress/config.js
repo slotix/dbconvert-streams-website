@@ -127,6 +127,7 @@ export default defineConfig({
         items: [
           { text: "Glossary", link: "/glossary" },
           { text: "Releases", link: "/dbs-releases" },
+          { text: "FAQ", link: "/faq" },
           { text: "EULA", link: "/eula" },
           { text: "Contact us", link: "/contact-us" },
         ],

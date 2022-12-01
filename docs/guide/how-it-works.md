@@ -7,6 +7,19 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+## What is Change Data Capture (CDC)?
+
+Change Data Capture, or CDC, is a system that monitors and captures data changes in a database so that other software can respond to those changes.
+
+DBConvert Stream is a modern, distributed change data capture platform that continuously monitors various database systems and allows other applications to use the collected data.
+
+To make _Change Data Capture (CDC)_ possible, we must read the database transaction log and get change events from there. Unfortunately, there is no single API or universal way to do this for all databases. Each database stores transaction logs differently.
+
+> How to read Postgres WAL logs and get changes from a Postgres database?  
+> How to get them from MySQL Binlog files?
+
+DBConvert Streams knows how to get data changes from those different databases and other types of sources. DBS then generates generic change events for use by target consumers.
+
 ## Collecting data
 
 _DBS Database Readers_ don't have to wait for a database to entirely ingest and index new data before reading it.

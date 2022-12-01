@@ -7,7 +7,7 @@ head:
 hero:
   name: DBConvert Streams.
   text: Stream changes from your database.
-  tagline: DBConvert Streams is a distributed platform for change data capture. Just set up a source database in DBS, and you'll never miss an event that other applications commit to your databases.
+  tagline: DBConvert Streams (DBS) is a distributed platform for change data capture. Set up a source database to be monitored with DBS; you will always be aware of all incoming events and respond in time.
   image:
     src: /images/dbconvert-stream-logo.svg
     alt: DBConvert Stream
