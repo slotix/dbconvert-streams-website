@@ -21,7 +21,7 @@ The DBS platform collects its internal metrics in Prometheus format to explore a
 
 ## What are the typical use cases for DBConvert Streams?
 
-The primary purpose of DBS is to allow applications to respond almost instantly when data in monitored databases changes. Applications can do whatever they want with the collected `INSERT,` `UPDATE,` and `DELETE` events.
+The main goal of DBS is to allow applications to respond almost instantly when data in monitored databases changes. Applications can do whatever they want with the collected `INSERT,` `UPDATE,` and `DELETE` events.
 
 1. Replicate data and synchronize information in data stores.
 1. Move changed data elsewhere, even copy data between different database types.
