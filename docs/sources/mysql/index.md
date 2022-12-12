@@ -109,7 +109,7 @@ An example MySQL reader configuration with a description of each property is giv
 ```JSON
 "source": {
     "type": "mysql",
-    "connection": "mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true",
+    "connection": "mysql_user:passw0rd@tcp(1.2.3.4:3306)/Source?tls=true",
     "settings": {
       "flavor": "mysql",
       "sslCA": "../certs/ca.pem",
@@ -172,7 +172,7 @@ Parameters are case-sensitive!
 To enable an SSL encrypted connection, specify the SSL options in the connection string as follows:
 
 ```JSON
-"connection": "mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true",
+"connection": "mysql_user:passw0rd@tcp(1.2.3.4:3306)/Source?tls=true",
 "settings": {
 "sslCA": "../certs/ca.pem",
 "sslCert": "../certs/client-cert.pem",
@@ -201,7 +201,7 @@ Flavor can be either `mysql` or `mariadb`.
 If not specified, `mysql` is used by default.
 
 ```JSON
-"connection": "mariadb_user:passw0rd@tcp(0.0.0.0:3306)/Source",
+"connection": "mariadb_user:passw0rd@tcp(1.2.3.4:3306)/Source",
     "settings": {
       "flavor": "mariadb"
     },

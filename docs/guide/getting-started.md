@@ -147,7 +147,7 @@ curl --request POST --url http://0.0.0.0:8020/api/v1/streams -H 'Content-Type:ap
 The second way is to load a stream configuration directly from a file on the local drive.
 
 ```bash
-curl --request POST --url http://127.0.0.1:8020/api/v1/streams?file=stream-config.json '
+curl --request POST --url http://127.0.0.1:8020/api/v1/streams?file=stream-config.json
 ```
 
 ### Response.
@@ -171,7 +171,7 @@ The response returns the status and configuration of the newly created thread, i
 Let's check the status of the current stream.
 
 ```bash
-curl --request GET --url http://127.0.0.1:8020/api/v1/streams/stat'
+curl --request GET --url http://127.0.0.1:8020/api/v1/streams/stat
 ```
 
 As a result, you may see something like this:
@@ -245,7 +245,7 @@ The API server returns the following response:
 Recheck the stats.
 
 ```bash
-curl --request GET --url http://127.0.0.1:8020/api/v1/streams/stat'
+curl --request GET --url http://127.0.0.1:8020/api/v1/streams/stat
 ```
 
 ```JSON
