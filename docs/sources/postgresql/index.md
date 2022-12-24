@@ -126,9 +126,9 @@ Specify source table names as `<schema>.<table>` to return changed data from a t
 
 ## PostgreSQL-specific options.
 
-### Connection parameter.
+### Connection string.
 
-The _connection_ parameter sets up a connection to a PostgreSQL server.
+The _connection_ string sets up a connection to a PostgreSQL server.
 
 ```
 # Example DSN
@@ -178,6 +178,7 @@ Both `pool_max_conn_idle_time` and `pool_max_conn_lifetime` can be used to manag
 | pool_max_conn_idle_time | 30m           | The maximum amount of time that a connection in a connection pool can remain idle before it is closed. |
 | pool_max_conn_lifetime  | 1h            | The duration after a connection is created when it will be automatically closed.                       |
 
+It can be useful to adjust the `pool_max_conn_idle_time` and `pool_max_conn_lifetime` parameters in cases where the time between transactions is longer than 30 minutes, and you need to keep the connection alive for a longer period of time. For example, if you have a long-running process that only performs transactions every hour or so, you may need to increase these parameters to ensure that the connection remains open and available for use.
 
 ### TLS/SSL Connection settings.
 
