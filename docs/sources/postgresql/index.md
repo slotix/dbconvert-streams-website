@@ -38,7 +38,6 @@ Modify the PostgreSQL configuration file `postgresql.conf`, usually found in the
 wal_level=logical
 max_replication_slots=5
 max_wal_senders=10
-wal_sender_timeout=0
 ```
 
 | Parameter             | Value   | Description                                                                                                                                                                                                                                                                |
@@ -46,7 +45,6 @@ wal_sender_timeout=0
 | wal_level             | logical | The `logical` is required to record information required for log-based replication.                                                                                                                                                                                        |
 | max_replication_slots | 5       | `max_replication_slots` value should be equal to or higher than the number of PostgreSQL connectors that use WAL plus the number of other replication slots your database uses.                                                                                            |
 | max_wal_senders       | 10      | `max_wal_senders` parameter specifies the maximum number of concurrent connections to the WAL, which is at least twice the number of logical replication slots. For example, if your database uses 5 replication slots, the `max_wal_senders` value must be 10 or greater. |
-| wal_sender_timeout    | 0       | Time in seconds, after which PostgreSQL terminates replication connections due to inactivity. Default value: 60 seconds. You should set the value to 0, so connections are never dropped, and a stream runs indefinitely.                                                  |
 
 You must whitelist the IP address of the _DBS source server_ to allow connection to the Postgres server from DBConvert Streams.
 
@@ -169,9 +167,17 @@ PGTARGETSESSIONATTRS
 
 See http://www.postgresql.org/docs/11/static/libpq-envars.html for details on the meaning of environment variables.
 
-See https://www.postgresql.org/docs/11/libpq-connect.html#LIBPQ-PARAMKEYWORDS for parameter names. They are usually but not always the environment variable name downcased and without the "PG" prefix.
-
 See https://www.postgresql.org/docs/11/libpq-connect.html#LIBPQ-PARAMKEYWORDS for parameter names. This is usually, but not always, the environment variable's name in lowercase and without the "PG" prefix.
+
+### Timeout parameters.
+
+Both `pool_max_conn_idle_time` and `pool_max_conn_lifetime` can be used to manage the resources used by a connection pool and prevent connections from consuming resources for an extended period of time.
+
+| Parameter               | Default Value | Description                                                                                            |
+| ----------------------- | ------------- | ------------------------------------------------------------------------------------------------------ |
+| pool_max_conn_idle_time | 30m           | The maximum amount of time that a connection in a connection pool can remain idle before it is closed. |
+| pool_max_conn_lifetime  | 1h            | The duration after a connection is created when it will be automatically closed.                       |
+
 
 ### TLS/SSL Connection settings.
 
@@ -185,7 +191,7 @@ user=postgres password=passw0rd host=postgres.host.com port=5432 dbname=mydb ssl
 postgres://postgres:passw0rd@postgres.host.com:5432/mydb?sslmode=verify-ca&sslrootcert=/path_to/ca.crt&sslkey=/path_to/client.key&sslcert=/path_to/client.crt
 ```
 
-### Other PostgreSQL params. (optional)
+### PostgreSQL source specific params. (optional)
 
 By default, you do not need to explicitly specify the `replicationSlotName` and `publicationName` parameters. They are set up when you start the Postgres reader. However, if you want to customize the names [Replication Slot](https://www.postgresql.org/docs/14/warm-standby.html#STREAMING-REPLICATION-SLOTS-MANIPULATION) and [Publication Name](https://www.postgresql.org/docs/14/sql-createpublication.html) add the appropriate parameters to the source configuration.
 
