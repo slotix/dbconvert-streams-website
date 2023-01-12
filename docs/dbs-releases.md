@@ -7,6 +7,32 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+## Version 0.5.2
+
+:calendar: January 12, 2022
+
+**Release Notes:**
+
+- The DBConvert Streams documentation now includes a search feature. To access it, press `<Ctrl>+k` on any page.
+![Search dialog](/images/releases/search-dialog.png) 
+
+- Added [examples for streaming data between MySQL and PostgreSQL](https://github.com/slotix/dbconvert-streams-public)
+  - MySQL Binlog to PostgreSQL DB Streaming
+  - PostgreSQL WALs to MySQL DB Streaming
+  - Streaming from MySQL to another MySQL DB
+  - Streaming from Postgres WALs to another PostgreSQL
+- Added functionality for MySQL DB types to automatically create the target database if it does not already exist
+- Added support for the [`pool_max_conn_idle_time` and `pool_max_conn_lifetime` parameters for PostgreSQL sources](/sources/postgresql/#timeout-parameters). It can be useful to adjust these parameters in cases where the time between transactions is longer than 30 minutes.
+
+Choose the appropriate archive for your platform from the table with links below.
+
+| Operating System | Architecture | Size     | Link                                                                                |
+| ---------------- | ------------ | -------- | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | 15.14 MB | [Download](https://dbconvert.com/downloads/dbs/v0.5.2/dbs-v0.5.2-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | 15.77 MB | [Download](https://dbconvert.com/downloads/dbs/v0.5.2/dbs-v0.5.2-darwin-amd64.zip)  |
+| Windows          | AMD64        | 15.3 MB  | [Download](https://dbconvert.com/downloads/dbs/v0.5.2/dbs-v0.5.2-windows-amd64.zip) |
+| Linux            | ARM64        | 13.75 MB | [Download](https://dbconvert.com/downloads/dbs/v0.5.2/dbs-v0.5.2-linux-arm64.zip)   |
+
 ## Version 0.5.1
 
 :calendar: December 18, 2022

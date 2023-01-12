@@ -3,4 +3,5 @@ node_modules
 .cache
 lunr_index.js
 dist
+dbs
 
