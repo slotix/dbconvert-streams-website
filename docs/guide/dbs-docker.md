@@ -13,7 +13,7 @@ DBConvert Streams services are available as Docker images on Docker Hub reposito
 
 DBConvert Streams consists of the following internal services:
 
-- [DBS API Server](https://hub.docker.com/repository/docker/slotix/dbs-api)
+- [DBS API Server](https://hub.docker.com/r/slotix/dbs-api)
 - [DBS Source Reader](https://hub.docker.com/r/slotix/dbs-source-reader)
 - [DBS Target Writer](https://hub.docker.com/r/slotix/dbs-target-writer)
 
@@ -121,5 +121,9 @@ c8188a721f5e   slotix/dbs-source-reader       "./dbs-source-reader…"   48 seco
 If you now check [prometheus target endpoint](http://0.0.0.0:9090/targets) in a browser, you should see that all source and target endpoints have changed their status to `UP`.
 
 ![prometheus running services](/images/prometheus-docker-running.png)
+
+## Examples
+For actual examples and configurations, refer to the public [DBConvert Streams Github repository](https://github.com/slotix/dbconvert-streams-public)
+
 
 If you'd rather install binaries instead of running Docker containers, follow the instructions in the next section.
