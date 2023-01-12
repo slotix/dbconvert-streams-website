@@ -68,15 +68,6 @@ export default defineConfig({
     nav: [
       { text: "Download", link: "dbs-releases" },
       { text: "Blog", link: "https://dbconvert.com/blog/" },
-      //   { text: "Usage", link: "/usage" },
-      //   {
-      //     text: "Dropdown Menu",
-      //     items: [
-      //       { text: "Item A", link: "/item-1" },
-      //       { text: "Item B", link: "/item-2" },
-      //       { text: "Item C", link: "/item-3" },
-      //     ],
-      //   },
     ],
     sidebar: [
       {
@@ -136,7 +127,7 @@ export default defineConfig({
     socialLinks: [
       // {
       //   icon: "github",
-      //   link: "https://github.com/slotix/dbconvert-stream-docs",
+      //   link: "https://github.comrslotix/dbconvert-stream-docs",
       // },
       { icon: "facebook", link: "https://facebook.com/DBConvert" },
       { icon: "twitter", link: "https://twitter.com/dbconvert" },
