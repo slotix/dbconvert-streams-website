@@ -17,8 +17,8 @@ lastUpdated: true
 ![Search dialog](/images/releases/search-dialog.png) 
 
 - Added [examples for streaming data between MySQL and PostgreSQL](https://github.com/slotix/dbconvert-streams-public)
-  - MySQL Binlog to PostgreSQL DB Streaming
-  - PostgreSQL WALs to MySQL DB Streaming
+  - [MySQL Binlog to PostgreSQL Streaming](https://dbconvert.com/blog/streaming-data-mysql-postgres)
+  - PostgreSQL WALs to MySQL DB Streaming. 
   - Streaming from MySQL to another MySQL DB
   - Streaming from Postgres WALs to another PostgreSQL
 - Added functionality for MySQL DB types to automatically create the target database if it does not already exist
