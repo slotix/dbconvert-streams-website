@@ -60,12 +60,41 @@ services:
     image: slotix/dbs-target-writer
     entrypoint:
       - ./dbs-target-writer
+      - --host=dbs-target-writer:8022  
       - --nats=nats:4222
       - --prometheus=http://prometheus:9090
     ports:
       - 8022:8022
     depends_on:
-      - dbs-source-reader
+      - dbs-api
+
+
+  # dbs-target-writer2:
+  #   container_name: target-writer2
+  #   image: slotix/dbs-target-writer
+  #   entrypoint:
+  #     - ./dbs-target-writer
+  #     - --host=dbs-target-writer2:8023  
+  #     - --nats=nats:4222
+  #     - --prometheus=http://prometheus:9090
+  #   ports:
+  #     - 8023:8023
+  #   depends_on:
+  #     - dbs-api
+
+
+  # dbs-target-writer3:
+  #   container_name: target-writer3
+  #   image: slotix/dbs-target-writer
+  #   entrypoint:
+  #     - ./dbs-target-writer
+  #     - --host=dbs-target-writer3:8024  
+  #     - --nats=nats:4222
+  #     - --prometheus=http://prometheus:9090
+  #   ports:
+  #     - 8024:8024
+  #   depends_on:
+  #     - dbs-api
 
   nats:
     container_name: nats
@@ -87,13 +116,11 @@ services:
     # volumes:
     #   - ./_storage/prometheus:/prometheus
 ```
-
-To improve overall performance, you can run multiple instances of the "Target writer" by adding the `dbs-target-writer-2` and `dbs-target-writer-3` services. This will distribute the processing of multiple `INSERT` statements among several target writers, greatly speeding up the entire process.
-
+To improve overall performance, you can run multiple instances of the 'Target Writer' by uncommenting the 'dbs-target-writer-2' and 'dbs-target-writer-3' services. This will add more Target Writer instances and distribute the processing of multiple 'INSERT' statements among several Target Writers, greatly increasing the speed of the entire process.
 
 Please copy content of the docker-compose config above and save it as `docker-compose.yml` file. 
 
-Also you can download [docker-compose configuration file](https://github.com/slotix/dbconvert-streams-public/blob/be59cabcda3f3ccb340bdb8b40b5cfb31b1917ab/docker-compose.yml) from github repository.
+Check out our github repository for a few [config examples](https://github.com/slotix/dbconvert-streams-public/tree/main/examples).
 
 ## Run.
 
