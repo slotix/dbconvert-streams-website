@@ -76,6 +76,8 @@ export default defineConfig({
         collapsible: true,
         items: [
           { text: "Introduction", link: "/guide/introduction" },
+          { text: "Target Audience", link: "/guide/target-audience" },
+          { text: "Use Cases", link: "/guide/use-cases" },
           {
             text: "How it works?",
             link: "/guide/how-it-works",
