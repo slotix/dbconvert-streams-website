@@ -22,7 +22,7 @@ features:
   - icon: ♾️
     title: Continuous processing
     details: Right data at the right time, all the time.
-  - icon: 🚀
+  - icon: ⚡️
     title: Real-time Data
     details: Minimal latency from source to destination
   - icon: ☁️
