@@ -73,7 +73,8 @@ DBConvert Streams has been architected from the ground up to scale.
 There are different ways to install and run DBConvert Streams:
 
 - [Run DBS Docker containers.](/guide/dbs-docker)
+- [Deploy DBS to Amazon EC2](/guide/deploy-ec2)
 - [DBConvert Streams Configurations and examples.](https://github.com/slotix/dbconvert-streams-public)
-- [Install from a Zip archive. Run DBS Binaries.](/guide/install).
+- [Install from a Zip archive. Run DBS Binaries.](/guide/install)
 
 Follow the instructions in the following sections to get started using DBConvert Streams.

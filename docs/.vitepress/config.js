@@ -82,6 +82,7 @@ export default defineConfig({
             text: "How it works?",
             link: "/guide/how-it-works",
           },
+          { text: "Deploy DBS to Amazon EC2", link: "/guide/deploy-ec2" },
           { text: "Run DBS Docker containers", link: "/guide/dbs-docker" },
           { text: "Install & Run DBS binaries", link: "/guide/install" },
           { text: "Getting Started", link: "/guide/getting-started" },
