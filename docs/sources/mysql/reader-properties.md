@@ -7,7 +7,7 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
-Proper configuration of the MySQL server is necessary to use the MySQL adapter. The appropriate configuration steps vary depending on whether MySQL is being used [on-premises](/sources/mysql) or [Amazon RDS](/sources/amazon-rds). Please refer to the relevant sections for detailed instructions.
+Proper configuration of the MySQL server is necessary to use the MySQL adapter. The appropriate configuration steps vary depending on whether MySQL is being used [on-premises](/sources/mysql/) or [Amazon RDS](/sources/mysql/amazon-rds). Please refer to the relevant sections for detailed instructions.
  
 An example MySQL reader configuration with a description of each property is given below:
 
