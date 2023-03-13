@@ -100,6 +100,8 @@ export default defineConfig({
           },
           { text: "Source configuration.", link: "/sources/source-config" },
           { text: "MySQL/ MariaDB CDC Reader", link: "/sources/mysql/" },
+          { text: "Amazon RDS MySQL CDC Reader", link: "/sources/mysql/amazon-rds" },
+          { text: "MySQL Reader properties", link: "/sources/mysql/reader-properties" },
           { text: "PostgreSQL CDC Reader", link: "/sources/postgresql/" },
         ],
       },
