@@ -22,7 +22,7 @@ lastUpdated: true
   - Streaming from MySQL to another MySQL DB
   - Streaming from Postgres WALs to another PostgreSQL
 - Added functionality for MySQL DB types to automatically create the target database if it does not already exist
-- Added support for the [`pool_max_conn_idle_time` and `pool_max_conn_lifetime` parameters for PostgreSQL sources](/sources/postgresql/#timeout-parameters). It can be useful to adjust these parameters in cases where the time between transactions is longer than 30 minutes.
+- Added support for the [`pool_max_conn_idle_time` and `pool_max_conn_lifetime` parameters for PostgreSQL sources](/sources/postgresql/postgresql-server#timeout-parameters). It can be useful to adjust these parameters in cases where the time between transactions is longer than 30 minutes.
 
 Choose the appropriate archive for your platform from the table with links below.
 

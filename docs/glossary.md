@@ -76,7 +76,7 @@ Ingestion is the act of retrieving data from a source.
 
 Logical replication is applicable for the Postgres source type. In this mode, data is replicated using Postgres Write Ahead Log (WAL) set at the logical level (starting with Postgres version 10 and higher).
 
-Read the [PostgreSQL CDC Reader](/sources/postgresql/) section to learn how to set up WAL for logical replication.
+Read the [PostgreSQL CDC Reader](/sources/postgresql/postgresql-server) section to learn how to set up WAL for logical replication.
 
 ## M
 

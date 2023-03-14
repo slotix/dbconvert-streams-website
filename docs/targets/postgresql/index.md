@@ -40,4 +40,4 @@ Here is an example of a JSON object describing Postgres configured as a target.
   }
 ```
 
-Learn more about [PostgreSQL Connection parameters](/sources/postgresql/#connection-parameter).
+Learn more about [PostgreSQL Connection parameters](/sources/postgresql/postgresql-server#connection-parameter).

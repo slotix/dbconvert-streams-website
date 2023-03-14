@@ -44,4 +44,4 @@ Here is an example JSON object describing a MySQL database configured as a targe
   }
 ```
 
-Learn more about [MySQL connection options](/sources/mysql/#mysql-specific-options).
+Learn more about [MySQL connection options](/sources/mysql/mysql-server#mysql-specific-options).
