@@ -1,41 +1,39 @@
 ---
-title: Amazon RDS MySQL CDC Reader configuration.
-description: Using Amazon RDS MySQL. Configure MySQL Binary logging.
+title: Amazon RDS for MySQL/ Aurora CDC Reader configuration.
+description: Using Amazon RDS for MySQL/ Aurora as a source. Configure MySQL Binary logging.
 layout: doc
 lastUpdated: true
 ---
 
 # {{ $frontmatter.title }}
 
-DBConvert Streams platform supports ingesting data from Amazon RDS MySQL via MySQL Binary Logs.
+Using MySQL binary logs, the DBConvert Streams platform can retrieve data from Amazon RDS for MySQL/ Aurora. These logs contain records of data change events on the MySQL server. Whenever an `INSERT`, `UPDATE`, or `DELETE` event is written to the binary logs, MySQL Reader captures them immediately and passes them to the DBS event hub.
 
-Using MySQL binary logs, the DBConvert Streams platform can retrieve data from Amazon RDS MySQL. These logs contain records of data change events on the MySQL server. Whenever an `INSERT`, `UPDATE`, or `DELETE` event is written to the binary logs, MySQL Reader captures them immediately and passes them to the DBS event hub.
-
-## Create Amazon RDS MySQL database. 
+## Create Amazon RDS for MySQL database. 
 > **Note**: You can disregard this step if you have already created a database.
 
-To create an Amazon RDS MySQL database, please follow these steps:
+To create an Amazon RDS for MySQL database, please follow these steps:
 
 1. Go to the [Amazon RDS console](https://console.aws.amazon.com/rds).
 1. Click the `Create database` button.
 1. Select MySQL as the database type and choose the desired version.
 
-  ![Create new Amazon RDS MySQL database](/images/amazon-rds-mysql/create-rds-mysql.png)
+  ![Create new Amazon RDS for MySQL database](/images/amazon-rds-mysql/create-rds-mysql.png)
 
 4. Configure parameters in the **`settings`** section, including `DB Instance identifier`, `Credential settings`, `instance type` and `storage`.
 1. (Optional) In the `Connectivity` section, select `Connect to an EC2 compute resource` and choose an existing EC2 instance to connect to the database. This step can help you automatically connect [DBConvert Services running on EC2](/guide/deploy-ec2) with MySQL without allowlisting them on the database side.
 
-  ![Create new Amazon RDS MySQL database](/images/amazon-rds-mysql/connectivity.png)
+  ![Create new Amazon RDS for MySQL database](/images/amazon-rds-mysql/connectivity.png)
 
 6. Ensure that `automatic backups` are activated for *at least one day* for the binary log to capture data modifications.
 
   ![Automated backups](/images/amazon-rds-mysql/enable-backups.png)
 
-7. Review configuration and click the `Create database` button to create your Amazon RDS MySQL database.
+7. Review configuration and click the `Create database` button to create your Amazon RDS for MySQL database.
 
 ## Set up MySQL Binary logs for Replication.
 
-To enable Amazon RDS MySQL Binary Log (Binlog) replication, you must configure some parameters.
+To enable MySQL Binary Log (Binlog) replication, you must configure some parameters.
 
 1. Open the [Amazon RDS console](https://console.aws.amazon.com/rds).
 1. Create new `parameter group`. 

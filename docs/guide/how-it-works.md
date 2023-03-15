@@ -31,7 +31,11 @@ DBConvert Streams uses a technology known as _Change Data Capture (CDC)_ to capt
 DBConvert Streams currently supports the following sources:
 
 - MySQL Binlog or MariaDB Binlog
+- Amazon RDS for MySQL
+- Amazon Aurora (MySQL Compatible)
 - PostgreSQL WAL or CockroachDB WAL
+- Amazon RDS for PostgreSQL
+- Amazon Aurora (PostgreSQL Compatible)
 
 Sources are defined and configured using a simple set of properties in `JSON` format.
 
