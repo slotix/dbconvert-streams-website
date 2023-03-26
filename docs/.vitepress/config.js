@@ -10,7 +10,7 @@ const links = [];
 
 export default defineConfig({
   lang: "en-US",
-  title: "DBConvert Streams Beta",
+  title: "DBConvert Streams preview",
   description:
     "data integration and streaming distributed platform to replicate data between databases",
   cleanUrls: "with-subfolders",
@@ -63,7 +63,7 @@ export default defineConfig({
   lastUpdated: true,
   lastUpdatedText: "Updated Date",
   themeConfig: {
-    siteTitle: "DBConvert Streams Beta",
+    siteTitle: "DBConvert Streams preview",
     logo: "/images/dbconvert-stream-logo.svg",
     nav: [
       { text: "Release Notes", link: "dbs-releases" },

@@ -1,5 +1,5 @@
 ---
-title: DBConvert Streams Beta EULA.
+title: DBConvert Streams preview EULA.
 description: DBConvert Streams End User License Agreement.
 layout: doc
 lastUpdated: true
@@ -24,9 +24,9 @@ This License Agreement defines the terms and conditions under which Slotix s.r.o
 1. Licensor reserves all rights concerning the Software under all applicable laws for protecting proprietary information, including, but not limited to, trade secrets, copyrights, trademarks, and patents.
 1. Except as otherwise provided in this Agreement, Licensee shall not cause or permit unauthorized copying, reproduction, or disclosure of any portion of the Software or supporting documentation or the delivery or distribution of any part thereof to any third person or entity, for any purpose whatsoever, without the prior written permission of Licensor. This restriction shall continue to bind Licensee and its agents and representatives beyond the termination of this Agreement.
 
-## Beta Version.
-The Licensee can run the full-featured beta version of the Software with no limits. The Licensee can use the beta version of the Software for free without any associated fees.
-1. Beta Version Distribution.  
+## Preview Version.
+The Licensee can run the full-featured preview version of the Software with no limits. The Licensee can use the preview version of the Software for free without any associated fees.
+1. Preview Version Distribution.  
 The Licensee may provide copies of the Software to others for their use so long as the Licensee:
     - Provides exact, unmodified copies of the Software, including all accompanying files, this Agreement, and all copyright, trademark, proprietary, and other notices;
     - Does not charge or collect any monetary or other compensation for or in connection with the Software, apart from a modest reproduction or handling fee;

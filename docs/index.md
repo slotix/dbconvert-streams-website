@@ -5,9 +5,9 @@ head:
     - name: description
       content: data integration and streaming distributed platform to replicate data between databases.
 hero:
-  name: DBConvert Streams.
-  text: Stream changes from your database.
-  tagline: DBConvert Streams (DBS) is a distributed platform for change data capture. Set up a source database to be monitored with DBS; you will always be aware of all incoming events and respond in time.
+  name:  Stream changes from your database.
+  text: Real-time data replication.
+  tagline: DBConvert Streams (DBS) supports real-time change data capture for MySQL and PostgreSQL. By monitoring your source database with DBS, you can receive notifications of incoming events and updates, allowing you to stay up-to-date and respond promptly. 
   image:
     src: /images/dbconvert-stream-logo.svg
     alt: DBConvert Stream
@@ -34,8 +34,8 @@ features:
   - icon: 📈
     title: Monitoring
     details: Real-time data monitoring.
----
 
+---
 <!-- <script setup>
 import Counter from './components/Counter.vue'
 </script>

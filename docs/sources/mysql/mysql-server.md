@@ -15,6 +15,7 @@ DBS MySQL reader supports the following database types:
 
 - MySQL versions 8.0 and later
 - MariaDB
+- Percona
 
 ## MySQL server configuration.
 
