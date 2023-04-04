@@ -1,32 +1,35 @@
 ---
-title: Statuses.
-description: Source Reader and Target writer statuses.
+title: Life cycle and Statuses.
+description: Life cycle of DBConvert Streams. Source Reader and Target writer statuses.
 layout: doc
 lastUpdated: true
 ---
 
 # {{ $frontmatter.title }}
 
-## Source Reader Statuses
+## Life cycle.
 
-DBS may assign the following _source read statuses_ to stream objects, informing you of progress and any action taken:
+The DBConvert Streams service follows the life cycle:
 
-| Status      | Description                                                                                      |
-| ----------- | ------------------------------------------------------------------------------------------------ |
-| READY       | stream is initialized, and the Source reader is ready to start receiving events from the source. |
-| RUNNING     | The source reader actively receives Events (records).                                            |
-| FINISHED    | The ingestion has reached the specified stream limit.                                            |
-| STOPPED     | The stream has stopped, and the source reader is no longer collecting events from the source.    |
-| INIT FAILED | An error occurred while initializing the source database                                         |
+1. The API waits for a new stream configuration for either data conversion or data streaming.
+2. DBS starts the data conversion or replication process between the source and target. In the case of the CDC replication scenario, the process runs infinitely until one of the conditions described below is met.
+3. The DBConvert Streams service stops collecting further events (records) depending on the following possible conditions:
 
-## Target writer statuses
+- Conversion completed: All data from the source to the target has been successfully transferred.
+- The process failed due to an error.
+- The time limit or record transfer limit specified in the configuration has been reached.
 
-DBS may assign the following _target read statuses_ to stream objects, informing you of progress and any action taken:
+## Statuses.
 
-| Status      | Description                                                                                                                                   |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| READY       | stream is initialized, and the Target writer is ready to start receiving events from the Event Hub and writing them to the specified targets. |
-| RUNNING     | Events (Records) are actively loaded into targets.                                                                                            |
-| FINISHED    | The loading of events has reached a specified stream limit.                                                                                   |
-| STOPPED     | The stream has stopped, and the target writer is no longer consuming events from the Event Hub.                                               |
-| INIT FAILED | An error occurred while initializing the target database                                                                                      |
+The stream objects in DBConvert Streams can be assigned various statuses, which can keep you informed about the progress of the process and any action taken.
+
+| Status              | Description                                                                                                                                                                 |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| READY               | A new task (stream) has been initialized, and the service API is waiting for the configuration to start the data conversion or streaming process.                           |
+| RUNNING             | The service is currently converting or replicating data from the source to the target.                                                                                      |
+| FINISHED            | The service has successfully completed the data conversion process.                                                                                                         |
+| FAILED              | The service encountered an error during the data conversion or replication process, which caused the stream to stop working.                                                |
+| TIME_LIMIT_REACHED  | The service has stopped the stream from working because the time limit set for the data conversion or replication process has been reached.                                 |
+| EVENT_LIMIT_REACHED | The service has stopped the stream from working because the limit of events (records) to be transferred during the data conversion or replication process has been reached. |
+| STOPPED             | The service has been intentionally stopped by the user or administrator.                                                                                                    |
+| UNKNOWN_ERROR       | The service encountered an unexpected error during the data conversion or replication.                                                                                      |

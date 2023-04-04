@@ -87,7 +87,7 @@ export default defineConfig({
           { text: "Install & Run DBS binaries", link: "/guide/install" },
           { text: "Getting Started", link: "/guide/getting-started" },
           { text: "API Reference", link: "/guide/api" },
-          { text: "Statuses", link: "/guide/status" },
+          { text: "Life cycle and statuses", link: "/guide/status" },
         ],
       },
       {
