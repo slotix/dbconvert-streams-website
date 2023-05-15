@@ -3,11 +3,11 @@ layout: home
 head:
   - - meta
     - name: description
-      content: data integration and streaming distributed platform to replicate data between databases.
+      content: database conversion and data streaming distributed platform to transfer data between heterogeneous databases.
 hero:
   name:  Stream changes from your database.
-  text: Real-time data replication.
-  tagline: DBConvert Streams (DBS) supports real-time change data capture for MySQL and PostgreSQL. By monitoring your source database with DBS, you can receive notifications of incoming events and updates, allowing you to stay up-to-date and respond promptly. 
+  text: Transfer data between on-prem or cloud databases.
+  tagline: DBConvert Streams (DBS) supports real-time change data capture for MySQL and PostgreSQL. Receive notifications of incoming events and updates to stay up-to-date and respond promptly. 
   image:
     src: /images/dbconvert-stream-logo.svg
     alt: DBConvert Stream

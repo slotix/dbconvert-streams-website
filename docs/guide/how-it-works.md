@@ -72,6 +72,9 @@ Destinations are defined and configured using a simple set of properties in `JSO
 
 DBConvert Streams has been architected from the ground up to scale.
 
+## Metrics.
+The DBS platform collects its internal metrics in Prometheus format to explore and visualize live data in dashboards.
+
 ## Install & Run.
 
 There are different ways to install and run DBConvert Streams:

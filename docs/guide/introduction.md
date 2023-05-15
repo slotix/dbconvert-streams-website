@@ -7,8 +7,13 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+DBConvert Streams provides a powerful and flexible solution for converting heterogeneous database data and facilitating real-time Change data capture (CDC)   data replication. Whether used by individuals or organizations, it can help streamline data management processes and achieve better business results.
 
-The software DBConvert Streams facilitates real-time data replication between databases for individuals and organizations.  
+DBS allows its users to perform seamless migrations between different types and locations of database systems. This provides greater flexibility and efficiency in managing data, leading to improved decision-making and business outcomes.
+
+In addition, DBS offers many features and capabilities that make it a valuable tool for data management and integration. It provides automatic schema matching, mapping, custom data filters, and transformation rules.
+Users can tailor the system to their needs and ensure data is appropriately integrated and organized.
+ In addition, DBS is designed with scalability and robustness in mind, making it suitable for large-scale data use. It uses distributed computing techniques to provide high availability and fault tolerance and can be easily integrated with the IT infrastructure.
 
 ## Supported databases.
 
@@ -30,6 +35,7 @@ The native DBConvert Binaries are available for the following operating systems.
 - Linux ARM 64
 - Apple OS X
 - Windows
+- Docker images
 
 ## Deployment.
 DBConvert Streams can be deployed on the following cloud platforms: 
@@ -40,22 +46,32 @@ DBConvert Streams can be deployed on the following cloud platforms:
 ## Preview version.
 The preview edition of DBConvert Streams is being offered completely free of charge. We encourage you to share your experiences and [provide feedback](mailto:streams@dbconvert.com).
 
-## What is DBConvert Streams?
+## Two data reading modes in DBConvert Streams.
 
-![high-level diagram of DBConvert Streams architecture](/images/dbconvert-stream-high-level-diagram.png)
+There are two modes for reading data from a source database:
 
- 
-Configuring real-time data replication software typically requires specialized technical knowledge in database management, networking, and system administration. A professional database administrator (DBA) or a DevOps engineer can configure real-time data replication software using their knowledge of DB replication concepts. 
+### CDC (Change data capture).   
+In CDC (change data capture) mode, DBConvert Streams provides a reliable way to stream changes from the source database to the target database using change data capture technology. By capturing row-level changes such as `inserts`, `updates`, and `deletes`, the software allows your target applications to respond to those events with very low latency. 
 
-DBConvert Streams simplifies this process, making it accessible to users with basic knowledge of database administration. The software handles many technical aspects of configuring and optimizing the replication process behind the scenes, allowing users to focus on selecting the source and target databases and configuring a few key options. 
+This feature enables real-time data replication and synchronization between databases, making it ideal for data warehousing, business intelligence, and reporting scenarios, where up-to-date data is critical for making informed decisions.
 
-This streamlined approach can save time and reduce the need for specialized technical expertise, making it an ideal solution for organizations that require real-time data synchronization without the resources to hire expensive DBAs or DevOps engineers.
+### Conversion Mode.
 
-DBConvert Streams is a set of distributed services that capture row-level changes in a source database, allowing your applications to respond to those data changes with very low latency.
+This mode enables the rapid transfer of data from the source database to the target database, regardless of whether they are located on-prem or in the cloud and whether they are relational databases or data warehouses. 
 
-DBS collects data from and deliver data _continuously_ to SQL and no-SQL databases, data warehouses, and files on your premises or in a cloud.
 
-The DBS platform collects its internal metrics in Prometheus format to explore and visualize live data in dashboards.
+In conversion mode, DBConvert Streams uses an automated slicing technique to migrate even large tables from the source database quickly. By breaking data into smaller chunks, the transfer process can be optimized for speed and efficiency, resulting in faster and more reliable data migration between on-premises or cloud databases and relational or data stores.
+
+
+## Why DBConvert Streams? 
+Configuring real-time data replication or database migration typically requires specialized technical knowledge in database management, networking, and system administration. 
+
+DBConvert Streams simplifies this process, making it accessible to users with basic knowledge of database administration. DBS software handles many technical aspects of configuring and optimizing the replication process behind the scenes, allowing users to focus on selecting the source and target databases and configuring a few key options. 
+
+This streamlined approach can save time and reduce the need for specialized technical expertise, making it ideal for organizations that need real-time data synchronization without the resources to hire costly DBAs or DevOps engineers.
+
+
+
 
 
 ---
