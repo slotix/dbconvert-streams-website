@@ -44,14 +44,14 @@ DBConvert Streams can be deployed on the following cloud platforms:
 - Microsoft Azure
 
 ## Preview version.
-The preview edition of DBConvert Streams is being offered completely free of charge. We encourage you to share your experiences and [provide feedback](mailto:streams@dbconvert.com).
+The preview edition of DBConvert Streams is being offered completely free of charge. We encourage you to share your experience and [provide feedback](mailto:streams@dbconvert.com).
 
 ## Two data reading modes in DBConvert Streams.
 
 There are two modes for reading data from a source database:
 
 ### CDC (Change data capture).   
-In CDC (change data capture) mode, DBConvert Streams provides a reliable way to stream changes from the source database to the target database using change data capture technology. By capturing row-level changes such as `inserts`, `updates`, and `deletes`, the software allows your target applications to respond to those events with very low latency. 
+In [CDC (change data capture)](/sources/what-is-cdc) mode, DBConvert Streams provides a reliable way to stream changes from the source database to the target database using change data capture technology. By capturing row-level changes such as `inserts`, `updates`, and `deletes`, the software allows your target applications to respond to those events with very low latency. 
 
 This feature enables real-time data replication and synchronization between databases, making it ideal for data warehousing, business intelligence, and reporting scenarios, where up-to-date data is critical for making informed decisions.
 
