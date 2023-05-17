@@ -13,6 +13,7 @@ lastUpdated: true
 
 **Release Notes:**
 - Added "Convert" mode for MySQL and Postgres sources. In conversion mode, data is read directly from the tables of the source database. It is now mandatory to specify the mode parameter in the source section of a stream configuration. Read more about conversion mode [here](/sources/conversion-mode).
+- Updated the stream configuration to make the "Filter" section optional. If no filters are specified or the section is left empty, DBConvert Streams will automatically monitor all tables in CDC mode and convert all tables in "convert" mode.
 - Added [conversion examples](https://github.com/slotix/dbconvert-streams-public/tree/main/examples-convert) to public github repository.
 - Added capability to convert multiple tables in parallel between source and target databases.
 

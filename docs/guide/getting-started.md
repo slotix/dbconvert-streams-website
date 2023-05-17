@@ -107,10 +107,16 @@ Source adapter configuration consists of the following properties:
 | type           | represents the source type. It can be MySQL or PostgreSQL.                                                                                   |
 | connection     | a string representing the connection parameters.                                                                                             |
 | settings       | settings are unique for each source type. Find information about the settings for each source type in the documentation's relevant sections. |
-| filter/ tables | specified source data tables to capture.                                                                                                     |
+| filter/ tables | specified source data tables to capture or convert.                                                                                                     |
 
 In CDC mode, source readers collect data from external sources, either from the MySQL/MariaDB binary log (binlog) or from the PostgreSQL/CockroachDB logical replication slot.  
 On the other hand, in convert mode, data is read in chunks directly from tables.
+### Filters
+You only need to explicitly define table filters in the stream configuration to specify specific tables for monitoring or conversion. DBConvert Streams will automatically include all tables by default, simplifying the configuration process and reducing the need for manual table selection.
+
+When the filter section is empty in "CDC mode," DBConvert Streams will monitor all tables in the source database's transaction logs, capturing data changes from every table and generating the corresponding events for consumption.
+
+In "convert mode," if the filter section is not provided or is left empty, DBConvert Streams will convert all tables from the source database to the target database, ensuring a comprehensive and complete data migration.
 
 ### Target.
 
