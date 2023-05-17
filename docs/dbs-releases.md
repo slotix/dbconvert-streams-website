@@ -7,9 +7,30 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+## Version 0.7.0
+
+:calendar: May 15, 2023
+
+**Release Notes:**
+- Added "Convert" mode for MySQL and Postgres sources. In conversion mode, data is read directly from the tables of the source database. It is now mandatory to specify the mode parameter in the source section. Read more about conversion mode [here](/sources/conversion-mode).
+- Added [conversion examples](https://github.com/slotix/dbconvert-streams-public/tree/main/examples-convert) to public github repository.
+- Added capability to convert multiple tables in parallel between source and target databases.
+
+**Bug fixes:**
+- Fixed a bug that caused data to be potentially received before the corresponding table was created on the target.
+
+Latest binaries are available at :
+
+| Operating System | Architecture |       Link                                                                                |
+| ---------------- | ------------ |  ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        |  [Download](https://dbconvert.com/downloads/dbs/v0.7.0/dbs-v0.7.0-linux-amd64.zip)   |
+| Mac OS X         | AMD64        |  [Download](https://dbconvert.com/downloads/dbs/v0.7.0/dbs-v0.7.0-darwin-amd64.zip)  |
+| Windows          | AMD64        |  [Download](https://dbconvert.com/downloads/dbs/v0.7.0/dbs-v0.7.0-windows-amd64.zip) |
+| Linux            | ARM64        |  [Download](https://dbconvert.com/downloads/dbs/v0.7.0/dbs-v0.7.0-linux-arm64.zip)   |
+
 ## Version 0.5.2
 
-:calendar: January 12, 2022
+:calendar: January 12, 2023
 
 **Release Notes:**
 
