@@ -1,12 +1,12 @@
-openapi: "3.0.2"
+openapi: 3.0.0
 info:
   title: DBConvert Streams (DBS) API Server
-  description:
-    "\ Data integration and streaming distributed platform for data replication between databases \n\
-    \ - ♾️ **Continuous processing.** Right data at the right time, all the time.\n\
-    \ - 🚀 **Real-time Data.** Minimum delay from source to destination\n\
-    \ - ☁️ **Fully Scalable.**Cloud-first distributed platform.\n"
-  version: "1.0"
+  description: |-
+     Data streaming distributed platform for data conversion and CDC replication between databases. 
+     - ♾️ **Continuous processing.** Right data at the right time, all the time.
+     - ⚡  ️**Real-time Data.** Minimum delay when transferring data from source to target.
+     - ☁️ **Fully Scalable.**Cloud-first distributed platform.
+  version: "1.1"
   contact:
     url: https://stream.dbconvert.com
 externalDocs:
@@ -30,11 +30,21 @@ tags:
       - get stream configuration,
       - get statistics,
       - stop streams.
-
 components:
   schemas:
     stream:
-      description: An Event Stream is made up of a series of events, much like a table in SQL environment is made up of rows. A stream is a table of data in the move. Think of a never-ending table where new data appear as time goes on. A stream is such a table. One record or a row in a stream is called an event.
+      description: >-
+        An Event Stream is made up of a series of events, much like a table in
+        SQL environment is made up of rows. A stream is a table of data in the
+        move. 
+        
+        
+        In CDC source reader mode think of a never-ending table where new data appear as time goes
+        on. A stream is such a table. One record or a row in a stream is called
+        an event. 
+        
+        
+        In case of convert mode source reader collects all specified tables until limits are specified.
       title: stream
       type: object
       required:
@@ -42,58 +52,72 @@ components:
         - target
       properties:
         source:
-          $ref: "#/components/schemas/source"
+          $ref: '#/components/schemas/source'
         destination:
-          $ref: "#/components/schemas/target"
+          $ref: '#/components/schemas/target'
         limits:
-          $ref: "#/components/schemas/limits"
+          $ref: '#/components/schemas/limits'
     source:
-      description: DBS readers collect data from external sources such as MySQL and PostgreSQL and write the collected events to the target system of your choice.
+      description: >-
+        DBS readers collect data from external sources such as MySQL and
+        PostgreSQL. Source reader collects events either from Binlog/ WALs or reads records directly from source tables. See mode parameter.
       type: object
       properties:
+        mode: 
+          $ref: '#/components/schemas/mode'
         type:
-          $ref: "#/components/schemas/type"
+          $ref: '#/components/schemas/type'
         connection:
           type: string
-          example: "postgres://pg_user:passw0rd@localhost:5432/postgres"
+          example: postgres://pg_user:passw0rd@localhost:5432/postgres
         settings:
           type: object
           description: The set of settings is unique for each type of connection.
           properties:
             replicationSlotName:
-              description: "*PostgreSQL only.* The name of the replication slot to create. The replication slot makes the PostgreSQL CDC available."
+              description: >-
+                *PostgreSQL only.* The name of the replication slot to create.
+                The replication slot makes the PostgreSQL CDC available.
               type: string
               example: myslot_1
             publicationName:
-              description: "*PostgreSQL only.* A publication is a group of tables whose data changes are intended to be replicated via logical replication."
+              description: >-
+                *PostgreSQL only.* A publication is a group of tables whose data
+                changes are intended to be replicated via logical replication.
               type: string
               example: dbconvert-publication
             flavor:
-              description: "*MySQL only.* The value is either mysql or mariadb. If not set, mysql is used by default."
+              description: >-
+                *MySQL only.* The value is either mysql or mariadb. If not set,
+                mysql is used by default.
               type: string
               example: mysql
             sslCA:
-              description: _MySQL only._ The path to the Certificate Authority (CA) certificate file.
+              description: >-
+                _MySQL only._ The path to the Certificate Authority (CA)
+                certificate file.
               type: string
               example: ../certs/ca.pem
             sslCert:
-              description: _MySQL only._ The path to the client public key certificate file.
+              description: >-
+                _MySQL only._ The path to the client public key certificate
+                file.
               type: string
               example: ../certs/client-cert.pem
             sslKey:
               description: _MySQL only._ The path to the client private key file.
               type: string
               example: ../certs/client-key.pem
-        initialLoad:
-          type: boolean
         filter:
-          $ref: "#/components/schemas/filter"
+          $ref: '#/components/schemas/filter'
     target:
-      description: A target is any database or data store to which you want to replicate your data.
+      description: >-
+        A target is any database or data store to which you want to replicate
+        your data.
       type: object
       properties:
         type:
-          $ref: "#/components/schemas/type"
+          $ref: '#/components/schemas/type'
         connection:
           type: string
           example: mysql_user:dmsoft@tcp(0.0.0.0:3306)/Destination?tls=true
@@ -101,11 +125,15 @@ components:
           type: object
           properties:
             sslCA:
-              description: _MySQL only._ The path to the Certificate Authority (CA) certificate file.
+              description: >-
+                _MySQL only._ The path to the Certificate Authority (CA)
+                certificate file.
               type: string
               example: ../certs/ca.pem
             sslCert:
-              description: _MySQL only._ The path to the client public key certificate file.
+              description: >-
+                _MySQL only._ The path to the client public key certificate
+                file.
               type: string
               example: ../certs/client-cert.pem
             sslKey:
@@ -115,13 +143,23 @@ components:
     type:
       type: string
       description: represents source type.
-      enum: [postgresql, mysql]
+      enum:
+        - postgresql
+        - mysql
       example: mysql
-
+    mode:
+      type: string
+      description: The mode parameter represents the source reader mode. Set the mode as "cdc" to collect events from MySQL binlog/Postgres WAL. If the mode is set to "convert", it means that the source reader reads data directly from the source tables.
+      enum:
+        - cdc
+        - convert
+      example: cdc
     limits:
-      description:
-        "If no limits are specified in a configuration, a started stream continues running until it is manually stopped from API.
-        Otherwise, a stream stops immediately after reaching one of the following limits, whichever limit is reached first:"
+      description: >-
+        If no limits are specified in a configuration, a started stream
+        continues running until it is manually stopped from API. Otherwise, a
+        stream stops immediately after reaching one of the following limits,
+        whichever limit is reached first:
       type: object
       properties:
         numberOfevents:
@@ -148,7 +186,10 @@ components:
                 type: array
                 items:
                   type: string
-                  enum: [insert, update, delete]
+                  enum:
+                    - insert
+                    - update
+                    - delete
                   example: insert
 paths:
   /streams:
@@ -156,19 +197,25 @@ paths:
       tags:
         - Create Streams
       summary: Create a new stream from the given configuration..
-      description: |-
-        'This endpoint accepts configuration in JSON format. JSON object containing stream parameters can be passed in request body or loaded from from the specified file on the local disk. 
+      description: >-
+        'This endpoint accepts configuration in JSON format. JSON object
+        containing stream parameters can be passed in request body or loaded
+        from from the specified file on the local disk. 
 
-        _curl --request POST --url http://0.0.0.0:8020/api/v1/streams -H 'Content-Type:application/json\' -d\'{ JSON Stream Config ...}\'_
+
+        _curl --request POST --url http://0.0.0.0:8020/api/v1/streams -H
+        'Content-Type:application/json\' -d\'{ JSON Stream Config ...}\'_
 
 
-        _curl --request POST --url http://127.0.0.1:8020/api/v1/streams?file=stream-config.json_
+
+        _curl --request POST --url
+        http://127.0.0.1:8020/api/v1/streams?file=stream-config.json_
+
         '
-
       operationId: create-stream
       parameters:
         - name: file
-          example: "stream-config.json"
+          example: stream-config.json
           in: query
           description: Filename with stream configuration parameters.
           required: false
@@ -180,111 +227,147 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/stream"
+              $ref: '#/components/schemas/stream'
         required: false
       responses:
-        "200":
-          description: Returns the status and configuration of the newly created thread, including the new ID.
+        '200':
+          description: >-
+            Returns the status and configuration of the newly created thread,
+            including the new ID.
           content:
             application/json:
-              example: |-
-                {"status":"success","data":{"id":"2Fdj6JALDAm53S7Q4NxzH3sffzM","source":{"type":"mysql","connection":"mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true","settings":{"sslCA":"../certs/ca.pem","sslCert":"../certs/client-cert.pem","sslKey":"../certs/client-key.pem"},"initialLoad":false,"filter":{"tables":[{"name":"products1","operations":["insert","update","delete"]},{"name":"products2","operations":["insert","update","delete"]}]}},"target":{"type":"postgresql","connection":"postgres://postgres:postgres@localhost:5432/destination?sslmode=verify-ca\u0026sslrootcert=../certs/ca.crt\u0026sslkey=../certs/client.key\u0026sslcert=../certs/client.crt","settings":null,"initialLoad":false,"filter":{"tables":null}},"limits":{"numberOfEvents":10000}}}
-        "400":
-          description: Returns the status and error message indicating that the stream was not successfully created.
+              example: >-
+                {"status":"success","data":{"id":"2Fdj6JALDAm53S7Q4NxzH3sffzM","source":{"type":"mysql","connection":"mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true","settings":{"sslCA":"../certs/ca.pem","sslCert":"../certs/client-cert.pem","sslKey":"../certs/client-key.pem"},"filter":{"tables":[{"name":"products1","operations":["insert","update","delete"]},{"name":"products2","operations":["insert","update","delete"]}]}},"target":{"type":"postgresql","connection":"postgres://postgres:postgres@localhost:5432/destination?sslmode=verify-ca\u0026sslrootcert=../certs/ca.crt\u0026sslkey=../certs/client.key\u0026sslcert=../certs/client.crt","settings":null,"filter":{"tables":null}},"limits":{"numberOfEvents":10000}}}
+        '400':
+          description: >-
+            Returns the status and error message indicating that the stream was
+            not successfully created.
           content:
             application/json:
-              example: |-
-                {"status":"error","message":"json: cannot unmarshal string into Go value of type stream.Stream"}
+              example: >-
+                {"status":"error","message":"json: cannot unmarshal string into
+                Go value of type stream.Stream"}
     delete:
       tags:
         - Stream management
       summary: Stops event processing for the current stream on DBS servers.
-      description: "This endpoint causes the current stream to stop receiving new events from the source server. The target DBConvert server stops sending new events to its consumers."
+      description: >-
+        This endpoint causes the current stream to stop receiving new events
+        from the source server. The target DBConvert server stops sending new
+        events to its consumers.
       operationId: stream-source-cancel
       responses:
-        "200":
-          description: Returns a response containing the current stream ID and status information about the source and target DBS servers.
+        '200':
+          description: >-
+            Returns a response containing the current stream ID and status
+            information about the source and target DBS servers.
           content:
             application/json:
-              example: |-
+              example: >-
                 {"streamID":"2Fi6pNrHynLsBfe8v7GQLSKj7ou","Source":{"status":"STOPPED"},"Target":{"status":"STOPPED"}}
-        "400":
+        '400':
           description: Returns an error message if there is no stream running.
           content:
             application/json:
-              example: |-
-                {"status":"error","message":"no active stream to stop"}
+              example: '{"status":"error","message":"no active stream to stop"}'
     get:
       tags:
         - Stream config
       summary: Returns current stream configuration.
-      description: "This endpoint returns JSON configuration of the current stream"
+      description: This endpoint returns JSON configuration of the current stream
       operationId: stream-config
       responses:
-        "200":
+        '200':
           description: Response contains current stream config.
           content:
             application/json:
-              example: |-
-                {"id":"2Fdj6JALDAm53S7Q4NxzH3sffzM","source":{"type":"mysql","connection":"mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true","settings":{"sslCA":"../certs/ca.pem","sslCert":"../certs/client-cert.pem","sslKey":"../certs/client-key.pem"},"initialLoad":false,"filter":{"tables":[{"name":"products1","operations":["insert","update","delete"]},{"name":"products2","operations":["insert","update","delete"]}]}},"target":{"type":"postgresql","connection":"postgres://postgres:postgres@localhost:5432/destination?sslmode=verify-ca\u0026sslrootcert=../certs/ca.crt\u0026sslkey=../certs/client.key\u0026sslcert=../certs/client.crt","settings":null,"initialLoad":false,"filter":{"tables":null}},"limits":{"numberOfEvents":10000}}
+              example: >-
+                {"id":"2Fdj6JALDAm53S7Q4NxzH3sffzM","source":{"type":"mysql","connection":"mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true","settings":{"sslCA":"../certs/ca.pem","sslCert":"../certs/client-cert.pem","sslKey":"../certs/client-key.pem"},"filter":{"tables":[{"name":"products1","operations":["insert","update","delete"]},{"name":"products2","operations":["insert","update","delete"]}]}},"target":{"type":"postgresql","connection":"postgres://postgres:postgres@localhost:5432/destination?sslmode=verify-ca\u0026sslrootcert=../certs/ca.crt\u0026sslkey=../certs/client.key\u0026sslcert=../certs/client.crt","settings":null,"filter":{"tables":null}},"limits":{"numberOfEvents":10000}}
   /streams/stat:
     get:
       tags:
         - Stream stat
       summary: Reports current stream statistics from source and target nodes.
-      description: "This endpoint outputs stat values of the current stream"
+      description: This endpoint outputs stat values of the current stream
       operationId: stream-source-stat
       responses:
-        "200":
-          description: Returns response containing statistics info about the current stream.
+        '200':
+          description: >-
+            Returns response containing statistics info about the current
+            stream.
           content:
             application/json:
-              example: |-
+              example: >-
                 {"streamID":"2Fdj6JALDAm53S7Q4NxzH3sffzM","source":{"counter":10000,"elapsed":"1.209114254s","started":"2022-10-05T22:46:28.001407602+02:00","status":"FINISHED"},"target":{"counter":10000,"elapsed":"2.67940812s","started":"2022-10-05T22:46:28.001802342+02:00","status":"FINISHED"}}
-        "400":
-          description: Returns the status and error message indicating that statistics are not available.
+        '400':
+          description: >-
+            Returns the status and error message indicating that statistics are
+            not available.
           content:
             application/json:
-              example: |-
-                {"status":"error","message":"Get \"http://0.0.0.0:8021/api/v1/stat\": dial tcp 0.0.0.0:8021: connect: connection refused"}
-
+              example: >-
+                {"status":"error","message":"Get
+                \"http://0.0.0.0:8021/api/v1/stat\": dial tcp 0.0.0.0:8021:
+                connect: connection refused"}
   /streams/source/metrics:
     get:
       tags:
         - Stream stat
       summary: Reports Prometheus metrics for the current stream source node.
-      description: "This endpoint serves the Prometheus metrics for stream source"
+      description: This endpoint serves the Prometheus metrics for stream source
       operationId: stream-source-prometheus
       responses:
-        "200":
-          description: Returns response containing plain text prometheus metrics for the current stream source node.
+        '200':
+          description: >-
+            Returns response containing plain text prometheus metrics for the
+            current stream source node.
           content:
             text/plain:
-              example: |-
+              example: >-
                 ... omitted for brevity
-                # HELP source_duration_seconds the duration of the last job on source in seconds.
+
+                # HELP source_duration_seconds the duration of the last job on
+                source in seconds.
+
                 # TYPE source_duration_seconds gauge
-                source_duration_seconds{status="FINISHED",streamID="2Fdj6JALDAm53S7Q4NxzH3sffzM"} 0.679539515
-                # HELP source_events_in the number of ingested events on the source published to the event hub
+
+                source_duration_seconds{status="FINISHED",streamID="2Fdj6JALDAm53S7Q4NxzH3sffzM"}
+                0.679539515
+
+                # HELP source_events_in the number of ingested events on the
+                source published to the event hub
+
                 # TYPE source_events_in counter
+
                 source_events_in{streamID="2Fdj6JALDAm53S7Q4NxzH3sffzM"} 10000
   /streams/target/metrics:
     get:
       tags:
         - Stream stat
       summary: Prints Prometheus metrics for the current stream target node.
-      description: "This endpoint serves the Prometheus metrics for stream target"
+      description: This endpoint serves the Prometheus metrics for stream target
       operationId: stream-target-prometheus
       responses:
-        "200":
-          description: Returns response containing plain text prometheus metrics for the current stream target node.
+        '200':
+          description: >-
+            Returns response containing plain text prometheus metrics for the
+            current stream target node.
           content:
             text/plain:
-              example: |-
+              example: >-
                 ... omitted for brevity
-                # HELP target_duration_seconds The duration of the last job on target in seconds.
+
+                # HELP target_duration_seconds The duration of the last job on
+                target in seconds.
+
                 # TYPE target_duration_seconds gauge
-                target_duration_seconds{status="FINISHED",streamID="2Fdj6JALDAm53S7Q4NxzH3sffzM"} 1.516375992
-                # HELP target_events_out the number of events on the target consumed from the event hub
+
+                target_duration_seconds{status="FINISHED",streamID="2Fdj6JALDAm53S7Q4NxzH3sffzM"}
+                1.516375992
+
+                # HELP target_events_out the number of events on the target
+                consumed from the event hub
+
                 # TYPE target_events_out counter
+
                 target_events_out{streamID="2Fdj6JALDAm53S7Q4NxzH3sffzM"} 10000
