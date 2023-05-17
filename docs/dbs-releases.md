@@ -12,7 +12,7 @@ lastUpdated: true
 :calendar: May 15, 2023
 
 **Release Notes:**
-- Added "Convert" mode for MySQL and Postgres sources. In conversion mode, data is read directly from the tables of the source database. It is now mandatory to specify the mode parameter in the source section. Read more about conversion mode [here](/sources/conversion-mode).
+- Added "Convert" mode for MySQL and Postgres sources. In conversion mode, data is read directly from the tables of the source database. It is now mandatory to specify the mode parameter in the source section of a stream configuration. Read more about conversion mode [here](/sources/conversion-mode).
 - Added [conversion examples](https://github.com/slotix/dbconvert-streams-public/tree/main/examples-convert) to public github repository.
 - Added capability to convert multiple tables in parallel between source and target databases.
 
