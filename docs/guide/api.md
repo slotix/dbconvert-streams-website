@@ -28,7 +28,7 @@ Sending HTTP `GET` request to the same endpoint http://0.0.0.0:8020/api/v1/strea
 
 Refer to the API Reference to find information about the different endpoints available for each resource and how to use them.
 
-Read more at https://app.swaggerhub.com/apis-docs/slotix/db-convert_stream_api_server/1.0
+Read more at https://app.swaggerhub.com/apis-docs/slotix/db-convert_stream_api_server/1.1
 
 or
 

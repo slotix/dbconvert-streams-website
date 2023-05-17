@@ -21,7 +21,7 @@ The following table lists the currently supported DBS build combinations for ope
 
 ## Install required third-party components.
 
-"DBConvert Streams" for internal use requires NATS and Prometheus to be installed.
+"DBConvert Streams" for internal use requires NATS and optionally Prometheus to be installed.
 
 ### NATS Server.
 

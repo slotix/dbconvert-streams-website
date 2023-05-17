@@ -7,9 +7,7 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
-We are going to create an instance in Amazon Elastic Compute Cloud (EC2). 
-Then to deploy DBConvert Streams there can be done by following the steps below:
-
+We are going to create an instance on Amazon Elastic Compute Cloud (EC2), and the steps to deploy DBConvert Streams on it are as follows:
 
 ## Launch Amazon EC2 Instance.
 
@@ -89,5 +87,5 @@ Since DBConvert Streams relies on several services, it's advisable to utilize Do
     ```
 
 To learn how to use Docker Compose files to initiate DBS services, refer to the
-[DBS docker containers section](https://stream.dbconvert.com/guide/dbs-docker) of the DBConvert Streams guide.
+[DBS docker containers section](/guide/dbs-docker) of the DBConvert Streams guide.
 

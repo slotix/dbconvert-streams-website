@@ -20,7 +20,7 @@ DBConvert Streams consists of the following internal services:
 DBS platform depends on the following third-party services:
 
 - [NATS server](https://hub.docker.com/_/nats/) provides connectivity between internal DBS Services.
-- [Prometheus](https://hub.docker.com/r/prom/prometheus) is used to collect internal metrics of DBS services.
+- [Prometheus](https://hub.docker.com/r/prom/prometheus) is optionally used to collect internal metrics of DBS services.
 
 ## Creating Docker Compose configuration.
 
@@ -113,8 +113,6 @@ services:
     user: root
     ports:
       - 9090:9090
-    # volumes:
-    #   - ./_storage/prometheus:/prometheus
 ```
 To improve overall performance, you can run multiple instances of the 'Target Writer' by uncommenting the 'dbs-target-writer-2' and 'dbs-target-writer-3' services. This will add more Target Writer instances and distribute the processing of multiple 'INSERT' statements among several Target Writers, greatly increasing the speed of the entire process.
 
@@ -153,4 +151,4 @@ If you now check [prometheus target endpoint](http://0.0.0.0:9090/targets) in a 
 For actual examples and configurations, refer to the public [DBConvert Streams Github repository](https://github.com/slotix/dbconvert-streams-public)
 
 
-If you'd rather install binaries instead of running Docker containers, follow the instructions in the next section.
+Follow the steps in [Run binaries](/guide/install) section if you prefer to install binaries instead of running Docker containers.

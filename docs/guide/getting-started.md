@@ -43,13 +43,34 @@ API Server is used to perform the following _data stream_ tasks:
 
 DBConvert Streams API is based on REST. It uses HTTP requests to access and use data, accepts JSON request bodies, and returns JSON responses.
 
-### Stream Configuration.
+## Stream Configurations.
 
-A typical stream configuration is a JSON object that looks like this:
+A minimal stream configuration would look like this in JSON format:
+
+```JSON
+{
+  "source": {
+    "mode": "cdc",
+    "type": "mysql",
+    "connection": "mysql_user:passw0rd@tcp(0.0.0.0:3306)/source",
+  },
+  "target": {
+    "type": "postgresql",
+    "connection": "postgres://postgres:postgres@localhost:5432/target"
+  }
+}
+```
+
+When configuring a stream, several necessary parameters must be defined to ensure the proper functioning of the data transfer. These parameters include the source and target databases' connection details, the database type, and the chosen mode of operation, either CDC or conversion.
+
+### Advanced configuration options.
+
+Here is an example of a more advanced configuration:
 
 ```json
 {
   "source": {
+    "mode": "conversion",
     "type": "mysql",
     "connection": "mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true",
     "settings": {
@@ -60,8 +81,8 @@ A typical stream configuration is a JSON object that looks like this:
     "filter": {
       "tables": [
         { "name": "products1", "operations": ["insert", "update", "delete"] },
-        { "name": "products2", "operations": ["insert", "update", "delete"] },
-        { "name": "products3", "operations": ["insert", "update", "delete"] }
+        { "name": "products2", "operations": ["insert", "update"] },
+        { "name": "products3", "operations": ["insert"] }
       ]
     }
   },
@@ -78,20 +99,22 @@ A typical stream configuration is a JSON object that looks like this:
 
 ### Source.
 
-In DBConvert Streams, readers collect data from external sources such as MySQL/MariaDB binary log (binlog), PostgreSQL/CockroachDB logical replication slot.
-
 Source adapter configuration consists of the following properties:
 
 | property       | description                                                                                                                                  |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| mode           | It can be CDC or conversion.|
 | type           | represents the source type. It can be MySQL or PostgreSQL.                                                                                   |
 | connection     | a string representing the connection parameters.                                                                                             |
 | settings       | settings are unique for each source type. Find information about the settings for each source type in the documentation's relevant sections. |
 | filter/ tables | specified source data tables to capture.                                                                                                     |
 
+In CDC mode, source readers collect data from external sources, either from the MySQL/MariaDB binary log (binlog) or from the PostgreSQL/CockroachDB logical replication slot.  
+On the other hand, in convert mode, data is read in chunks directly from tables.
+
 ### Target.
 
-In DBConvert Streams, writers send data to external targets such as MySQL and PostgreSQL databases.
+Target writers send data to external targets such as MySQL and PostgreSQL databases.
 | property | description |
 |------------|---------------------------------------------------------------|
 | type | represents the target type. It can be MySQL or PostgreSQL. |
@@ -99,7 +122,7 @@ In DBConvert Streams, writers send data to external targets such as MySQL and Po
 
 ### Limits.
 
-If no _limits_ are specified in a configuration, a started stream continues running until it is manually stopped from API.
+If no limits are specified in the configuration for _CDC mode_, a started stream will continue running until it is manually stopped from the API. In the case of _conversion mode_, the source reader will read all records from the specified source tables.
 
 Otherwise, a stream stops immediately after reaching one of the following limits, whichever limit is reached first:
 
@@ -118,6 +141,7 @@ First, you can send a new stream configuration in the request body like so:
 ```bash
 curl --request POST --url http://0.0.0.0:8020/api/v1/streams -H 'Content-Type:application/json' -d'{
   "source": {
+    "mode": "conversion",
     "type": "mysql",
     "connection": "mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true",
     "settings": {
@@ -128,18 +152,14 @@ curl --request POST --url http://0.0.0.0:8020/api/v1/streams -H 'Content-Type:ap
     "filter": {
       "tables": [
         { "name": "products1", "operations": ["insert", "update", "delete"] },
-        { "name": "products2", "operations": ["insert", "update", "delete"] },
-        { "name": "products3", "operations": ["insert", "update", "delete"] }
+        { "name": "products2", "operations": ["insert", "update"] },
+        { "name": "products3", "operations": ["insert"] }
       ]
     }
   },
   "target": {
     "type": "postgresql",
     "connection": "postgres://postgres:postgres@localhost:5432/destination?sslmode=verify-ca&sslrootcert=../../config/postgresql/certs/ca.crt&sslkey=../../config/postgresql/certs/client.key&sslcert=../../config/postgresql/certs/client.crt"
-  },
-  "limits": {
-    "numberOfEvents": 0,
-    "elapsedTime": 0
   }
 }'
 ```
