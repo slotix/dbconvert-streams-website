@@ -15,6 +15,7 @@ Here is an example of a JSON source config object.
 
 ```JSON
 "source": {
+    "mode": "reader-mode",
     "type": "source-type",
     "connection": "connection-string",
     "settings": {
@@ -31,6 +32,7 @@ Here is an example of a JSON source config object.
 
 | property       | type   | description                                                                                                                       |
 | -------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| mode           | source | represent mode to read the source. It may be either _[cdc](/sources/what-is-cdc)_ or _[convert](/sources/conversion-mode)_                                                            |
 | type           | string | Source type. It can be either `mysql` or `postgresql`.                                                                            |
 | connection     | string | Connection settings. See the relevant sections for specific data sources.                                                         |
 | settings       | -      | The settings are unique for each source type. Find more details about the settings in the relevant sections of the documentation. |

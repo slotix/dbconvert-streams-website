@@ -13,7 +13,7 @@ The first step in using DBConvert Streams is connecting to a source database and
 
 There are two modes of reading source database avaiable in DBConvert Streams.
 
-- _Conversion mode._ Conversion mode is typically used to initially copy data from a source database to a target database.
+- _[Conversion mode.](/sources/conversion-mode)_ Conversion mode is typically used to initially copy data from a source database to a target database.
 - _[CDC (change data capture)](/sources/what-is-cdc) mode._ The source database reader captures incremental changes in CDC (Change Data Collection) mode.
 
 ### Differences between reading modes.

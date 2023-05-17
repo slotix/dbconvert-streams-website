@@ -13,6 +13,7 @@ An example MySQL reader configuration with a description of each property is giv
 
 ```JSON
 "source": {
+    "mode": "cdc",
     "type": "mysql",
     "connection": "mysql_user:passw0rd@tcp(1.2.3.4:3306)/Source?tls=true",
     "settings": {
@@ -70,7 +71,7 @@ Parameters follow after `?` as `key=value` pairs.
 
 Parameters are case-sensitive!
 
-> Note that parameter values ​​must be escaped. So, for example, you need to replace `/` with `%2F`. For example, US/Pacific would be locUS%2F Pacific.
+> Note that parameter values must be escaped. So, for example, you need to replace `/` with `%2F`. For example, US/Pacific would be US%2FPacific.
 
 ### TLS/SSL Connection settings.
 

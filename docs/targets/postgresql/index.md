@@ -14,8 +14,7 @@ Follow the instructions on this page to set up PostgreSQL as a target.
 ## Prerequisites.
 
 1. A running PostgreSQL instance.
-2. The database and schema specified in the stream configuration must exist in the target database.
-3. IP addresses of DBConvert Streams services are whitelisted on the target Postgres server.
+1. IP addresses of DBConvert Streams services are whitelisted on the target Postgres server.
 
 ## Whitelist DBS Target Writer.
 

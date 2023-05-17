@@ -1,15 +1,17 @@
 ---
-title: MySQL CDC Reader configuration.
-description: Using MySQL CDC. On-premises MySQL Server configuration.
+title: MySQL Reader configuration.
+description: Using MySQL as a source. On-premises MySQL Server configuration.
 layout: doc
 lastUpdated: true
 ---
 
 # {{ $frontmatter.title }}
 
-DBConvert Streams platform supports ingesting data from MySQL/MariaDB via MySQL Binary Logs.
+The DBConvert Streams platform supports ingesting data from MySQL/MariaDB databases. It offers two options for data collection, depending on the reader mode.
 
-MySQL Binlogs stores information about data change events made on the MySQL server. Incoming `INSERT,` `UPDATE,` and `DELETE` events from binary logs are captured by MySQL Reader as soon as they occur. MySQL Reader then sends the consumed events to the DBS Event Hub.
+Firstly, it can utilize MySQL Binary Logs to extract data changes from the database. This approach enables capturing row-level events and ensures efficient and reliable data ingestion. By analyzing the Binary Logs, DBConvert Streams can detect `INSERT`, `UPDATE`, and `DELETE` operations and process them accordingly.
+
+Alternatively, DBConvert Streams can directly read data from the MySQL/MariaDB database tables in "conversion" reader mode. This method involves retrieving data records from the source tables without relying on the Binary Logs. It offers a straightforward way of accessing the data for further processing.
 
 DBS MySQL reader supports the following database types:
 
@@ -17,7 +19,11 @@ DBS MySQL reader supports the following database types:
 - MariaDB
 - Percona
 
-## MySQL server configuration.
+## MySQL server configuration for CDC mode.
+
+:::info 
+If you plan to read data in conversion mode, skip this specific configuration. Configuration settings related to reading data from MySQL Binary Logs or setting up CDC mode are not necessary when operating in conversion mode. 
+:::
 
 To enable MySQL Binary Log (Binlog) replication, you must configure the MySQL server.
 
@@ -60,7 +66,7 @@ Verify that the return value is 1, indicating that Binlog replication is active.
 
 For more information on all available replication options and binary logs, see the [Replication Reference Guide](https://dev.mysql.com/doc/refman/8.0/en/replication-options.html) on the MySQL Documentation Portal.
 
-### Whitelist DBConvert Streams' IP Addresses
+## Whitelist DBConvert Streams' IP Addresses
 
 You must whitelist the IP address of the _DBS source server_ to allow connection to the MySQL server from DBConvert Streams.
 

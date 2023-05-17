@@ -95,14 +95,18 @@ export default defineConfig({
         collapsible: true,
         items: [
           {
-            text: "What is Change Data Capture?",
+            text: "Change Data Capture mode",
             link: "/sources/what-is-cdc",
           },
+          {
+            text: "Conversion mode",
+            link: "/sources/conversion-mode",
+          },
           { text: "Source configuration.", link: "/sources/source-config" },
-          { text: "MySQL/ MariaDB CDC Reader", link: "/sources/mysql/mysql-server" },
+          { text: "MySQL/ MariaDB Reader", link: "/sources/mysql/mysql-server" },
           { text: "Amazon RDS MySQL/ Aurora", link: "/sources/mysql/amazon-rds" },
           { text: "MySQL Reader properties", link: "/sources/mysql/reader-properties" },
-          { text: "PostgreSQL CDC Reader", link: "/sources/postgresql/postgresql-server" },
+          { text: "PostgreSQL Reader", link: "/sources/postgresql/postgresql-server" },
         ],
       },
       {

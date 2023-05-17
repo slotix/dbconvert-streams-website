@@ -1,5 +1,5 @@
 ---
-title: What is Change Data Capture (CDC)?
+title: Change Data Capture (CDC) mode.
 description: CDC - what is change data capture?
 layout: doc
 lastUpdated: true
@@ -30,4 +30,8 @@ DBConvert Streams currently supports the following sources:
 - Amazon RDS for PostgreSQL
 - Amazon Aurora (PostgreSQL Compatible)
 
-Sources are defined and configured using a simple set of properties in JSON format.
+
+::: info
+Sources are defined and configured using a simple set of properties in JSON format. In the source section, the mode parameter should be set as _"cdc"_ to enable Change Data Capture functionality.
+:::
+

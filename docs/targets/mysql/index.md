@@ -14,8 +14,7 @@ Follow the instructions on this page to set up MySQL as a target.
 ## Prerequisites.
 
 1. A running MySQL instance.
-2. The database specified in the stream configuration must exist in the target database.
-3. IP addresses of DBS Target are whitelisted on the target MySQL server.
+1. IP addresses of DBS Target are whitelisted on the target MySQL server.
 
 ## Whitelist DBS Target Writer.
 

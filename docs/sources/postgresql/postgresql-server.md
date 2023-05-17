@@ -1,23 +1,37 @@
 ---
-title: PostgreSQL CDC Reader configuration.
-description: Using PostgreSQL CDC. Server config. Postgres reader properties.
+title: PostgreSQL Reader configuration.
+description: Using PostgreSQL as a source. Postgres reader properties.
 layout: doc
 lastUpdated: true
 ---
 
 # {{ $frontmatter.title }}
 
+The DBConvert Streams platform offers support for ingesting data from PostgreSQL databases. It provides two options for data ingestion, depending on the chosen reader mode.
+
+## CDC reading mode
 ![Transaction Log Change Data Capture](/images/postgresql/postgresql-cdc.png)
 
-DBConvert Streams platform ingests data from a PostgreSQL database via Write Ahead Logs (WALs) that collect data about changes made to a PostgreSQL server.
+In the first CDC mode, DBConvert Streams can ingest data from PostgreSQL using Write-Ahead Logs (WALs). By analyzing the WALs, the platform can capture the changes made to the database, including INSERT, UPDATE, and DELETE operations. This approach ensures accurate and comprehensive data ingestion by capturing row-level events directly from the database's transaction logs.
 
 DBS PostgreSQL Reader uses [Logical Replication](https://www.postgresql.org/docs/10/logical-replication.html) that was introduced in PostgreSQL 10 to capture changes in a Postgres database.
-
-Incoming `INSERT`, `UPDATE`, and `DELETE` events from WAL transaction logs are decoded using the standard logic decoding plugin `pgoutput`, which is shipped with PostgreSQL natively.
 
 Data change Events consumed from [logical decoding stream](https://www.postgresql.org/docs/current/protocol-replication.html) are then sent to the DBConvert Event Hub.
 
 Please read the [PostgreSQL Change Data Capture (CDC)](https://dbconvert.com/blog/postgresql-change-data-capture-cdc/) article on our blog for a deeper understanding of Postgres CDC.
+
+Incoming `INSERT`, `UPDATE`, and `DELETE` events from WAL transaction logs are decoded using the standard logic decoding plugin `pgoutput`, which is shipped with PostgreSQL natively.
+
+## Conversion mode.
+Alternatively, DBConvert Streams can read data directly from the tables in the PostgreSQL database. This method involves extracting data records from the source tables without relying on the WALs. It provides a more direct way of accessing the data for further processing.
+
+Conversion mode is specifically designed for one-time data transfers, such as database migration or consolidation, where the focus is on moving the existing data from the source PostgreSQL database to the target database.
+When operating in conversion mode with PostgreSQL, DBConvert Streams directly reads the data from the tables of the source database. It establishes a connection to the PostgreSQL database using the provided connection details, such as the host, port, username, password, and database name.
+
+DBConvert Streams performs schema discovery to understand the structure of the tables and retrieves the data in chunks to optimize performance.
+
+During the conversion process, DBConvert Streams handles data type conversions, ensuring that the data from PostgreSQL is appropriately transformed to match the target database's requirements. It maps the source and target schemas, accommodating differences in table structures, column names, or data types.
+
 
 ### Supported Databases.
 
@@ -26,7 +40,12 @@ PostgreSQL Reader supports the following databases:
 - PostgreSQL 10 and higher.
 - CockroachDB
 
-## PostgreSQL server configuration.
+## PostgreSQL CDC server configuration.
+
+
+:::info 
+If you plan to read data in conversion mode, skip this specific configuration. Configuration settings related to reading data from Postgres WALs or setting up CDC mode are not necessary when operating in conversion mode. 
+:::
 
 To set up logical replication, enable WAL on the self-hosted (generic) PostgreSQL server :
 
@@ -93,7 +112,7 @@ alter role <user> with login;
 
 **Note:** Remember to replace \<user\> with the intended user.
 
-## PostgreSQL reader properties.
+## PostgreSQL CDC reader properties.
 
 Before using this adapter, PostgreSQL Server must be configured as described above.
 
@@ -101,6 +120,7 @@ An example PostgreSQL reader configuration with a description of each property i
 
 ```JSON
 "source": {
+    "mode": "cdc",
     "type": "postgresql",
     "connection": "postgres://postgres:postgres@localhost:5432/postgres?sslmode=verify-ca&sslrootcert=../../config/postgresql/certs/ca.crt&sslkey=../../config/postgresql/certs/client.key&sslcert=../../config/postgresql/certs/client.crt",
     "settings": {
@@ -118,6 +138,15 @@ An example PostgreSQL reader configuration with a description of each property i
 
 General configuration options such as _type_ and _filter/tables_ are described in [Source Configuration](/sources/source-config).
 
+## Example of source configuration for convert mode. 
+
+```JSON
+"source": {
+    "mode": "convert",
+    "type": "postgresql",
+    "connection": "postgres://postgres:postgres@localhost:5432/postgres"
+}
+```
 ### Multiple schemas support for PostgeSQL.
 
 **Note** _Public Schema_ is used by default unless another schema is specified in the configuration. Thus, in the example above, `products2` is equivalent to `public.products2`. Names are case-sensitive.
@@ -192,7 +221,7 @@ user=postgres password=passw0rd host=postgres.host.com port=5432 dbname=mydb ssl
 postgres://postgres:passw0rd@postgres.host.com:5432/mydb?sslmode=verify-ca&sslrootcert=/path_to/ca.crt&sslkey=/path_to/client.key&sslcert=/path_to/client.crt
 ```
 
-### PostgreSQL source specific params. (optional)
+### PostgreSQL CDC source specific params. (optional)
 
 By default, you do not need to explicitly specify the `replicationSlotName` and `publicationName` parameters. They are set up when you start the Postgres reader. However, if you want to customize the names [Replication Slot](https://www.postgresql.org/docs/14/warm-standby.html#STREAMING-REPLICATION-SLOTS-MANIPULATION) and [Publication Name](https://www.postgresql.org/docs/14/sql-createpublication.html) add the appropriate parameters to the source configuration.
 
@@ -200,3 +229,4 @@ By default, you do not need to explicitly specify the `replicationSlotName` and 
 | ------------------- | ------ | ---------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | replicationSlotName | string | `dbconvert_replication_slot` | The name of the replication slot to create. The replication slot makes the PostgreSQL CDC available.         |
 | publicationName     | string | `dbconvert-publication`      | A publication is a group of tables whose data changes are intended to be replicated via logical replication. |
+
