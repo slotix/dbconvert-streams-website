@@ -26,11 +26,14 @@ DBConvert Streams currently supports the following databases:
 - Percona
 - Vitess
 - PostgreSQL   
+- Greenplum Database 
+- YugabyteDB
 - EDB Postgres
 - Citus
 - CockroachDB
 - Amazon RDS for MySQL
 - Amazon Aurora (MySQL Compatible)
+- SkySQL
 - Amazon RDS for PostgreSQL
 - Amazon Aurora (PostgreSQL Compatible)
 
