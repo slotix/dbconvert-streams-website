@@ -21,8 +21,13 @@ DBConvert Streams currently supports the following databases:
 
 - MySQL
 - MariaDB
+- SingleStore DB (formerly MemSQL)
+- TiDB
 - Percona
+- Vitess
 - PostgreSQL   
+- EDB Postgres
+- Citus
 - CockroachDB
 - Amazon RDS for MySQL
 - Amazon Aurora (MySQL Compatible)
