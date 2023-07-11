@@ -7,6 +7,30 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+## Version 0.7.5
+
+:calendar: July 11, 2023
+
+**Release Notes:**
+- Added endpoints to the REST API for managing connections, allowing users to create, list, retrieve information, and delete connections. 
+- Increased the coverage of integration tests by adding more comprehensive test cases.
+
+
+**Bug fixes:**
+- Fixed an issue where table filters were not functioning correctly.
+- Improved handling of tables with names containing dots, such as `private.products`.
+- Adjusted table name processing on the target to remove the `public` schema name, except for table names other than `public`.
+
+Latest binaries are available at :
+
+| Operating System | Architecture |       Link                                                                                |
+| ---------------- | ------------ |  ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        |  [Download](https://dbconvert.com/downloads/dbs/v0.7.5/dbs-v0.7.5-linux-amd64.zip)   |
+| Mac OS X         | AMD64        |  [Download](https://dbconvert.com/downloads/dbs/v0.7.5/dbs-v0.7.5-darwin-amd64.zip)  |
+| Windows          | AMD64        |  [Download](https://dbconvert.com/downloads/dbs/v0.7.5/dbs-v0.7.5-windows-amd64.zip) |
+| Linux            | ARM64        |  [Download](https://dbconvert.com/downloads/dbs/v0.7.5/dbs-v0.7.5-linux-arm64.zip)   |
+
+
 ## Version 0.7.0
 
 :calendar: May 15, 2023
