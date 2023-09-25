@@ -7,11 +7,12 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
-The DBConvert Streams platform supports ingesting data from MySQL/MariaDB databases. It offers two options for data collection, depending on the reader mode.
+In MySQL, every change made to the database is carefully recorded in something called MySQL Binary Logs (Binlogs). These logs track what's happening inside the database, like when data is updated, new tables are created, or other actions are taken. They also give us a peek at the specific commands that caused these changes.
+
+The DBConvert Streams platform supports reading data from MySQL/ MariaDB databases. It offers two options for data collection, depending on the reader mode.
 
 Firstly, it can utilize MySQL Binary Logs to extract data changes from the database. This approach enables capturing row-level events and ensures efficient and reliable data ingestion. By reading and analyzing the Binary Logs, DBConvert Streams can detect `INSERT`, `UPDATE`, and `DELETE` operations and process them accordingly.
 
-Alternatively, DBConvert Streams can directly read data from the MySQL/MariaDB database tables in "conversion" reader mode. This method involves retrieving data records from the source tables without relying on the Binary Logs. It offers a straightforward way of accessing the data for further processing.
 
 DBS MySQL reader supports the following database types:
 
@@ -109,3 +110,5 @@ SHOW GRANTS FOR `mysql_user`@`%`;
 
 Discover further details regarding the complete set of properties applicable to the MySQL Reader by visiting the following source: [MySQL Reader properties](/sources/mysql/reader-properties).
 
+
+Alternatively, DBConvert Streams can directly read data from the MySQL/MariaDB database tables in ["conversion/ copy data" reader mode](/sources/conversion-mode). This method involves retrieving data records from the source tables without relying on the Binary Logs. It offers a straightforward way of accessing the data for further processing.
