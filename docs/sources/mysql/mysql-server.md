@@ -1,6 +1,6 @@
 ---
-title: MySQL Reader configuration.
-description: Using MySQL as a source. On-premises MySQL Server configuration.
+title: MySQL binlog Reader configuration.
+description: Using MySQL as a source. On-premises MySQL Server binary log  configuration.
 layout: doc
 lastUpdated: true
 ---
@@ -9,7 +9,7 @@ lastUpdated: true
 
 The DBConvert Streams platform supports ingesting data from MySQL/MariaDB databases. It offers two options for data collection, depending on the reader mode.
 
-Firstly, it can utilize MySQL Binary Logs to extract data changes from the database. This approach enables capturing row-level events and ensures efficient and reliable data ingestion. By analyzing the Binary Logs, DBConvert Streams can detect `INSERT`, `UPDATE`, and `DELETE` operations and process them accordingly.
+Firstly, it can utilize MySQL Binary Logs to extract data changes from the database. This approach enables capturing row-level events and ensures efficient and reliable data ingestion. By reading and analyzing the Binary Logs, DBConvert Streams can detect `INSERT`, `UPDATE`, and `DELETE` operations and process them accordingly.
 
 Alternatively, DBConvert Streams can directly read data from the MySQL/MariaDB database tables in "conversion" reader mode. This method involves retrieving data records from the source tables without relying on the Binary Logs. It offers a straightforward way of accessing the data for further processing.
 
@@ -19,7 +19,7 @@ DBS MySQL reader supports the following database types:
 - MariaDB
 - Percona
 
-## MySQL server configuration for CDC mode.
+## MySQL server configuration for reading binlog data in CDC mode.
 
 :::info 
 If you plan to read data in conversion mode, skip this specific configuration. Configuration settings related to reading data from MySQL Binary Logs or setting up CDC mode are not necessary when operating in conversion mode. 
