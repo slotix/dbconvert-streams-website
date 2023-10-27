@@ -7,13 +7,16 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
-DBS readers collect data from external sources such as MySQL and PostgreSQL and write the collected events to the target system of your choice.
+DBS readers collect data from external sources such as MySQL and PostgreSQL and
+write the collected events to the target system of your choice.
 
-This section provides general information about source configuration options. Some specific configuration options for different source types are described in the relevant sections.
+This section provides general information about source configuration options.
+Some specific configuration options for different source types are described in
+the relevant sections.
 
 Here is an example of a JSON source config object.
 
-```JSON
+```json
 "source": {
     "mode": "reader-mode",
     "type": "source-type",
@@ -32,7 +35,7 @@ Here is an example of a JSON source config object.
 
 | property       | type   | description                                                                                                                       |
 | -------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| mode           | source | represent mode to read the source. It may be either _[cdc](/sources/what-is-cdc)_ or _[convert](/sources/conversion-mode)_                                                            |
+| mode           | source | represent mode to read the source. It may be either _[cdc](/sources/what-is-cdc)_ or _[convert](/sources/conversion-mode)_        |
 | type           | string | Source type. It can be either `mysql` or `postgresql`.                                                                            |
 | connection     | string | Connection settings. See the relevant sections for specific data sources.                                                         |
 | settings       | -      | The settings are unique for each source type. Find more details about the settings in the relevant sections of the documentation. |
