@@ -41,8 +41,8 @@ DBConvert Streams currently supports the following sources:
 - Amazon Aurora (PostgreSQL Compatible)
 
 ::: info Sources are defined and configured using a simple set of properties in
-JSON format. In the source section, the mode parameter should be set as _"cdc"_
-to enable Change Data Capture functionality. :::
+JSON format. In the source section, the `mode` parameter should be set to
+_"cdc"_ to enable Change Data Capture functionality.
 
 ```json
 "source": {
@@ -51,3 +51,5 @@ to enable Change Data Capture functionality. :::
     "connection":"postgres://postgres:postgres@localhost:5432/postgres"
   }
 ```
+
+:::

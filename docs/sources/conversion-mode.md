@@ -38,14 +38,16 @@ DBConvert Streams currently supports the following sources:
 - Amazon RDS for PostgreSQL
 - Amazon Aurora (PostgreSQL Compatible)
 
-::: info Sources are defined and configured using a simple set of properties in
-JSON format. In the source section, the mode parameter should be set as
-_"convert"_ to enable conversion functionality. :::
+:::info Sources are defined and configured using a simple set of properties in
+JSON format. In the source section, the `mode` parameter should be set to
+_"convert"_ to enable conversion functionality.
 
 ```json
 "source": {
-    "mode": "convert",
+    "mode":"convert",
     "type": "mysql",
     "connection": "root:123456@tcp(0.0.0.0:3306)/source"
-  }
+}
 ```
+
+:::
