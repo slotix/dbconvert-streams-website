@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "DBConvert Stream docs",
   "main": "index.js",
-  "author": "slotix <dmsoft@gmail.com>",
+  "author": "slotix <dm@slotix.sk>",
   "license": "MIT",
   "private": false,
   "scripts": {
