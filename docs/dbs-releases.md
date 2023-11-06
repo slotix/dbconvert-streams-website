@@ -7,9 +7,9 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
-## Version 0.7.7
+## Version 0.7.8
 
-:calendar: November 05, 2023
+:calendar: November 06, 2023
 
 **Release Notes:**
 
@@ -18,22 +18,27 @@ lastUpdated: true
 
 **Bug fixes:**
 
-- Resolved issue with incorrect conversion of JSON field structures from MySQL
-  to PostgreSQL.
-  [Issue #1 Link on GitHub](https://github.com/slotix/dbconvert-streams-public/issues/1)
+- Fixed concurrency issue when converting multiple tables at once.
+  [Issue #4 on GitHub](https://github.com/slotix/dbconvert-streams-public/issues/4)
 
 - Fixed Postgres types during the conversion process from MySQL, ensuring
   accurate generation of `CREATE TABLE` statements.
   [Issue #4 on GitHub](https://github.com/slotix/dbconvert-streams-public/issues/4)
 
+- Resolved issue with incorrect conversion of JSON field structures from MySQL
+  to PostgreSQL.
+  [Issue #1 Link on GitHub](https://github.com/slotix/dbconvert-streams-public/issues/1)
+
+
 Latest binaries are available at :
 
 | Operating System | Architecture | Link                                                                                |
 | ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.7/dbs-v0.7.7-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.7/dbs-v0.7.7-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.7/dbs-v0.7.7-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.7/dbs-v0.7.7-linux-arm64.zip)   |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.8/dbs-v0.7.8-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.8/dbs-v0.7.8-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.8/dbs-v0.7.8-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.8/dbs-v0.7.8-linux-arm64.zip)   |
+
 
 ## Version 0.7.5
 
