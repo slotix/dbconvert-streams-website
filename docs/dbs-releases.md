@@ -7,6 +7,34 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+## Version 0.8.0 Release Notes
+
+:calendar: November 09, 2023
+
+### New Features:
+
+- **Automated Index and Foreign Key Conversion:**
+Streamline your development process with the new automated conversion feature. Now, when creating table structures on the target, all indexes and foreign keys are automatically converted, making it effortless to manage your database relationships within the application.
+ 
+- **Optimizing `dataBundleSize` for Efficiency:**
+Adjust the `dataBundleSize` parameter in the reader for improved performance. While the default of 100 suits regular tables, consider tweaking it for larger or "fat" record tables. `dataBundleSize` determines the number of rows transmitted to NATS in a single operation, tailoring it ensures efficient data flow without straining the system.
+
+
+### Bug fixes:
+- **Enhanced Error Handling for "Slow Consumer, Messages Dropped" Scenarios:**
+In situations where transferring substantial rows with larger data sizes leads to the NATS error "slow consumer, messages dropped," this release introduces a solution. Now, with the addition of the `dataBundleSize` parameter in the stream configuration, you can mitigate such errors. 
+
+
+Latest binaries are available at :
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.0/dbs-v0.8.0-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.0/dbs-v0.8.0-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.0/dbs-v0.8.0-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.0/dbs-v0.8.0-linux-arm64.zip)   |
+
+
 ## Version 0.7.8
 
 :calendar: November 06, 2023

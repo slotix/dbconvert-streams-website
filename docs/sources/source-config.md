@@ -21,6 +21,7 @@ Here is an example of a JSON source config object.
     "mode": "reader-mode",
     "type": "source-type",
     "connection": "connection-string",
+    "dataBundleSize": 100,
     "settings": {
       //settings are unique for each source type
     },
@@ -33,11 +34,12 @@ Here is an example of a JSON source config object.
   }
 ```
 
-| property       | type   | description                                                                                                                       |
-| -------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| mode           | source | represent mode to read the source. It may be either _[cdc](/sources/what-is-cdc)_ or _[convert](/sources/conversion-mode)_        |
-| type           | string | Source type. It can be either `mysql` or `postgresql`.                                                                            |
-| connection     | string | Connection settings. See the relevant sections for specific data sources.                                                         |
-| settings       | -      | The settings are unique for each source type. Find more details about the settings in the relevant sections of the documentation. |
-| filter/ tables | object | Tables for which change data is returned. Tables must have primary keys (required for logical replication).                       |
-| operations     | enum   | A set of Change Data Capture types (insert, update, delete) of events to track.                                                   |
+| property       | type   | description                                                                                                                          |
+| -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| mode           | source | represent mode to read the source. It may be either _[cdc](/sources/what-is-cdc)_ or _[convert](/sources/conversion-mode)_           |
+| type           | string | Source type. It can be either `mysql` or `postgresql`.                                                                               |
+| connection     | string | Connection settings. See the relevant sections for specific data sources.                                                            |
+| dataBundleSize | number | helps prevent NATS errors related to slow consumers and dropped messages by optimizing the size of data bundles during transmission. |
+| settings       | -      | The settings are unique for each source type. Find more details about the settings in the relevant sections of the documentation.    |
+| filter/ tables | object | Tables for which change data is returned. Tables must have primary keys (required for logical replication).                          |
+| operations     | enum   | A set of Change Data Capture types (insert, update, delete) of events to track.                                                      |
