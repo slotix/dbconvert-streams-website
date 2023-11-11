@@ -26,6 +26,8 @@ Q: Is the default setting sufficient for handling all types of data transfers?
 
 A: While the default settings work well for regular tables, it's advisable to adjust parameters like `dataBundleSize` to lower values for tables with larger or "fat" records to ensure optimal performance and avoid errors associated with slow consumers.
 
+Find more information about that in the related [NATS errors article](https://dbconvert.com/blog/nats-errors-dbconvert-streams/)
+
 
 ## PostreSQL.
 

@@ -36,6 +36,8 @@ Data chunks collected from the source are immediately published to the Event Hub
 
 DBConvert Streams automates the translation of DDL `CREATE TABLE` statements between MySQL and PostgreSQL, eliminating the need for manual data type conversion. When a corresponding table is not found in the target database, the source's `CREATE TABLE` statement is translated into the appropriate target database dialect, creating a new table in the target database.
 
+Additionally, indexes and foreign keys are seamlessly converted from the source to the target, ensuring a comprehensive migration process.
+
 ### Consistency and Concurrency
 
 Consistency in a distributed system is no longer natural, and horizontal scaling becomes more difficult.
