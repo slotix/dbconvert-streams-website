@@ -22,6 +22,7 @@ Here is an example of a JSON source config object.
     "type": "source-type",
     "connection": "connection-string",
     "dataBundleSize": 100,
+    "reportingInterval": 5,
     "settings": {
       //settings are unique for each source type
     },
@@ -40,6 +41,7 @@ Here is an example of a JSON source config object.
 | type           | string | Source type. It can be either `mysql` or `postgresql`.                                                                               |
 | connection     | string | Connection settings. See the relevant sections for specific data sources.                                                            |
 | dataBundleSize | number | helps prevent NATS errors related to slow consumers and dropped messages by optimizing the size of data bundles during transmission. |
+| reportingInterval |(in seconds). It allows users to define the frequency at which progress reports are generated to keep users informed about the status of data transfer.  If `reportingInterval` is set to zero or omitted, no statistics will be returned while the stream is running, providing flexibility for silent operation.     |
 | settings       | -      | The settings are unique for each source type. Find more details about the settings in the relevant sections of the documentation.    |
 | filter/ tables | object | Tables for which change data is returned. Tables must have primary keys (required for logical replication).                          |
 | operations     | enum   | A set of Change Data Capture types (insert, update, delete) of events to track.                                                      |

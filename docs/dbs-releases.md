@@ -7,6 +7,32 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+## Version 0.8.1 Release Notes
+
+:calendar: November 12, 2023
+
+### Features:
+
+**Retry Logic Enhancement:**
+   - Introducing improved reliability with the addition of retry logic.  Implemented a simple for loop that intelligently retries transactions, enhancing the system's ability to handle transient errors. Transactions will now be attempted a configurable number of times before returning an error.
+
+### Configuration Enhancement:
+
+**ReportingInterval Parameter:**
+   - Added a new configuration parameter, `reportingInterval`, allowing users to define the frequency at which progress reports are generated. Enhance your experience by staying informed about the status of data transfer between the source reader and target writer services.
+If `reportingInterval` is set to zero, no statistics will be returned while the stream is running, providing flexibility for silent operation.
+
+Latest binaries are available at :
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.1/dbs-v0.8.1-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.1/dbs-v0.8.1-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.1/dbs-v0.8.1-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.1/dbs-v0.8.1-linux-arm64.zip)   |
+
+
+
 ## Version 0.8.0 Release Notes
 
 :calendar: November 09, 2023

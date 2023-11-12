@@ -15,10 +15,11 @@ This section contains general information about target configuration options. Fi
 
 Here is an example of JSON config object describing a target.
 
-```JSON
+```json
 "target": {
     "type": "target-type",
-    "connection": "connection-string"
+    "connection": "connection-string",
+    "reportingInterval": 5
   }
 ```
 
@@ -26,3 +27,4 @@ Here is an example of JSON config object describing a target.
 | ---------- | ------ | ------------------------------------------------------ |
 | type       | string | Target type. It can be either `mysql` or `postgresql`. |
 | connection | string | Connection parameters.                                 |
+| reportingInterval |(in seconds). It allows users to define the frequency at which progress reports are generated to keep users informed about the status of data transfer.  If `reportingInterval` is set to zero or omitted, no statistics will be returned while the stream is running, providing flexibility for silent operation.     |
