@@ -7,20 +7,75 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
-## Version 0.8.1 Release Notes
+## Version 0.8.2
+
+:calendar: November 17, 2023
+
+### Features:
+
+
+### Enhancements:
+
+#### Data Transfer Monitoring:
+
+- Introducing the addition of `Total data size:` to the streaming statistics.
+  With this update, users can now stay informed about the total data size being
+  processed during the streaming operation. This real-time statistic is
+  seamlessly integrated into the streaming statistics, offering a more detailed
+  overview of the ongoing transfer.
+
+#### Message Redelivery:
+
+- The message redelivery mechanism is designed to address errors
+  that may occur during the processing of data on the target side, ensuring that
+  no message is left undelivered.
+
+#### Events Hub Management:
+
+- Introducing the ability to remove all streams from the Events Hub through new
+  API endpoint. In this release, we are addressing an issue where orphaned
+  messages may accumulate in the Events Hub, consuming unnecessary disk space.
+  To mitigate this, a new endpoint has been introduced, allowing users to
+  efficiently remove all streams from the Events Hub. This can be particularly
+  useful in scenarios where stream consumption has faced disruptions, and
+  lingering unconsumed messages need to be cleared. **Example usage:**
+
+```bash
+curl --request DELETE --url http://127.0.0.1:8020/api/v1/streams
+```
+
+Latest binaries are available at :
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.2/dbs-v0.8.2-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.2/dbs-v0.8.2-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.2/dbs-v0.8.2-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.2/dbs-v0.8.2-linux-arm64.zip)   |
+
+## Version 0.8.1
 
 :calendar: November 12, 2023
 
 ### Features:
 
 **Retry Logic Enhancement:**
-   - Introducing improved reliability with the addition of retry logic.  Implemented a simple for loop that intelligently retries transactions, enhancing the system's ability to handle transient errors. Transactions will now be attempted a configurable number of times before returning an error.
+
+- Introducing improved reliability with the addition of retry logic. Implemented
+  a simple for loop that intelligently retries transactions, enhancing the
+  system's ability to handle transient errors. Transactions will now be
+  attempted a configurable number of times before returning an error.
 
 ### Configuration Enhancement:
 
 **ReportingInterval Parameter:**
-   - Added a new configuration parameter, `reportingInterval`, allowing users to define the frequency at which progress reports are generated. Enhance your experience by staying informed about the status of data transfer between the source reader and target writer services.
-If `reportingInterval` is set to zero, no statistics will be returned while the stream is running, providing flexibility for silent operation.
+
+- Added a new configuration parameter, `reportingInterval`, allowing users to
+  define the frequency at which progress reports are generated. Enhance your
+  experience by staying informed about the status of data transfer between the
+  source reader and target writer services. If `reportingInterval` is set to
+  zero, no statistics will be returned while the stream is running, providing
+  flexibility for silent operation.
 
 Latest binaries are available at :
 
@@ -31,25 +86,32 @@ Latest binaries are available at :
 | Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.1/dbs-v0.8.1-windows-amd64.zip) |
 | Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.1/dbs-v0.8.1-linux-arm64.zip)   |
 
-
-
-## Version 0.8.0 Release Notes
+## Version 0.8.0
 
 :calendar: November 09, 2023
 
 ### New Features:
 
-- **Automated Index and Foreign Key Conversion:**
-Streamline your development process with the new automated conversion feature. Now, when creating table structures on the target, all indexes and foreign keys are automatically converted, making it effortless to manage your database relationships within the application.
- 
-- **Optimizing `dataBundleSize` for Efficiency:**
-Adjust the `dataBundleSize` parameter in the reader for improved performance. While the default of 100 suits regular tables, consider tweaking it for larger or "fat" record tables. `dataBundleSize` determines the number of rows transmitted to NATS in a single operation, tailoring it ensures efficient data flow without straining the system.
+- **Automated Index and Foreign Key Conversion:** Streamline your development
+  process with the new automated conversion feature. Now, when creating table
+  structures on the target, all indexes and foreign keys are automatically
+  converted, making it effortless to manage your database relationships within
+  the application.
 
+- **Optimizing `dataBundleSize` for Efficiency:** Adjust the `dataBundleSize`
+  parameter in the reader for improved performance. While the default of 100
+  suits regular tables, consider tweaking it for larger or "fat" record tables.
+  `dataBundleSize` determines the number of rows transmitted to NATS in a single
+  operation, tailoring it ensures efficient data flow without straining the
+  system.
 
 ### Bug fixes:
-- **Enhanced Error Handling for "Slow Consumer, Messages Dropped" Scenarios:**
-In situations where transferring substantial rows with larger data sizes leads to the NATS error "slow consumer, messages dropped," this release introduces a solution. Now, with the addition of the `dataBundleSize` parameter in the stream configuration, you can mitigate such errors. 
 
+- **Enhanced Error Handling for "Slow Consumer, Messages Dropped" Scenarios:**
+  In situations where transferring substantial rows with larger data sizes leads
+  to the NATS error "slow consumer, messages dropped," this release introduces a
+  solution. Now, with the addition of the `dataBundleSize` parameter in the
+  stream configuration, you can mitigate such errors.
 
 Latest binaries are available at :
 
@@ -59,7 +121,6 @@ Latest binaries are available at :
 | Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.0/dbs-v0.8.0-darwin-amd64.zip)  |
 | Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.0/dbs-v0.8.0-windows-amd64.zip) |
 | Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.0/dbs-v0.8.0-linux-arm64.zip)   |
-
 
 ## Version 0.7.8
 
@@ -83,7 +144,6 @@ Latest binaries are available at :
   to PostgreSQL.
   [Issue #1 Link on GitHub](https://github.com/slotix/dbconvert-streams-public/issues/1)
 
-
 Latest binaries are available at :
 
 | Operating System | Architecture | Link                                                                                |
@@ -92,7 +152,6 @@ Latest binaries are available at :
 | Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.8/dbs-v0.7.8-darwin-amd64.zip)  |
 | Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.8/dbs-v0.7.8-windows-amd64.zip) |
 | Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.8/dbs-v0.7.8-linux-arm64.zip)   |
-
 
 ## Version 0.7.5
 

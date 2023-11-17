@@ -36,6 +36,21 @@ Q: I received the following error after 30 minutes of inactivity on my Postgres 
 A: The error is likely occurring because there were no transactions in the source database, and the connection was closed due to inactivity. To resolve this issue, you can increase the `pool_max_conn_idle_time` runtime parameter for the Postgres connection.  
 For example, you can specify a connection string such as `postgres://postgres:passw0rd@pghost.com:5432/mydb?pool_max_conn_idle_time=10h`, which sets the maximum idle time to 10 hours. This should prevent the connection from being closed due to inactivity."
 
+Q: I'm facing a problem while attempting to transfer  40 million records. The data transfer unexpectedly stops after reaching:
+
+```
+Number of events: 16304000, Total data size: 48.4 GB,
+```
+
+Upon inspecting the PostgreSQL logs, the following errors are reported: 
+```
+2023-11-16 19:06:33.963 UTC [875] LOG:  checkpoints are occurring too frequently (29 seconds apart)
+2023-11-16 19:06:33.963 UTC [875] HINT:  Consider increasing the configuration parameter "max_wal_size".
+```
+
+A: You should either increase the value of `max_wal_size` or modify the `checkpoint_timeout` configuration parameters in your `postgresql.conf` to better suit your system's needs. This adjustment can help manage the generation and retention of WAL files.
+
+
 ## MySQL.
 
 Q: I received a MySQL `error 1049` when trying to connect to the database.
