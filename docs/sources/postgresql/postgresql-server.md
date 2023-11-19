@@ -71,7 +71,8 @@ PostgreSQL Reader supports the following databases:
 
 :::info If you plan to read data in conversion mode, skip this specific
 configuration. Configuration settings related to reading data from Postgres WALs
-or setting up CDC mode are not necessary when operating in conversion mode. :::
+or setting up CDC mode are not necessary when operating in conversion mode.:::
+
 
 To set up logical replication, enable WAL on the self-hosted (generic)
 PostgreSQL server :
@@ -291,3 +292,10 @@ add the appropriate parameters to the source configuration.
 | ------------------- | ------ | ---------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | replicationSlotName | string | `dbconvert_replication_slot` | The name of the replication slot to create. The replication slot makes the PostgreSQL CDC available.         |
 | publicationName     | string | `dbconvert-publication`      | A publication is a group of tables whose data changes are intended to be replicated via logical replication. |
+
+
+### General PostgreSQL server configuration.
+
+PGTune calculates a PostgreSQL configuration tailored for maximum performance on specific hardware but emphasizes that it isn't a one-size-fits-all solution, as optimal settings depend on factors like database size, client numbers, and query complexity.
+
+Explore PGTune's capabilities and generate PostgreSQL configurations based on their hardware at [PGTune](https://pgtune.leopard.in.ua).
