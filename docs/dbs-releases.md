@@ -57,6 +57,15 @@ Users can adjust queries according to specific use cases, tailoring data retriev
 This addition ensures a seamless transition for enum types during the MySQL to PostgreSQL conversion process.
 
 
+Latest binaries are available at :
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.3/dbs-v0.8.3-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.3/dbs-v0.8.3-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.3/dbs-v0.8.3-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.3/dbs-v0.8.3-linux-arm64.zip)   |
+
 ## Version 0.8.2
 
 :calendar: November 17, 2023
