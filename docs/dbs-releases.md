@@ -23,7 +23,7 @@ lastUpdated: true
 Each table definition in the filter section includes a `query` parameter for custom SQL queries.
 Users can adjust queries according to specific use cases, tailoring data retrieval to their requirements.
 
-```json
+```json{12,16}
 {
   "source": {
     "type": "mysql",

@@ -69,9 +69,7 @@ PostgreSQL Reader supports the following databases:
 
 ## PostgreSQL CDC server configuration.
 
-:::info If you plan to read data in conversion mode, skip this specific
-configuration. Configuration settings related to reading data from Postgres WALs
-or setting up CDC mode are not necessary when operating in conversion mode.:::
+> If you plan to read data in conversion mode, skip this specific configuration. Configuration settings related to reading data from Postgres WALs or setting up CDC mode are not necessary when operating in conversion mode.
 
 
 To set up logical replication, enable WAL on the self-hosted (generic)
