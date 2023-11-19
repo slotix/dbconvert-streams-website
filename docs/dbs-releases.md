@@ -7,6 +7,56 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+## Version 0.8.3
+
+:calendar: November 19, 2023
+
+
+### Custom SQL Queries for source Table Definitions.
+
+- Introducing a new feature that allows users to specify custom SQL queries for individual tables in the filter section.
+- This enhancement provides greater flexibility and control over data retrieval from the source database.
+- Users can now customize queries for each table, including conditions, ordering, limiting, and more.
+
+#### Configuration Example
+
+Each table definition in the filter section includes a `query` parameter for custom SQL queries.
+Users can adjust queries according to specific use cases, tailoring data retrieval to their requirements.
+
+```json
+{
+  "source": {
+    "type": "mysql",
+    "mode": "convert",
+    "connection": "root:123456@tcp(0.0.0.0:3306)/file",
+    "dataBundleSize": 100,
+    "reportingInterval": 5,
+    "filter": {
+      "tables": [
+        {
+          "name": "oc_filecache",
+          "query": "SELECT * FROM oc_filecache ORDER BY file_id LIMIT 3042 OFFSET 2055"
+        },
+        {
+          "name": "another_table",
+          "query": "SELECT * FROM another_table WHERE storage > 10 LIMIT 3042"
+        }
+      ]
+    }
+  },
+  "target": {
+    "type": "postgresql",
+    "connection": "postgres://postgres:postgres@0.0.0.0:5432/postgres",
+    "reportingInterval": 5
+  }
+}
+```
+
+### Added Support for Converting MySQL enum Types to PostgreSQL
+
+This addition ensures a seamless transition for enum types during the MySQL to PostgreSQL conversion process.
+
+
 ## Version 0.8.2
 
 :calendar: November 17, 2023
