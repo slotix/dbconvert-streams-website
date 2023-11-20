@@ -103,6 +103,7 @@ export default defineConfig({
             link: "/sources/conversion-mode",
           },
           { text: "Source configuration.", link: "/sources/source-config" },
+          { text: "Custom SQL Queries", link: "/sources/custom-query-parameter" },
           { text: "MySQL/ MariaDB Reader", link: "/sources/mysql/mysql-server" },
           { text: "Amazon RDS MySQL/ Aurora", link: "/sources/mysql/amazon-rds" },
           { text: "MySQL Reader properties", link: "/sources/mysql/reader-properties" },
