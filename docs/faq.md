@@ -28,6 +28,16 @@ A: While the default settings work well for regular tables, it's advisable to ad
 
 Find more information about that in the related [NATS errors article](https://dbconvert.com/blog/nats-errors-dbconvert-streams/)
 
+Q: I'm encountering an error:
+```
+[source] data size 2.0 MB exceeds max payload 1.0 MB
+```
+A: This error is likely occurring because records in the source table are too large. When transferring data between a source database and the target, data is combined from the source tables into bundles and then published to NATS. To resolve this issue, you can set the `dataBundleSize` parameter to a lower value.
+
+If the problem persists even after adjusting the parameter value down to 1, modify the NATS configuration:
+You need to increase the `max_payload` parameter in the NATS configuration to 8MB.
+Find an example of [NATS configuration](https://github.com/slotix/dbconvert-streams-public/blob/main/examples-convert/mysql2postgres/10-million-records/nats/nats.conf) here. 
+
 
 ## PostreSQL.
 
