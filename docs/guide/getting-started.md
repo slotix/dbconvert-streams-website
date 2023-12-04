@@ -104,7 +104,7 @@ Here is an example of a more advanced configuration:
   "target": {
     "type": "postgresql",
     "connection": "postgres://postgres:postgres@localhost:5432/destination?sslmode=verify-ca&sslrootcert=../../config/postgresql/certs/ca.crt&sslkey=../../config/postgresql/certs/client.key&sslcert=../../config/postgresql/certs/client.crt",
-    "reportingInterval": 10 
+    "reportingInterval": 10
   },
   "limits": {
     "numberOfEvents": 10000,
@@ -117,15 +117,15 @@ Here is an example of a more advanced configuration:
 
 Source adapter configuration consists of the following properties:
 
-| property          | description                                                                                                                                  |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| mode              | It can be CDC or conversion.                                                                                                                 |
-| type              | represents the source type. It can be MySQL or PostgreSQL.                                                                                   |
-| connection        | a string representing the connection parameters.                                                                                             |
-| settings          | settings are unique for each source type. Find information about the settings for each source type in the documentation's relevant sections. |
-| dataBundleSize    | parameter that optimizes the size of data bundles during transmission.                                                                       |
-| reportingInterval |(in seconds). It allows users to define the frequency at which progress reports are generated to keep users informed about the status of data transfer.  If `reportingInterval` is set to zero or omitted, no statistics will be returned while the stream is running, providing flexibility for silent operation.     |
-| filter/ tables    | specified source data tables to capture or convert.                                                                                          |
+| property          | description                                                                                                                                                                                                                                                                                                       |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| mode              | It can be CDC or conversion.                                                                                                                                                                                                                                                                                      |
+| type              | represents the source type. It can be MySQL or PostgreSQL.                                                                                                                                                                                                                                                        |
+| connection        | a string representing the connection parameters.                                                                                                                                                                                                                                                                  |
+| settings          | settings are unique for each source type. Find information about the settings for each source type in the documentation's relevant sections.                                                                                                                                                                      |
+| dataBundleSize    | parameter that optimizes the size of data bundles during transmission.                                                                                                                                                                                                                                            |
+| reportingInterval | (in seconds). It allows users to define the frequency at which progress reports are generated to keep users informed about the status of data transfer. If `reportingInterval` is set to zero or omitted, no statistics will be returned while the stream is running, providing flexibility for silent operation. |
+| filter/ tables    | specified source data tables to capture or convert.                                                                                                                                                                                                                                                               |
 
 In CDC mode, source readers collect data from external sources, either from the
 MySQL/MariaDB binary log (binlog) or from the PostgreSQL/CockroachDB logical
@@ -150,10 +150,12 @@ database, ensuring a comprehensive and complete data migration.
 ### Target.
 
 Target writers send data to external targets such as MySQL and PostgreSQL
-databases. | property | description |
-|------------|---------------------------------------------------------------| |
-type | represents the target type. It can be MySQL or PostgreSQL. | | connection
-| string representing the connection parameters. |
+databases.
+
+| property   | description                                                |
+| ---------- | ---------------------------------------------------------- |
+| type       | represents the target type. It can be MySQL or PostgreSQL. |
+| connection | string representing the connection parameters.             |
 
 ### Limits.
 
