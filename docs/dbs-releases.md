@@ -11,29 +11,29 @@ lastUpdated: true
 
 :calendar: December 04, 2023
 
-## Bug Fix: Addressing NATS Message Payload Size Issue
+### Bug Fix: Addressing NATS Message Payload Size Issue
 - The issue reported on [GitHub](https://github.com/slotix/dbconvert-streams-public/issues/7) related to NATS message payload size limitations has been resolved.
 In response to this, we've raised the default size of the NATS message payload to 4 MB in our latest release. 
 
-## Improved Stream Configuration Retrieval:
+### Improved Stream Configuration Retrieval:
 - In this release, we have replaced ephemeral consumers with durable consumers for fetching stream configurations from the API for both source and target services. The utilization of durable consumers ensures a more reliable and consistent stream configuration transmission between source and target services.
 
-## General Updates
+### General Updates
 - Moved Acks of gotten stream configurations by source reader and target writers from the end to the beginning of the message handler function. This change aims to avoid timeout issues in NATS.
 
-## Statistics Enhancements
+### Statistics Enhancements
 - Added separate statistics for each table in the source reader, providing more granular insights into the system's performance.
 
-## Database Structure Creation
+### Database Structure Creation
 - Implemented a modification to ensure that only one target writer handles the creation of the structure on the target database. This adjustment helps prevent collisions during the structure creation process.
 
-## API Improvements
+### API Improvements
 - Resolved deadlocks occurring when obtaining combined statistics of Source and Target Nodes from the API. Users can now seamlessly retrieve and analyze comprehensive statistics without encountering performance issues.
 
-## Error Handling
+### Error Handling
 - Improved resilience by limiting attempts to obtain Target Writer consumers from Source Reader. The system will now give up after 10 failed attempts, preventing infinite loops that occurred in previous versions.
 
-## Enhancement: Improved PostgreSQL Error Messages
+### Enhancement: Improved PostgreSQL Error Messages
 
 We've enhanced the verbosity of PostgreSQL error messages to provide more detailed information when errors occur. Users can now expect to see detailed error logs that include specific error details.
 
