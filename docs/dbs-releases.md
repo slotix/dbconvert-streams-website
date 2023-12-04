@@ -7,6 +7,54 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+## Version 0.8.4
+
+:calendar: December 04, 2023
+
+## Bug Fix: Addressing NATS Message Payload Size Issue
+- The issue reported on [GitHub](https://github.com/slotix/dbconvert-streams-public/issues/7) related to NATS message payload size limitations has been resolved.
+In response to this, we've raised the default size of the NATS message payload to 4 MB in our latest release. 
+
+## Improved Stream Configuration Retrieval:
+- In this release, we have replaced ephemeral consumers with durable consumers for fetching stream configurations from the API for both source and target services. The utilization of durable consumers ensures a more reliable and consistent stream configuration transmission between source and target services.
+
+## General Updates
+- Moved Acks of gotten stream configurations by source reader and target writers from the end to the beginning of the message handler function. This change aims to avoid timeout issues in NATS.
+
+## Statistics Enhancements
+- Added separate statistics for each table in the source reader, providing more granular insights into the system's performance.
+
+## Database Structure Creation
+- Implemented a modification to ensure that only one target writer handles the creation of the structure on the target database. This adjustment helps prevent collisions during the structure creation process.
+
+## API Improvements
+- Resolved deadlocks occurring when obtaining combined statistics of Source and Target Nodes from the API. Users can now seamlessly retrieve and analyze comprehensive statistics without encountering performance issues.
+
+## Error Handling
+- Improved resilience by limiting attempts to obtain Target Writer consumers from Source Reader. The system will now give up after 10 failed attempts, preventing infinite loops that occurred in previous versions.
+
+## Enhancement: Improved PostgreSQL Error Messages
+
+We've enhanced the verbosity of PostgreSQL error messages to provide more detailed information when errors occur. Users can now expect to see detailed error logs that include specific error details.
+
+**example:**
+
+```
+failed to insert into table products: ERROR: duplicate key value violates unique constraint "products_pkey" (SQLSTATE 23505). Detail: Key (id)=(9001) already exists.
+```
+
+
+Latest binaries are available at :
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.4/dbs-v0.8.4-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.4/dbs-v0.8.4-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.4/dbs-v0.8.4-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.4/dbs-v0.8.4-linux-arm64.zip)   |
+
+
+
 ## Version 0.8.3
 
 :calendar: November 19, 2023
