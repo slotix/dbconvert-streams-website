@@ -7,6 +7,48 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+
+## Version 0.8.5
+
+:calendar: December 05, 2023
+
+### DBConvert Streams Update:
+
+Our DBConvert Streams now seamlessly supports the conversion from MySQL blob types to PostgreSQL bytea type. This ensures a smooth and reliable data migration experience between MySQL and PostgreSQL databases.
+
+### Logging Improvements:
+
+Enjoy enhanced logging capabilities with the introduction of the `--log-file` flag when starting DBS services.
+When launching the DBS API, include the `--log-file api.log` flag to direct logs to a specific file (`api.log` in this case).
+
+#### Examples:
+
+```bash
+dbs-api --log-file api.log
+dbs-source-reader --log-file source.log
+dbs-target-writer --log-file target.log
+```
+
+### Experimental:
+
+We've increased the default size of NATS message payload to 64 Mb. Give it a try and let us know how it works for you.
+
+
+Latest binaries are available at :
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.5/dbs-v0.8.5-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.5/dbs-v0.8.5-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.5/dbs-v0.8.5-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.5/dbs-v0.8.5-linux-arm64.zip)   |
+
+
+We appreciate your ongoing support and feedback. Should you encounter any issues or have suggestions for further improvements, please reach out to us.
+
+Happy migrating!
+
+
 ## Version 0.8.4
 
 :calendar: December 04, 2023
