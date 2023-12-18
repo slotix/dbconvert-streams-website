@@ -13,18 +13,18 @@ lastUpdated: true
 :calendar: December 18, 2023
 
 
-## Features
+### Features
 
 - Added dynamic addition of new consumers to DBConvert Streams during runtime.
   - Consumers automatically start consuming messages from the current stream (job).
 
-## Bug Fixes
+### Bug Fixes
 
 - Fixed a bug related to streaming data from Postgres CDC, ensuring it now works correctly.
 - Resolved a bug with streaming data from multiple tables.
 
 
-## Performance Improvements
+### Performance Improvements
 
 - Improved encoding/decoding performance by using `github.com/json-iterator/go` instead of `encoding/json`.
 - Achieved a speed increase of approximately 20% in data transfer from source to targets.
@@ -33,23 +33,23 @@ Find more info about it at [Measure the performance of different codecs](https:/
 
 
 
-## Error Handling Enhancements
+### Error Handling Enhancements
 
 - Enhanced error handling in the API:
   - The API now cleans the state of the current stream (job) in case of an error.
   - Source reader notifies the target writer about the error.
   - Target writer can stop the job to prevent running indefinitely.
 
-## Stream Configuration
+### Stream Configuration
 
 - If no operations are specified for a table in the filter section of the stream configuration, all operations are now allowed.
 
-## Status Messages
+### Status Messages
 
 - Shortened status messages in source and target.
   - Caller information, e.g., `target/consumers.go:152`, is now omitted.
 
-## Stats Info
+### Stats Info
 
 - Stats information now includes rate details:
 
