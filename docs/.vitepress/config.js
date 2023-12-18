@@ -147,7 +147,7 @@ export default defineConfig({
     },
     footer: {
       message: "DBConvert Streams - event driven replication for databases",
-      copyright: "Copyright © 2022 Slotix s.r.o.",
+      copyright: "Copyright © 2024 Slotix s.r.o.",
     },
     plugins: [
       // SearchPlugin({
