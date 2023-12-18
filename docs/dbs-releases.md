@@ -8,6 +8,70 @@ lastUpdated: true
 # {{ $frontmatter.title }}
 
 
+## Version 0.8.6
+
+:calendar: December 18, 2023
+
+
+## Features
+
+- Added dynamic addition of new consumers to DBConvert Streams during runtime.
+  - Consumers automatically start consuming messages from the current stream (job).
+
+## Bug Fixes
+
+- Fixed a bug related to streaming data from Postgres CDC, ensuring it now works correctly.
+- Resolved a bug with streaming data from multiple tables.
+
+
+## Performance Improvements
+
+- Improved encoding/decoding performance by using `github.com/json-iterator/go` instead of `encoding/json`.
+- Achieved a speed increase of approximately 20% in data transfer from source to targets.
+
+Find more info about it at [Measure the performance of different codecs](https://github.com/slotix/dbconvert-streams-public/issues/15) issue. 
+
+
+
+## Error Handling Enhancements
+
+- Enhanced error handling in the API:
+  - The API now cleans the state of the current stream (job) in case of an error.
+  - Source reader notifies the target writer about the error.
+  - Target writer can stop the job to prevent running indefinitely.
+
+## Stream Configuration
+
+- If no operations are specified for a table in the filter section of the stream configuration, all operations are now allowed.
+
+## Status Messages
+
+- Shortened status messages in source and target.
+  - Caller information, e.g., `target/consumers.go:152`, is now omitted.
+
+## Stats Info
+
+- Stats information now includes rate details:
+
+```bash
+[2023/12/18 23:06:41] [info] [target] RUNNING, 468,000 events, 1.4 GB, Rate: 156.1 MB/s
+[2023/12/18 23:06:46] [info] [target] RUNNING, 721,000 events, 2.1 GB, Rate: 153.6 MB/s
+[2023/12/18 23:06:51] [info] [target] RUNNING, 966,000 events, 2.9 GB, Rate: 148.8 MB/s
+[2023/12/18 23:06:52] [info] [target] FINISHED, 1,000,000 events, 3.0 GB, Rate: 19.4 MB/s, Elapsed: 20.003858023s
+```
+
+
+Download the latest binaries from:
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.6/dbs-v0.8.6-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.6/dbs-v0.8.6-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.6/dbs-v0.8.6-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.6/dbs-v0.8.6-linux-arm64.zip)   |
+
+
+
 ## Version 0.8.5
 
 :calendar: December 05, 2023
