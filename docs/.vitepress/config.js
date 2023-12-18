@@ -136,10 +136,7 @@ export default defineConfig({
       },
     ],
     socialLinks: [
-      // {
-      //   icon: "github",
-      //   link: "https://github.comrslotix/dbconvert-stream-docs",
-      // },
+      { icon: "github", link: "https://github.com/slotix/dbconvert-streams-public"},
       { icon: "facebook", link: "https://facebook.com/DBConvert" },
       { icon: "twitter", link: "https://twitter.com/dbconvert" },
     ],
