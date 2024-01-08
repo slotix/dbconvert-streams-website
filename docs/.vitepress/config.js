@@ -66,7 +66,7 @@ export default defineConfig({
     siteTitle: "DBConvert Streams preview",
     logo: "/images/dbconvert-stream-logo.svg",
     nav: [
-      { text: "Release Notes", link: "dbs-releases" },
+      { text: "Release Notes", link: "releases-2024" },
       { text: "Examples", link: "https://github.com/slotix/dbconvert-streams-public" },
       { text: "Blog", link: "https://dbconvert.com/blog/" },
     ],
