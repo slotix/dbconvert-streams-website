@@ -128,7 +128,8 @@ export default defineConfig({
         collapsible: false,
         items: [
           { text: "Glossary", link: "/glossary" },
-          { text: "Releases", link: "/dbs-releases" },
+          { text: "Releases", link: "/releases-2024" },
+          { text: "Release History (2022-2023)", link: "/dbs-releases" },
           { text: "FAQ", link: "/faq" },
           { text: "EULA", link: "/eula" },
           { text: "Contact us", link: "/contact-us" },
