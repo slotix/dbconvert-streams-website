@@ -41,4 +41,4 @@ Here is an example of JSON config object describing a target.
 | tables | array | An array of table-specific options. |
 | name | string | table name |
 | noCreateIndexes | boolean | If set to `true`, indexes for  the specified table (`table-name`) will not be created on target. By default, if omitted or set to `false`, all indexes for the specified table (`table-name`) are created on the target.|
-| reportingInterval |(in seconds). It allows users to define the frequency at which progress reports are generated to keep users informed about the status of data transfer.  If `reportingInterval` is set to zero or omitted, no statistics will be returned while the stream is running, providing flexibility for silent operation.     |
+| reportingInterval |(in seconds).| It allows users to define the frequency at which progress reports are generated to keep users informed about the status of data transfer.  If `reportingInterval` is set to zero or omitted, no statistics will be returned while the stream is running, providing flexibility for silent operation.     |
