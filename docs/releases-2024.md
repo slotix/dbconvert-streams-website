@@ -7,6 +7,52 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+## Version 0.10.3
+
+
+:calendar: February 14, 2024
+
+
+### Features and Fixes
+
+1. **Fix Parsing Time Field Types on Target**
+   - Resolved issues related to [parsing time field types](https://github.com/slotix/dbconvert-streams-public/issues/23) on the target database, ensuring accurate data conversion.
+   - [Issue #24: convert from MySQL YEAR field type to PostgreSQL ](https://github.com/slotix/dbconvert-streams-public/issues/23) has been resolved. 
+
+1. **Fix Stream Stopping Issue with "Ghosted" Nodes**
+   - Addressed a [critical issue](https://github.com/slotix/dbconvert-streams-public/issues/13) where the stream erroneously stopped when the target status was 'failed.' This fix ensures proper handling of failed targets and avoids the creation of ghost nodes that hinder subsequent stream initiation.
+
+1. **Handle Error When Retrieving Stats from Nodes with No Active Stream**
+   - Implemented error handling to manage situations where stats are retrieved from nodes without an active stream.
+
+1. **Fix Full-Text Search Index Type Conversion from MySQL to Postgres**
+   - Corrected the [conversion of full-text search index types from MySQL to Postgres](https://github.com/slotix/dbconvert-streams-public/issues/25), ensuring accurate and consistent indexing.
+
+1. **Implement Options for Target Database**
+   - Introduced options for the target database, offering enhanced control over behavior during data conversion and loading. Refer to the [target configuration](/targets/target-config) documentation for detailed descriptions of available options.
+
+1. **Fix Data Races**
+   - Addressed data race issues to enhance the stability and reliability of DBConvert Streams.
+
+1. **Refactor Logger and Publish Log Messages to NATS Stream**
+   - The logger has been refactored, and log messages are now can be published to NATS Stream.
+
+
+Download the latest binaries from:
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.3/dbs-v0.10.3-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.3/dbs-v0.10.3-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.3/dbs-v0.10.3-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.3/dbs-v0.10.3-linux-arm64.zip)   |
+
+
+Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
+
+We appreciate your ongoing feedback. Please don't hesitate to reach out if you encounter any issues or have suggestions for further improvements. Thank you for choosing DBConvert Streams!
+
+
 
 ## Version 0.9.1
 
@@ -35,10 +81,6 @@ Download the latest binaries from:
 | Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.9.1/dbs-v0.9.1-windows-amd64.zip) |
 | Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.9.1/dbs-v0.9.1-linux-arm64.zip)   |
 
-
-Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
-
-We appreciate your ongoing feedback. Please don't hesitate to reach out if you encounter any issues or have suggestions for further improvements. Thank you for choosing DBConvert Streams!
 
 
 ## Version 0.9.0
