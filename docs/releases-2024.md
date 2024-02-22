@@ -7,6 +7,29 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+## Version 0.10.6
+
+
+:calendar: February 22, 2024
+
+1. **Improved Error Handling:** In this release, we've refined the processing mechanism to handle indexes one by one. This enhancement ensures better error handling throughout the processing pipeline.
+1. **Enhanced Logging Errors and Warnings:** We recognize the critical nature of migrating tables and index structures across diverse database types. With this release, our logging capabilities have been substantially bolstered. You can now expect more detailed information about potential issues related to the database engine. 
+1. **Date Field Conversion Fix:** We've addressed a critical issue related to date fields containing values like "0000-00-00" during the conversion from MySQL to Postgres. The fix ensures accurate and seamless conversion, preventing any inconsistencies in the date values.
+
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.6/dbs-v0.10.6-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.6/dbs-v0.10.6-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.6/dbs-v0.10.6-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.6/dbs-v0.10.6-linux-arm64.zip)   |
+
+
+Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
+
+We appreciate your ongoing feedback. Please don't hesitate to reach out if you encounter any issues or have suggestions for further improvements. Thank you for choosing DBConvert Streams!
+
+
 ## Version 0.10.3
 
 
@@ -47,10 +70,6 @@ Download the latest binaries from:
 | Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.3/dbs-v0.10.3-windows-amd64.zip) |
 | Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.3/dbs-v0.10.3-linux-arm64.zip)   |
 
-
-Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
-
-We appreciate your ongoing feedback. Please don't hesitate to reach out if you encounter any issues or have suggestions for further improvements. Thank you for choosing DBConvert Streams!
 
 
 
