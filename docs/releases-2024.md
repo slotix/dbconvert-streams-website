@@ -7,6 +7,33 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+
+## Version 0.10.7
+
+:calendar: February 28, 2024
+
+
+### Table Structure Creation Handling:
+
+A notable improvement has been implemented to handle cases where a writer instance tries to insert data before the target table structure is established on the destination database.
+
+The target writer, responsible for creating table structures, now notifies other target writer instances upon the successful completion of the structure creation process.
+
+
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.7/dbs-v0.10.7-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.7/dbs-v0.10.7-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.7/dbs-v0.10.7-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.7/dbs-v0.10.7-linux-arm64.zip)   |
+
+
+Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
+
+We appreciate your ongoing feedback. Please don't hesitate to reach out if you encounter any issues or have suggestions for further improvements. Thank you for choosing DBConvert Streams!
+
+
 ## Version 0.10.6
 
 
@@ -24,10 +51,6 @@ lastUpdated: true
 | Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.6/dbs-v0.10.6-windows-amd64.zip) |
 | Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.6/dbs-v0.10.6-linux-arm64.zip)   |
 
-
-Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
-
-We appreciate your ongoing feedback. Please don't hesitate to reach out if you encounter any issues or have suggestions for further improvements. Thank you for choosing DBConvert Streams!
 
 
 ## Version 0.10.3
