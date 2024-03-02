@@ -88,6 +88,7 @@ export default defineConfig({
           { text: "Getting Started", link: "/guide/getting-started" },
           { text: "API Reference", link: "/guide/api" },
           { text: "Life cycle and statuses", link: "/guide/status" },
+          { text: "Logging flags overview", link: "/guide/logging" },
         ],
       },
       {
