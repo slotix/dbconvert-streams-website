@@ -7,6 +7,38 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+## Version 0.10.9
+
+:calendar: March 2, 2024
+
+
+### New Features
+
+1. **Log-Level Flag for Services**
+   - Introducing a new `log-level` flag for services to provide greater flexibility in logging configurations. Users can now specify the `debug` log level for each of DBConvert Streams service, allowing for more fine-grained control over the verbosity of logs.
+
+### Bug Fixes
+
+1. **Improved Handling of Service Statuses during Database Operations**
+   - Resolved an issue related to the [handling of services statuses](https://github.com/slotix/dbconvert-streams-public/issues/13) during the creation of tables and indexes on the target database. Users can now expect more accurate and reliable service status updates during these database operations.
+
+2. **Fixed Year Type Handling for MariaDB to PostgreSQL Migration**
+   - Addressed a specific issue in the migration process from MariaDB to PostgreSQL where the handling of year type data was not accurate. The migration now correctly interprets and transfers year type data, ensuring data integrity and consistency between the two database systems.
+
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.9/dbs-v0.10.9-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.9/dbs-v0.10.9-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.9/dbs-v0.10.9-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.9/dbs-v0.10.9-linux-arm64.zip)   |
+
+
+Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
+
+We appreciate your ongoing feedback. Please don't hesitate to reach out if you encounter any issues or have suggestions for further improvements. Thank you for choosing DBConvert Streams!
+
+
 
 ## Version 0.10.7
 
@@ -28,10 +60,6 @@ The target writer, responsible for creating table structures, now notifies other
 | Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.7/dbs-v0.10.7-windows-amd64.zip) |
 | Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.7/dbs-v0.10.7-linux-arm64.zip)   |
 
-
-Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
-
-We appreciate your ongoing feedback. Please don't hesitate to reach out if you encounter any issues or have suggestions for further improvements. Thank you for choosing DBConvert Streams!
 
 
 ## Version 0.10.6
