@@ -76,11 +76,15 @@ To define and configure source and target, you can use a simple set of propertie
 ```
 
 ## Workflow.
+
 1. The reader component retrieves the meta-structure of tables and indexes from the source database.
 1. The retrieved meta structures is then forwarded to NATS, which serves as a messaging system for communication between components.
 1. Among the available target writers, a specific one is chosen to handle the execution of `CREATE TABLE`, `CREATE INDEX` DDL statements on the target Database.
 1. The chosen target writer begins the process of translating DDLs and attempts to create the corresponding structure on the target database. During this phase, the other target writers remain inactive and wait until the structure creation process is completed.
 1. Once the `CREATE TABLE`, `CREATE INDEX` DDLs have been successfully executed, indicating that the table structures have been created on the target database, the chosen target writer notifies the other target writers that they can proceed with receiving data.
+1. The data transfer process involves fetching data from the source database in batches to optimize performance and reduce resource consumption. The size of each batch can be configurable based on factors such as network latency, database load, and available system resources.
+1. Throughout the data transfer process, comprehensive logging and monitoring mechanisms are in place to track the progress, identify any errors or anomalies, and ensure timely resolution.
+1. Once all data has been successfully transferred to the target database, the target writers send a completion notification indicating that the data transfer process is finished.
 
 ## Metrics.
 
