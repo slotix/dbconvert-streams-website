@@ -9,16 +9,16 @@ lastUpdated: true
 
 ## Collecting data
 
-The first step in using DBConvert Streams is connecting to a source database and reading the data. DBConvert Streams offers two modes for reading source databases: CDC (change data capture) mode and Conversion mode.
+The first step in using DBConvert Streams is connecting to a source database and reading the data.
 
 There are two modes of reading source database avaiable in DBConvert Streams.
 
-- _[Conversion mode.](/sources/conversion-mode)_ Conversion mode is typically used to initially copy data from a source database to a target database.
+- _[Data Migration (Conversion) mode.](/sources/conversion-mode)_ This mode is typically used to initially copy data from a source database to a target database.
 - _[CDC (change data capture)](/sources/what-is-cdc) mode._ The source database reader captures incremental changes in CDC (Change Data Collection) mode.
 
 ### Differences between reading modes.
 
-| Features        | CDC Mode                                                     | Conversion Mode                                  |
+| Features        | CDC Mode                                                     | Data Migration Mode                                  |
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------ |
 | Event Types     | Insert, Update, Delete                                       | Insert                                           |
 | Event Order     | Events are captured in order of occurrence                   | Insert events can be sent without strict order   |
@@ -26,13 +26,13 @@ There are two modes of reading source database avaiable in DBConvert Streams.
 | Source Database | Requires special setup for enabling CDC reading capabilities | No special requirements on source database setup |
 
 
-Data chunks collected from the source are immediately published to the Event Hub. Readers of a DBConvert Streams database can read it before the entire database is ingested and indexed.
 
+Data chunks collected from the source are swiftly dispatched to the Event Hub for publication. Subsequently, DBS target writers transmit the data to the target database. This ensures that the target database can access new data even before the entire dataset is fully ingested from the source database.
 
 
 ## Processing data
 
-### Translation of "CREATE Table" DDL between SQL dialects
+### Automatic DDL translation between SQL dialects
 
 DBConvert Streams automates the translation of DDL `CREATE TABLE` statements between MySQL and PostgreSQL, eliminating the need for manual data type conversion. When a corresponding table is not found in the target database, the source's `CREATE TABLE` statement is translated into the appropriate target database dialect, creating a new table in the target database.
 
@@ -47,10 +47,6 @@ Several neighboring `INSERT` statements are bundled and executed simultaneously,
 
 In both CDC and Conversion modes, the DBConvert Streams transfer process incorporates slicing techniques and data chunks to optimize speed and efficiency. Smaller manageable portions are processed and migrated individually, allowing for parallel execution and improved performance. This approach ensures faster and more reliable data migration between on-premises or cloud databases, especially when dealing with large volumes of data.
 
-
-::: info
-Replicating One Million INSERT statements takes from 3 seconds.
-:::
 
 ## Delivering data
 
@@ -78,6 +74,13 @@ To define and configure source and target, you can use a simple set of propertie
   }
 }
 ```
+
+## Workflow.
+1. The reader component retrieves the meta-structure of tables and indexes from the source database.
+1. The retrieved meta structures is then forwarded to NATS, which serves as a messaging system for communication between components.
+1. Among the available target writers, a specific one is chosen to handle the execution of `CREATE TABLE`, `CREATE INDEX` DDL statements on the target Database.
+1. The chosen target writer begins the process of translating DDLs and attempts to create the corresponding structure on the target database. During this phase, the other target writers remain inactive and wait until the structure creation process is completed.
+1. Once the `CREATE TABLE`, `CREATE INDEX` DDLs have been successfully executed, indicating that the table structures have been created on the target database, the chosen target writer notifies the other target writers that they can proceed with receiving data.
 
 ## Metrics.
 

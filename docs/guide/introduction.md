@@ -7,13 +7,11 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
-DBConvert Streams provides a powerful and flexible solution for converting heterogeneous database data and facilitating real-time Change data capture (CDC)   data replication. Whether used by individuals or organizations, it can help streamline data management processes and achieve better business results.
+DBConvert Streams offers a robust and flexible solution for migrating data between heterogeneous database types and facilitating real-time Change Data Capture (CDC) replication. Whether utilized by individuals or organizations, it streamlines data management processes and enhances business results.
 
-DBS allows its users to perform seamless migrations between different types and locations of database systems. This provides greater flexibility and efficiency in managing data, leading to improved decision-making and business outcomes.
+DBS enables seamless migrations between different types and locations of database systems, providing greater flexibility and efficiency in data management. This leads to improved decision-making and business outcomes.
 
-In addition, DBS offers many features and capabilities that make it a valuable tool for data management and integration. It provides automatic schema matching, mapping, custom data filters, and transformation rules.
-Users can tailor the system to their needs and ensure data is appropriately integrated and organized.
- In addition, DBS is designed with scalability and robustness in mind, making it suitable for large-scale data use. It uses distributed computing techniques to provide high availability and fault tolerance and can be easily integrated with the IT infrastructure.
+Moreover, DBS provides a range of features and capabilities that make it a valuable tool for data management and integration. It includes automatic schema matching, mapping, custom data filters, and transformation rules. Users can customize the system to their needs, ensuring data integration and organization are tailored appropriately. Designed with scalability and robustness in mind, DBS is suitable for large-scale data use. It utilizes distributed computing techniques for high availability and fault tolerance and easily integrates with existing IT infrastructure.
 
 ## Supported databases.
 
