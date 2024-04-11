@@ -7,6 +7,38 @@ lastUpdated: true
 
 # {{ $frontmatter.title }}
 
+
+## Version 0.10.12
+
+:calendar: April 9, 2024
+
+
+### Features:
+
+1. **Index Existence Handling:**
+   Enhanced functionality to manage cases where the index already exists in the target database. This feature ensures smoother data migration processes by effectively addressing potential conflicts.
+   
+2. **Table Structure Notification:**
+   Implemented a mechanism where the target writers notify the source reading service regarding the status of creating table structures on the target db. This ensures better coordination and visibility during the data transfer process.
+   
+3. **Logger Output Enhancement:**
+   Improved the output format of loggers to enhance the visual representation of statistics. The updated output provides clearer insights into the performance and status of the migration process, aiding in comprehensive data analysis and troubleshooting.
+
+
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.12/dbs-v0.10.12-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.12/dbs-v0.10.12-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.12/dbs-v0.10.12-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.12/dbs-v0.10.12-linux-arm64.zip)   |
+
+
+Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
+
+We appreciate your ongoing feedback. Please don't hesitate to reach out if you encounter any issues or have suggestions for further improvements. Thank you for choosing DBConvert Streams!
+
+
 ## Version 0.10.9
 
 :calendar: March 2, 2024
@@ -33,10 +65,6 @@ lastUpdated: true
 | Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.9/dbs-v0.10.9-windows-amd64.zip) |
 | Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.9/dbs-v0.10.9-linux-arm64.zip)   |
 
-
-Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
-
-We appreciate your ongoing feedback. Please don't hesitate to reach out if you encounter any issues or have suggestions for further improvements. Thank you for choosing DBConvert Streams!
 
 
 
