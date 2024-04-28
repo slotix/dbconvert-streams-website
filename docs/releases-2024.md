@@ -8,6 +8,40 @@ lastUpdated: true
 # {{ $frontmatter.title }}
 
 
+## Version 0.10.15
+
+:calendar: April 28, 2024
+
+
+**Release 0.10.15 of DBConvert Streams**
+### Bug Fixes: 
+
+
+1. **Fixed Issue with BINARY Column Data Type Conversion**: We've resolved an issue encountered when creating table structures containing BINARY column data type from MySQL on the Postgres target. For more information, please refer to [GitHub issue #31](https://github.com/slotix/dbconvert-streams-public/issues/31). 
+
+2. **Improved Accuracy in Average Rate Calculation**: We've enhanced the accuracy of average rate calculation in scenarios where the elapsed time is less than 1 second. With this fix, users can rely on more precise performance metrics, ensuring accurate analysis and optimization of data transfer processes.
+
+3. **Resolved Enum Data Type Conversion Issue**: This update addresses an issue related to converting enum data type from MySQL to Postgres. For more information, please refer to [GitHub issue #32](https://github.com/slotix/dbconvert-streams-public/issues/32). 
+
+
+For more information and to download the latest version, please visit our website or contact our support team.
+
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.15/dbs-v0.10.15-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.15/dbs-v0.10.15-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.15/dbs-v0.10.15-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.15/dbs-v0.10.15-linux-arm64.zip)   |
+
+
+Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
+
+
+We are committed to continually improving DBConvert Streams to provide users with a reliable and efficient data migration solution. Thank you for your continued support and feedback.
+
+
+
 ## Version 0.10.12
 
 :calendar: April 9, 2024
@@ -33,10 +67,6 @@ lastUpdated: true
 | Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.12/dbs-v0.10.12-windows-amd64.zip) |
 | Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.12/dbs-v0.10.12-linux-arm64.zip)   |
 
-
-Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
-
-We appreciate your ongoing feedback. Please don't hesitate to reach out if you encounter any issues or have suggestions for further improvements. Thank you for choosing DBConvert Streams!
 
 
 ## Version 0.10.9
