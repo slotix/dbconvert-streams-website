@@ -61,16 +61,6 @@ Find more info about it at [Measure the performance of different codecs](https:/
 ```
 
 
-Download the latest binaries from:
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.6/dbs-v0.8.6-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.6/dbs-v0.8.6-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.6/dbs-v0.8.6-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.6/dbs-v0.8.6-linux-arm64.zip)   |
-
-
 
 ## Version 0.8.5
 
@@ -96,16 +86,6 @@ dbs-target-writer --log-file target.log
 ### Experimental:
 
 We've increased the default size of NATS message payload to 64 Mb. Give it a try and let us know how it works for you.
-
-
-Latest binaries are available at :
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.5/dbs-v0.8.5-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.5/dbs-v0.8.5-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.5/dbs-v0.8.5-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.5/dbs-v0.8.5-linux-arm64.zip)   |
 
 
 We appreciate your ongoing support and feedback. Should you encounter any issues or have suggestions for further improvements, please reach out to us.
@@ -149,15 +129,6 @@ We've enhanced the verbosity of PostgreSQL error messages to provide more detail
 failed to insert into table products: ERROR: duplicate key value violates unique constraint "products_pkey" (SQLSTATE 23505). Detail: Key (id)=(9001) already exists.
 ```
 
-
-Latest binaries are available at :
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.4/dbs-v0.8.4-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.4/dbs-v0.8.4-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.4/dbs-v0.8.4-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.4/dbs-v0.8.4-linux-arm64.zip)   |
 
 
 
@@ -211,14 +182,6 @@ Users can adjust queries according to specific use cases, tailoring data retriev
 This addition ensures a seamless transition for enum types during the MySQL to PostgreSQL conversion process.
 
 
-Latest binaries are available at :
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.3/dbs-v0.8.3-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.3/dbs-v0.8.3-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.3/dbs-v0.8.3-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.3/dbs-v0.8.3-linux-arm64.zip)   |
 
 ## Version 0.8.2
 
@@ -257,14 +220,6 @@ Latest binaries are available at :
 curl --request DELETE --url http://127.0.0.1:8020/api/v1/streams
 ```
 
-Latest binaries are available at :
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.2/dbs-v0.8.2-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.2/dbs-v0.8.2-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.2/dbs-v0.8.2-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.2/dbs-v0.8.2-linux-arm64.zip)   |
 
 ## Version 0.8.1
 
@@ -290,14 +245,6 @@ Latest binaries are available at :
   zero, no statistics will be returned while the stream is running, providing
   flexibility for silent operation.
 
-Latest binaries are available at :
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.1/dbs-v0.8.1-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.1/dbs-v0.8.1-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.1/dbs-v0.8.1-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.1/dbs-v0.8.1-linux-arm64.zip)   |
 
 ## Version 0.8.0
 
@@ -326,14 +273,6 @@ Latest binaries are available at :
   solution. Now, with the addition of the `dataBundleSize` parameter in the
   stream configuration, you can mitigate such errors.
 
-Latest binaries are available at :
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.0/dbs-v0.8.0-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.0/dbs-v0.8.0-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.0/dbs-v0.8.0-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.8.0/dbs-v0.8.0-linux-arm64.zip)   |
 
 ## Version 0.7.8
 
@@ -357,14 +296,6 @@ Latest binaries are available at :
   to PostgreSQL.
   [Issue #1 Link on GitHub](https://github.com/slotix/dbconvert-streams-public/issues/1)
 
-Latest binaries are available at :
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.8/dbs-v0.7.8-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.8/dbs-v0.7.8-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.8/dbs-v0.7.8-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.8/dbs-v0.7.8-linux-arm64.zip)   |
 
 ## Version 0.7.5
 
@@ -385,14 +316,6 @@ Latest binaries are available at :
 - Adjusted table name processing on the target to remove the `public` schema
   name, except for table names other than `public`.
 
-Latest binaries are available at :
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.5/dbs-v0.7.5-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.5/dbs-v0.7.5-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.5/dbs-v0.7.5-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.5/dbs-v0.7.5-linux-arm64.zip)   |
 
 ## Version 0.7.0
 
@@ -419,14 +342,6 @@ Latest binaries are available at :
 - Fixed a bug that caused data to be potentially received before the
   corresponding table was created on the target.
 
-Latest binaries are available at :
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.0/dbs-v0.7.0-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.0/dbs-v0.7.0-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.0/dbs-v0.7.0-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.7.0/dbs-v0.7.0-linux-arm64.zip)   |
 
 ## Version 0.5.2
 
@@ -451,15 +366,6 @@ Latest binaries are available at :
   It can be useful to adjust these parameters in cases where the time between
   transactions is longer than 30 minutes.
 
-Choose the appropriate archive for your platform from the table with links
-below.
-
-| Operating System | Architecture | Size     | Link                                                                                |
-| ---------------- | ------------ | -------- | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | 15.14 MB | [Download](https://dbconvert.com/downloads/dbs/v0.5.2/dbs-v0.5.2-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | 15.77 MB | [Download](https://dbconvert.com/downloads/dbs/v0.5.2/dbs-v0.5.2-darwin-amd64.zip)  |
-| Windows          | AMD64        | 15.3 MB  | [Download](https://dbconvert.com/downloads/dbs/v0.5.2/dbs-v0.5.2-windows-amd64.zip) |
-| Linux            | ARM64        | 13.75 MB | [Download](https://dbconvert.com/downloads/dbs/v0.5.2/dbs-v0.5.2-linux-arm64.zip)   |
 
 ## Version 0.5.1
 
@@ -478,15 +384,6 @@ any INSERT, UPDATE and DELETE statements.
 
 [A sample docker-compose file for starting DBConvert Streams](https://github.com/slotix/dbconvert-streams-public/blob/be59cabcda3f3ccb340bdb8b40b5cfb31b1917ab/docker-compose.yml).
 
-Or binaries for different OS are available, choose the one suitable for your
-platform from the links below.
-
-| Operating System | Architecture | Size     | Link                                                                                |
-| ---------------- | ------------ | -------- | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | 15.13 MB | [Download](https://dbconvert.com/downloads/dbs/v0.5.1/dbs-v0.5.1-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | 15.76 MB | [Download](https://dbconvert.com/downloads/dbs/v0.5.1/dbs-v0.5.1-darwin-amd64.zip)  |
-| Windows          | AMD64        | 15.3 MB  | [Download](https://dbconvert.com/downloads/dbs/v0.5.1/dbs-v0.5.1-windows-amd64.zip) |
-| Linux            | ARM64        | 13.75 MB | [Download](https://dbconvert.com/downloads/dbs/v0.5.1/dbs-v0.5.1-linux-arm64.zip)   |
 
 ## Version 0.5.0
 

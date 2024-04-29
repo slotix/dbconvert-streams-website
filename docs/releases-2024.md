@@ -8,12 +8,11 @@ lastUpdated: true
 # {{ $frontmatter.title }}
 
 
-## Version 0.10.15
+## Version 0.10.16
 
-:calendar: April 28, 2024
+:calendar: April 29, 2024
 
 
-**Release 0.10.15 of DBConvert Streams**
 ### Bug Fixes: 
 
 
@@ -29,10 +28,10 @@ For more information and to download the latest version, please visit our websit
 
 | Operating System | Architecture | Link                                                                                |
 | ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.15/dbs-v0.10.15-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.15/dbs-v0.10.15-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.15/dbs-v0.10.15-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.15/dbs-v0.10.15-linux-arm64.zip)   |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.16/dbs-v0.10.16-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.16/dbs-v0.10.16-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.16/dbs-v0.10.16-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.16/dbs-v0.10.16-linux-arm64.zip)   |
 
 
 Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
@@ -200,16 +199,6 @@ This release brings important improvements and bug fixes to enhance your experie
 1. **Postgres Source Reader in CDC Mode**
    - Addressed an issue where the Postgres source reader, when started in CDC mode, sometimes failed to detect incoming events. This bug has been fixed, ensuring that the CDC functionality now consistently captures and processes all relevant changes from the source.
 
-Download the latest binaries from:
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.9.1/dbs-v0.9.1-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.9.1/dbs-v0.9.1-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.9.1/dbs-v0.9.1-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.9.1/dbs-v0.9.1-linux-arm64.zip)   |
-
-
 
 ## Version 0.9.0
 
@@ -235,12 +224,3 @@ Download the latest binaries from:
 - Fixed an issue with stopping current stream processing from the API endpoint. (Issue #13)
   - This bug was reported and addressed in [GitHub Issue #13](https://github.com/slotix/dbconvert-streams-public/issues/13).
 
-
-Download the latest binaries from:
-
-| Operating System | Architecture | Link                                                                                |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
-| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.9.0/dbs-v0.9.0-linux-amd64.zip)   |
-| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.9.0/dbs-v0.9.0-darwin-amd64.zip)  |
-| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.9.0/dbs-v0.9.0-windows-amd64.zip) |
-| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.9.0/dbs-v0.9.0-linux-arm64.zip)   |
