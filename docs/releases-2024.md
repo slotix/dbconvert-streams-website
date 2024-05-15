@@ -8,6 +8,45 @@ lastUpdated: true
 # {{ $frontmatter.title }}
 
 
+## Version 0.11.2
+
+:calendar: May 15, 2024
+
+### Bug Fixes: 
+
+1. **Fix MySQL datetime default value parsing**
+- Addressed the issue where the default value for MySQL `datetime(6)` columns was not being parsed correctly when migrating to PostgreSQL. This resolves the error: `"invalid input syntax for type timestamp: "CURRENT_TIMESTAMP(6)" (SQLSTATE 22007)"`.
+
+2. **Fix conversion of bit data type from MySQL to PostgreSQL**
+- Resolved the issue where the `bit` data type from MySQL was not being correctly converted to PostgreSQL's `boolean` type. This fix addresses the error: `"column "col2" is of type boolean but default expression is of type bit (SQLSTATE 42804)"`.
+
+
+### New Features
+
+**Implement migration of geospatial Point type from MySQL to PostgreSQL**
+- Added support for migrating the MySQL `POINT` data type to PostgreSQL's `geometry` type. This new feature resolves the error: `"unknown colType POINT"`.
+
+For more details and the original issue discussion, please refer to [https://github.com/slotix/dbconvert-streams-public/issues/36](https://github.com/slotix/dbconvert-streams-public/issues/36).
+
+
+For more information and to download the latest version, please visit our website or contact our support team.
+
+
+| Operating System | Architecture | Link                                                                                |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------- |
+| Linux            | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.11.2/dbs-v0.11.2-linux-amd64.zip)   |
+| Mac OS X         | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.11.2/dbs-v0.11.2-darwin-amd64.zip)  |
+| Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.11.2/dbs-v0.11.2-windows-amd64.zip) |
+| Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.11.2/dbs-v0.11.2-linux-arm64.zip)   |
+
+
+Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
+
+
+We are committed to continually improving DBConvert Streams to provide users with a reliable and efficient data migration solution. Thank you for your continued support and feedback.
+
+
+
 ## Version 0.10.16
 
 :calendar: April 29, 2024
@@ -33,11 +72,6 @@ For more information and to download the latest version, please visit our websit
 | Windows          | AMD64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.16/dbs-v0.10.16-windows-amd64.zip) |
 | Linux            | ARM64        | [Download](https://dbconvert.com/downloads/dbs/v0.10.16/dbs-v0.10.16-linux-arm64.zip)   |
 
-
-Visit the [DBConvert Streams Docker Guide](https://stream.dbconvert.com/guide/dbs-docker) for detailed instructions on setting up and running DBConvert Streams in a Docker environment.
-
-
-We are committed to continually improving DBConvert Streams to provide users with a reliable and efficient data migration solution. Thank you for your continued support and feedback.
 
 
 
