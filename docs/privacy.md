@@ -38,6 +38,9 @@ We may update our privacy policy from time to time. We will notify you of any ch
 
 ## Contact Us
 If you have any questions about this privacy policy, please contact us at:
-Company Name: Slotix s.r.o.
+
+Slotix s.r.o.
+
 Address: Steinov dvor 2, 81107 Bratislava, Slovakia 
+
 Email: streams@dbconvert.com 

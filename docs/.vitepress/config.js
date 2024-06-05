@@ -134,6 +134,7 @@ export default defineConfig({
           { text: "FAQ", link: "/faq" },
           { text: "EULA", link: "/eula" },
           { text: "Privacy Policy", link: "/privacy" },
+          { text: "Terms of Use", link: "/terms" },
           { text: "Contact us", link: "/contact-us" },
         ],
       },
