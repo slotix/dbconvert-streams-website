@@ -133,6 +133,7 @@ export default defineConfig({
           { text: "Release History (2022-2023)", link: "/dbs-releases" },
           { text: "FAQ", link: "/faq" },
           { text: "EULA", link: "/eula" },
+          { text: "Privacy Policy", link: "/privacy" },
           { text: "Contact us", link: "/contact-us" },
         ],
       },
