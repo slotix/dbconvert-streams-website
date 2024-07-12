@@ -74,7 +74,7 @@ A minimal stream configuration would look like this in JSON format:
 When configuring a stream, several necessary parameters must be defined to
 ensure the proper functioning of the data transfer. These parameters include the
 source and target databases' connection details, the database type, and the
-chosen mode of operation, either CDC or conversion.
+chosen mode of operation, either `CDC` or `convert`.
 
 ### Advanced configuration options.
 
@@ -83,7 +83,7 @@ Here is an example of a more advanced configuration:
 ```json
 {
   "source": {
-    "mode": "conversion",
+    "mode": "convert",
     "type": "mysql",
     "connection": "mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true",
     "dataBundleSize": 50,
@@ -119,7 +119,7 @@ Source adapter configuration consists of the following properties:
 
 | property          | description                                                                                                                                                                                                                                                                                                       |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| mode              | It can be CDC or conversion.                                                                                                                                                                                                                                                                                      |
+| mode              | It can be CDC or convert.                                                                                                                                                                                                                                                                                      |
 | type              | represents the source type. It can be MySQL or PostgreSQL.                                                                                                                                                                                                                                                        |
 | connection        | a string representing the connection parameters.                                                                                                                                                                                                                                                                  |
 | settings          | settings are unique for each source type. Find information about the settings for each source type in the documentation's relevant sections.                                                                                                                                                                      |
@@ -139,7 +139,7 @@ specify specific tables for monitoring or conversion. DBConvert Streams will
 automatically include all tables by default, simplifying the configuration
 process and reducing the need for manual table selection.
 
-When the filter section is empty in "CDC mode," DBConvert Streams will monitor
+When the filter section is empty in `CDC` mode, DBConvert Streams will monitor
 all tables in the source database's transaction logs, capturing data changes
 from every table and generating the corresponding events for consumption.
 
@@ -184,7 +184,7 @@ configuration in the request body like so:
 ```bash
 curl --request POST --url http://0.0.0.0:8020/api/v1/streams -H 'Content-Type:application/json' -d'{
   "source": {
-    "mode": "conversion",
+    "mode": "convert",
     "type": "mysql",
     "connection": "mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true",
     "settings": {
