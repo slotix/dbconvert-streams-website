@@ -106,9 +106,11 @@ export default defineConfig({
           { text: "Source configuration.", link: "/sources/source-config" },
           { text: "Custom SQL Queries", link: "/sources/custom-query-parameter" },
           { text: "MySQL/ MariaDB Reader", link: "/sources/mysql/mysql-server" },
-          { text: "Amazon RDS MySQL/ Aurora", link: "/sources/mysql/amazon-rds" },
+          { text: "Amazon RDS MySQL", link: "/sources/mysql/amazon-rds" },
+          { text: "AWS Aurora MySQL", link: "/sources/mysql/aws-aurora-mysql" },
           { text: "MySQL Reader properties", link: "/sources/mysql/reader-properties" },
           { text: "PostgreSQL Reader", link: "/sources/postgresql/postgresql-server" },
+          { text: "AWS Aurora PostgreSQL", link: "/sources/postgresql/aws-aurora-postgres" },
         ],
       },
       {
