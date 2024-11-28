@@ -127,6 +127,13 @@ export default defineConfig({
         ],
       },
       {
+        text: "Network & Security",
+        collapsible: true,
+        items: [
+          { text: "Enabling External Access to AWS Aurora", link: "/network-security/aurora-external-access" },
+        ],
+      },
+      {
         text: "",
         collapsible: false,
         items: [
