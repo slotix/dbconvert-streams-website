@@ -1,7 +1,7 @@
 {
-  "name": "dbconvert-stream-docs-vitepress",
+  "name": "dbconvert-streams-website-docs",
   "version": "1.0.0",
-  "description": "DBConvert Stream docs",
+  "description": "DBConvert Stream website & docs",
   "main": "index.js",
   "author": "slotix <dm@slotix.sk>",
   "license": "MIT",
@@ -9,18 +9,36 @@
   "scripts": {
     "docs:dev": "./node_modules/.bin/vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "site:build": "cd website && nuxt build",
+    "site:dev": "cd website && NODE_OPTIONS='--no-warnings' nuxt dev",
+    "site:generate": "cd website && nuxt generate",
+    "site:preview": "cd website && nuxt preview",
+    "site:postinstall": "cd website && nuxt prepare"
   },
   "devDependencies": {
+    "@algolia/client-search": "^4.9.1",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "autoprefixer": "^10.4.18",
     "flexsearch": "^0.7.43",
     "markdown-it": "^14.1.0",
+    "postcss": "^8.4.35",
+    "search-insights": "^2.0.0",
     "sitemap": "^8.0.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
     "vitepress": "^1.5.0",
     "vitepress-plugin-search": "^1.0.4-alpha.22",
     "vue": "^3.5.13"
   },
   "type": "module",
   "dependencies": {
-    "vitepress": "^1.5.0"
-  }
+    "nuxt": "^3.14.1592",
+    "nuxt-lucide-icons": "1.0.5",
+    "vitepress": "^1.5.0",
+    "vue-router": "^4.5.0"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
