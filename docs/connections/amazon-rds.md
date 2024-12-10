@@ -1,6 +1,6 @@
 ---
-title: Amazon RDS for MySQL/ Aurora CDC Reader configuration.
-description: Using Amazon RDS for MySQL/ Aurora as a source. Configure MySQL Binary logging.
+title: Amazon RDS for MySQL CDC Reader configuration.
+description: Using Amazon RDS for MySQL as a source. Configure MySQL Binary logging.
 layout: doc
 lastUpdated: true
 ---

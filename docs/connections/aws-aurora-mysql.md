@@ -104,9 +104,31 @@ SHOW PROCESSLIST;
 SHOW SLAVE STATUS\G
 ```
 
-## 5. Best Practices
+## 5. Connection Setup in DBConvert Streams
 
-### 5.1 Maintenance
+### Basic Connection Details
+1. Select MySQL as database type
+2. Enter connection details:
+   - Server: Your Aurora cluster endpoint
+   - Port: 3306
+   - User ID: Your database username
+   - Password: Your database password
+   - Database: Your database name
+
+### SSL Configuration
+1. Download RDS SSL certificate:
+
+```bash
+wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem -O rds-ca.pem
+```
+2. In DBConvert Streams:
+   - Enable SSL mode
+   - Upload the downloaded certificate
+   - Select "Verify-CA" as SSL mode
+
+## 6. Best Practices
+
+### 6.1 Maintenance
 
 ```sql
 -- Purge old binary logs
@@ -119,7 +141,7 @@ SELECT @@log_bin, @@binlog_format, @@max_binlog_size;
 SHOW BINARY LOGS;
 ```
 
-### 5.2 Error Handling
+### 6.2 Error Handling
 
 Common errors and solutions:
 
@@ -135,18 +157,4 @@ ERROR: Cannot connect to MySQL server
 
 ERROR: The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION = 1
 → Ensure GTID mode is enabled if using auto-positioning
-```
-
-### 5.3 Additional Configuration (Optional)
-
-For better replication performance and reliability:
-
-```sql
--- Check GTID status (if using GTID-based replication)
-SHOW VARIABLES LIKE '%gtid%';
-
--- Set optimal timeout values
-SET GLOBAL slave_net_timeout = 60;
-SET GLOBAL master_info_repository = 'TABLE';
-SET GLOBAL relay_log_info_repository = 'TABLE';
 ```

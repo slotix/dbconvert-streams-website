@@ -1,0 +1,658 @@
+openapi: 3.0.0
+info:
+  title: DBConvert Streams (DBS) API Server
+  description: |-
+    Data streaming distributed platform for data conversion and CDC replication between databases. 
+
+    - ♾️ **Continuous processing.** Right data at the right time, all the time.
+    - ⚡  ️**Real-time Data.** Minimum delay when transferring data from source to target.
+    - ☁️ **Fully Scalable.** Cloud-first distributed platform.
+  version: '1.2'
+  license:
+    url: https://stream.dbconvert.com/eula
+    name: DBConvert Streams preview EULA.
+externalDocs:
+  description: OpenAPI documentation for DBConvert Streams API server.
+  url: https://stream.dbconvert.com
+servers:
+  - url: http://127.0.0.1:8020/api/v1
+tags:
+  - name: Streams management
+    description: |-
+      - Creating a new stream.
+      - Retrieving the configuration of a stream.
+      - Obtaining statistics for a stream.
+      - Stopping streams.
+  - name: Connections management
+    description: |-
+      - Create new database connections.
+      - List all existing connections.
+      - Retrieve information about a specific database connection.
+      - Retrieve meta information about a specific database connection.
+      - Delete a specific connection.
+
+components:
+  schemas:
+    connection:
+      description: >-
+        Connection encapsulates the necessary attributes and information required to establish and manage a connection to a database.
+      title: connection
+      type: object
+      required:
+        - id
+        - name
+        - host
+        - port
+        - username
+        - password
+        - database
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 123456
+          description: Represents the ID of the connection.
+        name:
+          type: string
+          example: Test Connection
+          description: Specifies a name or identifier for the connection.
+        type:
+          $ref: '#/components/schemas/type'
+        host:
+          type: string
+          example: 0.0.0.0
+          description: Specifies the hostname or IP address of the database server.
+        port: 
+          type: integer
+          example: 3306
+          description: Represents the port number used for the database connection.
+        username:
+          type: string
+          example: root
+          description: Provides the username for authenticating the connection.
+        password:
+          type: string
+          example: t0pSecretPassw0rd
+          description: Stores the password associated with the connection.
+        database:
+          type: string
+          example: source
+          description: Specifies the name of the database to connect to.
+        schema:
+          type: string
+          example: private
+          description: Represents the database schema to be used for the connection.
+    table:
+      type: object
+      title: table
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: The ID of the table.
+        name:
+          type: string
+          description: The name of the table.
+        database:
+          type: string
+          description: The name of the database the table belongs to.
+        columnsSeq:
+          type: array
+          items:
+            type: string
+          description: An array of column names in sequential order.
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/column'
+          description: An array of column objects representing the table's columns.
+        indexes:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/index'
+          description: A map of index names to index objects representing the table's indexes.
+        primaryKeys:
+          type: array
+          items:
+            type: string
+          description: An array of column names representing the table's primary keys.
+        autoIncrement:
+          type: string
+          description: Describes the auto-increment field of the table.
+      description: Table represents a database table
+    column:
+      type: object
+      description: |
+        Column defines table column
+      properties:
+        Name:
+          type: string
+          description: The name of the column.
+        SQLType:
+          type: object
+          description: The SQL type of the column.
+        Length:
+          type: integer
+          description: The length of the column.
+        Default:
+          type: string
+          description: The default value of the column.
+        IsPrimaryKey:
+          type: boolean
+          description: Indicates whether the column is part of the primary key.
+        IsAutoIncrement:
+          type: boolean
+          description: Indicates whether the column is auto-incremented.
+    index:
+      type: object
+    
+    stream:
+      description: >-
+        An Event Stream is made up of a series of events, much like a table in
+        SQL environment is made up of rows. A stream is a table of data in the
+        move. 
+        
+        
+        In CDC source reader mode think of a never-ending table where new data appear as time goes
+        on. A stream is such a table. One record or a row in a stream is called
+        an event. 
+        
+        
+        In case of convert mode source reader collects all specified tables until limits are specified.
+      title: stream
+      type: object
+      required:
+        - source
+        - target
+      properties:
+        source:
+          $ref: '#/components/schemas/source'
+        destination:
+          $ref: '#/components/schemas/target'
+        limits:
+          $ref: '#/components/schemas/limits'
+    source:
+      description: >-
+        DBS readers collect data from external sources such as MySQL and
+        PostgreSQL. Source reader collects events either from Binlog/ WALs or reads records directly from source tables. See mode parameter.
+      type: object
+      properties:
+        mode: 
+          $ref: '#/components/schemas/mode'
+        type:
+          $ref: '#/components/schemas/type'
+        connection:
+          type: string
+          example: postgres://pg_user:passw0rd@localhost:5432/postgres
+        settings:
+          type: object
+          description: The set of settings is unique for each type of connection.
+          properties:
+            replicationSlotName:
+              description: >-
+                *PostgreSQL only.* The name of the replication slot to create.
+                The replication slot makes the PostgreSQL CDC available.
+              type: string
+              example: myslot_1
+            publicationName:
+              description: >-
+                *PostgreSQL only.* A publication is a group of tables whose data
+                changes are intended to be replicated via logical replication.
+              type: string
+              example: dbconvert-publication
+            flavor:
+              description: >-
+                *MySQL only.* The value is either mysql or mariadb. If not set,
+                mysql is used by default.
+              type: string
+              example: mysql
+            sslCA:
+              description: >-
+                _MySQL only._ The path to the Certificate Authority (CA)
+                certificate file.
+              type: string
+              example: ../certs/ca.pem
+            sslCert:
+              description: >-
+                _MySQL only._ The path to the client public key certificate
+                file.
+              type: string
+              example: ../certs/client-cert.pem
+            sslKey:
+              description: _MySQL only._ The path to the client private key file.
+              type: string
+              example: ../certs/client-key.pem
+        filter:
+          $ref: '#/components/schemas/filter'
+    target:
+      description: >-
+        A target is any database or data store to which you want to replicate
+        your data.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/type'
+        connection:
+          type: string
+          example: mysql_user:dmsoft@tcp(0.0.0.0:3306)/Destination?tls=true
+        settings:
+          type: object
+          properties:
+            sslCA:
+              description: >-
+                _MySQL only._ The path to the Certificate Authority (CA)
+                certificate file.
+              type: string
+              example: ../certs/ca.pem
+            sslCert:
+              description: >-
+                _MySQL only._ The path to the client public key certificate
+                file.
+              type: string
+              example: ../certs/client-cert.pem
+            sslKey:
+              description: _MySQL only._ The path to the client private key file.
+              type: string
+              example: ../certs/client-key.pem
+    type:
+      type: string
+      description: Indicates the driver or database technology used for the connection (e.g., "postgresql", "mysql", etc.).
+      enum:
+        - postgresql
+        - mysql
+      example: mysql
+    mode:
+      type: string
+      description: The mode parameter represents the source reader mode. Set the mode as "cdc" to collect events from MySQL binlog/Postgres WAL. If the mode is set to "convert", it means that the source reader reads data directly from the source tables.
+      enum:
+        - cdc
+        - convert
+      example: cdc
+    limits:
+      description: |-
+        If no limits are specified in a configuration, a started stream continues running until it is manually stopped from API. Otherwise, a stream stops immediately after reaching one of the following limits, whichever limit is reached first:
+
+        - Number of events
+        - Elapsed time 
+      type: object
+      properties:
+        numberOfevents:
+          description: the specified number of events captured from the source.
+          type: number
+          example: 10000
+        elapsedTime:
+          description: (in seconds). the elapsed time since startup has been reached.
+          type: number
+          example: 10
+    filter:
+      type: object
+      properties:
+        tables:
+          description: specified source data tables to capture.
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: products1
+              operations:
+                type: array
+                items:
+                  type: string
+                  enum:
+                    - insert
+                    - update
+                    - delete
+                  example: insert
+paths:
+  /streams:
+    post:
+      tags:
+        - Streams management
+      summary: Create a new stream from the given configuration..
+      description: >-
+        'This endpoint accepts configuration in JSON format. JSON object
+        containing stream parameters can be passed in request body or loaded
+        from from the specified file on the local disk. 
+
+
+        _curl --request POST --url http://0.0.0.0:8020/api/v1/streams -H
+        'Content-Type:application/json\' -d\'{ JSON Stream Config ...}\'_
+
+
+
+        _curl --request POST --url
+        http://127.0.0.1:8020/api/v1/streams?file=stream-config.json_
+
+        '
+      operationId: create-stream
+      parameters:
+        - name: file
+          example: stream-config.json
+          in: query
+          description: Filename with stream configuration parameters.
+          required: false
+          schema:
+            type: string
+      requestBody:
+        description: |
+          New stream parameters are set in JSON format.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/stream'
+        required: false
+      responses:
+        '200':
+          description: >-
+            Returns the status and configuration of the newly created thread,
+            including the new ID.
+          content:
+            application/json:
+              example: >-
+                {"status":"success","data":{"id":"2Fdj6JALDAm53S7Q4NxzH3sffzM","source":{"type":"mysql","connection":"mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true","settings":{"sslCA":"../certs/ca.pem","sslCert":"../certs/client-cert.pem","sslKey":"../certs/client-key.pem"},"filter":{"tables":[{"name":"products1","operations":["insert","update","delete"]},{"name":"products2","operations":["insert","update","delete"]}]}},"target":{"type":"postgresql","connection":"postgres://postgres:postgres@localhost:5432/destination?sslmode=verify-ca\u0026sslrootcert=../certs/ca.crt\u0026sslkey=../certs/client.key\u0026sslcert=../certs/client.crt","settings":null,"filter":{"tables":null}},"limits":{"numberOfEvents":10000}}}
+        '400':
+          description: >-
+            Returns the status and error message indicating that the stream was
+            not successfully created.
+          content:
+            application/json:
+              example: >-
+                {"status":"error","message":"json: cannot unmarshal string into
+                Go value of type stream.Stream"}
+    delete:
+      tags:
+        - Streams management
+      summary: Stops event processing for the current stream on DBS servers.
+      description: >-
+        This endpoint causes the current stream to stop receiving new events
+        from the source server. The target DBConvert server stops sending new
+        events to its consumers.
+      operationId: stream-source-cancel
+      responses:
+        '200':
+          description: >-
+            Returns a response containing the current stream ID and status
+            information about the source and target DBS servers.
+          content:
+            application/json:
+              example: >-
+                {"streamID":"2Fi6pNrHynLsBfe8v7GQLSKj7ou","Source":{"status":"STOPPED"},"Target":{"status":"STOPPED"}}
+        '400':
+          description: Returns an error message if there is no stream running.
+          content:
+            application/json:
+              example: '{"status":"error","message":"no active stream to stop"}'
+    get:
+      tags:
+        - Streams management
+      summary: Returns current stream configuration.
+      description: This endpoint returns JSON configuration of the current stream
+      operationId: stream-config
+      responses:
+        '200':
+          description: Response contains current stream config.
+          content:
+            application/json:
+              example: >-
+                {"id":"2Fdj6JALDAm53S7Q4NxzH3sffzM","source":{"type":"mysql","connection":"mysql_user:passw0rd@tcp(0.0.0.0:3306)/Source?tls=true","settings":{"sslCA":"../certs/ca.pem","sslCert":"../certs/client-cert.pem","sslKey":"../certs/client-key.pem"},"filter":{"tables":[{"name":"products1","operations":["insert","update","delete"]},{"name":"products2","operations":["insert","update","delete"]}]}},"target":{"type":"postgresql","connection":"postgres://postgres:postgres@localhost:5432/destination?sslmode=verify-ca\u0026sslrootcert=../certs/ca.crt\u0026sslkey=../certs/client.key\u0026sslcert=../certs/client.crt","settings":null,"filter":{"tables":null}},"limits":{"numberOfEvents":10000}}
+  /streams/stat:
+    get:
+      tags:
+        - Streams management
+      summary: Reports current stream statistics from source and target nodes.
+      description: This endpoint outputs stat values of the current stream
+      operationId: stream-source-stat
+      responses:
+        '200':
+          description: >-
+            Returns response containing statistics info about the current
+            stream.
+          content:
+            application/json:
+              example: >-
+                {"streamID":"2Fdj6JALDAm53S7Q4NxzH3sffzM","source":{"counter":10000,"elapsed":"1.209114254s","started":"2022-10-05T22:46:28.001407602+02:00","status":"FINISHED"},"target":{"counter":10000,"elapsed":"2.67940812s","started":"2022-10-05T22:46:28.001802342+02:00","status":"FINISHED"}}
+        '400':
+          description: >-
+            Returns the status and error message indicating that statistics are
+            not available.
+          content:
+            application/json:
+              example: >-
+                {"status":"error","message":"Get
+                \"http://0.0.0.0:8021/api/v1/stat\": dial tcp 0.0.0.0:8021:
+                connect: connection refused"}
+  /streams/source/metrics:
+    get:
+      tags:
+        - Streams management
+      summary: Reports Prometheus metrics for the current stream source node.
+      description: This endpoint serves the Prometheus metrics for stream source
+      operationId: stream-source-prometheus
+      responses:
+        '200':
+          description: >-
+            Returns response containing plain text prometheus metrics for the
+            current stream source node.
+          content:
+            text/plain:
+              example: >-
+                ... omitted for brevity
+
+                # HELP source_duration_seconds the duration of the last job on
+                source in seconds.
+
+                # TYPE source_duration_seconds gauge
+
+                source_duration_seconds{status="FINISHED",streamID="2Fdj6JALDAm53S7Q4NxzH3sffzM"}
+                0.679539515
+
+                # HELP source_events_in the number of ingested events on the
+                source published to the event hub
+
+                # TYPE source_events_in counter
+
+                source_events_in{streamID="2Fdj6JALDAm53S7Q4NxzH3sffzM"} 10000
+  /streams/target/metrics:
+    get:
+      tags:
+        - Streams management
+      summary: Prints Prometheus metrics for the current stream target node.
+      description: This endpoint serves the Prometheus metrics for stream target
+      operationId: stream-target-prometheus
+      responses:
+        '200':
+          description: >-
+            Returns response containing plain text prometheus metrics for the
+            current stream target node.
+          content:
+            text/plain:
+              example: >-
+                ... omitted for brevity
+
+                # HELP target_duration_seconds The duration of the last job on
+                target in seconds.
+
+                # TYPE target_duration_seconds gauge
+
+                target_duration_seconds{status="FINISHED",streamID="2Fdj6JALDAm53S7Q4NxzH3sffzM"}
+                1.516375992
+
+                # HELP target_events_out the number of events on the target
+                consumed from the event hub
+
+                # TYPE target_events_out counter
+
+                target_events_out{streamID="2Fdj6JALDAm53S7Q4NxzH3sffzM"} 10000
+  /connections:
+    post:
+      tags:
+        - Connections management
+      summary: Create a new connection from the given configuration..
+      description: >-
+        'This endpoint accepts configuration in JSON format. JSON object
+        containing stream parameters can be passed in request body or loaded
+        from from the specified file on the local disk. 
+
+
+        _curl --request POST --url http://0.0.0.0:8020/api/v1/connections -H
+        'Content-Type:application/json\' -d\'{ JSON Connection Config ...}\'_
+
+
+
+        _curl --request POST --url
+        http://127.0.0.1:8020/api/v1/connections?file=connection-config.json_
+
+        '
+      operationId: create-connection
+      parameters:
+        - name: file
+          example: connection-config.json
+          in: query
+          description: Filename with connection configuration parameters.
+          required: false
+          schema:
+            type: string
+      requestBody:
+        description: |
+          New connection parameters are set in JSON format.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/connection'
+        required: false
+      responses:
+        '200':
+          description: >-
+            Returns  the newly created connection in the response body along with an appropriate HTTP status code.
+          content:
+            application/json:
+              example: >-
+                {"id":1,"name":"Test Connection","driver":"postgresql","host":"localhost","port":5432,"username":"admin","password":"password","database":"testdb","schema":"public","Engine":{"tables":null,"Mu":{}},"DSN":"postgres://admin:password@localhost:5432/testdb"}
+        '400':
+          description: >-
+            Returns the status and error message indicating that the connection was
+            not successfully created.
+          content:
+            application/json:
+              example: >-
+                {"status":"error","message":"json: cannot unmarshal string into
+                Go value of type Connection"}
+    
+    get:
+      tags:
+        - Connections management
+      summary: Returns list of connections.
+      description: This endpoint returns the list of connections in the response body with an appropriate HTTP status code.
+      operationId: list-connections
+      responses:
+        '200':
+          description: Response contains current stream config.
+          content:
+            application/json:
+              example: >-
+                [{"id":1,"name":"Test Connection","driver":"postgresql","host":"localhost","port":5432,"username":"admin","password":"password","database":"testdb","schema":"public","DSN":"postgres://admin:password@localhost:5432/testdb"},{"id":2,"name":"Test Connection #2","driver":"mysql","host":"0.0.0.0","port":3306,"username":"root","password":"123456","database":"source","schema":"","DSN":"root:123456@tcp(0.0.0.0:3306)/source"}]
+    delete:
+      tags:
+        - Connections management
+      summary: Delete all connections.
+      description: >-
+        This endpoint deletes all existing connections.
+      operationId: delete-connections
+      responses:
+        '204':
+          description: No Content
+  /connections/{id}:
+    get:
+      tags:
+        - Connections management
+      summary: Get connection by ID
+      parameters:
+        - name: id
+          in: path
+          description: retrieve the details of a specific connection by its ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/connection'
+        '404':
+          description: Connection not found
+    delete:
+      tags:
+        - Connections management
+      summary: Delete connection by ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the connection
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: Connection not found
+  /connections/{id}/ping:
+    get:
+      tags:
+        - Connections management
+      summary: Get connection by ID
+      parameters:
+        - name: id
+          in: path
+          description: It is used to ping a specific connection by its ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              example:  
+                {"ping": "ok"}
+        '404':
+          description: Connection not found
+        '503':
+          description: Ping failed
+          content:
+            application/json:
+              example:  
+                {"ping": "failed"}
+  /connections/{id}/meta:
+    get:
+      tags:
+        - Connections management
+      summary: Retrieve meta information (Tables, structure) about a specific database connection.
+      parameters:
+        - name: id
+          in: path
+          description: Retrieve a specific connection meta information by connection ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/table'
+        '404':
+          description: Connection not found
+        '500':
+          description: Error - failed to extract meta information
+          content:
+            application/json:
+              example:  
+                {"error": "failed to extract meta info"}

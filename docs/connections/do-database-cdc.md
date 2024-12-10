@@ -101,6 +101,8 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO cdc_user;
 
 ### 4.2 Connection Information
 
+![DigitalOcean Connection Details](/images/connections/do-connection-details.png)
+
 1. In the database cluster overview, find the connection details:
    - Host
    - Port
@@ -120,60 +122,11 @@ PostgreSQL:
 postgresql://cdc_user:password@host:port/database
 ```
 
-## 5. Monitoring and Maintenance
-
-### 5.1 MySQL Monitoring
-
-```sql
--- Check replication status
-SHOW MASTER STATUS;
-
--- Monitor binary log space
-SHOW BINARY LOGS;
-
--- Check current connections
-SHOW PROCESSLIST;
-
--- Monitor binary log usage
-SELECT @@log_bin, @@binlog_format;
-```
-
-### 5.2 PostgreSQL Monitoring
-
-```sql
--- Check replication slots
-SELECT * FROM pg_replication_slots;
-
--- Monitor WAL segments
-SELECT * FROM pg_stat_replication;
-
--- Check current connections
-SELECT * FROM pg_stat_activity WHERE backend_type = 'walsender';
-```
-
-## 6. Best Practices
-
-1. **User Management**
-   - Create dedicated users for CDC
-   - Use strong passwords
-   - Grant minimum required privileges
-   - Regular credential rotation
-
-2. **Network Security**
-   - Restrict trusted sources to specific IPs
-   - Regular audit of trusted sources
-   - Use SSL/TLS for connections
-
-3. **Monitoring**
-   - Monitor replication lag
-   - Track disk usage
-   - Set up alerts for connection issues
-
-## 7. Troubleshooting
+## 5. Troubleshooting
 
 Common issues and solutions:
 
-### 7.1 MySQL Issues
+### 5.1 MySQL Issues
 
 ```text
 ERROR: Access denied for user
@@ -186,7 +139,7 @@ ERROR: Binary log position not found
 → Verify replication user privileges
 ```
 
-### 7.2 PostgreSQL Issues
+### 5.2 PostgreSQL Issues
 
 ```text
 ERROR: no pg_hba.conf entry
@@ -198,7 +151,7 @@ ERROR: replication slot creation failed
 → Verify user has REPLICATION privilege
 ```
 
-## 8. Limitations
+## 6. Limitations
 
 1. **MySQL**
    - Cannot modify binary log format
@@ -210,7 +163,7 @@ ERROR: replication slot creation failed
    - Cannot modify WAL retention
    - Pre-configured WAL settings
 
-## 9. Additional Resources
+## 7. Additional Resources
 
 - [DigitalOcean Database Documentation](https://docs.digitalocean.com/products/databases/)
 - [MySQL Replication Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication.html)
