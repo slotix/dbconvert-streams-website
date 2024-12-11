@@ -2,19 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Font loading */
-@font-face {
-  font-family: 'DM Mono';
-  src: url('/assets/fonts/dmmono.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+/* Better defaults */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Common component styles */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold
+           transition-all duration-200 ease-in-out
+           hover:scale-105 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply bg-secondary text-white hover:bg-secondary-dark;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-lg 
+           transition-all duration-300 
+           hover:shadow-xl hover:-translate-y-1;
+  }
 }
 
-body {
-  @apply antialiased;
+/* Animations */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }

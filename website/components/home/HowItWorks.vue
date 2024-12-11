@@ -1,18 +1,29 @@
-// components/home/HowItWorks.vue
 <template>
-    <div class="py-16 bg-gray-50">
+    <div class="py-24 bg-white bg-gradient-to-b from-primary-light to-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+            <h2 class="text-4xl font-bold text-center mb-16">How It Works</h2>
             <div class="max-w-4xl mx-auto">
-                <div v-for="(step, index) in steps" :key="index" class="mb-8 last:mb-0">
-                    <div class="flex items-start">
-                        <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                <div v-for="(step, index) in steps" :key="index" 
+                     class="mb-20 last:mb-0 flex group">
+                    <div class="relative">
+                        <div class="bg-primary text-white rounded-full w-12 h-12 
+                                  flex items-center justify-center flex-shrink-0 
+                                  font-bold text-lg shadow-lg 
+                                  group-hover:scale-110 transition-transform duration-300
+                                  relative z-10">
                             {{ index + 1 }}
                         </div>
-                        <div class="ml-4">
-                            <h3 class="text-xl font-semibold mb-2">{{ step.title }}</h3>
-                            <p class="text-gray-600">{{ step.description }}</p>
+                        <div v-if="index !== steps.length - 1" 
+                             class="absolute top-12 bottom-0 left-1/2 w-0.5 
+                                    bg-gradient-to-b from-primary to-primary/30
+                                    h-24 transform -translate-x-1/2">
                         </div>
+                    </div>
+                    <div class="ml-8">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                            {{ step.title }}
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">{{ step.description }}</p>
                     </div>
                 </div>
             </div>

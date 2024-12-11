@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/google-fonts','nuxt-lucide-icons'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', 'nuxt-lucide-icons'],
   css: ['~/assets/css/main.css'],
   components: {
     dirs: [
@@ -36,9 +36,8 @@ export default defineNuxtConfig({
   tailwindcss: {
     configPath: '~/tailwind.config.js',
     exposeConfig: false,
-    injectPosition: 0,
     viewer: false,
-    cssPath: '~/assets/css/main.css'
+    cssPath: ["~/assets/css/main.css", { injectPosition: 0 }]
   },
   postcss: {
     plugins: {
