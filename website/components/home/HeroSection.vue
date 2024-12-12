@@ -46,28 +46,31 @@
                             <div class="flex transition-transform duration-500 ease-out h-full"
                                 :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
                                 <div v-for="(screenshot, index) in screenshots" :key="index"
-                                    class="w-full flex-shrink-0 relative flex items-center justify-center p-4">
+                                    class="w-full flex-shrink-0 relative">
                                     <img :src="screenshot.image" :alt="screenshot.title"
-                                        class="max-w-full max-h-full object-contain">
+                                        class="w-full h-full object-cover">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Navigation Buttons -->
                         <button @click="prevSlide"
-                            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-2 rounded-full shadow-lg backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                            <ChevronLeft class="h-6 w-6 text-white" />
+                            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 p-3 rounded-full shadow-lg backdrop-blur-sm opacity-80 group-hover:opacity-100 transition-all duration-200">
+                            <ChevronLeft class="h-7 w-7 text-white" />
                         </button>
                         <button @click="nextSlide"
-                            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-2 rounded-full shadow-lg backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                            <ChevronRight class="h-6 w-6 text-white" />
+                            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 p-3 rounded-full shadow-lg backdrop-blur-sm opacity-80 group-hover:opacity-100 transition-all duration-200">
+                            <ChevronRight class="h-7 w-7 text-white" />
                         </button>
 
                         <!-- Slide Indicators -->
-                        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
                             <button v-for="(_, index) in screenshots" :key="index" @click="setSlide(index)"
-                                class="w-2 h-2 rounded-full transition-all duration-200"
-                                :class="index === activeSlide ? 'bg-white w-4' : 'bg-white/50 hover:bg-white/80'">
+                                class="h-2.5 rounded-full transition-all duration-200 shadow-lg backdrop-blur-sm"
+                                :class="[
+                                    'bg-black/30 hover:bg-black/50',
+                                    index === activeSlide ? 'w-8' : 'w-2.5'
+                                ]">
                             </button>
                         </div>
                     </div>
