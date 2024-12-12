@@ -12,7 +12,8 @@
                 <p class="text-xl mb-8 text-gray-100 animate-[fadeIn_0.8s_ease-out_0.2s_forwards] opacity-0">
                     Seamlessly migrate and synchronize your databases with our powerful, reliable platform
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-[fadeIn_0.8s_ease-out_0.4s_forwards] opacity-0">
+                <div
+                    class="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-[fadeIn_0.8s_ease-out_0.4s_forwards] opacity-0">
                     <button
                         class="group bg-secondary hover:bg-secondary-dark px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center">
                         Get Started
@@ -27,7 +28,7 @@
 
             <!-- Screenshot Carousel -->
             <div class="max-w-6xl mx-auto animate-[fadeInUp_1s_ease-out_0.6s_forwards] opacity-0">
-                <div class="relative browser-frame bg-white/5 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-1">
+                <div class="relative browser-frame bg-white/5 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden">
                     <!-- Browser Frame Header -->
                     <div
                         class="bg-gray-900/50 px-4 py-3 border-b border-gray-700/50 flex items-center backdrop-blur-sm">
@@ -41,31 +42,13 @@
 
                     <!-- Carousel Container -->
                     <div class="relative group">
-                        <div class="overflow-hidden bg-black/20 aspect-video h-[600px] md:h-[600px] sm:h-[400px]">
+                        <div class="overflow-hidden bg-black/20 aspect-video">
                             <div class="flex transition-transform duration-500 ease-out h-full"
                                 :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
                                 <div v-for="(screenshot, index) in screenshots" :key="index"
-                                    class="w-full flex-shrink-0 relative flex items-center justify-center">
-                                    <!-- Loading state -->
-                                    <div v-if="loadingStates[index]"
-                                        class="absolute inset-0 bg-gray-800/50 animate-pulse">
-                                        <div class="absolute inset-0 flex items-center justify-center">
-                                            <div
-                                                class="w-8 h-8 border-4 border-secondary border-t-transparent rounded-full animate-spin">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Error state -->
-                                    <div v-if="imageErrors[index]"
-                                        class="absolute inset-0 bg-gray-800/50 flex items-center justify-center">
-                                        <span class="text-white">Failed to load image</span>
-                                    </div>
-
-                                    <!-- Image -->
+                                    class="w-full flex-shrink-0 relative flex items-center justify-center p-4">
                                     <img :src="screenshot.image" :alt="screenshot.title"
-                                        class="max-w-full max-h-full w-auto h-auto object-contain px-4"
-                                        @load="loadingStates[index] = false" @error="handleImageError(index)">
+                                        class="max-w-full max-h-full object-contain">
                                 </div>
                             </div>
                         </div>
@@ -98,51 +81,20 @@
 import { ref } from 'vue'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 
-// Import images directly
-import startDashboard from '~/assets/images/components/home/monitoring-dashboard.png'
+// Import images
+import startDashboard from '~/assets/images/components/home/start-dashboard.png'
 import connectionDashboard from '~/assets/images/components/home/connection-dashboard.png'
 import streamDashboard from '~/assets/images/components/home/stream-dashboard.png'
 import monitoringDashboard from '~/assets/images/components/home/monitoring-dashboard.png'
 import userDashboard from '~/assets/images/components/home/user-dashboard.png'
 
-// Add this after imports to debug image paths
-console.log('Loading images:', {
-    startDashboard,
-    connectionDashboard,
-    streamDashboard,
-    monitoringDashboard,
-    userDashboard
-})
-
 const activeSlide = ref(0)
-const loadingStates = ref(new Array(5).fill(true))
-const imageErrors = ref(new Array(5).fill(false))
 const screenshots = ref([
-    {
-        title: 'Start Page',
-        image: startDashboard,
-        tooltips: []
-    },
-    {
-        title: 'Connection Dashboard',
-        image: connectionDashboard,
-        tooltips: []
-    },
-    {
-        title: 'Stream Configuration',
-        image: streamDashboard,
-        tooltips: []
-    },
-    {
-        title: 'Monitoring Dashboard',
-        image: monitoringDashboard,
-        tooltips: []
-    },
-    {
-        title: 'User Dashboard',
-        image: userDashboard,
-        tooltips: []
-    }
+    { title: 'Start Page', image: startDashboard },
+    { title: 'Connection Dashboard', image: connectionDashboard },
+    { title: 'Stream Configuration', image: streamDashboard },
+    { title: 'Monitoring Dashboard', image: monitoringDashboard },
+    { title: 'User Dashboard', image: userDashboard }
 ])
 
 const nextSlide = () => {
@@ -157,11 +109,5 @@ const prevSlide = () => {
 
 const setSlide = (index) => {
     activeSlide.value = index
-}
-
-const handleImageError = (index) => {
-    console.error('Failed to load image at index:', index)
-    loadingStates.value[index] = false
-    imageErrors.value[index] = true
 }
 </script>
