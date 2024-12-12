@@ -4,7 +4,12 @@
             <div class="container mx-auto px-4">
                 <div class="flex justify-between h-16">
                     <div class="flex">
-                        <NuxtLink to="/" class="flex items-center">
+                        <NuxtLink to="/" class="flex items-center space-x-3">
+                            <img 
+                                src="/images/dbconvert-stream-logo.svg" 
+                                alt="DBConvert Streams Logo" 
+                                class="h-8 w-auto"
+                            />
                             <span class="text-xl font-bold text-white">DBConvert Streams</span>
                         </NuxtLink>
                     </div>
