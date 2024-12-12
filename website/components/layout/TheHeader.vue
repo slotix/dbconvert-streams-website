@@ -6,7 +6,7 @@
                     <div class="flex">
                         <NuxtLink to="/" class="flex items-center space-x-3">
                             <img 
-                                src="/images/dbconvert-stream-logo.svg" 
+                                src="/images/logo-light.svg" 
                                 alt="DBConvert Streams Logo" 
                                 class="h-8 w-auto"
                             />
