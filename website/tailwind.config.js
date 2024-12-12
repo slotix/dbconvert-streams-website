@@ -30,6 +30,28 @@ export default {
       spacing: {
         '18': '4.5rem',
         '88': '22rem',
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: '0' },
+          to: { opacity: '1' }
+        },
+        fadeInUp: {
+          from: { 
+            opacity: '0',
+            transform: 'translateY(20px)'
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateY(0)'
+          }
+        }
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.8s ease-out forwards',
+        'fade-in-delay': 'fadeIn 0.8s ease-out 0.2s forwards',
+        'fade-in-delay-2': 'fadeIn 0.8s ease-out 0.4s forwards',
+        'fade-in-up': 'fadeInUp 1s ease-out 0.6s forwards'
       }
     },
   },
