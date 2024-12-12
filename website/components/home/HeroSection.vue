@@ -42,7 +42,7 @@
 
                     <!-- Carousel Container -->
                     <div class="relative group">
-                        <div class="overflow-hidden bg-black/20 aspect-video">
+                        <div class="overflow-hidden bg-black/20" style="aspect-ratio: 4/3;">
                             <div class="flex transition-transform duration-500 ease-out h-full"
                                 :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
                                 <div v-for="(screenshot, index) in screenshots" :key="index"
@@ -85,15 +85,23 @@ import { ref } from 'vue'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 
 // Import images
-import startDashboard from '~/assets/images/components/home/start-dashboard.png'
-import connectionDashboard from '~/assets/images/components/home/connection-dashboard.png'
-import streamDashboard from '~/assets/images/components/home/stream-dashboard.png'
-import monitoringDashboard from '~/assets/images/components/home/monitoring-dashboard.png'
-import userDashboard from '~/assets/images/components/home/user-dashboard.png'
+import startDashboard from '~/assets/images/components/home/screenshot-start.webp'
+import connectionDashboard from '~/assets/images/components/home/screenshot-connections.webp'
+import streamDashboard from '~/assets/images/components/home/screenshot-streams.webp'
+import monitoringDashboard from '~/assets/images/components/home/screenshot-monitoring.webp'
+import userDashboard from '~/assets/images/components/home/screenshot-user.webp'
 
 const activeSlide = ref(0)
 const screenshots = ref([
-    { title: 'Start Page', image: startDashboard },
+    { 
+        title: 'Start Page', 
+        image: startDashboard,
+        // Recommended image specs:
+        // - Dimensions: 1280x960px (4:3 ratio)
+        // - Format: .webp
+        // - Quality: 85-90%
+        // - File size: ~150-250KB
+    },
     { title: 'Connection Dashboard', image: connectionDashboard },
     { title: 'Stream Configuration', image: streamDashboard },
     { title: 'Monitoring Dashboard', image: monitoringDashboard },
