@@ -1,17 +1,21 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-b from-primary-dark to-primary text-white py-24">
-      <div class="container mx-auto px-4">
-        <h1 class="text-4xl md:text-6xl font-bold text-center mb-6">
-          Features
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-light">
-            Overview
-          </span>
-        </h1>
-        <p class="text-xl text-gray-100 text-center max-w-3xl mx-auto">
-          Modern data replication and migration features for enterprise database management
-        </p>
+    <section class="bg-gradient-to-b from-primary-dark to-primary text-white  flex items-center">
+      <div class="container mx-auto px-4 py-16 space-y-16">
+        <!-- Hero Content -->
+        <div class="max-w-3xl mx-auto text-center space-y-8">
+          <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-[fadeIn_0.8s_ease-out_forwards]">
+            Migrate and Replicate Between
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-light">
+              Any Database
+            </span>
+          </h1>
+          <p class="text-xl mb-8 text-gray-100 animate-[fadeIn_0.8s_ease-out_0.2s_forwards] opacity-0">
+            Transfer data between MySQL, PostgreSQL, and cloud databases in any combination.
+            Our intelligent schema mapping handles all the complexity automatically.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -20,24 +24,16 @@
       <div class="container mx-auto px-4">
         <div class="flex justify-center mb-8">
           <div class="inline-flex rounded-lg border border-gray-200">
-            <button
-              :class="`px-6 py-3 rounded-l-lg ${
-                activeTab === 'cdc' 
-                  ? 'bg-white text-primary-dark' 
-                  : 'bg-transparent text-white hover:bg-white/10'
-              }`"
-              @click="activeTab = 'cdc'"
-            >
+            <button :class="`px-6 py-3 rounded-l-lg ${activeTab === 'cdc'
+              ? 'bg-white text-primary-dark'
+              : 'bg-transparent text-white hover:bg-white/10'
+              }`" @click="activeTab = 'cdc'">
               CDC Replication
             </button>
-            <button
-              :class="`px-6 py-3 rounded-r-lg ${
-                activeTab === 'migration' 
-                  ? 'bg-white text-primary-dark' 
-                  : 'bg-transparent text-white hover:bg-white/10'
-              }`"
-              @click="activeTab = 'migration'"
-            >
+            <button :class="`px-6 py-3 rounded-r-lg ${activeTab === 'migration'
+              ? 'bg-white text-primary-dark'
+              : 'bg-transparent text-white hover:bg-white/10'
+              }`" @click="activeTab = 'migration'">
               Data Migration
             </button>
           </div>
@@ -52,9 +48,8 @@
           </p>
 
           <div class="grid md:grid-cols-3 gap-6 mb-8">
-            <div v-for="(point, index) in modes[activeTab].points" 
-                 :key="index" 
-                 class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div v-for="(point, index) in modes[activeTab].points" :key="index"
+              class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
               <div class="text-primary-dark mb-4">
                 <component :is="point.icon" class="w-6 h-6" />
               </div>
@@ -70,9 +65,8 @@
           <div class="bg-white p-6 rounded-2xl shadow-xl">
             <h3 class="text-xl font-semibold mb-4">Common Use Cases</h3>
             <div class="grid md:grid-cols-2 gap-4">
-              <div v-for="(useCase, index) in modes[activeTab].useCases" 
-                   :key="index" 
-                   class="flex items-center bg-primary-light/20 p-4 rounded-xl hover:bg-primary-light/30 transition-colors">
+              <div v-for="(useCase, index) in modes[activeTab].useCases" :key="index"
+                class="flex items-center bg-primary-light/20 p-4 rounded-xl hover:bg-primary-light/30 transition-colors">
                 <CheckCircle class="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                 <span class="text-gray-700 font-medium">{{ useCase }}</span>
               </div>
@@ -82,24 +76,68 @@
       </div>
     </section>
 
-    <!-- Core Features -->
+    <!-- Universal Database Compatibility -->
     <section class="py-24 bg-gradient-to-b from-primary-light to-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-6">
+          Universal Database Compatibility
+        </h2>
+        <p class="text-xl text-gray-700 text-center max-w-3xl mx-auto mb-16">
+          Transfer data between any supported databases in any combination. Our intelligent schema mapping handles all
+          the complexity automatically.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- SQL to SQL Migrations -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+            <div class="flex items-center mb-6">
+              <Database class="w-8 h-8 text-primary-dark mr-3" />
+              <h3 class="text-xl font-semibold">SQL to SQL</h3>
+            </div>
+            <ul class="space-y-3">
+              <li v-for="path in sqlMigrationPaths" :key="path"
+                class="flex items-center bg-gradient-to-r from-primary-light/20 to-primary-light/10 p-3 rounded-lg hover:from-primary-light/30 hover:to-primary-light/20 transition-colors">
+                <ArrowRight class="h-4 w-4 text-primary mr-2 flex-shrink-0" />
+                <span class="text-gray-700">{{ path }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cloud Combinations -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+            <div class="flex items-center mb-6">
+              <Cloud class="w-8 h-8 text-primary-dark mr-3" />
+              <h3 class="text-xl font-semibold">Cloud Combinations</h3>
+            </div>
+            <ul class="space-y-3">
+              <li v-for="path in cloudMigrationPaths" :key="path"
+                class="flex items-center bg-gradient-to-r from-primary-light/20 to-primary-light/10 p-3 rounded-lg hover:from-primary-light/30 hover:to-primary-light/20 transition-colors">
+                <ArrowRight class="h-4 w-4 text-primary mr-2 flex-shrink-0" />
+                <span class="text-gray-700">{{ path }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features -->
+    <section class="py-24 bg-white">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-12">
           Enterprise Features
         </h2>
         <div class="grid md:grid-cols-3 gap-8">
-          <div v-for="(feature, index) in enterpriseFeatures" 
-               :key="index"
-               class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+          <div v-for="(feature, index) in enterpriseFeatures" :key="index"
+            class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
             <component :is="feature.icon" class="w-12 h-12 text-primary-dark mb-4" />
             <h3 class="text-xl font-semibold mb-2">
               {{ feature.title }}
             </h3>
             <ul class="space-y-2 text-gray-600">
-              <li v-for="(item, itemIndex) in feature.items" 
-                  :key="itemIndex"
-                  class="flex items-center">
+              <li v-for="(item, itemIndex) in feature.items" :key="itemIndex" class="flex items-center">
                 <CheckCircle class="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                 <span>{{ item }}</span>
               </li>
@@ -116,15 +154,12 @@
           Supported Databases
         </h2>
         <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
-          <div v-for="(category, index) in databases" 
-               :key="index" 
-               class="p-6 rounded-xl hover:bg-white/50 transition-all duration-300 hover:shadow-lg">
+          <div v-for="(category, index) in databases" :key="index"
+            class="p-6 rounded-xl hover:bg-white/50 transition-all duration-300 hover:shadow-lg">
             <Database class="w-12 h-12 text-primary-dark mb-6" />
             <h3 class="text-xl font-semibold mb-4">{{ category.name }}</h3>
             <ul class="space-y-2 text-gray-600">
-              <li v-for="(db, dbIndex) in category.variants" 
-                  :key="dbIndex"
-                  class="flex items-center">
+              <li v-for="(db, dbIndex) in category.variants" :key="dbIndex" class="flex items-center">
                 <CheckCircle class="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                 <span>{{ db }}</span>
               </li>
@@ -141,15 +176,12 @@
           Technical Integration
         </h2>
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div v-for="(integration, index) in technicalIntegrations" 
-               :key="index"
-               class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+          <div v-for="(integration, index) in technicalIntegrations" :key="index"
+            class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
             <h3 class="text-xl font-semibold mb-4">{{ integration.title }}</h3>
             <p class="text-gray-600 mb-4">{{ integration.description }}</p>
             <ul class="space-y-2 text-gray-600">
-              <li v-for="(feature, featureIndex) in integration.features" 
-                  :key="featureIndex"
-                  class="flex items-center">
+              <li v-for="(feature, featureIndex) in integration.features" :key="featureIndex" class="flex items-center">
                 <CheckCircle class="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                 <span>{{ feature }}</span>
               </li>
@@ -168,8 +200,7 @@
         <p class="text-xl mb-8">
           Start your data migration and replication journey today
         </p>
-        <NuxtLink 
-          to="/docs" 
+        <NuxtLink to="/docs"
           class="bg-secondary text-white px-8 py-3 rounded-lg font-semibold hover:bg-secondary-dark transition-all duration-200 inline-flex items-center group">
           Get Started
           <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
@@ -185,12 +216,12 @@ definePageMeta({
 })
 
 import { ref } from 'vue'
-import { 
-  Database, 
-  Zap, 
-  RefreshCw, 
-  Shield, 
-  Settings, 
+import {
+  Database,
+  Zap,
+  RefreshCw,
+  Shield,
+  Settings,
   MonitorCheck,
   LineChart,
   Lock,
@@ -265,7 +296,7 @@ const enterpriseFeatures = [
     title: "Security First",
     items: [
       "SSL/TLS encryption",
-      "HashiCorp Vault integration", 
+      "HashiCorp Vault integration",
       "API key authentication"
     ]
   },
@@ -322,9 +353,23 @@ const technicalIntegrations = [
     description: "HashiCorp Consul integration for robust service discovery and configuration management.",
     features: [
       "Automatic registration",
-      "Health monitoring", 
+      "Health monitoring",
       "Dynamic configuration"
     ]
   }
 ]
-</script> 
+
+const sqlMigrationPaths = [
+  "MySQL to PostgreSQL",
+  "PostgreSQL to MySQL",
+  "MariaDB to PostgreSQL",
+  "SingleStore to CockroachDB"
+]
+
+const cloudMigrationPaths = [
+  "Amazon Aurora MySQL to Azure PostgreSQL",
+  "Google Cloud SQL to Amazon RDS",
+  "Azure Database to Amazon Aurora",
+  "Any cloud to any on-premises database"
+]
+</script>
