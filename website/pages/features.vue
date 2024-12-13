@@ -206,7 +206,7 @@
         <p class="text-xl mb-8">
           Start your data migration and replication journey today
         </p>
-        <NuxtLink to="/docs"
+        <NuxtLink to="/get-started"
           class="bg-secondary text-white px-8 py-3 rounded-lg font-semibold hover:bg-secondary-dark transition-all duration-200 inline-flex items-center group">
           Get Started
           <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />

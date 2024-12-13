@@ -90,7 +90,7 @@
                 <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Data Infrastructure?</h2>
                 <p class="text-xl mb-8">Start your journey to real-time data operations today</p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <NuxtLink to="/docs"
+                    <NuxtLink to="/get-started"
                         class="bg-secondary text-white px-8 py-3 rounded-lg font-semibold hover:bg-secondary-dark transition-all duration-200 inline-flex items-center group">
                         Get Started Free
                         <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
