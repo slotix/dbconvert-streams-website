@@ -29,6 +29,15 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },
         { rel: 'manifest', href: '/favicons/site.webmanifest', type: 'application/manifest+json' }
+      ],
+      script: [
+        { 
+          src: 'https://js.stripe.com/v3/',
+          defer: true,
+          crossorigin: "anonymous",
+          async: true,
+          id: 'stripe-js'
+        }
       ]
     }
   },
@@ -51,6 +60,20 @@ export default defineNuxtConfig({
     plugins: {
       tailwindcss: {},
       autoprefixer: {}
+    }
+  },
+  runtimeConfig: {
+    public: {
+      stripeKey: process.env.NUXT_PUBLIC_STRIPE_KEY,
+      stripePricingTableId: process.env.NUXT_PUBLIC_STRIPE_PRICING_TABLE_ID
+    }
+  },
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => [
+        'stripe-pricing-table',
+        'stripe-buy-button'
+      ].includes(tag)
     }
   },
 })
