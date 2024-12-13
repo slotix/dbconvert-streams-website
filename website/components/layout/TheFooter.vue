@@ -53,10 +53,10 @@ const footerSections = [
   {
     title: 'Legal',
     items: [
-      { text: 'Privacy Policy', link: '/privacy' },
-      { text: 'Terms of Service', link: '/terms' },
-      { text: 'Cookie Policy', link: '/cookies' },
-      { text: 'GDPR', link: '/gdpr' }
+      { text: 'Privacy Policy', link: '/legal/privacy' },
+      { text: 'Terms of Service', link: '/legal/terms' },
+      { text: 'Cookie Policy', link: '/legal/cookies' },
+      { text: 'EULA', link: '/legal/eula' }
     ]
   }
 ]
