@@ -10,12 +10,11 @@
                     </span>
                 </h1>
                 <p class="text-xl mb-8 text-gray-100 animate-[fadeIn_0.8s_ease-out_0.2s_forwards] opacity-0">
-                    Seamlessly migrate and synchronize your databases with our powerful, reliable platform
+                    Migrate and synchronize your databases with our powerful, reliable platform
                 </p>
                 <div
                     class="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-[fadeIn_0.8s_ease-out_0.4s_forwards] opacity-0">
-                    <NuxtLink 
-                        to="/features" 
+                    <NuxtLink to="/features"
                         class="group bg-secondary hover:bg-secondary-dark px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center">
                         Learn More
                         <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
@@ -86,16 +85,16 @@ import { ref } from 'vue'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 
 // Import images
-import startDashboard from '~/assets/images/components/home/screenshot-start.webp'
-import connectionDashboard from '~/assets/images/components/home/screenshot-connections.webp'
-import streamDashboard from '~/assets/images/components/home/screenshot-streams.webp'
-import monitoringDashboard from '~/assets/images/components/home/screenshot-monitoring.webp'
-import userDashboard from '~/assets/images/components/home/screenshot-user.webp'
+import startDashboard from '~/assets/images/screenshots/screenshot-start.webp'
+import connectionDashboard from '~/assets/images/screenshots/screenshot-connections.webp'
+import streamDashboard from '~/assets/images/screenshots/screenshot-streams.webp'
+import monitoringDashboard from '~/assets/images/screenshots/screenshot-monitoring.webp'
+import userDashboard from '~/assets/images/screenshots/screenshot-user.webp'
 
 const activeSlide = ref(0)
 const screenshots = ref([
-    { 
-        title: 'Start Page', 
+    {
+        title: 'Start Page',
         image: startDashboard,
         // Recommended image specs:
         // - Dimensions: 1280x960px (4:3 ratio)

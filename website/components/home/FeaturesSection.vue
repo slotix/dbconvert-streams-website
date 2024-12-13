@@ -20,10 +20,10 @@
 </template>
 
 <script setup>
-import securityIcon from '@/assets/images/components/home/security.png'
-import performanceIcon from '@/assets/images/components/home/performance.png'
-import databasesIcon from '@/assets/images/components/home/databases.png'
-import monitoringIcon from '@/assets/images/components/home/monitoring.png'
+import securityIcon from '@/assets/images/features/security.png'
+import performanceIcon from '@/assets/images/features/performance.png'
+import databasesIcon from '@/assets/images/features/databases.png'
+import monitoringIcon from '@/assets/images/features/monitoring.png'
 
 const features = [
     {

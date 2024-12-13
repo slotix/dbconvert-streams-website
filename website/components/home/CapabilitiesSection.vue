@@ -28,7 +28,7 @@
                         </ul>
                     </div>
                     <div class="h-100 bg-gradient-to-br from-primary-light/20 to-primary-light/5">
-                        <img src="@/assets/images/components/home/replication.webp" alt="Replication"
+                        <img src="@/assets/images/pages/home/replication.webp" alt="Replication"
                             class="w-full h-full object-cover" />
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                         </ul>
                     </div>
                     <div class="h-100 bg-gradient-to-br from-primary-light/20 to-primary-light/5">
-                        <img src="@/assets/images/components/home/migration.webp" alt="Migration"
+                        <img src="@/assets/images/pages/home/migration.webp" alt="Migration"
                             class="w-full h-full object-cover" />
                     </div>
                 </div>

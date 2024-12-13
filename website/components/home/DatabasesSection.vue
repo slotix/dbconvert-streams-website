@@ -23,11 +23,11 @@
 </template>
 
 <script setup>
-import mysqlIcon from '@/assets/images/components/home/mysql.png'
-import postgresIcon from '@/assets/images/components/home/postgresql.png'
-import amazonRdsIcon from '@/assets/images/components/home/aws.png'
-import googleCloudIcon from '@/assets/images/components/home/google-sql.png'
-import azureIcon from '@/assets/images/components/home/azure.png'
+import mysqlIcon from '@/assets/images/databases/mysql.png'
+import postgresIcon from '@/assets/images/databases/postgresql.png'
+import amazonRdsIcon from '@/assets/images/databases/aws.png'
+import googleCloudIcon from '@/assets/images/databases/google-sql.png'
+import azureIcon from '@/assets/images/databases/azure.png'
 
 const databases = [
     { name: "MySQL", icon: mysqlIcon },

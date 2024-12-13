@@ -17,22 +17,28 @@
           </p>
         </div>
       </div>
+
     </section>
 
     <!-- Mode Selector -->
-    <section class="py-24 bg-gradient-to-b from-primary to-primary-light text-white">
+    <section class="py-24 bg-gradient-to-b from-primary to-primary-light ">
       <div class="container mx-auto px-4">
+
+        <div class="max-w-4xl mx-auto mb-16">
+          <img src="@/assets/images/pages/features/replication-migration.webp" alt="Database Replication and Migration"
+            class="w-full h-auto rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300" />
+        </div>
         <div class="flex justify-center mb-8">
           <div class="inline-flex rounded-lg border border-gray-200">
             <button :class="`px-6 py-3 rounded-l-lg ${activeTab === 'cdc'
               ? 'bg-white text-primary-dark'
-              : 'bg-transparent text-white hover:bg-white/10'
+              : 'bg-transparent  hover:bg-white/10'
               }`" @click="activeTab = 'cdc'">
               CDC Replication
             </button>
             <button :class="`px-6 py-3 rounded-r-lg ${activeTab === 'migration'
               ? 'bg-white text-primary-dark'
-              : 'bg-transparent text-white hover:bg-white/10'
+              : 'bg-transparent hover:bg-white/10'
               }`" @click="activeTab = 'migration'">
               Data Migration
             </button>
@@ -43,7 +49,7 @@
           <h2 class="text-3xl font-bold mb-4 text-center">
             {{ modes[activeTab].title }}
           </h2>
-          <p class="text-gray-100 mb-8 text-center">
+          <p class="text-gray-800 mb-8 text-center">
             {{ modes[activeTab].description }}
           </p>
 
@@ -92,7 +98,7 @@
           <div
             class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
             <div class="flex items-center mb-6">
-              <Database class="w-8 h-8 text-primary-dark mr-3" />
+              <img :src="sqlToSql" alt="SQL to SQL" class="w-24  h-24 mr-3 object-contain" />
               <h3 class="text-xl font-semibold">SQL to SQL</h3>
             </div>
             <ul class="space-y-3">
@@ -108,7 +114,7 @@
           <div
             class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
             <div class="flex items-center mb-6">
-              <Cloud class="w-8 h-8 text-primary-dark mr-3" />
+              <img :src="cloudCombinations" alt="Cloud Combinations" class="w-24 h-24 mr-3 object-contain" />
               <h3 class="text-xl font-semibold">Cloud Combinations</h3>
             </div>
             <ul class="space-y-3">
@@ -132,7 +138,7 @@
         <div class="grid md:grid-cols-3 gap-8">
           <div v-for="(feature, index) in enterpriseFeatures" :key="index"
             class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
-            <component :is="feature.icon" class="w-12 h-12 text-primary-dark mb-4" />
+            <img :src="feature.icon" :alt="feature.title" class="w-40 h-40 object-contain mb-4" />
             <h3 class="text-xl font-semibold mb-2">
               {{ feature.title }}
             </h3>
@@ -156,7 +162,7 @@
         <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
           <div v-for="(category, index) in databases" :key="index"
             class="p-6 rounded-xl hover:bg-white/50 transition-all duration-300 hover:shadow-lg">
-            <Database class="w-12 h-12 text-primary-dark mb-6" />
+            <img :src="category.icon" :alt="category.name" class="w-40 h-40 mb-6 object-contain" />
             <h3 class="text-xl font-semibold mb-4">{{ category.name }}</h3>
             <ul class="space-y-2 text-gray-600">
               <li v-for="(db, dbIndex) in category.variants" :key="dbIndex" class="flex items-center">
@@ -175,7 +181,7 @@
         <h2 class="text-3xl font-bold text-center mb-12">
           Technical Integration
         </h2>
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div v-for="(integration, index) in technicalIntegrations" :key="index"
             class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
             <h3 class="text-xl font-semibold mb-4">{{ integration.title }}</h3>
@@ -230,6 +236,15 @@ import {
   CheckCircle,
   ArrowRight
 } from 'lucide-vue-next'
+
+import mysqlIcon from '@/assets/images/databases/mysql.png'
+import postgresIcon from '@/assets/images/databases/postgresql.png'
+import cloudIcon from '@/assets/images/databases/cloud.png'
+import deploymentIcon from '@/assets/images/features/deployment.png'
+import performanceIcon from '@/assets/images/features/performance.png'
+import monitoringIcon from '@/assets/images/features/monitoring.png'
+import sqlToSql from '@/assets/images/pages/features/sql-to-sql.png'
+import cloudCombinations from '@/assets/images/pages/features/cloud-combinations.png'
 
 const activeTab = ref('cdc')
 
@@ -292,25 +307,25 @@ const modes = {
 
 const enterpriseFeatures = [
   {
-    icon: Shield,
-    title: "Security First",
+    icon: performanceIcon,
+    title: "High Performance & Reliability",
     items: [
-      "SSL/TLS encryption",
-      "HashiCorp Vault integration",
-      "API key authentication"
+      "Intelligent schema mapping",
+      "Parallel processing",
+      "Data chunking"
     ]
   },
   {
-    icon: LineChart,
+    icon: monitoringIcon,
     title: "Advanced Monitoring",
     items: [
-      "Real-time metrics",
-      "Prometheus integration",
-      "Custom dashboards"
+      "Stream status monitoring",
+      "Transfer progress tracking",
+      "Detailed system logs",
     ]
   },
   {
-    icon: Cloud,
+    icon: deploymentIcon,
     title: "Flexible Deployment",
     items: [
       "Multi-cloud support",
@@ -324,16 +339,19 @@ const databases = [
   {
     name: "MySQL & Compatible",
     type: "SQL",
+    icon: mysqlIcon,
     variants: ["MySQL", "MariaDB", "SingleStore DB", "TiDB", "Percona", "Vitess"]
   },
   {
     name: "PostgreSQL & Compatible",
     type: "SQL",
+    icon: postgresIcon,
     variants: ["PostgreSQL", "Greenplum", "YugabyteDB", "EDB Postgres", "Citus", "CockroachDB"]
   },
   {
     name: "Cloud Platforms",
     type: "Cloud",
+    icon: cloudIcon,
     variants: ["Amazon RDS/Aurora", "Google Cloud SQL", "Azure Database", "DigitalOcean"]
   }
 ]
@@ -346,6 +364,15 @@ const technicalIntegrations = [
       "Message streaming",
       "Fault tolerance",
       "Horizontal scaling"
+    ]
+  },
+  {
+    title: "Vault Integration",
+    description: "Secure credential management using HashiCorp Vault.",
+    features: [
+      "Database credentials storage",
+      "SSL certificates management",
+      "API keys protection"
     ]
   },
   {
