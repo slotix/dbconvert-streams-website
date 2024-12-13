@@ -14,7 +14,7 @@
                         </NuxtLink>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
-                        <NuxtLink to="/features" class="text-white hover:text-white/80">Features</NuxtLink>
+                        <NuxtLink to="/features" class="text-white hover:text-white/80" active-class="text-white/80">Features</NuxtLink>
                         <NuxtLink to="/use-cases" class="text-white hover:text-white/80">Use Cases</NuxtLink>
                         <NuxtLink to="/pricing" class="text-white hover:text-white/80">Pricing</NuxtLink>
                         <NuxtLink to="/docs" class="text-white hover:text-white/80">Documentation</NuxtLink>
