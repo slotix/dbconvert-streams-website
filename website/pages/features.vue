@@ -226,12 +226,8 @@ import {
   Database,
   Zap,
   RefreshCw,
-  Shield,
   Settings,
   MonitorCheck,
-  LineChart,
-  Lock,
-  Cloud,
   Server,
   CheckCircle,
   ArrowRight
