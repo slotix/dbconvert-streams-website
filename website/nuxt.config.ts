@@ -76,4 +76,19 @@ export default defineNuxtConfig({
       ].includes(tag)
     }
   },
+  nitro: {
+    routeRules: {
+      '/docs': { 
+        redirect: {
+          to: '/docs/',
+          statusCode: 302
+        }
+      },
+      '/docs/**': { 
+        proxy: process.env.NODE_ENV === 'development'
+          ? 'http://localhost:5174/**'
+          : undefined
+      }
+    }
+  }
 })

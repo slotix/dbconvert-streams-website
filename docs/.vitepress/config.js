@@ -13,7 +13,7 @@ export default defineConfig({
   title: "DBConvert Streams",
   description:
     "data integration and streaming distributed platform to replicate data between databases",
-  cleanUrls: "with-subfolders",
+  cleanUrls: true,
   head: [
     [
       "script", //id: 'G-0VERWKD2YW'
@@ -216,4 +216,6 @@ export default defineConfig({
     sitemap.end();
     await new Promise((r) => writeStream.on("finish", r));
   },
+  base: '/docs/',
+  outDir: '../website/public/docs',
 });

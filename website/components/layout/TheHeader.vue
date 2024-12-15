@@ -17,7 +17,12 @@
                         <NuxtLink to="/features" class="text-white hover:text-white/80" active-class="text-white/80">Features</NuxtLink>
                         <NuxtLink to="/use-cases" class="text-white hover:text-white/80">Use Cases</NuxtLink>
                         <NuxtLink to="/pricing" class="text-white hover:text-white/80">Pricing</NuxtLink>
-                        <NuxtLink to="/docs" class="text-white hover:text-white/80">Documentation</NuxtLink>
+                        <a 
+                            href="/docs/"
+                            class="text-white hover:text-white/80"
+                        >
+                            Documentation
+                        </a>
                         <NuxtLink to="/get-started" class="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-secondary-dark">
                             Get Started
                         </NuxtLink>

@@ -8,13 +8,15 @@
   "private": false,
   "scripts": {
     "docs:dev": "./node_modules/.bin/vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "rm -rf website/public/docs && vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "site:build": "cd website && nuxt build",
     "site:dev": "cd website && NODE_OPTIONS='--no-warnings' nuxt dev",
     "site:generate": "cd website && nuxt generate",
     "site:preview": "cd website && nuxt preview",
-    "site:postinstall": "cd website && nuxt prepare"
+    "site:postinstall": "cd website && nuxt prepare",
+    "dev": "concurrently \"yarn docs:dev\" \"yarn site:dev\"",
+    "build": "yarn docs:build && yarn site:build"
   },
   "devDependencies": {
     "@algolia/client-search": "^4.9.1",
@@ -22,6 +24,7 @@
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@tailwindcss/typography": "^0.5.15",
     "autoprefixer": "^10.4.18",
+    "concurrently": "^9.1.0",
     "flexsearch": "^0.7.43",
     "markdown-it": "^14.1.0",
     "postcss": "^8.4.35",
