@@ -7,17 +7,29 @@
     {
       "type": "chrome",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
+      "name": "Launch Website",
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}",
+      "webRoot": "${workspaceFolder}/website",
       "runtimeArgs": [
         "--ozone-platform=wayland",
         "--disable-gpu",
         "--disable-extensions",
         "--disable-dev-shm-usage",
         "--remote-debugging-port=9222"
-        // "--disable-web-security" // obsolete: 
-        // "--disable-gpu" // Example: Disable GPU acceleration
+      ]
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Docs",
+      "url": "http://localhost:5174",
+      "webRoot": "${workspaceFolder}/docs",
+      "runtimeArgs": [
+        "--ozone-platform=wayland",
+        "--disable-gpu",
+        "--disable-extensions",
+        "--disable-dev-shm-usage",
+        "--remote-debugging-port=9222"
       ]
     }
   ]
