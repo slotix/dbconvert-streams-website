@@ -17,7 +17,6 @@
           </p>
         </div>
       </div>
-
     </section>
 
     <!-- Mode Selector -->

@@ -26,13 +26,13 @@
                 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <div v-for="(step, index) in steps" :key="index"
                         class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
-                        <div class="h-12 w-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">
+                        <div
+                            class="h-12 w-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">
                             {{ index + 1 }}
                         </div>
                         <h3 class="text-xl font-semibold mb-4">{{ step.title }}</h3>
                         <ul class="space-y-3">
-                            <li v-for="(item, itemIndex) in step.items" :key="itemIndex" 
-                                class="flex items-start">
+                            <li v-for="(item, itemIndex) in step.items" :key="itemIndex" class="flex items-start">
                                 <CheckCircle class="h-5 w-5 text-primary mt-1 mr-2 flex-shrink-0" />
                                 <span class="text-gray-600">{{ item }}</span>
                             </li>
@@ -49,7 +49,7 @@
                     See It In Action
                 </h2>
 
-                <div class="relative browser-frame bg-white rounded-xl shadow-2xl overflow-hidden">
+                <div class="relative browser-frame bg-white rounded-xl shadow-2xl overflow-hidden max-w-6xl mx-auto">
                     <!-- Browser Frame Header -->
                     <div class="bg-gray-50 px-4 py-3 border-b border-gray-200 flex items-center">
                         <div class="flex space-x-2">
@@ -62,40 +62,44 @@
 
                     <!-- Carousel Container -->
                     <div class="relative group">
-                        <div class="overflow-hidden" style="aspect-ratio: 16/9;">
+                        <div class="overflow-hidden" style="aspect-ratio: 4/3;">
                             <div class="flex transition-transform duration-500 ease-out"
                                 :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
                                 <div v-for="(screenshot, index) in screenshots" :key="index"
                                     class="w-full flex-shrink-0 relative">
                                     <img :src="screenshot.image" :alt="screenshot.title"
                                         class="w-full h-full object-cover">
-                                    <!-- Caption -->
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 backdrop-blur-sm">
-                                        <h3 class="text-lg font-semibold">{{ screenshot.title }}</h3>
-                                        <p class="text-sm text-gray-200">{{ screenshot.description }}</p>
-                                    </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Caption - Moved outside the image -->
+                        <div class="text-center py-6 px-8 bg-white border-t border-gray-100">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                {{ screenshots[activeSlide].title }}
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                {{ screenshots[activeSlide].description }}
+                            </p>
+                            
+                            <!-- Slide Indicators - Moved here -->
+                            <div class="flex justify-center space-x-2 mt-4">
+                                <button v-for="(_, index) in screenshots" :key="index" @click="setSlide(index)"
+                                    class="w-2 h-2 rounded-full transition-all duration-200"
+                                    :class="[index === activeSlide ? 'bg-primary w-4' : 'bg-gray-300 hover:bg-gray-400']">
+                                </button>
                             </div>
                         </div>
 
                         <!-- Navigation Buttons -->
                         <button @click="prevSlide"
-                            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                            class="absolute left-4 top-1/3 transform -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                             <ChevronLeft class="h-6 w-6 text-gray-800" />
                         </button>
                         <button @click="nextSlide"
-                            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                            class="absolute right-4 top-1/3 transform -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                             <ChevronRight class="h-6 w-6 text-gray-800" />
                         </button>
-
-                        <!-- Slide Indicators -->
-                        <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                            <button v-for="(_, index) in screenshots" :key="index" @click="setSlide(index)"
-                                class="w-2 h-2 rounded-full transition-all duration-200"
-                                :class="[index === activeSlide ? 'bg-white w-4' : 'bg-white/50']">
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -105,11 +109,12 @@
         <section class="py-24 bg-gradient-to-b from-white to-primary-light">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12">
-                    Choose Your Setup Path
+                    Two Ways to Use DBConvert Streams
                 </h2>
                 <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                     <!-- Business Users -->
-                    <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
                         <div class="flex items-center gap-3 mb-8">
                             <MousePointerClick class="h-8 w-8 text-primary" />
                             <h3 class="text-2xl font-bold">Intuitive Web Interface</h3>
@@ -118,8 +123,7 @@
                             Perfect for business users and quick setups
                         </p>
                         <ul class="space-y-4 mb-8">
-                            <li v-for="(feature, index) in webInterface" :key="index"
-                                class="flex items-start">
+                            <li v-for="(feature, index) in webInterface" :key="index" class="flex items-start">
                                 <CheckCircle class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" />
                                 <span class="text-gray-700">{{ feature }}</span>
                             </li>
@@ -127,7 +131,8 @@
                     </div>
 
                     <!-- Developers -->
-                    <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
                         <div class="flex items-center gap-3 mb-8">
                             <Code2 class="h-8 w-8 text-primary" />
                             <h3 class="text-2xl font-bold">API Integration</h3>
@@ -136,8 +141,7 @@
                             For developers and advanced automation
                         </p>
                         <ul class="space-y-4 mb-8">
-                            <li v-for="(feature, index) in apiFeatures" :key="index"
-                                class="flex items-start">
+                            <li v-for="(feature, index) in apiFeatures" :key="index" class="flex items-start">
                                 <component :is="feature.icon" class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" />
                                 <div>
                                     <span class="text-gray-900 font-medium">{{ feature.title }}</span>
@@ -248,28 +252,76 @@ import startDashboard from '~/assets/images/screenshots/screenshot-start.webp'
 import connectionDashboard from '~/assets/images/screenshots/screenshot-connections.webp'
 import streamDashboard from '~/assets/images/screenshots/screenshot-streams.webp'
 import monitoringDashboard from '~/assets/images/screenshots/screenshot-monitoring.webp'
+import addMysqlConnection from '~/assets/images/screenshots/screenshot-add-mysql-connection.webp'
+import addPostgresConnection from '~/assets/images/screenshots/screenshot-add-postgres-connection.webp'
+import editStreamCdcConfig from '~/assets/images/screenshots/screenshot-edit-stream-cdc-config.webp'
+import editStreamConvertConfig from '~/assets/images/screenshots/screenshot-edit-stream-convert-config.webp'
+import editStreamSelectSource from '~/assets/images/screenshots/screenshot-edit-stream-select-source.webp'
+import editStreamSelectTarget from '~/assets/images/screenshots/screenshot-edit-stream-select-target.webp'
+import connectionTableView from '~/assets/images/screenshots/screenshot-connection-table-view.webp'
+import userDashboard from '~/assets/images/screenshots/screenshot-user.webp'
 
 const activeSlide = ref(0)
 const screenshots = ref([
     {
         title: 'Quick Start Dashboard',
-        description: 'Get started with our intuitive setup wizard',
+        description: 'Get started with our intuitive setup wizard that guides you through each step',
         image: startDashboard
     },
     {
-        title: 'Database Connections',
-        description: 'Easily connect to your databases with our secure connection manager',
+        title: 'Database Connections Overview',
+        description: 'Manage all your database connections from a central dashboard',
         image: connectionDashboard
     },
     {
-        title: 'Stream Configuration',
-        description: 'Configure your data streams with our visual interface',
+        title: 'Table View',
+        description: 'Switch between table view and cards view to see your connections and streams',
+        image: connectionTableView
+    },
+    {
+        title: 'MySQL Connection Setup',
+        description: 'Easily configure MySQL connections with built-in SSL support and connection testing',
+        image: addMysqlConnection
+    },
+    {
+        title: 'PostgreSQL Connection Setup',
+        description: 'Set up PostgreSQL connections with advanced configuration options',
+        image: addPostgresConnection
+    },
+    {
+        title: 'Streams Overview',
+        description: 'Add a new stream or edit an existing stream to start transferring data',
         image: streamDashboard
     },
     {
-        title: 'Real-time Monitoring',
-        description: 'Monitor your data transfers with detailed analytics',
+        title: 'Edit Stream - Source Selection',
+        description: 'Select source database to transfer data from',
+        image: editStreamSelectSource
+    },
+    {
+        title: 'Edit Stream - CDC Configuration',
+        description: 'Configure Change Data Capture settings for real-time replication',
+        image: editStreamCdcConfig
+    },
+    {
+        title: 'Edit Stream - Data Conversion Settings',
+        description: 'Fine-tune your data conversion and transformation rules',
+        image: editStreamConvertConfig
+    },
+    {
+        title: 'Edit Stream - Target Selection',
+        description: 'Select target database to transfer data to',
+        image: editStreamSelectTarget
+    },
+    {
+        title: 'Performance Monitoring',
+        description: 'Monitor your data transfers with detailed analytics and metrics',
         image: monitoringDashboard
+    },
+    {
+        title: 'User Dashboard',
+        description: 'Review your statistics and usage. Manage your API keys',
+        image: userDashboard
     }
 ])
 
