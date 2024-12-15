@@ -220,11 +220,11 @@
                     Start your free trial today
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <NuxtLink to="/signup"
+                    <NuxtLink to="/pricing"
                         class="bg-secondary hover:bg-secondary-dark text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 text-lg">
                         Start Free Trial
                     </NuxtLink>
-                    <NuxtLink to="/contact"
+                    <NuxtLink to="/pricing"
                         class="border border-white hover:bg-white/10 px-8 py-4 rounded-lg font-semibold transition-all duration-200 text-lg">
                         Contact Sales
                     </NuxtLink>

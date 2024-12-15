@@ -33,7 +33,7 @@
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Need Help?</h3>
                     <p class="text-gray-600">
                         If you have any questions about our pricing or need assistance choosing a plan,
-                        please don't hesitate to <NuxtLink to="/contact" class="text-primary hover:text-primary-dark">
+                        please don't hesitate to <NuxtLink to="mailto:streams@dbconvert.com" class="text-primary hover:text-primary-dark">
                             contact our support
                             team</NuxtLink>.
                     </p>

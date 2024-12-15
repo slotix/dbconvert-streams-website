@@ -23,33 +23,14 @@
 
 <script setup>
 const footerSections = [
-  {
-    title: 'Product',
-    items: [
-      { text: 'Features', link: '/features' },
-      { text: 'Documentation', link: '/docs' },
-      { text: 'Pricing', link: '/pricing' },
-      { text: 'Security', link: '/security' }
-    ]
-  },
+  
   {
     title: 'Resources',
     items: [
-      { text: 'Blog', link: '/blog' },
-      { text: 'Case Studies', link: '/case-studies' },
-      { text: 'Webinars', link: '/webinars' },
-      { text: 'Support', link: '/support' }
+      { text: 'Blog', link: 'https://dbconvert.com/blog' },
     ]
   },
-  {
-    title: 'Company',
-    items: [
-      { text: 'About', link: '/about' },
-      { text: 'Careers', link: '/careers' },
-      { text: 'Contact', link: '/contact' },
-      { text: 'Partners', link: '/partners' }
-    ]
-  },
+  
   {
     title: 'Legal',
     items: [
