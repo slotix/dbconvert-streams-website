@@ -24,7 +24,20 @@
 
 ## Taking a Screenshot with Fixed Parameters
 
-### Step 1: Capture a Screenshot with Grim
+### Step 1: Make sure you have correct scaling factor
+
+It is important to have correct scaling factor, otherwise the screenshot will be scaled and the quality will be bad.
+
+```bash
+xrandr
+```
+
+```bash 
+// from Hyprland config
+monitor = HDMI-A-1,  3840x2160@60, 0x0, 1
+```
+
+### Step 2: Capture a Screenshot with Grim
 Use Grim to capture an exact region by specifying the geometry (coordinates and dimensions):
 
 ```bash
@@ -38,7 +51,7 @@ grim -s 1 -g "64,176 1920x1080" ~/screenshots/screenshot-$(date +%F_%T).png
   - `1920x1080`: Specifies the **width x height** of the area to capture.
 - `~/screenshots/screenshot-$(date +%F_%T).png`: Defines the output file path with a timestamp.
 
-### Step 2: Convert to WebP
+### Step 3: Convert to WebP
 After capturing the screenshot, use ImageMagick to convert it to `.webp` format:
 
 #### Lossless Conversion
