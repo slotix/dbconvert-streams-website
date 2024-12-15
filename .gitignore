@@ -28,3 +28,6 @@ logs
 .env.*
 !.env.example
 
+# Website public docs
+website/public/docs
+
