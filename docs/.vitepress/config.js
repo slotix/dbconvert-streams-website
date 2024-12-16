@@ -183,7 +183,21 @@ export default defineConfig({
     search: {
       provider: 'local',
       options: {
-        detailedView: true
+        detailedView: true,
+        translations: {
+          button: {
+            buttonText: 'Search',
+            buttonAriaLabel: 'Search docs'
+          },
+          modal: {
+            noResultsText: 'No results found',
+            resetButtonTitle: 'Clear search',
+            footer: {
+              selectText: 'to select',
+              navigateText: 'to navigate'
+            }
+          }
+        }
       }
     },
   },

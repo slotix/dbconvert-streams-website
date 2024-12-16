@@ -41,6 +41,16 @@ export default defineNuxtConfig({
           crossorigin: "anonymous",
           async: true,
           id: 'stripe-js'
+        },
+        {
+          async: true,
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-0VERWKD2YW'
+        },
+        {
+          children: `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-0VERWKD2YW');`
         }
       ]
     }
@@ -69,6 +79,7 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
+    SENDGRID_API_KEY: process.env.SENDGRID_API_KEY || '',
     public: {
       stripeKey: process.env.NUXT_PUBLIC_STRIPE_KEY,
       stripePricingTableId: process.env.NUXT_PUBLIC_STRIPE_PRICING_TABLE_ID

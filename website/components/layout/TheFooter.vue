@@ -28,6 +28,7 @@ const footerSections = [
     title: 'Resources',
     items: [
       { text: 'Blog', link: 'https://dbconvert.com/blog' },
+      { text: 'Contact', link: '/contact' }
     ]
   },
   
