@@ -31,6 +31,13 @@
         "--disable-dev-shm-usage",
         "--remote-debugging-port=9222"
       ]
+    },
+  ],
+  "compounds": [
+    {
+      "name": "Website + Docs",
+      "configurations": ["Launch Website", "Launch Docs"],
+      "stopAll": true
     }
   ]
 }

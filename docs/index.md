@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/introduction
+      link: /guide/intro
     - theme: alt
       text: Contact us
       link: mailto:streams@dbconvert.com
@@ -35,8 +35,3 @@ features:
     title: Monitoring
     details: Real-time data monitoring.
 
----
-<!-- <script setup>
-import Counter from './components/Counter.vue'
-</script>
-<Counter/> -->

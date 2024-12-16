@@ -24,6 +24,16 @@ yarn install
 
 ## Development
 
+Remove old build files:
+
+ ```bash
+ rm -rf website/.output
+ rm -rf website/.nuxt
+ rm -rf website/public/docs
+ rm -rf docs/.vitepress/dist
+ rm -rf docs/.vitepress/cache
+```
+
 ### Documentation Site
 
 Run the documentation site in development mode:
@@ -86,7 +96,6 @@ yarn site:preview
 - Vue.js
 - TailwindCSS
 - TypeScript
-- Algolia Search
 - Lucide Icons
 
 ## License

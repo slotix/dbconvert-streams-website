@@ -1,3 +1,6 @@
+import { defineNuxtConfig } from "nuxt/config";
+import type { NuxtConfig } from '@nuxt/schema'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
@@ -11,6 +14,7 @@ export default defineNuxtConfig({
       '~/components/home'
     ]
   },
+
   app: {
     head: {
       title: 'DBConvert Streams - Database Migration & Replication Platform',
@@ -31,7 +35,7 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/favicons/site.webmanifest', type: 'application/manifest+json' }
       ],
       script: [
-        { 
+        {
           src: 'https://js.stripe.com/v3/',
           defer: true,
           crossorigin: "anonymous",
@@ -41,6 +45,8 @@ export default defineNuxtConfig({
       ]
     }
   },
+
+  //@ts-ignore
   googleFonts: {
     families: {
       'Inter': [400, 500, 600, 700],  // Modern, clean sans-serif
@@ -76,19 +82,4 @@ export default defineNuxtConfig({
       ].includes(tag)
     }
   },
-  nitro: {
-    routeRules: {
-      '/docs': { 
-        redirect: {
-          to: '/docs/',
-          statusCode: 302
-        }
-      },
-      '/docs/**': { 
-        proxy: process.env.NODE_ENV === 'development'
-          ? 'http://localhost:5174/**'
-          : undefined
-      }
-    }
-  }
-})
+} satisfies NuxtConfig)

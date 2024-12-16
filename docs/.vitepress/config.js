@@ -1,10 +1,7 @@
-// import { SearchPlugin } from "vitepress-plugin-search";
 import { createWriteStream } from "node:fs";
 import { resolve } from "node:path";
 import { SitemapStream } from "sitemap";
 import { defineConfig } from "vitepress";
-// import Components from "unplugin-vue-components/vite"
-// import { ArcoResolver } from "unplugin-vue-components/resolvers"
 
 const links = [];
 
@@ -73,7 +70,7 @@ export default defineConfig({
         text: "Guide",
         collapsible: true,
         items: [
-          { text: "Introduction", link: "/guide/introduction" },
+          { text: "Introduction", link: "/guide/intro" },
           { text: "Target Audience", link: "/guide/target-audience" },
           { text: "Use Cases", link: "/guide/use-cases" },
           {
@@ -162,41 +159,33 @@ export default defineConfig({
         text: "",
         collapsible: false,
         items: [
-          { text: "Pricing Plans", link: "/pricing" },
           { text: "Glossary", link: "/glossary" },
           { text: "Releases", link: "/releases-2024" },
           { text: "Release History (2022-2023)", link: "/dbs-releases" },
           { text: "FAQ", link: "/faq" },
-          { text: "Contact us", link: "/contact-us" },
         ],
       },
     ],
     socialLinks: [
       { icon: "github", link: "https://github.com/slotix/dbconvert-streams-public" },
       { icon: "facebook", link: "https://facebook.com/DBConvert" },
-      { icon: "twitter", link: "https://twitter.com/dbconvert" },
+      { icon: "twitter", link: "https://x.com/dbconvert" },
     ],
     editLink: {
       pattern:
-        "https://github.com/slotix/dbconvert-stream-docs/edit/main/docs/:path",
+        "https://github.com/slotix/dbconvert-streams-website/edit/main/docs/:path",
       text: "Edit this page on GitHub",
     },
     footer: {
       message: "DBConvert Streams - event driven replication for databases",
-      copyright: "Copyright © 2024 Slotix s.r.o.",
+      copyright: "Copyright © 2025 Slotix s.r.o.",
     },
-    plugins: [
-      // SearchPlugin({
-      // encode: false,
-      // tokenize: 'full'
-      // }),
-      // Components({
-      //   dirs: ['.vitepress/theme/Components'],
-      //   include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      //   resolvers: [ArcoResolver({ sideEffect: true, resolveIcons: true })]
-      // })
-    ],
-    // ssr: { noExternal: ['@arco-design/web-vue'] }
+    search: {
+      provider: 'local',
+      options: {
+        detailedView: true
+      }
+    },
   },
   transformHtml: (_, id, { pageData }) => {
     if (!/[\\/]404\.html$/.test(id))
@@ -208,9 +197,9 @@ export default defineConfig({
   },
   buildEnd: async ({ outDir }) => {
     const sitemap = new SitemapStream({
-      hostname: "https://stream.dbconvert.com",
+      hostname: "https://streams.dbconvert.com",
     });
-    const writeStream = createWriteStream(resolve(outDir, "sitemap.xml"));
+    const writeStream = createWriteStream(resolve(outDir, "sitemap-docs.xml"));
     sitemap.pipe(writeStream);
     links.forEach((link) => sitemap.write(link));
     sitemap.end();
