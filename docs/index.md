@@ -3,35 +3,52 @@ layout: home
 head:
   - - meta
     - name: description
-      content: database conversion and data streaming distributed platform to transfer data between heterogeneous databases.
+      content: Enterprise-grade database conversion and real-time data streaming platform for seamless data transfer between heterogeneous databases.
 hero:
-  name:  Stream changes from your database.
-  text: Transfer data between on-prem or cloud databases.
-  tagline: DBConvert Streams (DBS) supports real-time change data capture for MySQL and PostgreSQL. Receive notifications of incoming events and updates to stay up-to-date and respond promptly. 
+  name: "DBConvert Streams"
+  text: "Real-time Data Streaming Made Simple"
+  tagline: "Capture, transform, and stream database changes in real-time. Built-in support for MySQL and PostgreSQL with enterprise-grade reliability and minimal latency."
   image:
     src: /images/dbconvert-stream-logo.svg
-    alt: DBConvert Stream
+    alt: DBConvert Streams Platform
   actions:
     - theme: brand
       text: Get Started
       link: /guide/intro
     - theme: alt
-      text: Contact us
+      text: Contact Sales
       link: mailto:streams@dbconvert.com
 features:
-  - icon: ♾️
-    title: Continuous processing
-    details: Right data at the right time, all the time.
+  - icon: 🔄
+    title: Change Data Capture
+    details: Stream database changes in real-time with built-in CDC support for MySQL and PostgreSQL.
+  
   - icon: ⚡️
-    title: Real-time Data
-    details: Minimal latency from source to destination
+    title: Real-time Processing
+    details: Ultra-low latency data delivery from source to destination with minimal overhead.
+  
+  - icon: 🔌
+    title: Easy Integration
+    details: Simple setup process with extensive API support and ready-to-use connectors.
+  
   - icon: ☁️
-    title: Fully Scalable
-    details: Cloud-first distributed platform.
-  # - icon:
-  #   title: Smooth Schema Mapping
-  #   details: Fully-managed Automated Schema Management for incoming data with the desired destination.
-  - icon: 📈
-    title: Monitoring
-    details: Real-time data monitoring.
+    title: Cloud-Native
+    details: Fully distributed architecture designed for cloud scalability and high availability.
+  
+  - icon: 🛡️
+    title: Enterprise Security
+    details: Built-in encryption, access controls, and compliance with security standards.
+  
+  - icon: 📊
+    title: Advanced Monitoring
+    details: Real-time metrics, alerts, and comprehensive dashboards for system health.
+  
+  - icon: 🧩
+    title: Schema Management
+    details: Automated schema mapping and evolution handling between source and destination.
+  
+  - icon: ✔ ️ ️
+    title: High Reliability
+    details: Fault-tolerant architecture with automatic recovery and zero data loss.
+---
 

@@ -1,7 +1,7 @@
 <template>
   <div class="py-16 bg-gradient-to-b from-white to-primary-light">
     <div class="container mx-auto px-4">
-      <div class="bg-primary-dark  text-white rounded-2xl p-8 md:p-12 text-center max-w-4xl mx-auto">
+      <div class="bg-primary text-white rounded-2xl p-8 md:p-12 text-center max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
         <p class="mb-8 text-lg">Start migrating and synchronizing your databases today</p>
         <NuxtLink to="/get-started"

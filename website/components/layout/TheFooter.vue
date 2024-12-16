@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-primary ">
+  <footer class="bg-primary-dark ">
     <div class="container mx-auto px-4 py-16">
       <div class="grid md:grid-cols-4 gap-12">
         <div v-for="(section, index) in footerSections" :key="index">

@@ -1,4 +1,3 @@
-// components/home/DatabasesSection.vue
 <template>
     <div class="py-24 bg-gradient-to-b from-white to-primary-light">
         <div class="container mx-auto px-4">

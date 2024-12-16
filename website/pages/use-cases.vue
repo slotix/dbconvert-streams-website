@@ -85,7 +85,7 @@
 
 
         <!-- CTA Section -->
-        <section class="py-16 bg-primary-dark text-white">
+        <section class="py-16 bg-primary text-white">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Data Infrastructure?</h2>
                 <p class="text-xl mb-8">Start your journey to real-time data operations today</p>

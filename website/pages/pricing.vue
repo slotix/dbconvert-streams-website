@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gray-50">
+    <div class=" bg-gray-50">
         <!-- Hero Section -->
         <section class="bg-gradient-to-b from-primary-dark to-primary text-white">
             <div class="container mx-auto px-4 py-16">
@@ -42,7 +42,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="py-16 bg-primary-dark text-white">
+        <section class="py-16 bg-primary text-white">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl font-bold mb-4 max-w-2xl mx-auto">
                     Ready to Get Started?

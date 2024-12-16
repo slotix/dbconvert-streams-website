@@ -1,5 +1,5 @@
 <template>
-    <div class="py-24 text-white bg-gradient-to-b from-primary to-primary-light">
+    <div class="py-16 text-white bg-gradient-to-b from-primary to-primary-light">
         <div class="container mx-auto px-4">
             <h2 class=" text-4xl font-bold text-center mb-4">Two Powerful Capabilities</h2>
             <p class=" text-center mb-16 max-w-2xl mx-auto">

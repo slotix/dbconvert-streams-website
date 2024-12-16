@@ -115,7 +115,7 @@ const prices = {
     professional: {
         monthly: 449,
         yearly: 381.58,
-        name: 'DBConvert Streams Pro',
+        name: 'DBConvert Streams Professional',
         transfer: '75 GB',
         description: 'Ideal for growing businesses with medium-scale data operations. Includes priority support and higher transfer limits.',
         features: [
