@@ -216,6 +216,46 @@
 </template>
 
 <script setup>
+useHead({
+  title: 'Features - DBConvert Streams',
+  meta: [
+    {
+      name: 'description',
+      content: 'Explore DBConvert Streams features: real-time CDC replication, fast data migration, universal database compatibility, and enterprise-grade security.'
+    },
+    {
+      property: 'og:title',
+      content: 'DBConvert Streams Features - Database Migration & Replication'
+    },
+    {
+      property: 'og:description',
+      content: 'Discover powerful features for database migration and real-time replication. Support for MySQL, PostgreSQL, and cloud databases with enterprise reliability.'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      name: 'twitter:title',
+      content: 'DBConvert Streams Features'
+    },
+    {
+      name: 'twitter:description',
+      content: 'Enterprise database migration and replication features: CDC, real-time sync, monitoring, and more.'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://streams.dbconvert.com/features'
+    }
+  ]
+})
+
 definePageMeta({
   title: 'Features - DBConvert Streams'
 })

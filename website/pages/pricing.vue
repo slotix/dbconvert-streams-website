@@ -63,7 +63,47 @@
 <script setup lang="ts">
 import { ArrowRight } from 'lucide-vue-next'
 
+useHead({
+  title: 'Pricing - DBConvert Streams',
+  meta: [
+    {
+      name: 'description',
+      content: 'Flexible pricing plans for database migration and replication. Choose the right plan for your business needs, from startups to enterprise solutions.'
+    },
+    {
+      property: 'og:title',
+      content: 'DBConvert Streams Pricing - Migration & Replication Plans'
+    },
+    {
+      property: 'og:description',
+      content: 'Transparent pricing for database migration and real-time replication. Scale your data infrastructure with our flexible plans.'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary'
+    },
+    {
+      name: 'twitter:title',
+      content: 'DBConvert Streams Pricing Plans'
+    },
+    {
+      name: 'twitter:description',
+      content: 'Find the right plan for your database migration and replication needs. Flexible pricing for businesses of all sizes.'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://streams.dbconvert.com/pricing'
+    }
+  ]
+})
+
 definePageMeta({
-    title: 'Pricing - DBConvert Streams'
+  title: 'Pricing - DBConvert Streams'
 })
 </script>

@@ -41,4 +41,38 @@
       <p>Email: streams@dbconvert.com</p>
     </div>
   </div>
-</template> 
+</template>
+
+<script setup>
+useHead({
+  title: 'Cookie Policy - DBConvert Streams',
+  meta: [
+    {
+      name: 'description',
+      content: 'DBConvert Streams cookie policy. Understanding how we use cookies to improve your experience and protect your privacy.'
+    },
+    {
+      property: 'og:title',
+      content: 'Cookie Policy - DBConvert Streams'
+    },
+    {
+      property: 'og:description',
+      content: 'Learn about how DBConvert Streams uses cookies to enhance your experience and protect your privacy.'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://streams.dbconvert.com/legal/cookies'
+    }
+  ]
+})
+</script> 

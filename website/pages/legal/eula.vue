@@ -34,4 +34,38 @@
       <p>Email: streams@dbconvert.com</p>
     </div>
   </div>
-</template> 
+</template>
+
+<script setup>
+useHead({
+  title: 'End User License Agreement - DBConvert Streams',
+  meta: [
+    {
+      name: 'description',
+      content: 'DBConvert Streams End User License Agreement (EULA). Read the terms and conditions for using our software and services.'
+    },
+    {
+      property: 'og:title',
+      content: 'End User License Agreement - DBConvert Streams'
+    },
+    {
+      property: 'og:description',
+      content: 'Review our End User License Agreement (EULA) for detailed terms and conditions of using DBConvert Streams software.'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://streams.dbconvert.com/legal/eula'
+    }
+  ]
+})
+</script> 

@@ -102,9 +102,49 @@
 </template>
 
 <script setup>
+useHead({
+  title: 'Use Cases - DBConvert Streams',
+  meta: [
+    {
+      name: 'description',
+      content: 'Explore real-world applications of DBConvert Streams: real-time analytics, disaster recovery, cloud migration, and more.'
+    },
+    {
+      property: 'og:title',
+      content: 'DBConvert Streams Use Cases - Database Solutions'
+    },
+    {
+      property: 'og:description',
+      content: 'Discover how businesses use DBConvert Streams for database migration, real-time replication, and data integration across different scenarios.'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      name: 'twitter:title',
+      content: 'DBConvert Streams Use Cases'
+    },
+    {
+      name: 'twitter:description',
+      content: 'See how organizations leverage DBConvert Streams for database migration, replication, and real-time data integration.'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://streams.dbconvert.com/use-cases'
+    }
+  ]
+})
+
 definePageMeta({
-    title: 'Use Cases - DBConvert Streams',
-    name: 'use-cases'
+  title: 'Use Cases - DBConvert Streams',
+  name: 'use-cases'
 })
 
 import {

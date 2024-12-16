@@ -395,7 +395,40 @@ const apiFeatures = [
 useHead({
     title: 'Get Started - DBConvert Streams',
     meta: [
-        { name: 'description', content: 'Start your data journey with DBConvert Streams. Set up your database migration and replication in minutes with our intuitive interface.' }
+        {
+            name: 'description',
+            content: 'Start your data journey with DBConvert Streams. Set up your database migration and replication in minutes with our intuitive interface or API.'
+        },
+        {
+            property: 'og:title',
+            content: 'Get Started with DBConvert Streams - Quick Setup Guide'
+        },
+        {
+            property: 'og:description',
+            content: 'Begin your database migration and replication journey. Easy setup process with web interface and API options for seamless integration.'
+        },
+        {
+            property: 'og:type',
+            content: 'website'
+        },
+        {
+            name: 'twitter:card',
+            content: 'summary_large_image'
+        },
+        {
+            name: 'twitter:title',
+            content: 'Get Started with DBConvert Streams'
+        },
+        {
+            name: 'twitter:description',
+            content: 'Quick and easy setup for database migration and replication. Start your free trial today.'
+        }
+    ],
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://streams.dbconvert.com/get-started'
+        }
     ]
 })
 </script>

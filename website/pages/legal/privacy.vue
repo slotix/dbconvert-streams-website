@@ -48,4 +48,38 @@
       <p>Email: streams@dbconvert.com</p>
     </div>
   </div>
-</template> 
+</template>
+
+<script setup>
+useHead({
+  title: 'Privacy Policy - DBConvert Streams',
+  meta: [
+    {
+      name: 'description',
+      content: 'DBConvert Streams privacy policy. Learn how we collect, use, and protect your personal data in compliance with global privacy standards.'
+    },
+    {
+      property: 'og:title',
+      content: 'Privacy Policy - DBConvert Streams'
+    },
+    {
+      property: 'og:description',
+      content: 'Our commitment to protecting your privacy and personal data. Read our comprehensive privacy policy.'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://streams.dbconvert.com/legal/privacy'
+    }
+  ]
+})
+</script> 

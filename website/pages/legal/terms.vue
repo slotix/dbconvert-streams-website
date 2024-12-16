@@ -38,4 +38,38 @@
       <p>Email: streams@dbconvert.com</p>
     </div>
   </div>
-</template> 
+</template>
+
+<script setup>
+useHead({
+  title: 'Terms of Service - DBConvert Streams',
+  meta: [
+    {
+      name: 'description',
+      content: 'Terms of Service for DBConvert Streams. Read our terms and conditions for using our database migration and replication platform.'
+    },
+    {
+      property: 'og:title',
+      content: 'Terms of Service - DBConvert Streams'
+    },
+    {
+      property: 'og:description',
+      content: 'Review our Terms of Service for using DBConvert Streams platform and services.'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://streams.dbconvert.com/legal/terms'
+    }
+  ]
+})
+</script> 

@@ -76,4 +76,38 @@
       <p>You also have the right to lodge a complaint with your local data protection authority.</p>
     </div>
   </div>
-</template> 
+</template>
+
+<script setup>
+useHead({
+  title: 'GDPR Compliance - DBConvert Streams',
+  meta: [
+    {
+      name: 'description',
+      content: 'Learn about DBConvert Streams GDPR compliance and how we protect EU user data rights. Our commitment to data protection and privacy.'
+    },
+    {
+      property: 'og:title',
+      content: 'GDPR Compliance - DBConvert Streams'
+    },
+    {
+      property: 'og:description',
+      content: 'Our GDPR compliance measures and commitment to protecting EU user data rights. Read about our data protection policies.'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://streams.dbconvert.com/legal/gdpr'
+    }
+  ]
+})
+</script> 
