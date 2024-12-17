@@ -101,7 +101,6 @@ export default defineNuxtConfig({
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY || '',
     public: {
       stripeKey: process.env.NUXT_PUBLIC_STRIPE_KEY,
-      stripePricingTableId: process.env.NUXT_PUBLIC_STRIPE_PRICING_TABLE_ID
     }
   },
   vue: {
@@ -133,7 +132,8 @@ export default defineNuxtConfig({
         '/legal/privacy',
         '/legal/gdpr',
         '/legal/eula',
-        '/legal/cookies'
+        '/legal/cookies',
+        '/success',
       ]
     }
   } as any
