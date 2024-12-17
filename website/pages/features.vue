@@ -5,7 +5,7 @@
       <div class="container mx-auto px-4 py-16 space-y-16">
         <!-- Hero Content -->
         <div class="max-w-3xl mx-auto text-center space-y-8">
-          <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-[fadeIn_0.8s_ease-out_forwards]">
+          <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 animate-[fadeIn_0.8s_ease-out_forwards]">
             Migrate and Replicate Between
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-light">
               Any Database
@@ -34,13 +34,13 @@
         </div>
         <div class="flex justify-center mb-8">
           <div class="inline-flex rounded-lg border border-gray-200">
-            <button :class="`px-6 py-3 rounded-l-lg ${activeTab === 'cdc'
+            <button :class="`font-ui px-6 py-3 rounded-l-lg ${activeTab === 'cdc'
               ? 'bg-white text-primary-dark'
               : 'bg-transparent  hover:bg-white/10'
               }`" @click="activeTab = 'cdc'">
               CDC Replication
             </button>
-            <button :class="`px-6 py-3 rounded-r-lg ${activeTab === 'migration'
+            <button :class="`font-ui px-6 py-3 rounded-r-lg ${activeTab === 'migration'
               ? 'bg-white text-primary-dark'
               : 'bg-transparent hover:bg-white/10'
               }`" @click="activeTab = 'migration'">
@@ -50,7 +50,7 @@
         </div>
 
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl font-bold mb-4 text-center">
+          <h2 class="text-3xl font-display font-bold mb-4 text-center">
             {{ modes[activeTab].title }}
           </h2>
           <p class="text-gray-800 mb-8 text-center">
@@ -63,7 +63,7 @@
               <div class="text-primary-dark mb-4">
                 <component :is="point.icon" class="w-6 h-6" />
               </div>
-              <h3 class="text-xl font-semibold mb-2">
+              <h3 class="text-xl font-display font-semibold mb-2">
                 {{ point.title }}
               </h3>
               <p class="text-gray-700">
@@ -73,7 +73,7 @@
           </div>
 
           <div class="bg-white p-6 rounded-2xl shadow-xl">
-            <h3 class="text-xl font-semibold mb-4">Common Use Cases</h3>
+            <h3 class="text-xl font-display font-semibold mb-4">Common Use Cases</h3>
             <div class="grid md:grid-cols-2 gap-4">
               <div v-for="(useCase, index) in modes[activeTab].useCases" :key="index"
                 class="flex items-center bg-primary-light/20 p-4 rounded-xl hover:bg-primary-light/30 transition-colors">
@@ -89,7 +89,7 @@
     <!-- Universal Database Compatibility -->
     <section class="py-24 bg-gradient-to-b from-primary-light to-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-6">
+        <h2 class="text-3xl font-display font-bold text-center mb-6">
           Universal Database Compatibility
         </h2>
         <p class="text-xl text-gray-700 text-center max-w-3xl mx-auto mb-16">
@@ -109,7 +109,7 @@
                 format="webp"
                 quality="80"
               />
-              <h3 class="text-xl font-semibold">SQL to SQL</h3>
+              <h3 class="text-xl font-display font-semibold">SQL to SQL</h3>
             </div>
             <ul class="space-y-3">
               <li v-for="path in sqlMigrationPaths" :key="path"
@@ -131,7 +131,7 @@
                 format="webp"
                 quality="80"
               />
-              <h3 class="text-xl font-semibold">Cloud Combinations</h3>
+              <h3 class="text-xl font-display font-semibold">Cloud Combinations</h3>
             </div>
             <ul class="space-y-3">
               <li v-for="path in cloudMigrationPaths" :key="path"
@@ -148,7 +148,7 @@
     <!-- Core Features -->
     <section class="py-24 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">
+        <h2 class="text-3xl font-display font-bold text-center mb-12">
           Enterprise Features
         </h2>
         <div class="grid md:grid-cols-3 gap-8">
@@ -161,7 +161,7 @@
               format="webp"
               quality="80"
             />
-            <h3 class="text-xl font-semibold mb-2">
+            <h3 class="text-xl font-display font-semibold mb-2">
               {{ feature.title }}
             </h3>
             <ul class="space-y-2 text-gray-600">
@@ -178,7 +178,7 @@
     <!-- Supported Databases -->
     <section class="py-24 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">
+        <h2 class="text-3xl font-display font-bold text-center mb-12">
           Supported Databases
         </h2>
         <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
@@ -191,7 +191,7 @@
               format="webp"
               quality="80"
             />
-            <h3 class="text-xl font-semibold mb-4">{{ category.name }}</h3>
+            <h3 class="text-xl font-display font-semibold mb-4">{{ category.name }}</h3>
             <ul class="space-y-2 text-gray-600">
               <li v-for="(db, dbIndex) in category.variants" :key="dbIndex" class="flex items-center">
                 <CheckCircle class="h-4 w-4 text-primary mr-2 flex-shrink-0" />
@@ -206,13 +206,13 @@
     <!-- Technical Integration -->
     <section class="py-24 bg-gradient-to-b from-white to-primary-light">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">
+        <h2 class="text-3xl font-display font-bold text-center mb-12">
           Technical Integration
         </h2>
         <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div v-for="(integration, index) in technicalIntegrations" :key="index"
             class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
-            <h3 class="text-xl font-semibold mb-4">{{ integration.title }}</h3>
+            <h3 class="text-xl font-display font-semibold mb-4">{{ integration.title }}</h3>
             <p class="text-gray-600 mb-4">{{ integration.description }}</p>
             <ul class="space-y-2 text-gray-600">
               <li v-for="(feature, featureIndex) in integration.features" :key="featureIndex" class="flex items-center">
@@ -228,14 +228,14 @@
     <!-- CTA Section -->
     <section class="py-16 bg-primary text-white">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-4 max-w-2xl mx-auto">
+        <h2 class="text-3xl font-display font-bold mb-4 max-w-2xl mx-auto">
           Ready to Get Started?
         </h2>
         <p class="text-xl mb-8">
           Start your data migration and replication journey today
         </p>
         <NuxtLink to="/get-started"
-          class="bg-secondary text-white px-8 py-3 rounded-lg font-semibold hover:bg-secondary-dark transition-all duration-200 inline-flex items-center group">
+          class="bg-secondary text-white font-ui px-8 py-3 rounded-lg font-semibold hover:bg-secondary-dark transition-all duration-200 inline-flex items-center group">
           Get Started
           <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
         </NuxtLink>

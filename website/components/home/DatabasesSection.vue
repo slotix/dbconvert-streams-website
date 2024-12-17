@@ -1,7 +1,7 @@
 <template>
     <div class="py-24 bg-gradient-to-b from-white to-primary-light">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-6">Supported Databases</h2>
+            <h2 class="text-4xl font-display font-bold text-center mb-6">Supported Databases</h2>
             <p class="text-center text-gray-600 text-lg mb-16 max-w-2xl mx-auto">
                 Connect and sync data seamlessly between all major database platforms
             </p>

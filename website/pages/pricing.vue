@@ -4,7 +4,7 @@
         <section class="bg-gradient-to-b from-primary-dark to-primary text-white">
             <div class="container mx-auto px-4 py-16">
                 <div class="max-w-3xl mx-auto text-center space-y-8">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-[fadeIn_0.8s_ease-out_forwards]">
+                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 animate-[fadeIn_0.8s_ease-out_forwards]">
                         Simple, Transparent
                         <span class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-light">
                             Pricing
@@ -20,7 +20,7 @@
         <!-- Pricing Table Section -->
         <section class="py-16 bg-gradient-to-b from-primary-light to-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Choose Your Plan</h2>
+                <h2 class="text-3xl font-display font-bold text-center mb-12">Choose Your Plan</h2>
                 <PricingTable />
             </div>
         </section>
@@ -30,7 +30,7 @@
             <div class="container mx-auto px-4">
                 <div
                     class="max-w-4xl mx-auto bg-gradient-to-r from-primary-light/20 to-primary-light/10 rounded-2xl p-8">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Need Help?</h3>
+                    <h3 class="text-2xl font-display font-semibold text-gray-800 mb-4">Need Help?</h3>
                     <p class="text-gray-600">
                         If you have any questions about our pricing or need assistance choosing a plan,
                         please don't hesitate to <NuxtLink to="mailto:streams@dbconvert.com" class="text-primary hover:text-primary-dark">
@@ -44,14 +44,14 @@
         <!-- CTA Section -->
         <section class="py-16 bg-primary text-white">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-4 max-w-2xl mx-auto">
+                <h2 class="text-3xl font-display font-bold mb-4 max-w-2xl mx-auto">
                     Ready to Get Started?
                 </h2>
                 <p class="text-xl mb-8">
                     Start your data migration and replication journey today
                 </p>
                 <NuxtLink to="/get-started"
-                    class="bg-secondary text-white px-8 py-3 rounded-lg font-semibold hover:bg-secondary-dark transition-all duration-200 inline-flex items-center group">
+                    class="bg-secondary text-white font-ui px-8 py-3 rounded-lg font-semibold hover:bg-secondary-dark transition-all duration-200 inline-flex items-center group">
                     Get Started
                     <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                 </NuxtLink>

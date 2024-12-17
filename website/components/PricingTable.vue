@@ -3,12 +3,12 @@
         <!-- Toggle Monthly/Yearly -->
         <div class="flex justify-center mb-12">
             <div class="bg-primary/10 rounded-lg p-1">
-                <button class="px-8 py-3 rounded-md text-lg font-medium transition-all duration-200"
+                <button class="px-8 py-3 rounded-md text-lg font-medium font-ui transition-all duration-200"
                     :class="{ 'bg-primary text-white shadow-lg': !isYearly, 'text-primary hover:bg-primary/5': isYearly }"
                     @click="isYearly = false">
                     Monthly
                 </button>
-                <button class="px-8 py-3 rounded-md text-lg font-medium transition-all duration-200"
+                <button class="px-8 py-3 rounded-md text-lg font-medium font-ui transition-all duration-200"
                     :class="{ 'bg-primary text-white shadow-lg': isYearly, 'text-primary hover:bg-primary/5': !isYearly }"
                     @click="isYearly = true">
                     Yearly
@@ -20,19 +20,20 @@
             <!-- Starter Plan -->
             <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
                 <div class="mb-4">
-                    <h3 class="text-2xl font-bold text-gray-900">{{ prices.starter.name }}</h3>
+                    <h3 class="text-2xl font-display font-bold text-gray-900">{{ prices.starter.name }}</h3>
                 </div>
                 <p class="text-4xl font-bold mb-4 text-primary">${{ getPrice('starter') }}<span
                         class="text-lg font-normal text-gray-600">/mo</span></p>
                 <div class="text-gray-600 mb-8 text-sm leading-relaxed">{{ prices.starter.description }}</div>
                 <ul class="space-y-4 mb-8">
-                    <li v-for="feature in prices.starter.features" :key="feature" class="flex items-center text-gray-700">
+                    <li v-for="feature in prices.starter.features" :key="feature"
+                        class="flex items-center text-gray-700">
                         <CheckCircle class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
                         <span>{{ feature }}</span>
                     </li>
                 </ul>
                 <button @click="checkout('starter')"
-                    class="w-full bg-primary text-white py-3 px-6 rounded-xl font-semibold hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
+                    class="w-full bg-primary text-white font-ui py-3 px-6 rounded-xl font-semibold hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
                     Subscribe Now
                     <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -42,17 +43,18 @@
             <div
                 class="bg-white rounded-2xl shadow-xl p-8 border-2 border-primary relative transform hover:scale-105 transition-all duration-300">
                 <div
-                    class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-2 rounded-full text-sm  font-ui shadow-lg">
                     Most Popular
                 </div>
                 <div class="mb-4">
-                    <h3 class="text-2xl font-bold text-gray-900">{{ prices.professional.name }}</h3>
+                    <h3 class="text-2xl font-display font-bold text-gray-900">{{ prices.professional.name }}</h3>
                 </div>
                 <p class="text-4xl font-bold mb-4 text-primary">${{ getPrice('professional') }}<span
                         class="text-lg font-normal text-gray-600">/mo</span></p>
                 <div class="text-gray-600 mb-8 text-sm leading-relaxed">{{ prices.professional.description }}</div>
                 <ul class="space-y-4 mb-8">
-                    <li v-for="feature in prices.professional.features" :key="feature" class="flex items-center text-gray-700">
+                    <li v-for="feature in prices.professional.features" :key="feature"
+                        class="flex items-center text-gray-700">
                         <CheckCircle class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
                         <span>{{ feature }}</span>
                     </li>
@@ -73,7 +75,8 @@
                         class="text-lg font-normal text-gray-600">/mo</span></p>
                 <div class="text-gray-600 mb-8 text-sm leading-relaxed">{{ prices.enterprise.description }}</div>
                 <ul class="space-y-4 mb-8">
-                    <li v-for="feature in prices.enterprise.features" :key="feature" class="flex items-center text-gray-700">
+                    <li v-for="feature in prices.enterprise.features" :key="feature"
+                        class="flex items-center text-gray-700">
                         <CheckCircle class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
                         <span>{{ feature }}</span>
                     </li>

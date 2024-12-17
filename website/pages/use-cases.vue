@@ -4,7 +4,7 @@
         <section class="bg-gradient-to-b from-primary-dark to-primary text-white flex items-center">
             <div class="container mx-auto px-4 py-16 space-y-16">
                 <div class="max-w-3xl mx-auto text-center space-y-8">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-[fadeIn_0.8s_ease-out_forwards]">
+                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 animate-[fadeIn_0.8s_ease-out_forwards]">
                         Transform Your
                         <span class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-light">
                             Data Infrastructure
@@ -20,12 +20,12 @@
         <!-- Popular Solutions -->
         <section class="py-24 bg-gradient-to-b from-primary to-primary-light">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Popular Solutions</h2>
+                <h2 class="text-3xl font-display font-bold text-center mb-12">Popular Solutions</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
                     <div v-for="(solution, index) in popularSolutions" :key="index"
                         class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                         <component :is="solution.icon" class="w-8 h-8 text-primary mb-4" />
-                        <h3 class="text-xl font-semibold mb-3">{{ solution.title }}</h3>
+                        <h3 class="text-xl font-display font-semibold mb-3">{{ solution.title }}</h3>
                         <p class="text-gray-600 mb-4">{{ solution.description }}</p>
                         <ul class="space-y-2">
                             <li v-for="(point, pointIndex) in solution.points" :key="pointIndex"
@@ -41,12 +41,12 @@
         <!-- Modern Architecture Solutions -->
         <section class="py-24 bg-gradient-to-b from-primary-light to-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Modern Architecture Solutions</h2>
+                <h2 class="text-3xl font-display font-bold text-center mb-12">Modern Architecture Solutions</h2>
                 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <div v-for="(solution, index) in architectureSolutions" :key="index"
                         class="bg-gradient-to-b from-primary-light/10 to-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                         <component :is="solution.icon" class="w-8 h-8 text-primary mb-4" />
-                        <h3 class="text-xl font-semibold mb-3">{{ solution.title }}</h3>
+                        <h3 class="text-xl font-display font-semibold mb-3">{{ solution.title }}</h3>
                         <p class="text-gray-600 mb-4">{{ solution.description }}</p>
                         <ul class="space-y-2">
                             <li v-for="(point, pointIndex) in solution.points" :key="pointIndex"
@@ -62,12 +62,12 @@
         <!-- Industry Solutions -->
         <section class="py-24 bg-gradient-to-b from-white to-primary-light">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Industry Solutions</h2>
+                <h2 class="text-3xl font-display font-bold text-center mb-12">Industry Solutions</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
                     <div v-for="(industry, index) in industrySolutions" :key="index"
                         class="bg-gradient-to-b from-primary-light/10 to-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                         <component :is="industry.icon" class="w-8 h-8 text-primary mb-4" />
-                        <h3 class="text-xl font-semibold mb-3">{{ industry.title }}</h3>
+                        <h3 class="text-xl font-display font-semibold mb-3">{{ industry.title }}</h3>
                         <p class="text-gray-600 mb-4">{{ industry.description }}</p>
                         <ul class="space-y-2">
                             <li v-for="(point, pointIndex) in industry.points" :key="pointIndex"
@@ -87,11 +87,11 @@
         <!-- CTA Section -->
         <section class="py-16 bg-primary text-white">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Data Infrastructure?</h2>
+                <h2 class="text-3xl font-display font-bold mb-4">Ready to Transform Your Data Infrastructure?</h2>
                 <p class="text-xl mb-8">Start your journey to real-time data operations today</p>
                 <div class="flex flex-wrap justify-center gap-4">
                     <NuxtLink to="/get-started"
-                        class="bg-secondary text-white px-8 py-3 rounded-lg font-semibold hover:bg-secondary-dark transition-all duration-200 inline-flex items-center group">
+                        class="bg-secondary text-white font-ui px-8 py-3 rounded-lg font-semibold hover:bg-secondary-dark transition-all duration-200 inline-flex items-center group">
                         Get Started Free
                         <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                     </NuxtLink>

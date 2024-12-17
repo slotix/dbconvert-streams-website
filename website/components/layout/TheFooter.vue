@@ -3,11 +3,11 @@
     <div class="container mx-auto px-4 py-16">
       <div class="grid md:grid-cols-4 gap-12">
         <div v-for="(section, index) in footerSections" :key="index">
-          <h3 class="font-bold text-lg text-white mb-6">{{ section.title }}</h3>
+          <h3 class="font-display font-bold text-lg text-white mb-6">{{ section.title }}</h3>
           <ul class="space-y-3">
             <li v-for="item in section.items" :key="item.text">
               <a :href="item.link" 
-                 class="text-gray-300 hover:text-white transition-colors duration-200">
+                 class="text-gray-300 hover:text-white font-ui transition-colors duration-200">
                 {{ item.text }}
               </a>
             </li>

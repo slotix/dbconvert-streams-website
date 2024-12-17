@@ -1,7 +1,7 @@
 <template>
     <div class="py-16 text-white bg-gradient-to-b from-primary to-primary-light">
         <div class="container mx-auto px-4">
-            <h2 class=" text-4xl font-bold text-center mb-4">Two Powerful Capabilities</h2>
+            <h2 class=" text-4xl font-display font-bold text-center mb-4">Two Powerful Capabilities</h2>
             <p class=" text-center mb-16 max-w-2xl mx-auto">
                 Whether you need to migrate your entire database or keep systems synchronized in real-time, DBConvert
                 Streams has you covered
@@ -12,7 +12,7 @@
                 <div
                     class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group border border-gray-100">
                     <div class="p-10 flex-1">
-                        <h3 class="text-2xl font-bold mb-6 text-gray-800 group-hover:text-primary transition-colors">
+                        <h3 class="text-2xl font-display font-bold mb-6 text-gray-800 group-hover:text-primary transition-colors">
                             Real-time Replication
                         </h3>
                         <p class="text-gray-600 leading-relaxed mb-8">
@@ -42,7 +42,7 @@
                 <div
                     class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group border border-gray-100">
                     <div class="p-10 flex-1">
-                        <h3 class="text-2xl font-bold mb-6 text-gray-800 group-hover:text-secondary transition-colors">
+                        <h3 class="text-2xl font-display font-bold mb-6 text-gray-800 group-hover:text-secondary transition-colors">
                             Fast Data Migration
                         </h3>
                         <p class="text-gray-600 leading-relaxed mb-8">

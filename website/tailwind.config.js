@@ -9,8 +9,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        ui: ['DM Sans', 'system-ui', 'sans-serif'],
       },
       colors: {
         primary: {
@@ -37,7 +39,7 @@ export default {
           to: { opacity: '1' }
         },
         fadeInUp: {
-          from: { 
+          from: {
             opacity: '0',
             transform: 'translateY(20px)'
           },

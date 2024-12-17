@@ -1,7 +1,7 @@
 <template>
     <div class="py-24 bg-white bg-gradient-to-b from-primary-light to-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16">How It Works</h2>
+            <h2 class="text-4xl font-display font-bold text-center mb-16">How It Works</h2>
             <div class="max-w-4xl mx-auto">
                 <div v-for="(step, index) in steps" :key="index" 
                      class="mb-20 last:mb-0 flex group">
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="ml-8">
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                        <h3 class="text-2xl font-display font-bold mb-3 group-hover:text-primary transition-colors duration-300">
                             {{ step.title }}
                         </h3>
                         <p class="text-gray-600 leading-relaxed">{{ step.description }}</p>

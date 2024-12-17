@@ -11,7 +11,7 @@
               </div>
             </div>
           </div>
-          <h1 class="text-4xl font-bold tracking-tight text-green-300 sm:text-5xl">
+          <h1 class="text-4xl font-display font-bold tracking-tight text-green-300 sm:text-5xl">
             Subscription Successful
           </h1>
           <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-green-100">
@@ -27,7 +27,7 @@
         <div class="overflow-hidden rounded-lg bg-white shadow">
           <div class="px-4 py-5 sm:p-6">
             <div class="text-center">
-              <h2 class="text-2xl font-semibold leading-7 text-gray-900">
+              <h2 class="text-2xl font-display font-semibold leading-7 text-gray-900">
                 Your subscription has been confirmed!
               </h2>
               
@@ -38,7 +38,7 @@
               <div class="mt-10 flex flex-col items-center gap-6">
                 <NuxtLink 
                   to="/get-started"
-                  class="rounded-md bg-secondary-dark px-8 py-3.5 text-center text-base font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+                  class="rounded-md font-ui bg-secondary-dark px-8 py-3.5 text-center text-base font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
                 >
                   Get Started with DBConvert Streams
                   <LucideArrowRight class="ml-2 -mr-1 h-5 w-5 inline-block" />
@@ -47,7 +47,7 @@
                 <div class="flex items-center gap-x-8">
                   <NuxtLink 
                     to="/contact"
-                    class="group inline-flex items-center text-base font-semibold text-gray-900 hover:text-primary-600"
+                    class="group inline-flex font-ui items-center text-base font-semibold text-gray-900 hover:text-primary-600"
                   >
                     <LucideHeadphones class="mr-2 h-5 w-5 text-gray-400 group-hover:text-primary-600" />
                     Contact Support
@@ -55,7 +55,7 @@
                   
                   <NuxtLink 
                     to="/"
-                    class="group inline-flex items-center text-base font-semibold text-gray-900 hover:text-primary-600"
+                    class="group inline-flex font-ui items-center text-base font-semibold text-gray-900 hover:text-primary-600"
                   >
                     <LucideHome class="mr-2 h-5 w-5 text-gray-400 group-hover:text-primary-600" />
                     Return to Homepage

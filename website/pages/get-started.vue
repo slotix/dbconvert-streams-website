@@ -4,7 +4,7 @@
         <section class="bg-gradient-to-b from-primary-dark to-primary text-white flex items-center">
             <div class="container mx-auto px-4 py-16 space-y-16">
                 <div class="max-w-3xl mx-auto text-center space-y-8">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-[fadeIn_0.8s_ease-out_forwards]">
+                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 animate-[fadeIn_0.8s_ease-out_forwards]">
                         Start Your Data Journey
                         <span class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-light">
                             Made Simple
@@ -20,7 +20,7 @@
         <!-- Three Steps Section -->
         <section class="py-24 bg-gradient-to-b from-primary to-primary-light">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                <h2 class="text-3xl font-display font-bold text-center mb-12 text-white">
                     Three Simple Steps to Success
                 </h2>
                 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -30,7 +30,7 @@
                             class="h-12 w-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">
                             {{ index + 1 }}
                         </div>
-                        <h3 class="text-xl font-semibold mb-4">{{ step.title }}</h3>
+                        <h3 class="text-xl font-display font-semibold mb-4">{{ step.title }}</h3>
                         <ul class="space-y-3">
                             <li v-for="(item, itemIndex) in step.items" :key="itemIndex" class="flex items-start">
                                 <CheckCircle class="h-5 w-5 text-primary mt-1 mr-2 flex-shrink-0" />
@@ -45,7 +45,7 @@
         <!-- Screenshot Showcase -->
         <section class="py-24 bg-white bg-gradient-to-b from-primary-light white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">
+                <h2 class="text-3xl font-display font-bold text-center mb-12">
                     See It In Action
                 </h2>
 
@@ -113,7 +113,7 @@
         <!-- Setup Options -->
         <section class="py-24 bg-gradient-to-b from-white to-primary-light">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">
+                <h2 class="text-3xl font-display font-bold text-center mb-12">
                     Two Ways to Use DBConvert Streams
                 </h2>
                 <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -122,7 +122,7 @@
                         class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
                         <div class="flex items-center gap-3 mb-8">
                             <MousePointerClick class="h-8 w-8 text-primary" />
-                            <h3 class="text-2xl font-bold">Intuitive Web Interface</h3>
+                            <h3 class="text-2xl font-display font-bold">Intuitive Web Interface</h3>
                         </div>
                         <p class="text-gray-600 mb-8">
                             Perfect for business users and quick setups
@@ -140,7 +140,7 @@
                         class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
                         <div class="flex items-center gap-3 mb-8">
                             <Code2 class="h-8 w-8 text-primary" />
-                            <h3 class="text-2xl font-bold">API Integration</h3>
+                            <h3 class="text-2xl font-display font-bold">API Integration</h3>
                         </div>
                         <p class="text-gray-600 mb-8">
                             For developers and advanced automation
@@ -163,7 +163,7 @@
         <section class="py-24 bg-white bg-gradient-to-b from-primary-light to-primary">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold mb-6">Choose Your Plan</h2>
+                    <h2 class="text-4xl font-display font-bold mb-6">Choose Your Plan</h2>
                     <p class="text-xl text-gray-600">Begin your journey with DBConvert Streams</p>
                 </div>
 
@@ -206,7 +206,7 @@
                         <!-- Action Buttons -->
                         <div class="flex flex-col justify-center space-y-6">
                             <NuxtLink to="/pricing"
-                                class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 text-center text-lg">
+                                class="bg-primary font-ui hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 text-center text-lg">
                                 View Pricing Plans
                             </NuxtLink>
                         </div>
@@ -218,7 +218,7 @@
         <!-- CTA Section -->
         <section class="py-16 bg-primary text-white">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-4 max-w-2xl mx-auto">
+                <h2 class="text-3xl font-display font-bold mb-4 max-w-2xl mx-auto">
                     Ready to Transform Your Data Infrastructure?
                 </h2>
                 <p class="text-xl mb-8">
@@ -226,11 +226,11 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
                     <NuxtLink to="/pricing"
-                        class="bg-secondary hover:bg-secondary-dark text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 text-lg">
+                        class="bg-secondary font-ui hover:bg-secondary-dark text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 text-lg">
                         Start Free Trial
                     </NuxtLink>
                     <NuxtLink to="/pricing"
-                        class="border border-white hover:bg-white/10 px-8 py-4 rounded-lg font-semibold transition-all duration-200 text-lg">
+                        class="border border-white font-ui hover:bg-white/10 px-8 py-4 rounded-lg font-semibold transition-all duration-200 text-lg">
                         Contact Sales
                     </NuxtLink>
                 </div>

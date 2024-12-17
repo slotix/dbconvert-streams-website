@@ -10,7 +10,7 @@
                                 alt="DBConvert Streams Logo" 
                                 class="h-8 w-auto"
                             />
-                            <span class="text-xl font-bold text-white">DBConvert Streams</span>
+                            <span class="text-xl font-display font-bold text-white">DBConvert Streams</span>
                         </NuxtLink>
                     </div>
 
@@ -63,7 +63,7 @@
                             <a 
                                 v-else 
                                 :href="item.to"
-                                class="text-white hover:text-white/80 transition-colors relative group py-2"
+                                class="text-white font-ui hover:text-white/80 transition-colors relative group py-2"
                             >
                                 {{ item.text }}
                                 <span class="absolute bottom-0 left-0 w-full h-0.5 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
@@ -71,7 +71,7 @@
                         </template>
                         <NuxtLink 
                             to="/get-started" 
-                            class="bg-secondary text-white px-6 py-2 rounded-lg hover:bg-secondary-dark transition-colors duration-200 hover:shadow-lg"
+                            class="bg-secondary text-white font-ui px-6 py-2 rounded-lg hover:bg-secondary-dark transition-colors duration-200 hover:shadow-lg"
                         >
                             Get Started
                         </NuxtLink>

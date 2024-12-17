@@ -76,14 +76,17 @@ export default defineNuxtConfig({
   },
 
   //@ts-ignore
-googleFonts: {
-  families: {
-    'Manrope': [400, 500, 600, 700],     // Modern, minimalistic sans-serif
-    'IBM Plex Mono': [400, 700],         // Professional, clean monospace
-  },
-  display: 'swap',
-  prefetch: true,
-  preconnect: true,
+  googleFonts: {
+    families: {
+      'Plus Jakarta Sans': [400, 500, 600, 700], // Headlines and hero text
+      'Inter': [400, 500],          // Body text
+      'DM Sans': [500, 700],        // UI elements
+      'JetBrains Mono': [400, 700], // Primary code font
+      'Fira Code': [400],           // Secondary code font
+    },
+    display: 'swap',
+    prefetch: true,
+    preconnect: true,
   },
   tailwindcss: {
     configPath: '~/tailwind.config.js',

@@ -3,7 +3,7 @@
         <div class="container mx-auto px-4 py-16 space-y-16">
             <!-- Hero Content -->
             <div class="max-w-3xl mx-auto text-center space-y-8">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-[fadeIn_0.8s_ease-out_forwards]">
+                <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 animate-[fadeIn_0.8s_ease-out_forwards]">
                     Database Migration & Replication
                     <span class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-light">
                         Made Simple
@@ -15,12 +15,12 @@
                 <div
                     class="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-[fadeIn_0.8s_ease-out_0.4s_forwards] opacity-0">
                     <NuxtLink to="/features"
-                        class="group bg-secondary hover:bg-secondary-dark px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center">
+                        class="group bg-secondary hover:bg-secondary-dark font-ui px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center">
                         Learn More
                         <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                     </NuxtLink>
                     <button
-                        class="border border-white hover:bg-white/10 px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center">
+                        class="border border-white hover:bg-white/10 font-ui px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center">
                         View Documentation
                     </button>
                 </div>
@@ -47,13 +47,8 @@
                                 :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
                                 <div v-for="(screenshot, index) in screenshots" :key="index"
                                     class="w-full flex-shrink-0 relative">
-                                    <NuxtImg 
-                                        :src="screenshot.image" 
-                                        :alt="screenshot.title"
-                                        class="w-full h-full object-cover"
-                                        format="webp"
-                                        quality="80"
-                                    />
+                                    <NuxtImg :src="screenshot.image" :alt="screenshot.title"
+                                        class="w-full h-full object-cover" format="webp" quality="80" />
                                 </div>
                             </div>
                         </div>
