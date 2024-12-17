@@ -94,7 +94,7 @@ export default defineNuxtConfig({
   },
   // // @ts-expect-error: @nuxtjs/sitemap module options are not properly typed
   sitemap: {
-    hostname: 'https://streams.dbconvert.com',
+    hostname: process.env.NUXT_PUBLIC_SITE_URL || 'https://streams.dbconvert.com',
     gzip: true,
     defaults: {
       changefreq: 'monthly',
