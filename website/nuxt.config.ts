@@ -1,11 +1,10 @@
 import { defineNuxtConfig } from "nuxt/config";
 import type { NuxtConfig } from '@nuxt/schema'
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', 'nuxt-lucide-icons'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', 'nuxt-lucide-icons', '@nuxtjs/sitemap'],
   css: ['~/assets/css/main.css'],
   components: {
     dirs: [
@@ -93,4 +92,29 @@ export default defineNuxtConfig({
       ].includes(tag)
     }
   },
+  // // @ts-expect-error: @nuxtjs/sitemap module options are not properly typed
+  sitemap: {
+    hostname: 'https://streams.dbconvert.com',
+    gzip: true,
+    defaults: {
+      changefreq: 'monthly',
+      priority: 0.8,
+      lastmod: new Date()
+    },
+    routes: async () => {
+      return [
+        '/',
+        '/get-started',
+        '/features',
+        '/pricing',
+        '/use-cases',
+        '/contact',
+        '/legal/terms',
+        '/legal/privacy',
+        '/legal/gdpr',
+        '/legal/eula',
+        '/legal/cookies'
+      ]
+    }
+  } as any
 } satisfies NuxtConfig)
