@@ -7,9 +7,13 @@
                 <div v-for="feature in features" :key="feature.title"
                     class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center border border-gray-100">
                     <div class="mb-8">
-                        <img :src="feature.icon"
+                        <NuxtImg 
+                            :src="feature.icon"
                             class="w-40 h-40 object-contain mx-auto hover:scale-105 transition-transform duration-300"
-                            :alt="feature.title">
+                            :alt="feature.title"
+                            format="webp"
+                            quality="80"
+                        />
                     </div>
                     <h3 class="text-2xl font-bold mb-4 text-gray-800">{{ feature.title }}</h3>
                     <p class="text-gray-600 leading-relaxed text-lg">{{ feature.description }}</p>
@@ -20,10 +24,10 @@
 </template>
 
 <script setup>
-import securityIcon from '@/assets/images/features/security.png'
-import performanceIcon from '@/assets/images/features/performance.png'
-import databasesIcon from '@/assets/images/features/databases.png'
-import monitoringIcon from '@/assets/images/features/monitoring.png'
+const securityIcon = '/images/features/security.png'
+const performanceIcon = '/images/features/performance.png'
+const databasesIcon = '/images/features/databases.png'
+const monitoringIcon = '/images/features/monitoring.png'
 
 const features = [
     {

@@ -47,8 +47,13 @@
                                 :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
                                 <div v-for="(screenshot, index) in screenshots" :key="index"
                                     class="w-full flex-shrink-0 relative">
-                                    <img :src="screenshot.image" :alt="screenshot.title"
-                                        class="w-full h-full object-cover">
+                                    <NuxtImg 
+                                        :src="screenshot.image" 
+                                        :alt="screenshot.title"
+                                        class="w-full h-full object-cover"
+                                        format="webp"
+                                        quality="80"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -85,11 +90,11 @@ import { ref } from 'vue'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 
 // Import images
-import startDashboard from '~/assets/images/screenshots/screenshot-start.webp'
-import connectionDashboard from '~/assets/images/screenshots/screenshot-connections.webp'
-import streamDashboard from '~/assets/images/screenshots/screenshot-streams.webp'
-import monitoringDashboard from '~/assets/images/screenshots/screenshot-monitoring.webp'
-import userDashboard from '~/assets/images/screenshots/screenshot-user.webp'
+const startDashboard = '/images/screenshots/screenshot-start.webp'
+const connectionDashboard = '/images/screenshots/screenshot-connections.webp'
+const streamDashboard = '/images/screenshots/screenshot-streams.webp'
+const monitoringDashboard = '/images/screenshots/screenshot-monitoring.webp'
+const userDashboard = '/images/screenshots/screenshot-user.webp'
 
 const activeSlide = ref(0)
 const screenshots = ref([

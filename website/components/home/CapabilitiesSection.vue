@@ -28,8 +28,13 @@
                         </ul>
                     </div>
                     <div class="h-100 bg-gradient-to-br from-primary-light/20 to-primary-light/5">
-                        <img src="@/assets/images/pages/home/replication.webp" alt="Replication"
-                            class="w-full h-full object-cover" />
+                        <NuxtImg 
+                            src="/images/pages/home/replication.webp" 
+                            alt="Replication"
+                            class="w-full h-full object-cover"
+                            format="webp"
+                            quality="80"
+                        />
                     </div>
                 </div>
 
@@ -53,8 +58,13 @@
                         </ul>
                     </div>
                     <div class="h-100 bg-gradient-to-br from-primary-light/20 to-primary-light/5">
-                        <img src="@/assets/images/pages/home/migration.webp" alt="Migration"
-                            class="w-full h-full object-cover" />
+                        <NuxtImg 
+                            src="/images/pages/home/migration.webp" 
+                            alt="Migration"
+                            class="w-full h-full object-cover"
+                            format="webp"
+                            quality="80"
+                        />
                     </div>
                 </div>
             </div>

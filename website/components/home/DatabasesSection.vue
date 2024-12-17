@@ -6,13 +6,12 @@
                 Connect and sync data seamlessly between all major database platforms
             </p>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 max-w-6xl mx-auto">
-                <div v-for="db in databases" :key="db.name" 
-                     class="flex flex-col items-center p-6 rounded-xl hover:bg-white/50 transition-all duration-300 hover:shadow-lg">
+                <div v-for="db in databases" :key="db.name"
+                    class="flex flex-col items-center p-6 rounded-xl hover:bg-white/50 transition-all duration-300 hover:shadow-lg">
                     <div class="mb-6">
-                        <img :src="db.icon" 
-                             :alt="db.name" 
-                             class="w-40 h-40 object-contain hover:scale-110 transition-transform duration-300"
-                             loading="lazy">
+                        <NuxtImg :src="db.icon" :alt="db.name"
+                            class="w-40 h-40 object-contain hover:scale-110 transition-transform duration-300"
+                            format="webp" quality="80" />
                     </div>
                     <span class="text-gray-800 text-xl font-medium">{{ db.name }}</span>
                 </div>
@@ -22,11 +21,11 @@
 </template>
 
 <script setup>
-import mysqlIcon from '@/assets/images/databases/mysql.png'
-import postgresIcon from '@/assets/images/databases/postgresql.png'
-import amazonRdsIcon from '@/assets/images/databases/aws.png'
-import googleCloudIcon from '@/assets/images/databases/google-sql.png'
-import azureIcon from '@/assets/images/databases/azure.png'
+const mysqlIcon = '/images/databases/mysql.png'
+const postgresIcon = '/images/databases/postgresql.png'
+const amazonRdsIcon = '/images/databases/aws.png'
+const googleCloudIcon = '/images/databases/google-sql.png'
+const azureIcon = '/images/databases/azure.png'
 
 const databases = [
     { name: "MySQL", icon: mysqlIcon },

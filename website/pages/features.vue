@@ -102,7 +102,13 @@
           <div
             class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
             <div class="flex items-center mb-6">
-              <img :src="sqlToSql" alt="SQL to SQL" class="w-24  h-24 mr-3 object-contain" />
+              <NuxtImg 
+                :src="sqlToSql" 
+                alt="SQL to SQL" 
+                class="w-24 h-24 mr-3 object-contain"
+                format="webp"
+                quality="80"
+              />
               <h3 class="text-xl font-semibold">SQL to SQL</h3>
             </div>
             <ul class="space-y-3">
@@ -118,7 +124,13 @@
           <div
             class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
             <div class="flex items-center mb-6">
-              <img :src="cloudCombinations" alt="Cloud Combinations" class="w-24 h-24 mr-3 object-contain" />
+              <NuxtImg 
+                :src="cloudCombinations" 
+                alt="Cloud Combinations" 
+                class="w-24 h-24 mr-3 object-contain"
+                format="webp"
+                quality="80"
+              />
               <h3 class="text-xl font-semibold">Cloud Combinations</h3>
             </div>
             <ul class="space-y-3">
@@ -142,7 +154,13 @@
         <div class="grid md:grid-cols-3 gap-8">
           <div v-for="(feature, index) in enterpriseFeatures" :key="index"
             class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
-            <img :src="feature.icon" :alt="feature.title" class="w-40 h-40 object-contain mb-4" />
+            <NuxtImg 
+              :src="feature.icon" 
+              :alt="feature.title" 
+              class="w-40 h-40 object-contain mb-4"
+              format="webp"
+              quality="80"
+            />
             <h3 class="text-xl font-semibold mb-2">
               {{ feature.title }}
             </h3>
@@ -166,7 +184,13 @@
         <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
           <div v-for="(category, index) in databases" :key="index"
             class="p-6 rounded-xl hover:bg-white/50 transition-all duration-300 hover:shadow-lg">
-            <img :src="category.icon" :alt="category.name" class="w-40 h-40 mb-6 object-contain" />
+            <NuxtImg 
+              :src="category.icon" 
+              :alt="category.name" 
+              class="w-40 h-40 mb-6 object-contain"
+              format="webp"
+              quality="80"
+            />
             <h3 class="text-xl font-semibold mb-4">{{ category.name }}</h3>
             <ul class="space-y-2 text-gray-600">
               <li v-for="(db, dbIndex) in category.variants" :key="dbIndex" class="flex items-center">
@@ -277,14 +301,14 @@ import {
   ArrowRight
 } from 'lucide-vue-next'
 
-import mysqlIcon from '@/assets/images/databases/mysql.png'
-import postgresIcon from '@/assets/images/databases/postgresql.png'
-import cloudIcon from '@/assets/images/databases/cloud.png'
-import deploymentIcon from '@/assets/images/features/deployment.png'
-import performanceIcon from '@/assets/images/features/performance.png'
-import monitoringIcon from '@/assets/images/features/monitoring.png'
-import sqlToSql from '@/assets/images/pages/features/sql-to-sql.png'
-import cloudCombinations from '@/assets/images/pages/features/cloud-combinations.png'
+const mysqlIcon = '/images/databases/mysql.png'
+const postgresIcon = '/images/databases/postgresql.png'
+const cloudIcon = '/images/databases/cloud.png'
+const deploymentIcon = '/images/features/deployment.png'
+const performanceIcon = '/images/features/performance.png'
+const monitoringIcon = '/images/features/monitoring.png'
+const sqlToSql = '/images/pages/features/sql-to-sql.png'
+const cloudCombinations = '/images/pages/features/cloud-combinations.png'
 
 const activeTab = ref('cdc')
 

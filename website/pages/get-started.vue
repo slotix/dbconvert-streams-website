@@ -67,8 +67,13 @@
                                 :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
                                 <div v-for="(screenshot, index) in screenshots" :key="index"
                                     class="w-full flex-shrink-0 relative">
-                                    <img :src="screenshot.image" :alt="screenshot.title"
-                                        class="w-full h-full object-cover">
+                                    <NuxtImg 
+                                        :src="screenshot.image" 
+                                        :alt="screenshot.title"
+                                        class="w-full h-full object-cover"
+                                        format="webp"
+                                        quality="80"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -248,18 +253,18 @@ import {
 } from 'lucide-vue-next'
 
 // Import screenshots
-import startDashboard from '~/assets/images/screenshots/screenshot-start.webp'
-import connectionDashboard from '~/assets/images/screenshots/screenshot-connections.webp'
-import streamDashboard from '~/assets/images/screenshots/screenshot-streams.webp'
-import monitoringDashboard from '~/assets/images/screenshots/screenshot-monitoring.webp'
-import addMysqlConnection from '~/assets/images/screenshots/screenshot-add-mysql-connection.webp'
-import addPostgresConnection from '~/assets/images/screenshots/screenshot-add-postgres-connection.webp'
-import editStreamCdcConfig from '~/assets/images/screenshots/screenshot-edit-stream-cdc-config.webp'
-import editStreamConvertConfig from '~/assets/images/screenshots/screenshot-edit-stream-convert-config.webp'
-import editStreamSelectSource from '~/assets/images/screenshots/screenshot-edit-stream-select-source.webp'
-import editStreamSelectTarget from '~/assets/images/screenshots/screenshot-edit-stream-select-target.webp'
-import connectionTableView from '~/assets/images/screenshots/screenshot-connection-table-view.webp'
-import userDashboard from '~/assets/images/screenshots/screenshot-user.webp'
+const startDashboard = '/images/screenshots/screenshot-start.webp'
+const connectionDashboard = '/images/screenshots/screenshot-connections.webp'
+const streamDashboard = '/images/screenshots/screenshot-streams.webp'
+const monitoringDashboard = '/images/screenshots/screenshot-monitoring.webp'
+const addMysqlConnection = '/images/screenshots/screenshot-add-mysql-connection.webp'
+const addPostgresConnection = '/images/screenshots/screenshot-add-postgres-connection.webp'
+const editStreamCdcConfig = '/images/screenshots/screenshot-edit-stream-cdc-config.webp'
+const editStreamConvertConfig = '/images/screenshots/screenshot-edit-stream-convert-config.webp'
+const editStreamSelectSource = '/images/screenshots/screenshot-edit-stream-select-source.webp'
+const editStreamSelectTarget = '/images/screenshots/screenshot-edit-stream-select-target.webp'
+const connectionTableView = '/images/screenshots/screenshot-connection-table-view.webp'
+const userDashboard = '/images/screenshots/screenshot-user.webp'
 
 const activeSlide = ref(0)
 const screenshots = ref([
