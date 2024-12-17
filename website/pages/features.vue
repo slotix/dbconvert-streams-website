@@ -24,8 +24,13 @@
       <div class="container mx-auto px-4">
 
         <div class="max-w-4xl mx-auto mb-16">
-          <img src="@/assets/images/pages/features/replication-migration.webp" alt="Database Replication and Migration"
-            class="w-full h-auto rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300" />
+          <NuxtImg 
+            src="/images/pages/features/replication-migration.webp"
+            format="webp"
+            quality="80"
+            alt="Database Replication and Migration"
+            class="w-full h-auto rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300" 
+          />
         </div>
         <div class="flex justify-center mb-8">
           <div class="inline-flex rounded-lg border border-gray-200">

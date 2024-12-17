@@ -4,7 +4,27 @@ import type { NuxtConfig } from '@nuxt/schema'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', 'nuxt-lucide-icons', '@nuxtjs/sitemap'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-fonts',
+    'nuxt-lucide-icons',
+    '@nuxtjs/sitemap',
+    '@nuxt/image'
+  ],
+  image: {
+    format: ['webp', 'png'],
+    provider: 'ipxStatic',
+    dir: 'assets',
+    screens: {
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536
+    },
+  },
   css: ['~/assets/css/main.css'],
   components: {
     dirs: [
