@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gradient-to-b from-primary-dark to-primary text-white min-h-screen flex items-center">
+    <div class="bg-gradient-to-b from-primary-dark to-primary text-white flex items-center">
         <div class="container mx-auto px-4 py-16 space-y-16">
             <!-- Hero Content -->
             <div class="max-w-3xl mx-auto text-center space-y-8">
