@@ -5,8 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-
-# {{ $frontmatter.title }}
+# Introduction
 
 DBConvert Streams is a powerful platform that simplifies database migration and real-time replication. Whether you're moving data between different database types or need continuous synchronization, DBConvert Streams provides an intuitive solution that reduces complexity while maintaining enterprise-grade reliability.
 

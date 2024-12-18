@@ -3,7 +3,7 @@ title: Types of Streams. CDC vs Conversion
 description: Learn about the two fundamental modes of data transfer in DBConvert Streams. Change Data Capture (CDC) and Conversion.
 ---
 
-# {{ $frontmatter.title }}
+# Types of Streams. CDC vs Conversion.
 
 ## Key Benefit: Universal Database Compatibility
 

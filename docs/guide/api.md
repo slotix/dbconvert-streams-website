@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# DBConvert Streams API.
 
 The DBConvert Streams REST API offers a wide range of endpoints to handle various stream control tasks:
 

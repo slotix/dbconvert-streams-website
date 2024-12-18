@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Amazon RDS for MySQL CDC Reader configuration.
 
 Using MySQL binary logs, the DBConvert Streams platform can retrieve data from Amazon RDS for MySQL/ Aurora. These logs contain records of data change events on the MySQL server. Whenever an `INSERT`, `UPDATE`, or `DELETE` event is written to the binary logs, MySQL Reader captures them immediately and passes them to the DBS event hub.
 

@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Secure Credential Management with HashiCorp Vault.
 
 ## Overview
 

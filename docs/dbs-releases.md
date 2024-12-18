@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Release History (2022-2023).
 
 
 ## Version 0.8.6

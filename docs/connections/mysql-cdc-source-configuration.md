@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# MySQL CDC Reader Configuration
 
 :::warning Important Note
 This configuration is only required for CDC (Change Data Capture) mode. If you plan to read data in conversion mode, skip this specific configuration. Configuration settings related to reading data from MySQL Binary Logs are not necessary when operating in conversion mode.

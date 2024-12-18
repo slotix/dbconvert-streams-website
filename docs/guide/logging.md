@@ -5,8 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
-
+# Logging Flags Overview.
 
 DBConvert Streams offers robust logging features to monitor and troubleshoot the behavior of various services within the application. Logging is a crucial aspect of data streaming processes, providing insights into the execution flow, errors, and other relevant information. In this documentation, we will explore the logging features available for DBS (DBConvert Streams) services, including the `--log-file` and `--log-level` flags.
 

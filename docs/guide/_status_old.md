@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Life cycle and Statuses.
 
 ## Life cycle.
 

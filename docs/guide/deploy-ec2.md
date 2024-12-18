@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Deploy DBConvert Streams to Amazon EC2.
 
 We are going to create an instance on Amazon Elastic Compute Cloud (EC2), and the steps to deploy DBConvert Streams on it are as follows:
 

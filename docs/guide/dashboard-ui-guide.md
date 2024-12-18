@@ -3,7 +3,7 @@ title: DBConvert Streams Dashboard and UI Guide
 description: Overview of the DBConvert Streams dashboard and user interface.
 ---
 
-# {{ $frontmatter.title }}
+# DBConvert Streams Dashboard and UI Guide
 
 ## Dashboard Overview
 

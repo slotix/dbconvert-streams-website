@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# SSL Configuration and Security Best Practices Guide.
 
 ## SSL Connection Setup
 

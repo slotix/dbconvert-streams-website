@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# DBConvert Streams FAQ.
 
 Q: Can DBConvert Streams convert Postgres data between different operating systems?
 

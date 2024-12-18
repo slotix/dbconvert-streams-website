@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# DBConvert Streams Authentication Guide.
 
 
 ## Sign-In Options

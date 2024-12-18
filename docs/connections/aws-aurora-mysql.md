@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# AWS Aurora MySQL CDC Setup Guide
 
 ## 1. Prerequisites
 

@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Translate DDL.
 
 DBConvert Streams supports heterogeneous data migration, allowing you to migrate data between source and target databases that are not the same type. 
 

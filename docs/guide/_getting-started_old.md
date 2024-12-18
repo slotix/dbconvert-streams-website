@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Getting Started.
 
 Once you have installed DBConvert Streams, you can explore other documentation
 sections to understand the general concepts or try DBS yourself.

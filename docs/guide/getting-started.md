@@ -3,8 +3,7 @@ title: Getting Started with DBConvert Streams
 description: This guide will help you get started with DBConvert Streams in just a few steps.
 ---
 
-
-# {{ $frontmatter.title }}
+# Getting Started with DBConvert Streams
 
 This guide will help you get started with DBConvert Streams in just a few steps.
 

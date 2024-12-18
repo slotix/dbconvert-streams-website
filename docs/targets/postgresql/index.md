@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# PostgreSQL Writer.
 
 DBConvert Streams Writer supports PostgreSQL databases version 10 and later as a target database for writing data collected from a source.
 

@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# MySQL CDC Reader Properties.
 
 Proper configuration of the MySQL server is necessary to use the MySQL adapter. The appropriate configuration steps vary depending on whether MySQL is being used on-premises mysql or cloud mysql. Please refer to the relevant sections for detailed instructions.
  

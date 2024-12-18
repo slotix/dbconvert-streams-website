@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Convert mode.
 
 "Convert" mode in DBConvert Streams focuses on transferring data between
 databases by reading records directly from the source database tables. Every

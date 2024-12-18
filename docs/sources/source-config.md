@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Source configuration.
 
 DBS readers collect data from external sources such as MySQL and PostgreSQL and
 write the collected events to the target system of your choice.

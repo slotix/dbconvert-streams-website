@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Install DBConvert Streams.
 
 You can install and run the DBConvert Streams binaries on your machine from the latest version; unpack the Zip file and copy the DBS binaries to the appropriate directory.
 

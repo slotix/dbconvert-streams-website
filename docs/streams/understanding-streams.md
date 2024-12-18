@@ -3,7 +3,7 @@ title: Understanding DBConvert Streams
 description: Learn about DBConvert Streams, including stream types, configuration options, and best practices.
 ---
 
-# {{ $frontmatter.title }}
+# Understanding DBConvert Streams.
 
 ## What is a Stream?
 

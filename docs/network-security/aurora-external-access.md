@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Enabling External Access to AWS Aurora.
 
 This guide covers how to enable secure external access to your AWS Aurora clusters from outside AWS using the AWS Management Console.
 

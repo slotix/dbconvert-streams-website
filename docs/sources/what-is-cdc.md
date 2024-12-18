@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Change Data Capture (CDC) mode.
 
 ![Transaction Log Change Data Capture](/images/log-cdc.png)
 

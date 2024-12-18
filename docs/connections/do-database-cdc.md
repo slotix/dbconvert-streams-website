@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# DigitalOcean Managed Database CDC Setup Guide
 
 This guide covers how to enable and configure Change Data Capture (CDC) for DigitalOcean's managed MySQL and PostgreSQL databases.
 

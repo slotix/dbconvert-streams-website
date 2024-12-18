@@ -3,7 +3,7 @@ title: Stream Configuration Guide
 description: Learn about the configuration options and settings available for stream setup in DBConvert Streams.
 ---
 
-# {{ $frontmatter.title }}
+# Stream Configuration Guide.
 
 ## Overview
 

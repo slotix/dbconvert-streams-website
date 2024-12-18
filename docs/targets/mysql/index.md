@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# MySQL Writer.
 
 The DBS Writer supports MySQL databases version 5.5 and higher as the target database for writing data collected from the source.
 

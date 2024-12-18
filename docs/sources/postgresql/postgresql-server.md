@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# PostgreSQL Reader configuration.
 
 The DBConvert Streams platform offers support for ingesting data from PostgreSQL
 databases. It provides two options for data ingestion, depending on the chosen

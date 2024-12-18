@@ -3,7 +3,7 @@ title: Stream States and Lifecycle
 description: Learn about the states and lifecycle of DBConvert Streams.
 ---
 
-# {{ $frontmatter.title }}
+# Stream States and Lifecycle.
 
 ## Overview
 

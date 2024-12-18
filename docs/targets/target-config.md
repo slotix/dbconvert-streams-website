@@ -5,7 +5,7 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Target configuration.
 
 A target is any database or data store to which you want to replicate your data. You can create multiple streams that write data to the same target.
 

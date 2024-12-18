@@ -5,10 +5,9 @@ layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Custom SQL Queries.
 
 The Custom SQL Queries feature in DBConvert Streams provides users with greater control over data retrieval from source database tables. This powerful functionality enhances the flexibility and customization options for tailoring data extraction to specific requirements.
-
 
 Users can specify custom SQL queries for individual tables within the filter section.
 Customize queries for each table by incorporating conditions, ordering, limiting, and more.
