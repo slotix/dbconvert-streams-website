@@ -22,7 +22,7 @@
       "type": "chrome",
       "request": "launch",
       "name": "Launch Docs",
-      "url": "http://localhost:5174",
+      "url": "http://localhost:5173",
       "webRoot": "${workspaceFolder}/docs",
       "runtimeArgs": [
         "--ozone-platform=wayland",
