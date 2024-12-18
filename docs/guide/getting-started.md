@@ -15,7 +15,7 @@ This guide will help you get started with DBConvert Streams in just a few steps.
 2. Your API key will be automatically generated and available in the User Dashboard
 3. Note your monthly data transfer limit shown in the Usage Dashboard
 
-### 2. Create Your First Connection
+### 2. Create Your Connections for Source and Target Databases
 1. Click "Create Connection" from the Quick Actions menu
 2. Choose your database type (MySQL or PostgreSQL)
 3. Enter your connection details:
@@ -24,6 +24,7 @@ This guide will help you get started with DBConvert Streams in just a few steps.
    - SSL settings if required
 4. Test the connection
 5. Save your configuration
+6. Repeat for your target database
 
 ### 3. Set Up Your First Stream
 1. Click "Create Stream" from Quick Actions
@@ -48,7 +49,6 @@ This guide will help you get started with DBConvert Streams in just a few steps.
 - Review the [detailed UI Guide](/guide/dashboard-ui-guide) for complete feature information
 
 ## Need Help?
-- Refer to the [Dashboard and UI Guide](/guide/dashboard-ui-guide) for detailed information about each feature
 - Check System Logs for troubleshooting
 - Contact support for additional assistance
 

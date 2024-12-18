@@ -129,7 +129,7 @@ export default defineNuxtConfig({
         '/get-started',
         '/features',
         '/pricing',
-        '/use-cases',
+        '/solutions',
         '/contact',
         '/legal/terms',
         '/legal/privacy',

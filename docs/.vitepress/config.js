@@ -71,11 +71,10 @@ export default defineConfig({
         collapsible: true,
         items: [
           { text: "Introduction", link: "/guide/intro" },
-          { text: "Target Audience", link: "/guide/target-audience" },
           { text: "Use Cases", link: "/guide/use-cases" },
           {
-            text: "How it works?",
-            link: "/guide/how-it-works",
+            text: "System Architecture",
+            link: "/guide/system-architecture",
           },
           { text: "Getting Started", link: "/guide/getting-started" },
           { text: "Dashboard and UI Guide", link: "/guide/dashboard-ui-guide" },

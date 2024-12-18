@@ -19,10 +19,10 @@
                         Learn More
                         <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                     </NuxtLink>
-                    <button
+                    <a href="/docs/guide/intro.html"
                         class="border border-white hover:bg-white/10 font-ui px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center">
                         View Documentation
-                    </button>
+                    </a>
                 </div>
             </div>
 

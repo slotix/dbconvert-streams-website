@@ -1,35 +1,66 @@
 ---
-title: Use cases.
-description: What are the typical cases for DBConvert Streams?
+title: Use Cases
+description: Common use cases and implementation scenarios for DBConvert Streams
 layout: doc
 lastUpdated: true
 ---
 
-# {{ $frontmatter.title }}
+# Use Cases
 
-## What are the typical use cases for DBConvert Streams CDC Replication and Sync?
+## Real-time CDC Replication Use Cases
 
-The main goal of DBS is to allow applications to respond almost instantly when data in monitored databases changes. Applications can do whatever they want with the collected `INSERT,` `UPDATE,` and `DELETE` events.
+DBConvert Streams enables applications to respond instantly to database changes through CDC replication. Here are the primary implementation patterns:
 
-1. Replicate data and synchronize information in data stores.
-1. Move changed data elsewhere, even copy data between different database types.
-1. Create derived views and data.
-1. Compute new data from collected events.
-1. Aggregate changes within windows and create new data.
-1. Propagate data between microservices using the transactional outbox pattern.
-1. Clear the cache of obsolete entries.
-1. Update search indexes with new data.
-1. Send push notifications to mobile devices when data changes.
+### Data Synchronization
+- Replicate data between different database types
+- Maintain consistency across distributed systems
+- Synchronize information across data stores
+- Implementation example: E-commerce inventory management across regions
 
-## Use Cases for Converting Between Different Types of Databases.
-The use cases of conversion between different types of databases are varied and often depend on the specific needs of the individual or organization. Here are some common scenarios where database conversion may be required:
+### Event-Driven Applications
+- Create derived views and computed data
+- Aggregate changes within time windows
+- Propagate data between microservices using transactional outbox pattern
+- Implementation example: Financial data processing pipelines
 
-1. **Migrating to a new database platform:** When an organization switches to a new one, database conversion is necessary to ensure the data is transferred and stored correctly in the new system. Typically it is particularly challenging as the new database platform uses a different data model and syntax.
+### Cache and Index Management
+- Clear cache entries when source data changes
+- Update search indexes in real-time
+- Keep derived data structures current
+- Implementation example: Search engine synchronization
 
-1. **Consolidating databases:** In some cases, organizations may need to consolidate multiple databases into a single platform to improve efficiency, reduce costs, or simplify data management. Database conversion can help in this process by transferring data from different types of databases into a single, unified format.
+### Notification Systems
+- Send push notifications based on data changes
+- Trigger webhooks for external system updates
+- Alert monitoring systems of specific changes
+- Implementation example: Customer notification systems
 
-1. **Upgrading existing databases:** As technology evolves, databases become outdated and must be upgraded. 
+## Database Conversion Use Cases
 
-1. **Integrating data from multiple sources:** Organizations must often integrate data from various sources, including databases with different types and formats. Database conversion can help in this process by transforming data into a consistent format that can be used for analysis and reporting.
+DBConvert Streams supports various database conversion scenarios:
 
-1. **Cross-platform data access:** In some cases, organizations may need to access data stored in different types of databases across different platforms. Database conversion can help in this process by providing a standardized way to access data across different platforms and databases.
+### Platform Migration
+- Move data between different database systems
+- Handle data type conversion automatically
+- Maintain data integrity during transfer
+- Implementation example: Moving from MySQL to PostgreSQL
+
+### Database Consolidation
+- Merge multiple databases into a single platform
+- Standardize data formats across systems
+- Reduce infrastructure complexity
+- Implementation example: Consolidating regional databases
+
+### System Upgrades
+- Facilitate database version upgrades
+- Support cloud migration initiatives
+- Enable platform modernization
+- Implementation example: Moving to cloud-native databases
+
+### Data Integration
+- Combine data from multiple sources
+- Transform data into consistent formats
+- Enable cross-platform data access
+- Implementation example: Building data warehouses
+
+Each use case can be implemented using either CDC mode for real-time replication or Conversion mode for one-time transfers, depending on your specific requirements. For detailed implementation guidance, refer to our [Stream Configuration Guide](/streams/stream-configuration-guide).

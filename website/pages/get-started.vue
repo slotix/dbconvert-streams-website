@@ -11,7 +11,7 @@
                         </span>
                     </h1>
                     <p class="text-xl mb-8 text-gray-100 animate-[fadeIn_0.8s_ease-out_0.2s_forwards] opacity-0">
-                        Begin in Minutes, Not Days. Transform your database operations with DBConvert Streams.
+                        Begin in Minutes, Not Days. <br> Transform your database operations with DBConvert Streams.
                     </p>
                 </div>
             </div>

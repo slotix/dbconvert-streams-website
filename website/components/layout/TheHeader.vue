@@ -124,7 +124,7 @@ const mobileMenuHeight = ref(0)
 
 const menuItems = [
     { to: '/features', text: 'Features' },
-    { to: '/use-cases', text: 'Use Cases' },
+    { to: '/solutions', text: 'Solutions' },
     { to: '/pricing', text: 'Pricing' },
     { to: '/docs/guide/intro.html', text: 'Documentation', external: true },
 ]
