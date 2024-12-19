@@ -16,6 +16,27 @@
             </div>
         </div>
 
+        <!-- Free Plan -->
+        <!-- <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+            <div class="mb-4">
+                <h3 class="text-2xl font-display font-bold text-gray-900">{{ prices.free.name }}</h3>
+            </div>
+            <p class="text-4xl font-bold mb-4 text-primary">${{ getPrice('free') }}<span
+                    class="text-lg font-normal text-gray-600">/mo</span></p>
+            <div class="text-gray-600 mb-8 text-sm leading-relaxed">{{ prices.free.description }}</div>
+            <ul class="space-y-4 mb-8">
+                <li v-for="feature in prices.free.features" :key="feature" class="flex items-center text-gray-700">
+                    <CheckCircle class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                    <span>{{ feature }}</span>
+                </li>
+            </ul>
+            <button @click="checkout('free')"
+                class="w-full bg-primary text-white font-ui py-3 px-6 rounded-xl font-semibold hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
+                Subscribe Now
+                <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
+            </button>
+        </div> -->
+
         <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <!-- Starter Plan -->
             <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
@@ -32,7 +53,7 @@
                         <span>{{ feature }}</span>
                     </li>
                 </ul>
-                <button @click="checkout('starter')"
+                <button @click="handleCheckout('starter')"
                     class="w-full bg-primary text-white font-ui py-3 px-6 rounded-xl font-semibold hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
                     Subscribe Now
                     <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
@@ -59,7 +80,7 @@
                         <span>{{ feature }}</span>
                     </li>
                 </ul>
-                <button @click="checkout('professional')"
+                <button @click="handleCheckout('professional')"
                     class="w-full bg-primary text-white py-3 px-6 rounded-xl font-semibold hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
                     Subscribe Now
                     <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
@@ -81,12 +102,22 @@
                         <span>{{ feature }}</span>
                     </li>
                 </ul>
-                <button @click="checkout('enterprise')"
+                <button @click="handleCheckout('enterprise')"
                     class="w-full bg-primary text-white py-3 px-6 rounded-xl font-semibold hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
                     Subscribe Now
                     <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                 </button>
             </div>
+        </div>
+
+        <!-- Email Input -->
+        <div v-if="showEmailInput" class="mt-4">
+            <input type="email" v-model="userEmail" placeholder="Enter your email" class="w-full p-2 border rounded-md">
+            <button @click="confirmCheckout"
+                class="mt-2 w-full bg-primary text-white font-ui py-3 px-6 rounded-xl font-semibold hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
+                Confirm
+                <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
+            </button>
         </div>
     </div>
 </template>
@@ -99,9 +130,25 @@ import { CheckCircle, ArrowRight } from 'lucide-vue-next'
 const config = useRuntimeConfig()
 const stripeKey = config.public.stripeKey
 const isYearly = ref(false)
+const userEmail = ref('')
+const showEmailInput = ref(false)
+const selectedPlan = ref<'starter' | 'professional' | 'enterprise' | null>(null)
 
 // Pricing configuration
 const prices = {
+    // free: {
+    //     monthly: 0,
+    //     yearly: 0,
+    //     name: 'DBConvert Streams Free',
+    //     transfer: '1 GB',
+    //     description: 'Perfect for small-scale operations and initial data migration projects. Includes all essential features with basic support.',
+    //     features: [
+    //         '1 GB monthly transfer',
+    //         'Multi-database support',
+    //         'Basic support included',
+    //         'API access included'
+    //     ]
+    // },
     starter: {
         monthly: 99,
         yearly: 84.08,
@@ -149,6 +196,7 @@ const getPrice = (plan: keyof typeof prices) => {
 }
 
 const priceIds = {
+    price_free_monthly: 'price_1QCStgFLYDY9wte9KaNvg6WL',
     price_starter_monthly: 'price_1Q5E1PFLYDY9wte9W5BWeEGD',
     price_professional_monthly: 'price_1Q5EyuFLYDY9wte9KyUwY2qK',
     price_enterprise_monthly: 'price_1Q5F3tFLYDY9wte9SIBijPeS',
@@ -158,28 +206,50 @@ const priceIds = {
 }
 
 // Helper function to get the correct price ID
+// const getPriceId = (plan: 'free' | 'starter' | 'professional' | 'enterprise') => {
 const getPriceId = (plan: 'starter' | 'professional' | 'enterprise') => {
     const billing = isYearly.value ? 'yearly' : 'monthly'
     return priceIds[`price_${plan}_${billing}` as keyof typeof priceIds]
 }
 
-const checkout = async (plan: 'starter' | 'professional' | 'enterprise') => {
+// const checkout = async (plan: 'free' | 'starter' | 'professional' | 'enterprise') => {
+const checkout = async (plan: 'starter' | 'professional' | 'enterprise', email?: string) => {
     try {
         const stripe = await loadStripe(stripeKey)
         if (!stripe) throw new Error('Stripe failed to load')
 
-        const { error } = await stripe.redirectToCheckout({
+        const checkoutOptions: any = {
             lineItems: [{ price: getPriceId(plan), quantity: 1 }],
             mode: 'subscription',
             successUrl: `${window.location.origin}/success`,
             cancelUrl: `${window.location.origin}/pricing`,
-        })
+        }
+
+        if (email) {
+            checkoutOptions.customerEmail = email
+        }
+
+        const { error } = await stripe.redirectToCheckout(checkoutOptions)
 
         if (error) {
             console.error('Error:', error)
         }
     } catch (err) {
         console.error('Failed to redirect to checkout:', err)
+    }
+}
+
+const handleCheckout = (plan: 'starter' | 'professional' | 'enterprise') => {
+    selectedPlan.value = plan
+    showEmailInput.value = true
+}
+
+const confirmCheckout = () => {
+    if (selectedPlan.value) {
+        checkout(selectedPlan.value, userEmail.value)
+        showEmailInput.value = false
+        userEmail.value = ''
+        selectedPlan.value = null
     }
 }
 </script>
