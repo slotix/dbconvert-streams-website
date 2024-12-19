@@ -1,12 +1,11 @@
-import axios from 'axios'
-import type { AxiosError, AxiosInstance } from 'axios'
+import axios, { AxiosError } from 'axios'
+import type { AxiosInstance } from 'axios'
 import type { UserData } from '~/types/user'
 
 export interface ApiResponse<T> {
     data: T
     status: number
 }
-
 
 const backendClient: AxiosInstance = axios.create({
     baseURL: 'http://127.0.0.1:8020/api/v1',
@@ -26,14 +25,23 @@ export const handleUnauthorizedError = (error: AxiosError) => {
 export const api = {
     getUserDataFromSentry: async (token: string): Promise<UserData> => {
         try {
-            const response: ApiResponse<UserData> = await backendClient.get('/user', {
+            console.log('Making API request with token:', token ? 'present' : 'missing')
+            const response = await backendClient.get('/user', {
                 headers: { Authorization: `Bearer ${token}` }
             })
-            console.log(response)
+            console.log('API Response:', response.data)
+
+            if (!response.data) {
+                throw new Error('No data received from API')
+            }
+
             return response.data
         } catch (error) {
-            console.log(error)
-            return handleUnauthorizedError(error as AxiosError)
+            console.error('API Error:', error)
+            if (error instanceof AxiosError) {
+                return handleUnauthorizedError(error)
+            }
+            throw error
         }
     }
 } 

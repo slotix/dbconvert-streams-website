@@ -104,7 +104,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { Copy, RefreshCw } from 'lucide-vue-next'
 import {
     Chart as ChartJS,
@@ -131,7 +131,25 @@ definePageMeta({
     middleware: 'auth'
 })
 
-const { userData } = useAppState()
+const { userData, initApp } = useAppState()
+
+// Add initialization and debugging
+onMounted(async () => {
+    console.log('Account page mounted')
+    try
+    {
+        await initApp()
+        console.log('User data after init:', userData.value)
+    } catch (error)
+    {
+        console.error('Failed to initialize app:', error)
+    }
+})
+
+// Add watcher for userData changes
+watch(userData, (newValue) => {
+    console.log('userData changed:', newValue)
+}, { deep: true })
 
 // Format bytes to human readable format
 const formatBytes = (bytes) => {
@@ -143,8 +161,8 @@ const formatBytes = (bytes) => {
 
 // API Key handling
 const maskedApiKey = computed(() => {
-    if (!userData.value?.apiKey) return '••••••••••••••••'
-    const key = userData.value.apiKey
+    const key = userData.value?.apiKey
+    if (!key) return '••••••••••••••••'
     return `${key.slice(0, 4)}${'•'.repeat(key.length - 8)}${key.slice(-4)}`
 })
 
@@ -163,14 +181,10 @@ const regenerateApiKey = async () => {
 
 // Usage calculations
 const usagePercentage = computed(() => {
-    if (!userData.value?.subscriptionPeriodUsage?.data_volume || !userData.value?.subscription?.monthly_limit)
-    {
-        return 0
-    }
-    return Math.min(
-        (userData.value.subscriptionPeriodUsage.data_volume / userData.value.subscription.monthly_limit) * 100,
-        100
-    )
+    const volume = userData.value?.subscriptionPeriodUsage?.data_volume || 0
+    const limit = userData.value?.subscription?.monthly_limit || 0
+    if (!volume || !limit) return 0
+    return Math.min((volume / limit) * 100, 100)
 })
 
 // Chart configurations
@@ -194,12 +208,17 @@ const chartOptions = {
 
 // Monthly usage chart data
 const monthlyChartData = computed(() => {
-    if (!userData.value?.monthlyUsage) return null
+    const usage = userData.value?.monthlyUsage
+    if (!usage?.length) return null
 
     return {
-        labels: userData.value.monthlyUsage.map(item => item.month),
+        labels: usage.map(item => {
+            // Format date string to show only month and year
+            const date = new Date(item.month)
+            return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+        }),
         datasets: [{
-            data: userData.value.monthlyUsage.map(item => item.data_volume),
+            data: usage.map(item => item.data_volume),
             backgroundColor: '#4F46E5',
             borderRadius: 4
         }]
@@ -208,12 +227,17 @@ const monthlyChartData = computed(() => {
 
 // Daily usage chart data
 const dailyChartData = computed(() => {
-    if (!userData.value?.dailyUsage) return null
+    const usage = userData.value?.dailyUsage
+    if (!usage?.length) return null
 
     return {
-        labels: userData.value.dailyUsage.map(item => item.date),
+        labels: usage.map(item => {
+            // Format date string to show only day and month
+            const date = new Date(item.date)
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        }),
         datasets: [{
-            data: userData.value.dailyUsage.map(item => item.data_volume),
+            data: usage.map(item => item.data_volume),
             backgroundColor: '#4F46E5',
             borderRadius: 4
         }]
