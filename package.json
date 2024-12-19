@@ -42,10 +42,12 @@
     "@nuxtjs/sitemap": "^7.0.0",
     "@sendgrid/mail": "^8.1.4",
     "@stripe/stripe-js": "^5.3.0",
+    "chart.js": "^4.4.7",
     "h3": "^1.6.0",
     "nuxt": "^3.14.1592",
     "nuxt-lucide-icons": "1.0.5",
     "search-insights": "^2.17.3",
+    "vue-chartjs": "^5.3.2",
     "vue-clerk": "^0.9.9",
     "vue-router": "^4.5.0"
   },
