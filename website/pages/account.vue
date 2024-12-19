@@ -1,4 +1,3 @@
-# Create new file
 <template>
     <div class="min-h-screen bg-gray-50">
         <!-- Hero Section -->
@@ -219,7 +218,7 @@ const monthlyChartData = computed(() => {
         }),
         datasets: [{
             data: usage.map(item => item.data_volume),
-            backgroundColor: '#4F46E5',
+            backgroundColor: '#0F7C94', // Primary color from tailwind config
             borderRadius: 4
         }]
     }
@@ -238,7 +237,7 @@ const dailyChartData = computed(() => {
         }),
         datasets: [{
             data: usage.map(item => item.data_volume),
-            backgroundColor: '#4F46E5',
+            backgroundColor: '#0F7C94', // Primary color from tailwind config
             borderRadius: 4
         }]
     }
