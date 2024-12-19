@@ -9,7 +9,8 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     'nuxt-lucide-icons',
     '@nuxtjs/sitemap',
-    '@nuxt/image'
+    '@nuxt/image',
+    // 'vue-clerk/nuxt'
   ],
   image: {
     format: ['webp', 'png'],
@@ -33,7 +34,6 @@ export default defineNuxtConfig({
       '~/components/home'
     ]
   },
-
   app: {
     head: {
       title: 'DBConvert Streams - Database Migration & Replication Platform',
@@ -121,23 +121,22 @@ export default defineNuxtConfig({
     defaults: {
       changefreq: 'monthly',
       priority: 0.8,
-      lastmod: new Date()
+      lastmod: new Date().toISOString()
     },
-    routes: async () => {
-      return [
-        '/',
-        '/get-started',
-        '/features',
-        '/pricing',
-        '/solutions',
-        '/contact',
-        '/legal/terms',
-        '/legal/privacy',
-        '/legal/gdpr',
-        '/legal/eula',
-        '/legal/cookies',
-        '/success',
-      ]
-    }
+    urls: [
+      '/',
+      '/get-started',
+      '/features',
+      '/pricing',
+      '/solutions',
+      '/contact',
+      '/legal/terms',
+      '/legal/privacy',
+      '/legal/gdpr',
+      '/legal/eula',
+      '/legal/cookies',
+      '/success',
+    ],
+    sitemapName: 'sitemap.xml',
   } as any
 } satisfies NuxtConfig)
