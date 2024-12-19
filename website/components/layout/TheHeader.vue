@@ -75,6 +75,7 @@
                         >
                             Get Started
                         </NuxtLink>
+                        <UserAvatar />
                     </div>
                 </div>
 
@@ -110,6 +111,7 @@
                         >
                             Get Started
                         </NuxtLink>
+                        <UserAvatar />
                     </div>
                 </div>
             </div>
@@ -118,6 +120,7 @@
 </template>
 
 <script setup>
+import UserAvatar from './UserAvatar.vue'
 const isOpen = ref(false)
 const mobileMenuContent = ref(null)
 const mobileMenuHeight = ref(0)

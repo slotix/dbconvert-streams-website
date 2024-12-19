@@ -104,6 +104,7 @@ export default defineNuxtConfig({
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY || '',
     public: {
       stripeKey: process.env.NUXT_PUBLIC_STRIPE_KEY,
+      clerkPublishableKey: process.env.NUXT_PUBLIC_CLERK_PUBLISHABLE_KEY
     }
   },
   vue: {
