@@ -10,7 +10,6 @@ export default defineNuxtConfig({
     'nuxt-lucide-icons',
     '@nuxtjs/sitemap',
     '@nuxt/image',
-    // 'vue-clerk/nuxt'
   ],
   image: {
     format: ['webp', 'png'],
