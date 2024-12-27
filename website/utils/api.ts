@@ -8,18 +8,18 @@ export interface ApiResponse<T> {
 }
 
 const backendClient: AxiosInstance = axios.create({
-    baseURL: 'http://127.0.0.1:8020/api/v1',
+    baseURL: 'http://localhost:8019',
     headers: {
         'Content-Type': 'application/json'
-    }
+    },
+    withCredentials: true
 })
 
 const toast = useToast()
 
 export const handleUnauthorizedError = (error: AxiosError) => {
     if (error.response?.status === 401) {
-        // Handle unauthorized error (e.g., redirect to login)
-        navigateTo('/login')
+        console.log('Unauthorized error')
     }
     throw error
 }
