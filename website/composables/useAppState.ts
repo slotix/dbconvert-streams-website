@@ -1,16 +1,14 @@
 import { ref } from 'vue'
 import { api } from '~/utils/api'
 import type { UserData } from '~/types/user'
+import { useToast } from 'vue-toastification'
 
 export function useAppState() {
     const userData = ref<UserData | null>(null)
     const isInitialized = ref(false)
     const { getToken } = useAuth()
+    const toast = useToast()
 
-    const showNotification = (message: string, type: 'info' | 'error' | 'success') => {
-        // TODO: Implement notification system
-        console.log(`${type}: ${message}`)
-    }
 
     const userDataFromSentry = async (token: string) => {
         try {
@@ -19,8 +17,8 @@ export function useAppState() {
             console.log('Received user data:', response)
             userData.value = response
         } catch (error) {
+            toast.error('Failed to fetch user data')
             console.error('Error fetching user data:', error)
-            showNotification('Failed to fetch user data', 'error')
             userData.value = null
             throw error
         }
@@ -28,12 +26,13 @@ export function useAppState() {
 
     const initApp = async (): Promise<'success' | 'failed'> => {
         if (isInitialized.value && userData.value) {
+            toast.info('App already initialized with user data')
             console.log('App already initialized with user data')
             return 'success'
         }
 
-        showNotification('Initializing App', 'info')
-
+        toast.info('Initializing App')
+        console.log('Initializing App')
         try {
             const token = await getToken()
             if (!token) {
@@ -43,11 +42,11 @@ export function useAppState() {
             await userDataFromSentry(token)
 
             isInitialized.value = true
-            showNotification('App initialized successfully', 'success')
+            toast.success('App initialized successfully')
             return 'success'
         } catch (error) {
+            toast.error('Failed to initialize app')
             console.error('Failed to initialize app:', error)
-            showNotification('Failed to initialize app', 'error')
             isInitialized.value = false
             return 'failed'
         }

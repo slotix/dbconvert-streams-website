@@ -133,6 +133,7 @@ const name = ref('')
 const email = ref('')
 const message = ref('')
 const statusMessage = ref('')
+const toast = useToast()
 
 const submitForm = async () => {
   try
@@ -158,6 +159,7 @@ const submitForm = async () => {
     }
   } catch (error)
   {
+    toast.error('Failed to send the message')
     console.error(error)
     statusMessage.value = 'Failed to send the message.'
   }

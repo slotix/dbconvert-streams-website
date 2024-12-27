@@ -205,6 +205,8 @@ const priceIds = {
     price_enterprise_yearly: 'price_1Q5F3tFLYDY9wte9AxTunxzu'
 }
 
+const toast = useToast()
+
 // Helper function to get the correct price ID
 // const getPriceId = (plan: 'free' | 'starter' | 'professional' | 'enterprise') => {
 const getPriceId = (plan: 'starter' | 'professional' | 'enterprise') => {
@@ -232,9 +234,11 @@ const checkout = async (plan: 'starter' | 'professional' | 'enterprise', email?:
         const { error } = await stripe.redirectToCheckout(checkoutOptions)
 
         if (error) {
+            toast.error('Failed to redirect to checkout')
             console.error('Error:', error)
         }
     } catch (err) {
+        toast.error('Failed to redirect to checkout')
         console.error('Failed to redirect to checkout:', err)
     }
 }

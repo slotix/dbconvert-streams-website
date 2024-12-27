@@ -3,8 +3,10 @@ import sgMail from '@sendgrid/mail'
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const apiKey = config.SENDGRID_API_KEY
+  const toast = useToast()
 
   if (!apiKey || !apiKey.startsWith('SG.')) {
+    toast.error('Email service not properly configured')
     console.error('Invalid or missing SendGrid API key')
     throw createError({
       statusCode: 500,
@@ -30,6 +32,7 @@ export default defineEventHandler(async (event) => {
     await sgMail.send(msg)
     return { status: 'success', message: 'Thank you! Your message has been sent.' }
   } catch (error) {
+    toast.error('Failed to send the message')
     console.error('SendGrid error:', error)
     throw createError({
       statusCode: 500,

@@ -147,16 +147,16 @@ definePageMeta({
 })
 
 const { userData, initApp } = useAppState()
+const toast = useToast()
 
-// Add initialization and debugging
 onMounted(async () => {
-    console.log('Account page mounted')
     try
     {
         await initApp()
         console.log('User data after init:', userData.value)
     } catch (error)
     {
+        toast.error('Failed to initialize app')
         console.error('Failed to initialize app:', error)
     }
 })
@@ -184,14 +184,27 @@ const maskedApiKey = computed(() => {
 const copyApiKey = async () => {
     if (userData.value?.apiKey)
     {
-        await navigator.clipboard.writeText(userData.value.apiKey)
-        // TODO: Show success notification
+        try
+        {
+            await navigator.clipboard.writeText(userData.value.apiKey)
+            toast.success('API key copied to clipboard!')
+        } catch (error)
+        {
+            toast.error('Failed to copy API key')
+        }
     }
 }
 
 const regenerateApiKey = async () => {
-    // TODO: Implement API key regeneration
-    console.log('Regenerate API key')
+    try
+    {
+        // TODO: Implement API key regeneration
+        console.log('Regenerate API key')
+        toast.info('API key regeneration not implemented yet')
+    } catch (error)
+    {
+        toast.error('Failed to regenerate API key')
+    }
 }
 
 // Usage calculations
