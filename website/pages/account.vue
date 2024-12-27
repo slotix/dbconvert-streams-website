@@ -131,6 +131,7 @@ import {
     Legend
 } from 'chart.js'
 import { Bar } from 'vue-chartjs'
+import { useAppState } from '~/composables/useAppState'
 
 ChartJS.register(
     CategoryScale,

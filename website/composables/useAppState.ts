@@ -1,11 +1,12 @@
 import { ref } from 'vue'
+import { useState } from '#app'
 import { api } from '~/utils/api'
 import type { UserData } from '~/types/user'
 import { useToast } from 'vue-toastification'
 
 export function useAppState() {
-    const userData = ref<UserData | null>(null)
-    const isInitialized = ref(false)
+    const userData = useState<UserData | null>('userData', () => null)
+    const isInitialized = useState<boolean>('isInitialized', () => false)
     const { getToken } = useAuth()
     const toast = useToast()
 
