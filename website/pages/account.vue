@@ -1,121 +1,137 @@
 <template>
-    <div class="">
-        <!-- Hero Section -->
-        <section class="bg-gradient-to-b from-primary-dark to-primary text-white relative overflow-hidden">
-            <div class="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"></div>
-            <div class="container mx-auto px-4 py-20">
-                <div class="max-w-3xl mx-auto text-center space-y-8 relative">
-                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 animate-fade-in">
-                        Account
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-light">
-                            Dashboard
-                        </span>
-                    </h1>
-                    <p class="text-xl mb-8 text-gray-100 animate-fade-in-delay">
-                        Manage your account, view usage, and access your API key
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Main Content -->
-        <main class="py-16 -mt-8 bg-gradient-to-b from-primary to-primary-light">
-            <div class="container mx-auto px-4">
-                <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-                    <!-- API Key Section -->
-                    <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
-                        <div class="flex items-center justify-between mb-6">
-                            <div>
-                                <h2 class="text-2xl font-display font-bold text-gray-900">API Key</h2>
-                                <p class="text-gray-500 text-sm mt-1">Use this key to authenticate your API requests</p>
-                            </div>
-                            <button @click="regenerateApiKey"
-                                class="text-primary hover:text-primary-dark transition-colors p-2 hover:bg-primary-light rounded-lg">
-                                <RefreshCw class="h-5 w-5" />
-                            </button>
-                        </div>
-                        <div class="relative">
-                            <input type="text" :value="maskedApiKey" readonly
-                                class="w-full px-4 py-3 bg-gray-50 rounded-lg text-gray-700 font-mono text-sm border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
-                            <button @click="copyApiKey"
-                                class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-lg">
-                                <Copy class="h-5 w-5" />
-                            </button>
+    <ClientOnly>
+        <div v-if="mounted && initialized">
+            <!-- Existing template content -->
+            <div class="">
+                <!-- Hero Section -->
+                <section class="bg-gradient-to-b from-primary-dark to-primary text-white relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"></div>
+                    <div class="container mx-auto px-4 py-20">
+                        <div class="max-w-3xl mx-auto text-center space-y-8 relative">
+                            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 animate-fade-in">
+                                Account
+                                <span
+                                    class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-light">
+                                    Dashboard
+                                </span>
+                            </h1>
+                            <p class="text-xl mb-8 text-gray-100 animate-fade-in-delay">
+                                Manage your account, view usage, and access your API key
+                            </p>
                         </div>
                     </div>
+                </section>
 
-                    <!-- Subscription Section -->
-                    <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
-                        <div>
-                            <h2 class="text-2xl font-display font-bold text-gray-900 mb-1">Current Plan</h2>
-                            <p class="text-gray-500 text-sm mb-6">Your subscription and usage limits</p>
-                        </div>
-                        <div v-if="userData?.subscription" class="space-y-4">
-                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                                <span class="text-gray-600">Plan Name</span>
-                                <span class="font-semibold text-gray-900">{{ userData.subscription.name }}</span>
-                            </div>
-                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                                <span class="text-gray-600">Monthly Limit</span>
-                                <span class="font-semibold text-gray-900">{{
-                                    formatBytes(userData.subscription.monthly_limit) }}</span>
-                            </div>
-                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                                <span class="text-gray-600">Status</span>
-                                <span class="font-semibold text-primary">{{ userData.subscriptionStatus }}</span>
-                            </div>
-                            <NuxtLink to="/pricing"
-                                class="mt-6 inline-flex w-full items-center justify-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors duration-200 font-semibold">
-                                Upgrade Plan
-                                <ArrowRight class="ml-2 h-5 w-5" />
-                            </NuxtLink>
-                        </div>
-                    </div>
-
-                    <!-- Usage Section -->
-                    <div
-                        class="md:col-span-2 bg-white p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
-                        <div>
-                            <h2 class="text-2xl font-display font-bold text-gray-900 mb-1">Usage Statistics</h2>
-                            <p class="text-gray-500 text-sm mb-8">Monitor your data transfer usage over time</p>
-                        </div>
-
-                        <!-- Current Period Usage -->
-                        <div class="mb-12">
-                            <h3 class="text-lg font-semibold mb-4 text-gray-900">Current Period Usage</h3>
-                            <div class="bg-gray-100 rounded-full h-4 mb-2">
-                                <div class="bg-primary rounded-full h-4 transition-all duration-1000 ease-out"
-                                    :style="{ width: `${usagePercentage}%` }">
+                <!-- Main Content -->
+                <main class="py-16 -mt-8 bg-gradient-to-b from-primary to-primary-light">
+                    <div class="container mx-auto px-4">
+                        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+                            <!-- API Key Section -->
+                            <div
+                                class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
+                                <div class="flex items-center justify-between mb-6">
+                                    <div>
+                                        <h2 class="text-2xl font-display font-bold text-gray-900">API Key</h2>
+                                        <p class="text-gray-500 text-sm mt-1">Use this key to authenticate your API
+                                            requests</p>
+                                    </div>
+                                    <button @click="regenerateApiKey"
+                                        class="text-primary hover:text-primary-dark transition-colors p-2 hover:bg-primary-light rounded-lg">
+                                        <RefreshCw class="h-5 w-5" />
+                                    </button>
+                                </div>
+                                <div class="relative">
+                                    <input type="text" :value="maskedApiKey" readonly
+                                        class="w-full px-4 py-3 bg-gray-50 rounded-lg text-gray-700 font-mono text-sm border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+                                    <button @click="copyApiKey"
+                                        class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-lg">
+                                        <Copy class="h-5 w-5" />
+                                    </button>
                                 </div>
                             </div>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-600">{{
-                                    formatBytes(userData?.subscriptionPeriodUsage?.data_volume || 0) }} used</span>
-                                <span class="text-gray-600">{{ formatBytes(userData?.subscription?.monthly_limit || 0)
-                                    }} limit</span>
-                            </div>
-                        </div>
 
-                        <!-- Monthly Usage Chart -->
-                        <div class="mb-12">
-                            <h3 class="text-lg font-semibold mb-4 text-gray-900">Monthly Usage</h3>
-                            <div class="h-64 bg-gray-50 rounded-xl p-4">
-                                <Bar v-if="monthlyChartData" :data="monthlyChartData" :options="chartOptions" />
+                            <!-- Subscription Section -->
+                            <div
+                                class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
+                                <div>
+                                    <h2 class="text-2xl font-display font-bold text-gray-900 mb-1">Current Plan</h2>
+                                    <p class="text-gray-500 text-sm mb-6">Your subscription and usage limits</p>
+                                </div>
+                                <div v-if="userData?.subscription" class="space-y-4">
+                                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                        <span class="text-gray-600">Plan Name</span>
+                                        <span class="font-semibold text-gray-900">{{ userData.subscription.name
+                                            }}</span>
+                                    </div>
+                                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                        <span class="text-gray-600">Monthly Limit</span>
+                                        <span class="font-semibold text-gray-900">{{
+                                            formatBytes(userData.subscription.monthly_limit) }}</span>
+                                    </div>
+                                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                        <span class="text-gray-600">Status</span>
+                                        <span class="font-semibold text-primary">{{ userData.subscriptionStatus
+                                            }}</span>
+                                    </div>
+                                    <NuxtLink to="/pricing"
+                                        class="mt-6 inline-flex w-full items-center justify-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors duration-200 font-semibold">
+                                        Upgrade Plan
+                                        <ArrowRight class="ml-2 h-5 w-5" />
+                                    </NuxtLink>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Daily Usage Chart -->
-                        <div>
-                            <h3 class="text-lg font-semibold mb-4 text-gray-900">Daily Usage</h3>
-                            <div class="h-64 bg-gray-50 rounded-xl p-4">
-                                <Bar v-if="dailyChartData" :data="dailyChartData" :options="chartOptions" />
+                            <!-- Usage Section -->
+                            <div
+                                class="md:col-span-2 bg-white p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
+                                <div>
+                                    <h2 class="text-2xl font-display font-bold text-gray-900 mb-1">Usage Statistics</h2>
+                                    <p class="text-gray-500 text-sm mb-8">Monitor your data transfer usage over time</p>
+                                </div>
+
+                                <!-- Current Period Usage -->
+                                <div class="mb-12">
+                                    <h3 class="text-lg font-semibold mb-4 text-gray-900">Current Period Usage</h3>
+                                    <div class="bg-gray-100 rounded-full h-4 mb-2">
+                                        <div class="bg-primary rounded-full h-4 transition-all duration-1000 ease-out"
+                                            :style="{ width: `${usagePercentage}%` }">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-600">{{
+                                            formatBytes(userData?.subscriptionPeriodUsage?.data_volume || 0) }}
+                                            used</span>
+                                        <span class="text-gray-600">{{ formatBytes(userData?.subscription?.monthly_limit
+                                            || 0)
+                                            }} limit</span>
+                                    </div>
+                                </div>
+
+                                <!-- Monthly Usage Chart -->
+                                <div class="mb-12">
+                                    <h3 class="text-lg font-semibold mb-4 text-gray-900">Monthly Usage</h3>
+                                    <div class="h-64 bg-gray-50 rounded-xl p-4">
+                                        <Bar v-if="monthlyChartData" :data="monthlyChartData" :options="chartOptions" />
+                                    </div>
+                                </div>
+
+                                <!-- Daily Usage Chart -->
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-4 text-gray-900">Daily Usage</h3>
+                                    <div class="h-64 bg-gray-50 rounded-xl p-4">
+                                        <Bar v-if="dailyChartData" :data="dailyChartData" :options="chartOptions" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </main>
             </div>
-        </main>
-    </div>
+        </div>
+        <div v-else class="min-h-screen flex items-center justify-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+        </div>
+    </ClientOnly>
 </template>
 
 <script setup>
@@ -150,15 +166,22 @@ definePageMeta({
 const { userData, initApp } = useAppState()
 const toast = useToast()
 
+// Add mounted state
+const mounted = ref(false)
+const initialized = ref(false)
+const { $clerk } = useNuxtApp()
+
 onMounted(async () => {
     try
     {
-        await initApp()
-        console.log('User data after init:', userData.value)
+        await $clerk.load()
+        initialized.value = true
     } catch (error)
     {
-        toast.error('Failed to initialize app')
-        console.error('Failed to initialize app:', error)
+        console.error('Failed to initialize Clerk:', error)
+    } finally
+    {
+        mounted.value = true
     }
 })
 
