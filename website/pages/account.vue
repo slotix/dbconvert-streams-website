@@ -74,7 +74,7 @@
                                             }}</span>
                                     </div>
                                     <NuxtLink to="/pricing"
-                                        class="mt-6 inline-flex w-full items-center justify-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors duration-200 font-semibold">
+                                        class="mt-6 inline-flex w-full items-center justify-center bg-secondary text-white px-6 py-3 rounded-lg hover:bg-secondary-dark transition-colors duration-200 font-semibold">
                                         Upgrade Plan
                                         <ArrowRight class="ml-2 h-5 w-5" />
                                     </NuxtLink>
