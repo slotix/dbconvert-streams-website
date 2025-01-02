@@ -6,7 +6,7 @@
                 <!-- Hero Section -->
                 <section class="bg-gradient-to-b from-primary-dark to-primary text-white relative overflow-hidden">
                     <div class="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"></div>
-                    <div class="container mx-auto px-4 py-20">
+                    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
                         <div class="max-w-3xl mx-auto text-center space-y-8 relative">
                             <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 animate-fade-in">
                                 Account
@@ -23,39 +23,48 @@
                 </section>
 
                 <!-- Main Content -->
-                <main class="py-16 -mt-8 bg-gradient-to-b from-primary to-primary-light">
-                    <div class="container mx-auto px-4">
-                        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+                <main class="py-8 sm:py-16 -mt-8 bg-gradient-to-b from-primary to-primary-light">
+                    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                             <!-- API Key Section -->
                             <div
-                                class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
-                                <div class="flex items-center justify-between mb-6">
-                                    <div>
-                                        <h2 class="text-2xl font-display font-bold text-gray-900">API Key</h2>
-                                        <p class="text-gray-500 text-sm mt-1">Use this key to authenticate your API
-                                            requests</p>
+                                class="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
+                                <div>
+                                    <h2 class="text-xl sm:text-2xl font-display font-bold text-gray-900 mb-1">API Key
+                                    </h2>
+                                    <p class="text-gray-500 text-sm mb-4 sm:mb-6">Use this key to authenticate your API
+                                        requests
+                                    </p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-gray-50 rounded-lg">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="text-gray-600 text-sm">API Key</span>
+                                            <button @click="copyApiKey"
+                                                class="flex-shrink-0 inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 text-gray-700 hover:text-primary hover:border-primary rounded-lg transition-colors">
+                                                <Copy class="h-4 w-4" />
+                                                <span class="text-sm">Copy</span>
+                                            </button>
+                                        </div>
+                                        <div class="font-mono text-gray-900 break-all">
+                                            {{ maskedApiKey }}
+                                        </div>
                                     </div>
                                     <button @click="regenerateApiKey"
-                                        class="text-primary hover:text-primary-dark transition-colors p-2 hover:bg-primary-light rounded-lg">
-                                        <RefreshCw class="h-5 w-5" />
-                                    </button>
-                                </div>
-                                <div class="relative">
-                                    <input type="text" :value="maskedApiKey" readonly
-                                        class="w-full px-4 py-3 bg-gray-50 rounded-lg text-gray-700 font-mono text-sm border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
-                                    <button @click="copyApiKey"
-                                        class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-lg">
-                                        <Copy class="h-5 w-5" />
+                                        class="mt-2 inline-flex w-full items-center justify-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors duration-200 font-semibold">
+                                        <RefreshCw class="mr-2 h-4 w-4" />
+                                        Regenerate API Key
                                     </button>
                                 </div>
                             </div>
 
                             <!-- Subscription Section -->
                             <div
-                                class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
+                                class="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
                                 <div>
-                                    <h2 class="text-2xl font-display font-bold text-gray-900 mb-1">Current Plan</h2>
-                                    <p class="text-gray-500 text-sm mb-6">Your subscription and usage limits</p>
+                                    <h2 class="text-xl sm:text-2xl font-display font-bold text-gray-900 mb-1">Current
+                                        Plan</h2>
+                                    <p class="text-gray-500 text-sm mb-4 sm:mb-6">Your subscription and usage limits</p>
                                 </div>
                                 <div v-if="userData?.subscription" class="space-y-4">
                                     <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
@@ -83,10 +92,12 @@
 
                             <!-- Usage Section -->
                             <div
-                                class="md:col-span-2 bg-white p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
+                                class="md:col-span-2 bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
                                 <div>
-                                    <h2 class="text-2xl font-display font-bold text-gray-900 mb-1">Usage Statistics</h2>
-                                    <p class="text-gray-500 text-sm mb-8">Monitor your data transfer usage over time</p>
+                                    <h2 class="text-xl sm:text-2xl font-display font-bold text-gray-900 mb-1">Usage
+                                        Statistics</h2>
+                                    <p class="text-gray-500 text-sm mb-4 sm:mb-8">Monitor your data transfer usage over
+                                        time</p>
                                 </div>
 
                                 <!-- Current Period Usage -->
