@@ -33,14 +33,27 @@ export function useAppState() {
             }
 
             const result = await api.updateApiKey(token)
-            if (result.apiKey) {
-                 userData.value!.apiKey = result.apiKey
-                // await initApp() // Refresh user data
-                toast.success('API key regenerated successfully')
+            if (!result?.apiKey) {
+                throw new Error('No API key received')
             }
+
+            // Just update the API key since that's all that changes
+            if (userData.value) {
+                userData.value.apiKey = result.apiKey
+            }
+            toast.success('API key updated successfully')
         } catch (error) {
-            console.error('Failed to regenerate API key:', error)
-            toast.error('Failed to regenerate API key: ' + error)
+            if (error instanceof Error) {
+                console.error('Failed to update API key:', error.message)
+                if (error.message.includes('Authentication error')) {
+                    toast.error('Session expired. Please refresh the page and try again.')
+                } else {
+                    toast.error('Failed to update API key. Please try again.')
+                }
+            } else {
+                console.error('Failed to update API key:', error)
+                toast.error('Failed to update API key. Please try again.')
+            }
         }
     }
 
