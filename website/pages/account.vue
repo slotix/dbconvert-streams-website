@@ -174,7 +174,7 @@ definePageMeta({
     middleware: 'auth'
 })
 
-const { userData, initApp } = useAppState()
+const { userData, updateApiKey } = useAppState()
 const toast = useToast()
 
 // Add mounted state
@@ -229,18 +229,10 @@ const copyApiKey = async () => {
         }
     }
 }
-
 const regenerateApiKey = async () => {
-    try
-    {
-        // TODO: Implement API key regeneration
-        console.log('Regenerate API key')
-        toast.info('API key regeneration not implemented yet')
-    } catch (error)
-    {
-        toast.error('Failed to regenerate API key')
-    }
+    await updateApiKey()
 }
+
 
 // Usage calculations
 const usagePercentage = computed(() => {

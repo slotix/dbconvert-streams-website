@@ -48,5 +48,26 @@ export const api = {
             }
             throw error
         }
+    },
+
+    updateApiKey: async (token: string): Promise<{ apiKey: string }> => {
+        try {
+            const response = await backendClient.patch(
+                '/user/api-key',
+                {},
+                { headers: { Authorization: `Bearer ${token}` } })
+
+            if (!response.data?.apiKey) {
+                throw new Error('No API key received from server')
+            }
+
+            return response.data
+        } catch (error) {
+            // console.error('API Key update error:', error)
+            if (error instanceof AxiosError) {
+                return handleUnauthorizedError(error)
+            }
+            throw error
+        }
     }
 } 

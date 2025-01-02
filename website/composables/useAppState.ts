@@ -25,9 +25,28 @@ export function useAppState() {
         }
     }
 
+    const updateApiKey = async () => {
+        try {
+            const token = await getToken()
+            if (!token) {
+                throw new Error('No token provided')
+            }
+
+            const result = await api.updateApiKey(token)
+            if (result.apiKey) {
+                 userData.value!.apiKey = result.apiKey
+                // await initApp() // Refresh user data
+                toast.success('API key regenerated successfully')
+            }
+        } catch (error) {
+            console.error('Failed to regenerate API key:', error)
+            toast.error('Failed to regenerate API key: ' + error)
+        }
+    }
+
     const initApp = async (): Promise<'success' | 'failed'> => {
         if (isInitialized.value && userData.value) {
-            toast.info('App already initialized with user data')
+            // toast.info('App already initialized with user data')
             console.log('App already initialized with user data')
             return 'success'
         }
@@ -57,6 +76,7 @@ export function useAppState() {
         userData,
         isInitialized,
         initApp,
-        userDataFromSentry
+        userDataFromSentry,
+        updateApiKey
     }
 } 
