@@ -26,6 +26,33 @@
                 <main class="py-8 sm:py-16 -mt-8 bg-gradient-to-b from-primary to-primary-light">
                     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+                            <!-- Subscription Section -->
+                            <div
+                                class="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
+                                <div>
+                                    <h2 class="text-xl sm:text-2xl font-display font-bold text-gray-900 mb-1">Current
+                                        Plan</h2>
+                                    <p class="text-gray-500 text-sm mb-4 sm:mb-6">Your subscription and usage limits</p>
+                                </div>
+                                <div v-if="userData?.subscription" class="space-y-4">
+                                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                        <span class="text-gray-600">Plan Name</span>
+                                        <span class="font-semibold text-gray-900">{{ userData.subscription.name
+                                            }}</span>
+                                    </div>
+                                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                        <span class="text-gray-600">Monthly Limit</span>
+                                        <span class="font-semibold text-gray-900">{{
+                                            formatBytes(userData.subscription.monthly_limit) }}</span>
+                                    </div>
+                                    <NuxtLink to="/pricing"
+                                        class="mt-6 inline-flex w-full items-center justify-center bg-secondary text-white px-6 py-3 rounded-lg hover:bg-secondary-dark transition-colors duration-200 font-semibold font-ui">
+                                        Upgrade Plan
+                                        <ArrowRight class="ml-2 h-5 w-5" />
+                                    </NuxtLink>
+                                </div>
+                            </div>
+
                             <!-- API Key Section -->
                             <div
                                 class="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
@@ -51,42 +78,10 @@
                                         </div>
                                     </div>
                                     <button @click="regenerateApiKey"
-                                        class="mt-2 inline-flex w-full items-center justify-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors duration-200 font-semibold">
+                                        class="mt-2 inline-flex w-full items-center justify-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors duration-200 font-semibold font-ui">
                                         <RefreshCw class="mr-2 h-4 w-4" />
                                         Regenerate API Key
                                     </button>
-                                </div>
-                            </div>
-
-                            <!-- Subscription Section -->
-                            <div
-                                class="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-soft hover:shadow-xl transition-shadow duration-300">
-                                <div>
-                                    <h2 class="text-xl sm:text-2xl font-display font-bold text-gray-900 mb-1">Current
-                                        Plan</h2>
-                                    <p class="text-gray-500 text-sm mb-4 sm:mb-6">Your subscription and usage limits</p>
-                                </div>
-                                <div v-if="userData?.subscription" class="space-y-4">
-                                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                                        <span class="text-gray-600">Plan Name</span>
-                                        <span class="font-semibold text-gray-900">{{ userData.subscription.name
-                                            }}</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                                        <span class="text-gray-600">Monthly Limit</span>
-                                        <span class="font-semibold text-gray-900">{{
-                                            formatBytes(userData.subscription.monthly_limit) }}</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                                        <span class="text-gray-600">Status</span>
-                                        <span class="font-semibold text-primary">{{ userData.subscriptionStatus
-                                            }}</span>
-                                    </div>
-                                    <NuxtLink to="/pricing"
-                                        class="mt-6 inline-flex w-full items-center justify-center bg-secondary text-white px-6 py-3 rounded-lg hover:bg-secondary-dark transition-colors duration-200 font-semibold">
-                                        Upgrade Plan
-                                        <ArrowRight class="ml-2 h-5 w-5" />
-                                    </NuxtLink>
                                 </div>
                             </div>
 
@@ -102,7 +97,11 @@
 
                                 <!-- Current Period Usage -->
                                 <div class="mb-12">
-                                    <h3 class="text-lg font-semibold mb-4 text-gray-900">Current Period Usage</h3>
+                                    <h3 class="text-lg font-semibold mb-4 text-gray-900">Current Period Usage
+                                        <span class="text-gray-500 text-sm">
+                                            ({{ currentPeriodStart }} - {{ currentPeriodEnd }})
+                                        </span>
+                                    </h3>
                                     <div class="bg-gray-100 rounded-full h-4 mb-2">
                                         <div class="bg-primary rounded-full h-4 transition-all duration-1000 ease-out"
                                             :style="{ width: `${usagePercentage}%` }">
@@ -195,7 +194,20 @@ onMounted(async () => {
         mounted.value = true
     }
 })
+// Add period information
+const currentPeriodStart = computed(() => {
+    const date = userData.value?.subscriptionPeriodUsage?.period_start
+    return date ? formatDate(date) : null
+})
 
+const currentPeriodEnd = computed(() => {
+    const date = userData.value?.subscriptionPeriodUsage?.period_end
+    return date ? formatDate(date) : null
+})
+
+function formatDate(date) {
+    return new Date(date * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+}
 // Add watcher for userData changes
 watch(userData, (newValue) => {
     console.log('userData changed:', newValue)

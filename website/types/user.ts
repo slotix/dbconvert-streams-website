@@ -34,7 +34,6 @@ export interface UserData {
   monthlyUsage: MonthlyUsage[]
   subscriptionPeriodUsage: SubscriptionPeriodUsage
   subscription: Subscription
-  subscriptionStatus: string
 }
 
 export interface Subscription {
