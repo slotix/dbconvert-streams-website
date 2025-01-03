@@ -54,7 +54,7 @@
                     </li>
                 </ul>
                 <button @click="handleCheckout('starter')"
-                    class="w-full bg-primary text-white font-ui py-3 px-6 rounded-xl font-semibold hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
+                    class="w-full bg-primary text-white font-ui py-3 px-6 rounded-xl font-semibold font-ui hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
                     Subscribe Now
                     <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -81,7 +81,7 @@
                     </li>
                 </ul>
                 <button @click="handleCheckout('professional')"
-                    class="w-full bg-primary text-white py-3 px-6 rounded-xl font-semibold hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
+                    class="w-full bg-primary text-white py-3 px-6 rounded-xl font-semibold font-ui hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
                     Subscribe Now
                     <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -103,7 +103,7 @@
                     </li>
                 </ul>
                 <button @click="handleCheckout('enterprise')"
-                    class="w-full bg-primary text-white py-3 px-6 rounded-xl font-semibold hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
+                    class="w-full bg-primary text-white py-3 px-6 rounded-xl font-semibold font-ui hover:bg-primary-dark transition-colors duration-200 flex items-center justify-center group">
                     Subscribe Now
                     <ArrowRight class="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                 </button>
