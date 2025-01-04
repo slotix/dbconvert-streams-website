@@ -35,21 +35,66 @@
                                     <p class="text-gray-500 text-sm mb-4 sm:mb-6">Your subscription and usage limits</p>
                                 </div>
                                 <div v-if="userData?.subscription" class="space-y-4">
+                                    <!-- Trial badge -->
+                                    <div v-if="showTrialBadge"
+                                        class="inline-flex items-center mb-4 px-3 py-1 bg-amber-50 text-amber-800 rounded-full text-sm">
+                                        <Clock class="w-4 h-4 mr-1.5" />
+                                        Trial ends {{ formatDate(userData.trialEnd) }}
+                                    </div>
+
+                                    <!-- Canceled badge -->
+                                    <div v-if="isCanceled"
+                                        class="inline-flex items-center mb-4 px-3 py-1 bg-red-50 text-red-800 rounded-full text-sm">
+                                        <AlertCircle class="w-4 h-4 mr-1.5" />
+                                        Subscription Canceled
+                                    </div>
+
                                     <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                                         <span class="text-gray-600">Plan Name</span>
-                                        <span class="font-semibold text-gray-900">{{ userData.subscription.name
-                                            }}</span>
+                                        <div class="flex items-center">
+                                            <span class="font-semibold text-gray-900">{{
+                                                userData.subscription.name.charAt(0).toUpperCase() +
+                                                userData.subscription.name.slice(1) }}</span>
+                                            <span class="ml-2 text-sm text-gray-500">({{
+                                                userData.subscription.interval.charAt(0).toUpperCase() +
+                                                userData.subscription.interval.slice(1) }})</span>
+                                        </div>
                                     </div>
                                     <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                                         <span class="text-gray-600">Monthly Limit</span>
                                         <span class="font-semibold text-gray-900">{{
                                             formatBytes(userData.subscription.monthly_limit) }}</span>
                                     </div>
-                                    <NuxtLink to="/pricing"
-                                        class="mt-6 inline-flex w-full items-center justify-center bg-secondary text-white px-6 py-3 rounded-lg hover:bg-secondary-dark transition-colors duration-200 font-semibold font-ui">
-                                        Upgrade Plan
+
+                                    <!-- Subscription period -->
+                                    <div v-if="userData.subscriptionPeriodUsage.period_end"
+                                        class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                        <span class="text-gray-600">Access Until</span>
+                                        <span class="font-semibold text-gray-900">{{
+                                            formatDate(userData.subscriptionPeriodUsage.period_end) }}</span>
+                                    </div>
+
+                                    <!-- Price -->
+                                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                        <span class="text-gray-600">Price</span>
+                                        <div class="flex items-baseline">
+                                            <span class="font-semibold text-gray-900">${{ userData.subscription.interval
+                                                === 'monthly' ? userData.subscription.monthly_price :
+                                                userData.subscription.yearly_price }}</span>
+                                            <span class="ml-1 text-sm text-gray-500">/mo</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action button -->
+                                    <a :href="customerPortalUrl" target="_blank" rel="noopener noreferrer" :class="[
+                                        'mt-6 inline-flex w-full items-center justify-center px-6 py-3 rounded-lg font-semibold font-ui transition-colors duration-200',
+                                        isCanceled
+                                            ? 'bg-primary text-white hover:bg-primary-dark'
+                                            : 'bg-secondary text-white hover:bg-secondary-dark'
+                                    ]">
+                                        {{ isCanceled ? 'Reactivate Subscription' : 'Manage Subscription' }}
                                         <ArrowRight class="ml-2 h-5 w-5" />
-                                    </NuxtLink>
+                                    </a>
                                 </div>
                             </div>
 
@@ -112,8 +157,7 @@
                                             formatBytes(userData?.subscriptionPeriodUsage?.data_volume || 0) }}
                                             used</span>
                                         <span class="text-gray-600">{{ formatBytes(userData?.subscription?.monthly_limit
-                                            || 0)
-                                            }} limit</span>
+                                            || 0) }} limit</span>
                                     </div>
                                 </div>
 
@@ -146,7 +190,7 @@
 
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
-import { Copy, RefreshCw, ArrowRight } from 'lucide-vue-next'
+import { Copy, RefreshCw, ArrowRight, Clock, AlertCircle } from 'lucide-vue-next'
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -341,4 +385,15 @@ const dailyChartData = computed(() => {
         }]
     }
 })
+
+// Add new computed properties
+const showTrialBadge = computed(() => {
+    return userData.value?.subscription?.name === 'free'
+})
+
+const isCanceled = computed(() => {
+    return userData.value?.subscriptionStatus === 'canceled' || userData.value?.subscription?.cancel_at_period_end
+})
+
+const customerPortalUrl = 'https://billing.stripe.com/p/login/test_00g6q63wr6DBcfK4gg'
 </script>

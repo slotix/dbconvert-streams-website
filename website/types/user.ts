@@ -1,4 +1,3 @@
-
 export interface CombinedUsageResponse {
   dailyUsage: DailyUsage[]
   monthlyUsage: MonthlyUsage[]
@@ -34,11 +33,14 @@ export interface UserData {
   monthlyUsage: MonthlyUsage[]
   subscriptionPeriodUsage: SubscriptionPeriodUsage
   subscription: Subscription
+  subscriptionStatus: 'active' | 'canceled' | 'past_due' | 'incomplete' | 'incomplete_expired' | 'trialing' | 'unpaid'
 }
 
 export interface Subscription {
   id: number
   name: string
   monthly_limit: number
-  price: number
+  monthly_price: number
+  yearly_price: number
+  interval: 'monthly' | 'yearly'
 }
